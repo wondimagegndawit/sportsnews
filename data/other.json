@@ -1,1 +1,42 @@
-[]
+[
+  {
+    "date": "2026-08-05",
+    "category": "investment",
+    "headline": "LIV Golf lands new lead investor to fund post-PIF era",
+    "summary": "LIV Golf CEO Scott O'Neil announced the league has a signed, board-approved agreement with a new lead investor to carry and fund the circuit into its next era starting in 2027, after Saudi Arabia's Public Investment Fund said in April it would stop bankrolling the league beyond 2026. The investor's identity and terms remain private, with the transaction targeted to close in September; O'Neil said more than a dozen parties have shown interest in minority stakes and that players will have the opportunity to become majority equity holders of 'LIV 2.0.'",
+    "source_url": "https://www.forbes.com/sites/break80/2026/08/05/liv-ceo-scott-oneil-says-liv-golf-has-secured-new-investor/",
+    "source_name": "Forbes"
+  },
+  {
+    "date": "2026-08-03",
+    "category": "business",
+    "headline": "TKO raises guidance as Paramount deal lifts UFC revenue 29%",
+    "summary": "TKO Group Holdings, parent of UFC, WWE, PBR and the Zuffa Boxing joint venture, reported second-quarter 2026 earnings with EPS of $1.34, beating the $1.09 consensus, as UFC segment revenue jumped 29% to $535.7 million in the first year of its $7.7 billion Paramount media rights deal. Management raised full-year revenue guidance to $5.78 billion-$5.83 billion, underscoring how the shift from pay-per-view to Paramount+ streaming is reshaping combat sports economics.",
+    "source_url": "https://investor.tkogrp.com/news/news-details/2026/TKO-Reports-Second-Quarter-2026-Results/default.aspx",
+    "source_name": "TKO Group Holdings Investor Relations"
+  },
+  {
+    "date": "2026-07-04",
+    "category": "business",
+    "headline": "UFC stages historic July 4 White House card for America250",
+    "summary": "UFC's unprecedented fight card on the White House grounds, anchored by a lightweight title unification bout between Ilia Topuria and Justin Gaethje, was set for July 4, 2026 as the centerpiece of the America250 celebration, with roughly 85,000 free tickets for the Ellipse. The event, personally arranged between Dana White and President Trump, doubles as a showcase for the first year of UFC's $1.1 billion-per-year Paramount streaming deal, which put marquee cards on Paramount+ and CBS instead of pay-per-view.",
+    "source_url": "https://www.cbssports.com/ufc/news/ufc-white-house-date-card-rumors-renderings/",
+    "source_name": "CBS Sports"
+  },
+  {
+    "date": "2026-06-25",
+    "category": "business",
+    "headline": "Wimbledon posts biggest prize money jump in its history",
+    "summary": "The All England Club set Wimbledon's 2026 total prize fund at a record 64.2 million pounds (about $85.8 million), a 20% increase over 2025 and the largest single-year uplift in tournament history, with each singles champion earning 3.6 million pounds. The raise lands amid sustained pressure from top players and the PTPA for the Grand Slams to share more revenue with athletes, making tennis purse escalation a running business story across the majors.",
+    "source_url": "https://www.forbes.com/sites/adamzagoria/2026/06/25/how-the-wimbledon-prize-money-breaks-down/",
+    "source_name": "Forbes"
+  },
+  {
+    "date": "2026-06-21",
+    "category": "business",
+    "headline": "U.S. Open golf pays out record $22.5 million purse at Shinnecock",
+    "summary": "Golf's 2026 U.S. Open at Shinnecock Hills carried a record $22.5 million purse, the largest in the championship's history and up from $21.5 million a year earlier, continuing the major-championship prize money arms race driven by competition with LIV Golf and the PGA Tour's enriched signature events. The USGA's payout keeps the U.S. Open among the richest events in golf.",
+    "source_url": "https://sports.yahoo.com/articles/u-open-2026-prize-money-164757637.html",
+    "source_name": "Yahoo Sports"
+  }
+]
