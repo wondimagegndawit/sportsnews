@@ -1,1 +1,82 @@
-[]
+[
+  {
+    "date": "2026-08-08",
+    "category": "legal",
+    "headline": "CFTC warns prediction markets to drop sportsbook-style odds as NFL betting fight escalates",
+    "summary": "The CFTC told prediction-market platforms including Kalshi and Polymarket to stop displaying sports event contracts using American-style plus/minus moneyline odds, citing deceptive-marketing concerns. The warning lands as both platforms build out NFL game and futures markets ahead of the 2026 season and face mounting state-level legal challenges over whether their sports contracts are unlicensed gambling.",
+    "source_url": "https://bettorsinsider.com/news/2026/08/08/cftc-tells-prediction-markets-to-ditch-american-style-odds-as-sports-betting-fight-escalates/",
+    "source_name": "Bettors Insider"
+  },
+  {
+    "date": "2026-08-05",
+    "category": "partnership",
+    "headline": "Chiefs drop GEHA Field branding, return to 'Arrowhead Stadium' name for 2026 season",
+    "summary": "The Kansas City Chiefs announced their home venue will again be known simply as Arrowhead Stadium, ending a five-year run as GEHA Field at Arrowhead Stadium. The team said the naming change does not end its sponsorship relationship with GEHA, and it comes as the franchise plans a move to a new roughly $3 billion domed stadium across the state line in Kansas targeted to open before the 2031 season.",
+    "source_url": "https://www.kq2.com/sports/kansas-city-chiefs/2026/08/05/chiefs-return-to-arrowhead-stadium-name/",
+    "source_name": "KQ2"
+  },
+  {
+    "date": "2026-08-04",
+    "category": "business",
+    "headline": "Broncos unveil updated master plan for $4B Burnham Yard stadium district",
+    "summary": "The Denver Broncos released updated master-plan renderings for their privately funded retractable-roof stadium and mixed-use district at Burnham Yard in Denver, targeting a 2031 opening. The plan envisions four surrounding districts and roughly 11-12 football fields' worth of public open space, with city and state support limited to public improvements and no new taxes.",
+    "source_url": "https://denverite.com/2026/08/04/denver-broncos-stadium-development-renderings/",
+    "source_name": "Denverite"
+  },
+  {
+    "date": "2026-07-31",
+    "category": "legal",
+    "headline": "New York sues Kalshi, seeks $36 billion over unlicensed sports event contracts",
+    "summary": "New York Attorney General Letitia James, backed by Gov. Kathy Hochul, filed suit against prediction-market operator Kalshi, alleging it offered event contracts tied to sports and other outcomes without required state approval and seeking $36 billion in damages. The case sharpens the jurisdictional fight over whether NFL game markets on federally regulated exchanges are commodities trading or illegal gambling under state law.",
+    "source_url": "https://dailycoin.com/new-york-vs-kalshi-36b-fight-over-prediction-markets-cftc",
+    "source_name": "DailyCoin"
+  },
+  {
+    "date": "2026-07-27",
+    "category": "legal",
+    "headline": "NFL blasts CFTC's draft sports prediction-market rules as too weak on game integrity",
+    "summary": "In a comment letter submitted as the CFTC's public comment period closed July 27, the NFL said the regulator's proposed framework for sports event contracts does not adequately protect game integrity. The league urged tighter rules on prediction markets such as Kalshi and Polymarket, marking its most direct intervention yet in the federal fight over sports event trading.",
+    "source_url": "https://bitcoinfoundation.org/news/prediction-markets/nfl-urges-us-cftc-to-tighten-sports-prediction-rules/",
+    "source_name": "Bitcoin Foundation News"
+  },
+  {
+    "date": "2026-07-12",
+    "category": "investment",
+    "headline": "Khosla family agrees to buy Seahawks for record $9.6 billion",
+    "summary": "A group led by venture capitalist Vinod Khosla, his wife Neeru and son Neal agreed to purchase the defending Super Bowl champion Seattle Seahawks from the estate of Paul G. Allen for about $9.6 billion, shattering the NFL franchise sale record set by the Washington Commanders. Khosla, currently a San Francisco 49ers limited partner, must divest that stake, and the deal requires approval from at least 24 of the NFL's 32 owners.",
+    "source_url": "https://www.cnbc.com/2026/07/12/khosla-family-to-purchase-seattle-seahawks-ap.html",
+    "source_name": "CNBC / AP"
+  },
+  {
+    "date": "2026-07-07",
+    "category": "investment",
+    "headline": "Arctos closes $6.2 billion Keystone fund aimed at sports franchise liquidity",
+    "summary": "Arctos, one of the private equity firms approved to buy passive stakes in NFL teams and now part of KKR following the May close of KKR's $1.4 billion acquisition, announced the final close of Arctos Keystone Partners Fund I at $6.2 billion. The fund provides bespoke growth and liquidity solutions to sports franchises and owners, deepening the pool of institutional capital available across the NFL and other leagues.",
+    "source_url": "https://www.businesswire.com/news/home/20260707159272/en/Arctos-Announces-Final-Close-of-Arctos-Keystone-Partners-Fund-I-at-$6.2-Billion",
+    "source_name": "Business Wire"
+  },
+  {
+    "date": "2026-06-11",
+    "category": "partnership",
+    "headline": "Nationwide and NFL extend league sponsorship with multiyear renewal",
+    "summary": "Nationwide and the NFL announced a multiyear renewal of their league partnership, adding a new annual presenting sponsorship of a one-hour broadcast special spotlighting Walter Payton NFL Man of the Year nominees. The renewal keeps the insurer among the NFL's roster of official league-level sponsors as the league continues to expand its sponsorship revenue base.",
+    "source_url": "https://news.nationwide.com/nationwide-national-football-league-extend-partnership-with-multiyear-renewal/",
+    "source_name": "Nationwide Newsroom"
+  },
+  {
+    "date": "2026-06-10",
+    "category": "legal",
+    "headline": "House Judiciary panel grills NFL over antitrust exemption; Goodell skips hearing",
+    "summary": "A House Judiciary subcommittee held a June 10 hearing on the Sports Broadcasting Act, following a scathing interim staff report accusing the NFL of stretching its 1961 antitrust exemption to the detriment of consumers and of inconsistencies in how it markets Sunday Ticket versus how it defends the package in court. Commissioner Roger Goodell declined chairman Jim Jordan's request to testify, drawing criticism from lawmakers as Congress scrutinizes the league's roughly $110 billion broadcast model.",
+    "source_url": "https://awfulannouncing.com/nfl/house-judiciary-committee-raises-difficult-antitrust-questions-hearing.html",
+    "source_name": "Awful Announcing"
+  },
+  {
+    "date": "2026-06-05",
+    "category": "business",
+    "headline": "Bears board votes to advance $5 billion stadium project in Hammond, Indiana",
+    "summary": "The Chicago Bears' board of directors voted to move forward with a planned $5 billion domed stadium and mixed-use development in Hammond, Indiana, after political inaction in Illinois, positioning the franchise to play home games outside Illinois for the first time in its 106-year history. The Bears have pledged about $2 billion in private funding, Indiana has offered up to $1 billion in incentives through a new stadium authority, and the move still requires a final site selection and NFL approval while Illinois can still counter.",
+    "source_url": "https://chicago.suntimes.com/bears/2026/06/05/bears-hammond-indiana-board-directors-vote-stadium-arlington-heights-nfl",
+    "source_name": "Chicago Sun-Times"
+  }
+]
