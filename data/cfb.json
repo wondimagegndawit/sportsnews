@@ -1,1 +1,130 @@
-[]
+[
+  {
+    "date": "2026-08-06",
+    "category": "legal",
+    "headline": "Protect College Sports Act stalls as Senate recesses without floor vote",
+    "summary": "The bipartisan Protect College Sports Act, which cleared the Senate Commerce Committee 19-9 in June, failed to reach the Senate floor before lawmakers left Washington for the August recess. Backers locked in a floor vote for when the chamber returns in September, keeping alive the bill that would codify athletes' NIL rights, enshrine scholarship and healthcare protections, and cap agent fees at 5%.",
+    "source_url": "https://www.cbssports.com/college-football/news/protect-college-sports-act-fails-senate-vote-recess/",
+    "source_name": "CBS Sports"
+  },
+  {
+    "date": "2026-08-05",
+    "category": "business",
+    "headline": "CFP expansion fight narrows to 16 vs. 24 teams ahead of Aug. 10 meeting",
+    "summary": "The College Football Playoff management committee set an Aug. 10 session — its first substantive meeting since January — to review media advisers' presentations on scheduling, TV windows and timing for 16- and 24-team formats. The Big Ten wants a 24-team field while the SEC backs 16, and with the two leagues holding format control, a decision must come by the Dec. 1 deadline to change the 12-team format for 2027.",
+    "source_url": "https://ngscsports.com/2026/08/05/cfp-expansion-showdown-16-team-vs-24-team-playoff-takes-center-stage/",
+    "source_name": "NGSC Sports"
+  },
+  {
+    "date": "2026-08-04",
+    "category": "legal",
+    "headline": "NCAA fights injunction blocking its age-based eligibility rule, seeks stay",
+    "summary": "The NCAA asked the court to stay the preliminary injunction that blocked enforcement of its new age-based five-year eligibility rule, arguing the order upends rosters and that athletes displaced by returning veterans could themselves sue. The escalating eligibility litigation has become a key exhibit for the SEC and Big Ten in lobbying Congress for a federal framework with antitrust protection.",
+    "source_url": "https://www.law.com/therecorder/2026/08/04/ncaa-fights-preliminary-injunction-blocking-age-based-eligibility-rule/",
+    "source_name": "Law.com (The Recorder)"
+  },
+  {
+    "date": "2026-08-01",
+    "category": "legal",
+    "headline": "Trump's second college sports executive order takes effect",
+    "summary": "Executive Order 14400, 'Urgent National Action to Save College Sports,' signed April 3, reached its Aug. 1, 2026 effective date, pressing the NCAA to adopt transfer restrictions (a maximum of two transfers), eligibility caps and NIL guardrails. The order directs OMB and GSA to factor athletics compliance into federal grants and contracts, putting schools, collectives and investors under heightened regulatory pressure while Congress debates codifying the rules.",
+    "source_url": "https://www.ropesgray.com/en/insights/alerts/2026/04/urgent-executive-action-president-trumps-play-to-save-college-sports",
+    "source_name": "Ropes & Gray"
+  },
+  {
+    "date": "2026-07-30",
+    "category": "legal",
+    "headline": "CSC approves reworked $7.5M in NIL deals for 18 Nebraska players",
+    "summary": "The College Sports Commission cleared restructured third-party NIL agreements worth a combined $7.5 million for 18 Nebraska football players, months after rejecting the original deals tied to the school's multimedia rights partner Playfly — a rejection an arbitrator had upheld. The resolution sets an important precedent for how school-adjacent 'associated entity' deals can be structured under the House settlement's clearinghouse rules.",
+    "source_url": "https://www.washingtonpost.com/sports/colleges/2026/07/30/csc-nebraska-nil/c23ad3fa-8c3c-11f1-8912-d71e69d679d7_story.html",
+    "source_name": "Washington Post (AP)"
+  },
+  {
+    "date": "2026-07-28",
+    "category": "business",
+    "headline": "Petitti drops AQ push, backs committee-selected 24-team CFP at Big Ten Media Days",
+    "summary": "Opening Big Ten Football Media Days in Chicago (July 28-30), commissioner Tony Petitti abandoned the league's earlier demand for automatic qualifiers and endorsed a committee-selected 24-team College Football Playoff. The concession reframed the expansion standoff with the SEC, which still prefers 16 teams, ahead of the Dec. 1 deadline for 2027 format changes.",
+    "source_url": "https://www.cbssports.com/college-football/news/2026-big-ten-media-days-takeaways-penn-state-tony-petitti-sec/",
+    "source_name": "CBS Sports"
+  },
+  {
+    "date": "2026-07-28",
+    "category": "legal",
+    "headline": "Revised Senate college sports bill adds $25M 'retention pool' above rev-share cap",
+    "summary": "The updated Protect College Sports Act includes a $25 million 'retention pool' that would let schools pay athletes above the revenue-sharing cap to keep them on their rosters, a sweetener aimed at winning over the skeptical Big Ten and SEC. The provision addresses the leagues' complaint that the House settlement cap leaves them unable to fend off tampering-fueled roster raids.",
+    "source_url": "https://www.clickondetroit.com/sports/2026/07/28/college-nil-bill-includes-25-million-retention-pool-but-is-that-enough-to-sway-big-ten-sec/",
+    "source_name": "ClickOnDetroit (AP)"
+  },
+  {
+    "date": "2026-07-20",
+    "category": "business",
+    "headline": "Sankey: SEC breakaway talk is 'real'; league remains lone CFP expansion holdout",
+    "summary": "Opening SEC Media Days, commissioner Greg Sankey confirmed that discussions about the SEC breaking away from the NCAA toward self-governance are 'real,' and held firm as the only major conference not backing a 24-team CFP, saying there is no 'clear media interest' case for the bigger field yet. He also pressed for revisions to the Senate's sweeping college sports bill, underscoring how much leverage the SEC holds over the sport's governance and postseason economics.",
+    "source_url": "https://www.pressdemocrat.com/2026/07/20/sec-media-day-greg-sankey-cfp-expansion-ncaa-realignment/",
+    "source_name": "The Press Democrat (AP)"
+  },
+  {
+    "date": "2026-07-12",
+    "category": "partnership",
+    "headline": "EA Sports College Football 27 launches with $1,500 per-athlete NIL payments",
+    "summary": "EA Sports' College Football 27, released worldwide July 9, pays opted-in athletes a $1,500 base NIL fee — up from $600 in the franchise's first editions — under a revised group-licensing agreement that also removed the blanket opt-out clause. Player groups including Pathway Sports & Entertainment, which has signed nearly 4,000 athletes, continue to push EA for NFL-style royalties rather than flat fees.",
+    "source_url": "https://chicago.suntimes.com/bulls/2026/07/12/its-in-the-game-with-eas-college-football-27",
+    "source_name": "Chicago Sun-Times"
+  },
+  {
+    "date": "2026-07-09",
+    "category": "legal",
+    "headline": "Ohio judge orders NCAA to grandfather athletes into new five-year eligibility model",
+    "summary": "An Ohio judge granted a preliminary injunction requiring the NCAA to extend its new five-years-in-five eligibility model to 24 athletes who exhausted eligibility under the old rules, finding they would suffer irreparable harm by losing the chance to earn NIL money in a multibillion-dollar business. The NCAA's Division I Cabinet said it does 'not intend to change course,' and the ruling opened the door for waves of similar suits — including class actions by football players — that could reshape roster and payroll planning.",
+    "source_url": "https://frontofficesports.com/judge-orders-ncaa-grandfather-athletes-eligibility-model/",
+    "source_name": "Front Office Sports"
+  },
+  {
+    "date": "2026-07-01",
+    "category": "business",
+    "headline": "Rebuilt Pac-12 officially launches with eight football members",
+    "summary": "The new Pac-12 formally began operations July 1, combining holdovers Oregon State and Washington State with Boise State, Colorado State, Fresno State, San Diego State and Utah State from the Mountain West plus Texas State from the Sun Belt (and Gonzaga in basketball). Backed by media deals with CBS Sports, The CW and USA Sports projected to be worth roughly $7-12 million per school, the league immediately positions itself atop the Group of Six hierarchy.",
+    "source_url": "https://www.cbssports.com/college-football/news/pac-12-relaunch-2026-contenders-teams-to-watch/",
+    "source_name": "CBS Sports"
+  },
+  {
+    "date": "2026-07-01",
+    "category": "business",
+    "headline": "CSC year-one report: $355M in NIL deals cleared; rev-share cap rises to $21.3M",
+    "summary": "The College Sports Commission reported that its NIL Go clearinghouse approved 34,195 deals worth $355.24 million in its first year, with 41% of submissions resolved within 24 hours, as year two of House settlement revenue sharing began with the per-school cap rising from $20.5 million to about $21.3 million. The CSC also said deals between $600 and $15,000 will skip range-of-compensation review until an athlete tops $50,000 in associated-entity deals in an academic year — a loosening aimed at the clearinghouse's backlog of school-linked deals.",
+    "source_url": "https://www.on3.com/nil/news/college-sports-commission-nil-go-have-cleared-355-million-deals-since-launch/",
+    "source_name": "On3"
+  },
+  {
+    "date": "2026-06-18",
+    "category": "legal",
+    "headline": "Protect College Sports Act clears Senate Commerce Committee 19-9",
+    "summary": "The Cantwell-Cruz Protect College Sports Act passed the Senate Commerce Committee on a bipartisan 19-9 vote, the furthest any college sports reform bill has advanced in the Senate. The bill would codify NIL compensation rights, lock in scholarship and healthcare protections, regulate agents with a 5% fee cap, and protect women's and Olympic sports — though the Big Ten and SEC voiced opposition to key provisions.",
+    "source_url": "https://www.cbssports.com/college-football/news/protect-college-sports-act-passes-senate-committee-big-ten-sec-opposition/",
+    "source_name": "CBS Sports"
+  },
+  {
+    "date": "2026-06-17",
+    "category": "business",
+    "headline": "2026 realignment wave reshapes Group of Five economics",
+    "summary": "Conference realignment taking effect for 2026 runs entirely through the non-power leagues: the rebuilt Pac-12 absorbs five Mountain West programs plus Texas State, while the Mountain West backfills with North Dakota State (up from FCS), Northern Illinois and UTEP, and Sacramento State also jumps to FBS. The reshuffle redistributes media revenue, travel costs and CFP access money across the Group of Five ahead of the season.",
+    "source_url": "https://www.forbes.com/sites/tomlayberger/2026/06/17/college-football-realignment-felt-among-non-power-conferences-in-2026/",
+    "source_name": "Forbes"
+  },
+  {
+    "date": "2026-06-12",
+    "category": "investment",
+    "headline": "Utah closes first-ever college athletics private equity deal with Otro Capital",
+    "summary": "The University of Utah finalized its landmark partnership with Otro Capital, creating Crimson Brand Partners — the first completed private equity transaction for a college athletic department. Otro is committing at least $100 million (with the structure reportedly able to reach $500 million including donor investment) to a for-profit entity, led by CEO Matt Webb, that took over Utah Athletics' commercial operations — sponsorships, licensing, ticketing, digital media and venue events — on July 1.",
+    "source_url": "https://www.deseret.com/sports/2026/06/12/utah-utes-private-equity-deal-otro-capital-finalized/",
+    "source_name": "Deseret News"
+  },
+  {
+    "date": "2026-06-11",
+    "category": "business",
+    "headline": "Florida unveils $1.45 billion renovation of Ben Hill Griffin Stadium",
+    "summary": "Florida announced approval to plan and develop a $1.45 billion overhaul of The Swamp — set to be the most expensive stadium renovation in college football history. Construction begins after the 2026 season with completion targeted ahead of 2030, funded through private giving, capital reserves and long-term debt subject to Florida Board of Governors approval.",
+    "source_url": "https://floridagators.com/news/2026/6/11/football-florida-athletics-takes-transformational-step-toward-the-future-of-the-swamp",
+    "source_name": "Florida Gators (official)"
+  }
+]
