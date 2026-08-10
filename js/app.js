@@ -34,6 +34,7 @@
   const tickerEl = document.getElementById("ticker");
 
   let allEntries = [];
+  let loadFailed = false;
   let activeCategory = "all";
   let searchTerm = "";
 
@@ -48,6 +49,7 @@
       .then((entries) => entries.map((e) => ({ ...e, league: key })))
       .catch((err) => {
         console.warn("Could not load", key, err);
+        loadFailed = true;
         return [];
       });
   }
@@ -132,9 +134,13 @@
 
     if (!entries.length) {
       statusEl.hidden = false;
-      statusEl.innerHTML = allEntries.length
-        ? "NO MATCHES FOUND... TRY ANOTHER FILTER"
-        : 'NO DATA LOADED. If you opened this file directly, run a local server first — see <span class="err">README.md</span> (e.g. <code>python3 -m http.server</code>).';
+      if (allEntries.length) {
+        statusEl.textContent = "NO MATCHES FOUND... TRY ANOTHER FILTER";
+      } else if (loadFailed) {
+        statusEl.innerHTML = 'DATA FETCH BLOCKED. If you opened this file directly, run a local server — see <span class="err">README.md</span> (e.g. <code>python3 -m http.server</code>).';
+      } else {
+        statusEl.textContent = "NO ENTRIES YET ON THIS WIRE... CHECK BACK SOON";
+      }
       return;
     }
     statusEl.hidden = true;
