@@ -1,1 +1,50 @@
-[]
+[
+  {
+    "date": "2026-08-06",
+    "category": "business",
+    "headline": "Wichita State details Paul Mills extension worth up to $2.3M a year by 2030-31",
+    "summary": "Wichita State released terms of men's basketball coach Paul Mills' contract extension running July 1, 2026 through June 30, 2031. Mills can make up to $1.789 million in year one — including $1.4 million guaranteed, roughly $314,000 for off-court contributions and a $75,000 retention bonus — with total pay climbing past $1.9 million in year two and topping out at just over $2.3 million in the final year, a sign of how far mid-major coaching money has moved in the revenue-share era.",
+    "source_url": "https://www.kwch.com/2026/08/06/contract-extension-details-wichita-states-long-term-confidence-paul-mills/",
+    "source_name": "KWCH"
+  },
+  {
+    "date": "2026-08-03",
+    "category": "legal",
+    "headline": "Judge Sweeney clarifies fifth-year injunction: roster caps and rev-share caps still stand",
+    "summary": "Colorado U.S. District Judge Charlotte Sweeney issued a clarifying order stating that her class-wide injunction granting high school Class of 2022 athletes a fifth season does not override NCAA transfer rules, House-settlement roster caps or revenue-sharing caps. Athletes who skipped the transfer portal window cannot now transfer, players who signed pro contracts are excluded, and returners can only reclaim spots that are already open — limiting the roster and budget chaos programs feared heading into 2026-27.",
+    "source_url": "https://www.on3.com/nil/news/colorado-judge-clarifies-class-wide-injunction-on-ncaas-age-based-eligibility-model/",
+    "source_name": "On3"
+  },
+  {
+    "date": "2026-07-31",
+    "category": "legal",
+    "headline": "Federal judge certifies nationwide class, grants Class of 2022 athletes a fifth season",
+    "summary": "U.S. District Judge Charlotte Sweeney certified a nationwide class in Wisne v. NCAA — the basketball-led antitrust case fronted by Northern Colorado's Brock Wisne and Minnesota's Cade Tyson — and issued a preliminary injunction ordering the NCAA to declare immediately eligible athletes who began college play in 2022-23 and exhausted eligibility this spring under the old four-in-five rule. The ruling, which followed an earlier Ohio state-court injunction won by two dozen men's and women's basketball players in July, blows open rosters and NIL/rev-share budgets for 2026-27 and drew the SEC and Big Ten deeper into the push for federal eligibility protection.",
+    "source_url": "https://www.espn.com/college-football/story/_/id/49501415/judge-grants-injunction-class-22-athletes-seeking-play-5th-ncaa-season",
+    "source_name": "ESPN"
+  },
+  {
+    "date": "2026-07-13",
+    "category": "legal",
+    "headline": "Eleven athletes, led by basketball players, file class action over NCAA's new eligibility model",
+    "summary": "A group of 11 Division I athletes headlined by Minnesota basketball player Cade Tyson and Northern Colorado basketball player Brock Wisne filed a federal antitrust class action in the District of Colorado, alleging the NCAA's new five-year eligibility rule — implemented June 24 — unlawfully denies thousands of athletes an additional season and the NIL and revenue-share money that comes with it. The suit seeks to cover athletes across men's and women's basketball, baseball and track who were excluded from the rule's grandfathering.",
+    "source_url": "https://www.espn.com/college-sports/story/_/id/49350890/group-11-athletes-challenge-new-ncaa-eligibility-rules-suit",
+    "source_name": "ESPN"
+  },
+  {
+    "date": "2026-06-24",
+    "category": "legal",
+    "headline": "Basketball players sue NCAA within 24 hours of new age-based five-year eligibility rule",
+    "summary": "Less than a day after the NCAA Division I Cabinet approved a five-seasons-in-five-years eligibility model — which starts the clock at enrollment or the academic year after an athlete's 19th birthday and all but eliminates medical redshirt waivers — a group of 15 college basketball players filed suit in Ohio state court in Cincinnati. The players, all from the high school Class of 2022, argue the rule arbitrarily denies them a fifth season and the NIL and revenue-share earnings attached to it; the case produced a preliminary injunction from Judge Christopher Wagner the following month.",
+    "source_url": "https://www.washingtontimes.com/news/2026/jun/24/ohio-lawsuit-alleges-new-ncaa-rule-unfairly-denies-high-school-class/",
+    "source_name": "The Washington Times (AP)"
+  },
+  {
+    "date": "2026-06-05",
+    "category": "legal",
+    "headline": "NCAA permanently bans four Alabama State players for fixing a game for $2,000",
+    "summary": "The NCAA Division I Committee on Infractions ruled that four former Alabama State men's basketball players — Amarr Knox, Shawn Fulcher, Corey Hines and Tony Madlock — committed Level I sports betting violations by manipulating the outcome of a December 2024 game at Southern Miss in exchange for a combined $2,000 in bribes, and declared them permanently ineligible. The negotiated resolution is part of the widening game-fixing scandal that has drawn federal charges and NCAA integrity probes across more than a dozen Division I programs.",
+    "source_url": "https://www.washingtonpost.com/sports/colleges/2026/06/05/ncaa-gambling-alabama-state/25998df4-6106-11f1-9c46-d6211372eede_story.html",
+    "source_name": "The Washington Post"
+  }
+]
