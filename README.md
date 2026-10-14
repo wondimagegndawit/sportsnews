@@ -21,9 +21,12 @@ Then open <http://localhost:8000>. Any static server works, e.g. `npx serve`.
 ```
 /index.html        Homepage — 20 most recent entries across all leagues
 /leagues/*.html    One page per league (nfl, nba, mlb, nhl, cfb, cbb, soccer, other)
+/leagues/tickets.html  Average ticket prices by league (PWHL, WNBA, NWSL, MLS, NHL)
 /data/*.json       All news content — one JSON file per league
+/data/ticket_prices.json  Ticket price research, one entry per league-season, with sources
 /css/style.css     All styling
 /js/app.js         Client-side rendering, filters, search, ticker
+/js/tickets.js     Renders the ticket price desk
 ADD_NEWS.md        How to add new entries daily
 ```
 

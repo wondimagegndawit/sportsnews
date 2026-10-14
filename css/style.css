@@ -426,6 +426,23 @@ input:focus-visible {
 
 .feed-status .err { color: var(--red); }
 
+/* Ticket price desk */
+#prices .cards { grid-template-columns: minmax(0, 1fr); }
+.price-method { color: var(--text-dim); font-size: 14px; margin: 0 0 24px; }
+.card h3.price-headline { font-family: var(--font-pixel-lg); font-size: 34px; color: var(--green); margin: 0; }
+.card h3.price-missing { color: var(--magenta); font-size: 26px; }
+.price-table-wrap { overflow-x: auto; }
+.price-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.price-table th,
+.price-table td { text-align: left; vertical-align: top; padding: 6px 8px; border-top: 1px solid var(--border); }
+.price-table th { font-family: var(--font-pixel-lg); font-size: 16px; color: var(--cyan); font-weight: normal; }
+.price-value { color: var(--yellow); white-space: nowrap; }
+.price-date { color: var(--text-dim); }
+.conf { white-space: nowrap; }
+.conf-high { color: var(--green); }
+.conf-medium { color: var(--yellow); }
+.conf-low { color: var(--red); }
+
 /* ==========================================================================
    FOOTER + retro flourishes
    ========================================================================== */
