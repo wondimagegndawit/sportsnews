@@ -1,4 +1,6 @@
-{
+/* Ticket price research — loaded via <script> so the page works without a server.
+   Edit the object below; keep it valid JSON (double quotes, no trailing commas). */
+window.TICKET_PRICES = {
   "updated": "2026-10-14",
   "method": "Average ticket prices for each league's last three completed regular seasons, compiled from SeatGeek and other ticket marketplaces (Vivid Seats, TickPick, StubHub, Gametime, Logitix, Victory Live), Team Marketing Report, and publications quoting them. Figures from different sources measure different things (resale sold price vs. listing price vs. face value, fees in or out, partial vs. full season), so compare within a source, not across them. Quotes were verified against search-result excerpts of the cited pages; spot-check the originals before citing.",
   "leagues": [
@@ -324,4 +326,4 @@
       ]
     }
   ]
-}
+};

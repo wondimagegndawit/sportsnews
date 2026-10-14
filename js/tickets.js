@@ -1,10 +1,9 @@
 /* THE SPORTS BUSINESS WIRE — ticket price desk
-   Reads /data/ticket_prices.json and renders one table per league. */
+   Reads window.TICKET_PRICES (from /data/ticket_prices.js) and renders one table per league. */
 
 (function () {
   "use strict";
 
-  const root = document.body.dataset.root || "";
   const statusEl = document.getElementById("feed-status");
   const pricesEl = document.getElementById("prices");
   const tickerEl = document.getElementById("ticker");
@@ -91,17 +90,10 @@
     }
   }
 
-  fetch(root + "data/ticket_prices.json")
-    .then((r) => {
-      if (!r.ok) throw new Error("HTTP " + r.status);
-      return r.json();
-    })
-    .then((data) => {
-      statusEl.hidden = true;
-      render(data);
-    })
-    .catch((err) => {
-      console.warn("Could not load ticket prices", err);
-      statusEl.innerHTML = 'DATA FETCH BLOCKED. If you opened this file directly, run a local server — see <span class="err">README.md</span> (e.g. <code>python3 -m http.server</code>).';
-    });
+  if (window.TICKET_PRICES) {
+    statusEl.hidden = true;
+    render(window.TICKET_PRICES);
+  } else {
+    statusEl.innerHTML = 'PRICE DATA MISSING. Check that <span class="err">data/ticket_prices.js</span> exists and is valid.';
+  }
 })();

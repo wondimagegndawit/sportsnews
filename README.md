@@ -23,7 +23,8 @@ Then open <http://localhost:8000>. Any static server works, e.g. `npx serve`.
 /leagues/*.html    One page per league (nfl, nba, mlb, nhl, cfb, cbb, soccer, other)
 /leagues/tickets.html  Average ticket prices by league (PWHL, WNBA, NWSL, MLS, NHL)
 /data/*.json       All news content — one JSON file per league
-/data/ticket_prices.json  Ticket price research, one entry per league-season, with sources
+/data/ticket_prices.js    Ticket price research, one entry per league-season, with sources
+                   (a script, not JSON, so the tickets page opens straight from disk)
 /css/style.css     All styling
 /js/app.js         Client-side rendering, filters, search, ticker
 /js/tickets.js     Renders the ticket price desk
