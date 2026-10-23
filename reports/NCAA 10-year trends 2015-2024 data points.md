@@ -91,19 +91,19 @@ FBS schools with positive net generated revenue ("PNR"), with the median surplus
 | 2023 | 24 | $4.65M |
 | 2024 | 21 | $4.06M |
 
-Approximate values read from the trend charts (no data labels in the PDF; treat as ±$2M and cite the chart, not the number):
+Approximate values read from the trend charts. The PDF carries no data labels on these charts, so treat every figure below as a rounded reading, cite the chart page rather than the number, and use the text-stated figures above wherever one exists.
 
-- Median total revenue, FBS Autonomy (p. 29): about $92M (2015), $97M (2016), $105M (2017), $114M (2018), $122M (2019), $115M (2020), $102M (2021), $139M (2022), $143M (2023), $149M (2024). FBS Nonautonomy: about $31M (2015) rising to $47M (2024).
-- Median generated revenue, FBS Autonomy (p. 30): about $85M (2015), $95M (2016), $100M (2017), $106M (2018), $110M (2019), $103M (2020), $77M (2021, COVID), $117M (2022), $127M (2023), $134M (2024). FBS Nonautonomy: about $13M (2015) to $17M (2024), essentially flat.
-- Median total expenses, FBS Autonomy (p. 31): about $92M (2015), $99M (2016), $105M (2017), $115M (2018), $120M (2019), $119M (2020), $104M (2021), $132M (2022), $147M (2023), $167M (2024). FBS Nonautonomy: about $32M (2015) to $49M (2024).
-- Median net operating result excluding allocated support, all FBS (p. 33): about −$12M (2015), −$14M (2016), −$14M (2017), −$16M (2018), −$19M (2019), −$19M (2020), −$23M (2021), −$19M (2022), −$22M (2023), −$25M (2024).
-- Same measure by FBS group (p. 34): Autonomy about −$3M (2015), −$4M (2016), −$3M (2017), −$3M (2018), −$7M (2019), −$8M (2020), −$18M (2021), −$3M (2022), −$9M (2023), −$15M (2024). Nonautonomy about −$19M (2015), −$20M (2016), −$21M (2017), −$22M (2018), −$23M (2019), −$24M (2020), −$24M (2021), −$23M (2022), −$26M (2023), −$27M (2024).
-- Reading of those two charts: the autonomy median was within a few million of break-even from 2015 through 2018 and in 2022, and the FY2024 autonomy deficit (−$15M) is the worst non-COVID year in the series. The nonautonomy deficit has widened every year except 2022.
+- Median total revenue, FBS Autonomy (p. 29): roughly $90M in 2015, rising to ~$120M by 2019, dipping to ~$100M in 2021, then ~$140M in 2022 and ~$150M in 2024 (the FY2024 median is stated in the text as $149.3M). FBS Nonautonomy: roughly $30M in 2015 to ~$45M in 2024 (text: $47.0M).
+- Median generated revenue, FBS Autonomy (p. 30): roughly $85M in 2015, ~$110M in 2019, a COVID drop to slightly under $80M in 2021, then ~$115M in 2022 and ~$135M in 2024 (text: $133.8M). FBS Nonautonomy: roughly $13M in 2015 to ~$17M in 2024 (text: $17.2M), essentially flat.
+- Median total expenses, FBS Autonomy (p. 31): roughly $90M in 2015, ~$120M in 2019, ~$105M in 2021, ~$130M in 2022, ~$145M in 2023 and ~$165M in 2024 (text: $166.8M). FBS Nonautonomy: roughly $30M in 2015 to ~$50M in 2024 (text: $48.7M).
+- Median net operating result excluding allocated support, all FBS (p. 33): roughly −$12M in 2015, widening to ~−$19M in 2019 and 2020, ~−$23M in 2021, ~−$19M in 2022, ~−$22M in 2023 and ~−$25M in 2024 (text: −$25.13M).
+- Same measure by FBS group (p. 34): Autonomy within a few million of break-even (roughly −$3M to −$4M) from 2015 through 2018, ~−$7M to −$8M in 2019 and 2020, ~−$18M in 2021, ~−$3M in 2022, ~−$9M in 2023 and ~−$15M in 2024 (text: −$15.2M). Nonautonomy roughly −$19M in 2015, widening almost every year to ~−$27M in 2024 (text: −$27.1M).
+- Reading of those two charts: the autonomy median sat close to break-even from 2015 through 2018 and again in 2022, and the FY2024 autonomy deficit is the worst non-COVID year in the series. The nonautonomy deficit widened in every year except 2022.
 
 ## 6. Dashboard indicators (pp. 39-47)
 
 - Median revenue self-sufficiency, FY2024 (p. 45-47): FBS Autonomy **89%** ("the lowest except for 2021 with COVID-19 impact"); FBS Nonautonomy **38%** ("consistent with the trend in prepandemic years"); FCS **25%** (27% the prior year); Basketball Subdivision **18%**.
-- Self-sufficiency chart readings (p. 39): FBS Autonomy roughly 97-98% from 2015 to 2018, 95% in 2019, 93% in 2020, 82% in 2021, 98% in 2022, 94% in 2023, 89% in 2024. FBS Nonautonomy roughly 40-41% from 2015 to 2019, 35% in 2020, 31% in 2021, then 38-39%.
+- Self-sufficiency chart readings (p. 39, approximate, no data labels): FBS Autonomy slightly under 100% from 2015 to 2018, ~95% in 2019, low 90s in 2020, low 80s in 2021, slightly under 100% in 2022, mid 90s in 2023 and 89% in 2024 (the 2024 figure is stated in the text). FBS Nonautonomy ~40% from 2015 to 2019, mid 30s in 2020, ~30% in 2021, then high 30s (text: 38% in 2024).
 - "Over the 10-year period, coach compensation as a proportion of total expenses has been relatively consistent in the range of **18%-20%** for both autonomy and nonautonomy schools, except during the pandemic years" (p. 45). Total compensation ranged **32%-36%** of expenses (p. 45).
 - "The median ratio of athletics expenses to institutional expenses has been stable for FBS schools in the **6%-7%** range" (p. 45). FCS: **9%**, "the highest among the three subdivisions" (p. 46). Basketball Subdivision: 7% (p. 47).
 - "In 2024, the median expense growth gap between athletics spending and institutional spending is **−0.2%** for autonomy schools and **2.5%** for nonautonomy FBS schools. These numbers seem to suggest the COVID-19 impact (adjustment) in athletics spending is over" (p. 45). FCS gap 0.9% (p. 46); Basketball Subdivision 0.9% (p. 47).
