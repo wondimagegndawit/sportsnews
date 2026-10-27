@@ -51,7 +51,7 @@
   - Source link: [Computed from FY2025 MFRS reports (appendix)](https://college-sports-finance.com/conference/sec)
 - By conference, FY2025 (mean / median revenue): SEC $224.0M / $205.9M (15 publics); Big Ten $194.9M / $181.7M (16); ACC $167.1M / $158.1M (8); Big 12 $133.4M / $140.3M (13). The SEC average is about $90M above the Big 12 average.
   - Source link: [Computed from FY2025 MFRS reports (appendix)](https://college-sports-finance.com/conference/big-ten)
-- Top of the table: Texas $352.5M, Ohio State $336.1M, Tennessee $304.1M, Michigan $275.8M, Alabama $267.4M, Penn State $254.9M, Texas A&M $235.5M, Georgia $233.5M, LSU $223.5M, Florida $221.0M. Ten public schools now clear $200M; none did five years ago.
+- Top of the table: Texas $352.5M, Ohio State $336.1M, Tennessee $304.1M, Michigan $275.8M, Alabama $267.4M, Penn State $254.9M, Texas A&M $235.5M, Georgia $233.5M, LSU $223.5M, Florida $221.0M. Fifteen public schools cleared $200M in FY2025.
   - Source links: [Computed from FY2025 MFRS reports (appendix)](https://college-sports-finance.com/conference/sec); [Ohio State News, Jan 2026](https://news.osu.edu/ohio-state-athletics-sets-record-with-336m-in-fy25-revenue-after-national-championship-season/)
 - The NCAA's full-sample benchmark (all 69 autonomy schools including privates, FY2024): median total revenue $149.3M, median generated revenue $133.8M, median expenses $166.8M. The FY2025 public-only median is about $30M higher for two reasons: the privates that are missing are mostly smaller programs (Wake Forest, Boston College, Vanderbilt), and FY2025 was the first full year of the new Big Ten and SEC television contracts.
   - Source link: [NCAA 10-year trends, Dec 2025, p. 7](https://ncaaorg.s3.amazonaws.com/research/Finances/2025D1RES_DI-RevExpReport_Final.pdf)
@@ -66,13 +66,13 @@
 
 **On average, how many sports do Power 4 athletic departments sponsor?**
 
-- About 22. Per the NCAA membership directory's "sponsored sports" listing for 2026-27, the 68 Power Four schools sponsor a mean of 21.7 and a median of 21 varsity sports, ranging from 16 (Kansas State, UCF, Mississippi State) to 37 (Stanford). We pulled all 68 school pages on Oct 27, 2026.
+- About 22. Per the NCAA membership directory's "sponsored sports" listing for 2026-27, the 68 Power Four schools sponsor a mean of 21.7 and a median of 21 varsity sports, ranging from 16 (Kansas State, UCF, Mississippi State) to 37 (Stanford, which its own site counts as 36). We pulled all 68 school pages on Oct 27, 2026.
   - Source links: [NCAA membership directory](https://web3.ncaa.org/directory/); [Stanford directory page](https://web3.ncaa.org/directory/orgDetail?id=674); [Kansas State directory page](https://web3.ncaa.org/directory/orgDetail?id=327)
 - By conference (mean / median): Big Ten 23.9 / 23 (range 20 to 35, Ohio State); ACC 23.6 / 22 (17 to 37); SEC 20.1 / 21 (16 to 23); Big 12 18.8 / 18 (16 to 26). The two richest conferences are not the broadest: the SEC's biggest brands (Texas, Alabama, Georgia, LSU, Florida, Oklahoma) each sponsor 21.
   - Source link: [NCAA membership directory](https://web3.ncaa.org/directory/)
 - Counting basis matters. The NCAA counts men's and women's cross country, indoor track and outdoor track as six separate sports. The federal EADA database lets schools report them as one line, and 67 of 68 Power Four schools do, so EADA shows a mean of 18.1 and median of 17 for 2024-25. Use the NCAA count when comparing to the NCAA minimum.
   - Source link: [EADA data files, 2024-25](https://ope.ed.gov/athletics/#/datafile/list)
-- The floor is 16. FBS members must sponsor at least 16 varsity sports including football, with at least six men's or mixed and eight women's sports, and the bylaw allows no waivers. Fifteen Power Four schools sit at 16 to 18, with little room to cut.
+- The floor is 16. FBS members must sponsor at least 16 varsity sports including football, with at least six men's or mixed and eight women's sports, and the bylaw allows no waivers. Seventeen Power Four schools sit at 16 to 18 sports, with little room to cut.
   - Source link: [NCAA Division I Manual 2026-27, Bylaw 20.9.9.1 and 20.9.9.5](https://web3.ncaa.org/lsdbi/reports/getReport/90008)
 - Roster size: the average Power Four department had 589 unduplicated athletes in 2024-25 (median 560); GAO counts 587 per Power school on FY2024 NCAA data. The all-Division I average is 19.2 teams and 577 athletes.
   - Source links: [EADA data files, 2024-25](https://ope.ed.gov/athletics/#/datafile/list); [GAO-26-108640, Table 1](https://www.gao.gov/assets/gao-26-108640.pdf); [NCAA Sports Sponsorship and Participation Rates Report, Sept 2025](https://ncaaorg.s3.amazonaws.com/research/sportpart/2025RES_SportsSponsorshipParticipationRatesReport.pdf)
