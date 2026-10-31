@@ -4,6 +4,10 @@ Research only. No messages, connection requests or emails were sent. Updated 202
 
 Deliverable: `Smash_Booster_Connection_Map_v2.csv` (one row per connection; a target with none gets one "No connection found" row; the ranked ten warmest paths follow the table, as in the prior workbook).
 
+Row order: Tier (1, 2, 3, untiered), then school in the order of the original target list, then target, then confidence (Confirmed first). All rows for a school are therefore contiguous.
+
+Point-of-contact rule: Dawit Wondimagegn is never the suggested lead contact. Where his LinkedIn mutuals or shared affiliations (Lakeside School, Insight Partners) are the connection, the intro path names the senior Smash member with the strongest other path to that target as the lead (Evan Richter where the overlap runs through Insight Partners) and treats Dawit's overlap as background only.
+
 ## What this pass did
 1. Started from the prior Polar Browser workbook (158 connection rows, 98 target notes, LinkedIn observations) and the Perplexity deep-research CSV (27 rows).
 2. Ran a fresh web-search and web-fetch pass on all 98 targets (23 Tier 1–3 targets each got a dedicated deep pass; the 75 untiered targets got a lighter pass in batches of five). For every target the pass: re-opened each cited source and marked the prior row VERIFIED, CORRECTED or NOT VERIFIABLE; swept SEC filings, Form 990s, university releases and news against the Smash affiliations and the 14 Smash member names; followed ADs, presidents, co-directors, family members and political giving for second-degree bridges.
