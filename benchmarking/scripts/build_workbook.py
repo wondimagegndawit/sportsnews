@@ -122,6 +122,15 @@ for s in order:
         key=m['key']
         if key in R or m['kind']=='formula': continue
         r=get(n,key)
+        if key.endswith('_pay_source_type') and (not r or r['value']=='--'):
+            comp=get(n,key.replace('_pay_source_type','_annual_comp'))
+            if comp and comp['value']!='--':
+                u=comp['source_url'].lower(); txt=(comp['source_name']+' '+comp['notes']).lower()
+                if re.search(r'(contract|agreement|term sheet|offer sheet|mou|public records|records request|salary database|checkbook)',u+' '+txt): st='contract'
+                elif re.search(r'(sports|athletics)\.|\.edu',u): st='school announcement'
+                else: st='press report'
+                put(key,st,comp['source_url'],'text',comp['fiscal_year_or_season'],{'contract':'contract','school announcement':'press release','press report':'other'}[st],comp['source_name'],'Pay source type classified from the compensation row source: '+comp['source_name'])
+                continue
         if not r: put(key,None,'','','','other','','not researched (web-search budget exhausted)'); continue
         if r['value']=='--': put(key,None,'',r['unit'],r['fiscal_year_or_season'],stype_of(r),r['source_name'],r['notes'] or 'not sourced'); continue
         val=num(r['value']) if m['kind']=='num' else r['value']
