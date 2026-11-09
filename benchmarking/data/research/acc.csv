@@ -1,0 +1,943 @@
+school,metric,value,unit,fiscal_year_or_season,source_name,source_url,date_accessed,notes
+Virginia Tech,fin_report_url,https://dlasprodpublic.blob.core.windows.net/apa/48CF3971-CA5E-4EF9-9ACF-593F2DB3DB53.pdf,url,FY2025,Virginia Auditor of Public Accounts (state portal) - Virginia Tech AUP report,https://dlasprodpublic.blob.core.windows.net/apa/48CF3971-CA5E-4EF9-9ACF-593F2DB3DB53.pdf,2026-11-09,Posted by state APA (https://www.apa.virginia.gov/reports/23439); NCAA AUP statement
+Virginia Tech,fin_fiscal_year,2025,year,FY2025,Virginia Auditor of Public Accounts (state portal) - Virginia Tech AUP report,https://dlasprodpublic.blob.core.windows.net/apa/48CF3971-CA5E-4EF9-9ACF-593F2DB3DB53.pdf,2026-11-09,
+Virginia Tech,total_operating_revenue,161217686,USD,FY2025,Virginia Auditor of Public Accounts (state portal) - Virginia Tech AUP report,https://dlasprodpublic.blob.core.windows.net/apa/48CF3971-CA5E-4EF9-9ACF-593F2DB3DB53.pdf,2026-11-09,
+Virginia Tech,total_operating_expenses,156147699,USD,FY2025,Virginia Auditor of Public Accounts (state portal) - Virginia Tech AUP report,https://dlasprodpublic.blob.core.windows.net/apa/48CF3971-CA5E-4EF9-9ACF-593F2DB3DB53.pdf,2026-11-09,
+Virginia Tech,media_rights_revenue,30054680,USD,FY2025,Virginia Auditor of Public Accounts (state portal) - Virginia Tech AUP report,https://dlasprodpublic.blob.core.windows.net/apa/48CF3971-CA5E-4EF9-9ACF-593F2DB3DB53.pdf,2026-11-09,
+Virginia Tech,ticket_sales_revenue,23716393,USD,FY2025,Virginia Auditor of Public Accounts (state portal) - Virginia Tech AUP report,https://dlasprodpublic.blob.core.windows.net/apa/48CF3971-CA5E-4EF9-9ACF-593F2DB3DB53.pdf,2026-11-09,
+Virginia Tech,contributions_revenue,38704404,USD,FY2025,Virginia Auditor of Public Accounts (state portal) - Virginia Tech AUP report,https://dlasprodpublic.blob.core.windows.net/apa/48CF3971-CA5E-4EF9-9ACF-593F2DB3DB53.pdf,2026-11-09,
+Virginia Tech,ncaa_distributions,3053010,USD,FY2025,Virginia Auditor of Public Accounts (state portal) - Virginia Tech AUP report,https://dlasprodpublic.blob.core.windows.net/apa/48CF3971-CA5E-4EF9-9ACF-593F2DB3DB53.pdf,2026-11-09,
+Virginia Tech,conference_distributions,6600305,USD,FY2025,Virginia Auditor of Public Accounts (state portal) - Virginia Tech AUP report,https://dlasprodpublic.blob.core.windows.net/apa/48CF3971-CA5E-4EF9-9ACF-593F2DB3DB53.pdf,2026-11-09,
+Virginia Tech,conference_bowl_distributions,7071388,USD,FY2025,Virginia Auditor of Public Accounts (state portal) - Virginia Tech AUP report,https://dlasprodpublic.blob.core.windows.net/apa/48CF3971-CA5E-4EF9-9ACF-593F2DB3DB53.pdf,2026-11-09,Reported as conference distributions of post-season generated revenue
+Virginia Tech,direct_institutional_support,8432072,USD,FY2025,Virginia Auditor of Public Accounts (state portal) - Virginia Tech AUP report,https://dlasprodpublic.blob.core.windows.net/apa/48CF3971-CA5E-4EF9-9ACF-593F2DB3DB53.pdf,2026-11-09,
+Virginia Tech,indirect_institutional_support,0,USD,FY2025,Virginia Auditor of Public Accounts (state portal) - Virginia Tech AUP report,https://dlasprodpublic.blob.core.windows.net/apa/48CF3971-CA5E-4EF9-9ACF-593F2DB3DB53.pdf,2026-11-09,No indirect institutional support revenue line in statement
+Virginia Tech,student_fees,15660745,USD,FY2025,Virginia Auditor of Public Accounts (state portal) - Virginia Tech AUP report,https://dlasprodpublic.blob.core.windows.net/apa/48CF3971-CA5E-4EF9-9ACF-593F2DB3DB53.pdf,2026-11-09,
+Virginia Tech,coaching_salaries,25841204,USD,FY2025,Virginia Auditor of Public Accounts (state portal) - Virginia Tech AUP report,https://dlasprodpublic.blob.core.windows.net/apa/48CF3971-CA5E-4EF9-9ACF-593F2DB3DB53.pdf,2026-11-09,
+Virginia Tech,athletics_related_debt,66342000,USD,FY2025,Virginia Auditor of Public Accounts (state portal) - Virginia Tech AUP report,https://dlasprodpublic.blob.core.windows.net/apa/48CF3971-CA5E-4EF9-9ACF-593F2DB3DB53.pdf,2026-11-09,
+Virginia Tech,debt_service,6983156,USD,FY2025,Virginia Auditor of Public Accounts (state portal) - Virginia Tech AUP report,https://dlasprodpublic.blob.core.windows.net/apa/48CF3971-CA5E-4EF9-9ACF-593F2DB3DB53.pdf,2026-11-09,Sum of facilities debt service 6705840 plus facilities leases and rental fees 277316; line includes leases/rental fees
+Virginia,fin_report_url,https://dlasprodpublic.blob.core.windows.net/apa/5AF2BCBD-74C8-430A-95FC-8DB4EAF24D77.pdf,url,FY2025,Virginia Auditor of Public Accounts (state portal) - UVA AUP report,https://dlasprodpublic.blob.core.windows.net/apa/5AF2BCBD-74C8-430A-95FC-8DB4EAF24D77.pdf,2026-11-09,Posted by state APA (https://www.apa.virginia.gov/reports/23463); NCAA AUP statement
+Virginia,fin_fiscal_year,2025,year,FY2025,Virginia Auditor of Public Accounts (state portal) - UVA AUP report,https://dlasprodpublic.blob.core.windows.net/apa/5AF2BCBD-74C8-430A-95FC-8DB4EAF24D77.pdf,2026-11-09,
+Virginia,total_operating_revenue,155120581,USD,FY2025,Virginia Auditor of Public Accounts (state portal) - UVA AUP report,https://dlasprodpublic.blob.core.windows.net/apa/5AF2BCBD-74C8-430A-95FC-8DB4EAF24D77.pdf,2026-11-09,
+Virginia,total_operating_expenses,162066041,USD,FY2025,Virginia Auditor of Public Accounts (state portal) - UVA AUP report,https://dlasprodpublic.blob.core.windows.net/apa/5AF2BCBD-74C8-430A-95FC-8DB4EAF24D77.pdf,2026-11-09,
+Virginia,media_rights_revenue,33681945,USD,FY2025,Virginia Auditor of Public Accounts (state portal) - UVA AUP report,https://dlasprodpublic.blob.core.windows.net/apa/5AF2BCBD-74C8-430A-95FC-8DB4EAF24D77.pdf,2026-11-09,
+Virginia,ticket_sales_revenue,15902119,USD,FY2025,Virginia Auditor of Public Accounts (state portal) - UVA AUP report,https://dlasprodpublic.blob.core.windows.net/apa/5AF2BCBD-74C8-430A-95FC-8DB4EAF24D77.pdf,2026-11-09,
+Virginia,contributions_revenue,34462652,USD,FY2025,Virginia Auditor of Public Accounts (state portal) - UVA AUP report,https://dlasprodpublic.blob.core.windows.net/apa/5AF2BCBD-74C8-430A-95FC-8DB4EAF24D77.pdf,2026-11-09,
+Virginia,ncaa_distributions,3229611,USD,FY2025,Virginia Auditor of Public Accounts (state portal) - UVA AUP report,https://dlasprodpublic.blob.core.windows.net/apa/5AF2BCBD-74C8-430A-95FC-8DB4EAF24D77.pdf,2026-11-09,
+Virginia,conference_distributions,2721016,USD,FY2025,Virginia Auditor of Public Accounts (state portal) - UVA AUP report,https://dlasprodpublic.blob.core.windows.net/apa/5AF2BCBD-74C8-430A-95FC-8DB4EAF24D77.pdf,2026-11-09,
+Virginia,conference_bowl_distributions,6793231,USD,FY2025,Virginia Auditor of Public Accounts (state portal) - UVA AUP report,https://dlasprodpublic.blob.core.windows.net/apa/5AF2BCBD-74C8-430A-95FC-8DB4EAF24D77.pdf,2026-11-09,Reported as conference distributions of post-season generated revenue
+Virginia,direct_institutional_support,17916907,USD,FY2025,Virginia Auditor of Public Accounts (state portal) - UVA AUP report,https://dlasprodpublic.blob.core.windows.net/apa/5AF2BCBD-74C8-430A-95FC-8DB4EAF24D77.pdf,2026-11-09,
+Virginia,indirect_institutional_support,1401812,USD,FY2025,Virginia Auditor of Public Accounts (state portal) - UVA AUP report,https://dlasprodpublic.blob.core.windows.net/apa/5AF2BCBD-74C8-430A-95FC-8DB4EAF24D77.pdf,2026-11-09,"Excludes separate line 'Indirect institutional support - athletics facilities debt service, lease and rental fees' of 562641"
+Virginia,student_fees,17335632,USD,FY2025,Virginia Auditor of Public Accounts (state portal) - UVA AUP report,https://dlasprodpublic.blob.core.windows.net/apa/5AF2BCBD-74C8-430A-95FC-8DB4EAF24D77.pdf,2026-11-09,
+Virginia,coaching_salaries,30521367,USD,FY2025,Virginia Auditor of Public Accounts (state portal) - UVA AUP report,https://dlasprodpublic.blob.core.windows.net/apa/5AF2BCBD-74C8-430A-95FC-8DB4EAF24D77.pdf,2026-11-09,
+Virginia,athletics_related_debt,24939741,USD,FY2025,Virginia Auditor of Public Accounts (state portal) - UVA AUP report,https://dlasprodpublic.blob.core.windows.net/apa/5AF2BCBD-74C8-430A-95FC-8DB4EAF24D77.pdf,2026-11-09,
+Virginia,debt_service,1331006,USD,FY2025,Virginia Auditor of Public Accounts (state portal) - UVA AUP report,https://dlasprodpublic.blob.core.windows.net/apa/5AF2BCBD-74C8-430A-95FC-8DB4EAF24D77.pdf,2026-11-09,Sum of facilities debt service 562641 plus facilities leases and rental fees 768365; line includes leases/rental fees
+Clemson,varsity_sports,19,count,2026-27,Clemson Athletics official site (navigation),https://clemsontigers.com/,2026-11-09,"Counted from site nav: 8 men's + 11 women's, with cross country and track & field listed separately per gender; page does not state explicit number"
+Florida State,varsity_sports,21,count,2025-26,FSU Athletics Gender Equity Plan (school-posted PDF),https://seminoles.com/documents/download/2025/8/29/2025_Florida_State_Gender_Equity_Plan_Updates__as_of_Aug_29__2025_.pdf,2026-11-09,Plan states 20 NCAA teams soon to be 21 with women's lacrosse added 2025-26
+Georgia Tech,varsity_sports,17,count,2026-27,Georgia Tech Athletics official site,https://ramblinwreck.com/news/2026/09/01/georgia-tech-athletics-veritiv-announce-historic-partnership,2026-11-09,Athletics-site boilerplate reports 17 varsity sports (via search summary of ramblinwreck.com pages); page not individually verified
+Louisville,varsity_sports,21,count,2024-25,Louisville Athletics official site (2024-25 Year in Review),https://gocards.com/sports/2025/7/22/2024-25-year-in-review,2026-11-09,Counted from sports listed in year-in-review; older gocards.com materials say 23; explicit number not confirmed on this page
+North Carolina,varsity_sports,28,count,2024-25,UNC Athletics official site,https://goheels.com/news/2024/8/3/209747230,2026-11-09,Page titled UNC's 28-Sport Program
+NC State,varsity_sports,22,count,2024-25,NC State Athletics official site,https://gopack.com/news/2025/4/21/pack-athletics-nc-state-athletics-celebrates-with-2025-wolfie-awards,2026-11-09,Release refers to all 22 varsity sports; older gopack.com releases say 23
+Pittsburgh,varsity_sports,19,count,2026,Pitt Athletics official site,https://pittsburghpanthers.com/facilities/victory-heights-arena-and-sports-performance-center/95,2026-11-09,Pitt site states 19 varsity teams (9 men's 10 women's per a 2024 release)
+Virginia Tech,varsity_sports,22,count,2024-25,Virginia Tech Athletics official site,https://hokiesports.com/2024-investment-guide,2026-11-09,Site references 22 varsity sports
+Virginia,varsity_sports,27,count,2026,Virginia Athletics official site,https://virginiasports.com/virginia-cheerleading,2026-11-09,Page references 27 varsity teams (14 women's 13 men's per 2017 squash announcement)
+California,varsity_sports,30,count,2026,Cal Athletics official site,https://calbears.com/news/2026/9/24/athletics-news-cal-announces-historic-naming-rights-partnership-with-databricks,2026-11-09,Release states 30 sports
+Boston College,varsity_sports,31,count,2020,Boston College Athletics official site,https://bceagles.com/sports/2020/5/31/department-recruit-page,2026-11-09,Site states 31 varsity teams
+Duke,varsity_sports,27,count,2024-25,Duke Athletics official site,https://goduke.com/sports/2019/6/26/211387391,2026-11-09,Mission page states 27 varsity programs
+Miami (FL),varsity_sports,18,count,2025-26,Miami Athletics official site,https://hurricanesports.com/sports/2017/6/22/hurricane-club.aspx?id=4378,2026-11-09,Hurricane Club page states 18 varsity sports
+SMU,varsity_sports,17,count,2025-26,SMU Athletics 2025-26 Student-Athlete Handbook,https://smumustangs.com/documents/download/2025/8/21/2025-26_Student-Athlete_Handbook.pdf,2026-11-09,Handbook refers to all 17 SMU teams
+Stanford,varsity_sports,36,count,2025-26,Stanford Athletics official site,https://gostanford.com/buck-cardinal-club,2026-11-09,Buck/Cardinal Club page references all 36 varsity sports
+Syracuse,varsity_sports,20,count,2025,Syracuse Athletics official site,https://give.cuse.com/sports/2025/6/11/make-a-gift-2.aspx,2026-11-09,Donor page states 20 varsity programs
+Wake Forest,varsity_sports,--,count,2026-27,Wake Forest Athletics official site,https://godeacs.com/staff-directory,2026-11-09,Official site pages retrieved did not state a number of varsity sports; not sourced
+Clemson,fb_hc_name,Dabo Swinney,text,2026,Press report (NBC Sports),https://www.nbcsports.com/college-football/news/clemson-coach-dabo-swinney-gets-raise-extended-through-2031?chrcontext=KXAS,2026-11-09,Still listed as coach in Nov 2026 coverage; contract from Sept 2022
+Clemson,fb_hc_annual_comp,11500000,USD,2026,Press report (NBC Sports),https://www.nbcsports.com/college-football/news/clemson-coach-dabo-swinney-gets-raise-extended-through-2031?chrcontext=KXAS,2026-11-09,2022 contract reported as $11.5M in 2026; excludes bonuses; contract itself not located
+Clemson,fb_hc_contract_end,2031,year,2026,Press report (NBC Sports),https://www.nbcsports.com/college-football/news/clemson-coach-dabo-swinney-gets-raise-extended-through-2031?chrcontext=KXAS,2026-11-09,
+Clemson,fb_hc_pay_source_type,press report,text,2026,Press report (NBC Sports),https://www.nbcsports.com/college-football/news/clemson-coach-dabo-swinney-gets-raise-extended-through-2031?chrcontext=KXAS,2026-11-09,
+Clemson,mbb_hc_name,Brad Brownell,text,2026-27,Press report (Fox Sports/AP),https://www.foxsports.com/articles/cbk/clemson-gives-mens-basketball-coach-brad-brownell-new-contract-after-run-to-elite-eight,2026-11-09,Current status for 2026-27 not independently re-verified
+Clemson,mbb_hc_annual_comp,--,USD,2026-27,Press report (Clemson Insider via search),https://www.foxsports.com/articles/cbk/clemson-gives-mens-basketball-coach-brad-brownell-new-contract-after-run-to-elite-eight,2026-11-09,2024 deal 5 yrs/$20M ($3.5M 2024-25 +$250K/yr); later reported extension to six years/$27.5M with $4M in 2025-26 rising to $5M; 2026-27 figure not confirmed
+Clemson,mbb_hc_contract_end,--,year,2026-27,Press report,https://www.foxsports.com/articles/cbk/clemson-gives-mens-basketball-coach-brad-brownell-new-contract-after-run-to-elite-eight,2026-11-09,2024 deal ran to 2029; later extension end date not confirmed
+Clemson,mbb_hc_pay_source_type,press report,text,2026-27,Press report,https://www.foxsports.com/articles/cbk/clemson-gives-mens-basketball-coach-brad-brownell-new-contract-after-run-to-elite-eight,2026-11-09,
+Clemson,stadium_name,Memorial Stadium,text,2026,Clemson Athletics official site,https://clemsontigers.com/football-facilities-memorial-stadium,2026-11-09,Also known as Death Valley; field named Frank Howard Field
+Clemson,stadium_capacity,--,seats,2026,Clemson Athletics official site,https://clemsontigers.com/football-facilities-memorial-stadium,2026-11-09,"Official page cites only 'about 80,000'; third-party sources say 81,500; no exact official figure read"
+Clemson,stadium_year_opened,1942,year,2026,Clemson Athletics official site,https://clemsontigers.com/football-facilities-memorial-stadium,2026-11-09,First game Sept 19 1942
+Clemson,stadium_last_renovation_year,2022,year,2026,Clemson Athletics official site,https://clemsontigers.com/football-facilities-memorial-stadium,2026-11-09,"2022 added video board, light poles, IPTAY Master Club renovation"
+Clemson,arena_name,Littlejohn Coliseum,text,2026-27,Clemson Athletics official site,https://clemsontigers.com/littlejohn-coliseum/,2026-11-09,
+Clemson,arena_capacity,--,seats,2026-27,Clemson Athletics official site,https://clemsontigers.com/littlejohn-coliseum/,2026-11-09,Capacity not stated on page read
+Clemson,arena_year_opened,1968,year,2026-27,ESPN,https://www.espn.com/mens-college-basketball/story/_/id/17126774/acc-venues-ranked-according-difficulty,2026-11-09,"ESPN lists Littlejohn Coliseum as opened 1968; renovated 2015-16 ($63.5M, reopened Nov 2016 per clemsontigers.com)"
+Clemson,apparel_partner,Nike,text,2018-2028,Sports Business Journal / press,https://collegefootballtalk.nbcsports.com/2018/08/03/clemson-announces-10-year-58-million-apparel-contract-extension-with-nike/,2026-11-09,Partnership since 2002
+Clemson,apparel_start_year,2018,year,2018-2028,Press report,https://collegefootballtalk.nbcsports.com/2018/08/03/clemson-announces-10-year-58-million-apparel-contract-extension-with-nike/,2026-11-09,Extension signed Aug 2018 running through 2028
+Clemson,apparel_term_years,10,years,2018-2028,Press report,https://collegefootballtalk.nbcsports.com/2018/08/03/clemson-announces-10-year-58-million-apparel-contract-extension-with-nike/,2026-11-09,
+Clemson,apparel_total_value,58000000,USD,2018-2028,Press report,https://collegefootballtalk.nbcsports.com/2018/08/03/clemson-announces-10-year-58-million-apparel-contract-extension-with-nike/,2026-11-09,"Reported value includes cash, product and royalties"
+Florida State,fb_hc_name,Rick Stockstill (interim),text,2026,Press report (Fighting Gobbler),https://fightinggobbler.com/4-acc-football-coaches-who-could-be-fired-next-after-dave-doeren-is-let-go-at-nc-state,2026-11-09,Mike Norvell reported fired Nov 1 2026; Stockstill interim; single secondary source
+Florida State,fb_hc_annual_comp,--,USD,2026,Press report (Palm Beach Post),https://www.pressreader.com/usa/the-palm-beach-post/20240229/281771339137034,2026-11-09,Interim coach; compensation not located. Former coach Norvell contract scheduled $10.3M for 2026 rising $150K/yr through 2031
+Florida State,fb_hc_contract_end,--,year,2026,Press report,https://www.pressreader.com/usa/the-palm-beach-post/20240229/281771339137034,2026-11-09,Interim; Norvell contract ran through 2031
+Florida State,fb_hc_pay_source_type,--,text,2026,Press report,https://www.pressreader.com/usa/the-palm-beach-post/20240229/281771339137034,2026-11-09,Interim coach
+Florida State,mbb_hc_name,Luke Loucks,text,2026-27,On3 (contract letter of understanding),https://www.on3.com/teams/florida-state-seminoles/news/fsu-contract-details-luke-loucks-letter-of-understanding,2026-11-09,
+Florida State,mbb_hc_annual_comp,2175000,USD,2026-27,On3 (contract letter of understanding),https://www.on3.com/teams/florida-state-seminoles/news/fsu-contract-details-luke-loucks-letter-of-understanding,2026-11-09,Contract year May 2026-Apr 2027; excludes $50000 retention bonus
+Florida State,mbb_hc_contract_end,2030,year,2026-27,On3 (contract letter of understanding),https://www.on3.com/teams/florida-state-seminoles/news/fsu-contract-details-luke-loucks-letter-of-understanding,2026-11-09,Five-year deal through 2029-30 season
+Florida State,mbb_hc_pay_source_type,contract,text,2026-27,On3 (contract letter of understanding),https://www.on3.com/teams/florida-state-seminoles/news/fsu-contract-details-luke-loucks-letter-of-understanding,2026-11-09,Public records contract document as reported by press
+Florida State,stadium_name,Doak Campbell Stadium,text,2025,Press report (Birm Group citing FSU media guide),https://thebirmgroup.com/progress-at-doak-campbell-stadium-fsus-renovation-update/,2026-11-09,Official facility page not read
+Florida State,stadium_capacity,67277,seats,2025,Press report (Birm Group citing FSU 2025 media guide),https://thebirmgroup.com/progress-at-doak-campbell-stadium-fsus-renovation-update/,2026-11-09,Secondary source citing FSU media guide; post-renovation
+Florida State,stadium_last_renovation_year,2025,year,2025,Press report (Birm Group),https://thebirmgroup.com/progress-at-doak-campbell-stadium-fsus-renovation-update/,2026-11-09,About $265M renovation targeted for completion before 2025 season
+Florida State,patch_partner,Kin Insurance,text,2026,Florida State Athletics official site,https://seminoles.com/news/2026/9/4/kin-insurance-and-florida-state-athletics-announce-historic-four-year-jersey-partnership,2026-11-09,Covers 18 varsity teams including football per beinsure.com/WTXL coverage
+Florida State,patch_industry,insurance,text,2026,Florida State Athletics official site,https://seminoles.com/news/2026/9/4/kin-insurance-and-florida-state-athletics-announce-historic-four-year-jersey-partnership,2026-11-09,
+Florida State,patch_start_year,2026,year,2026,Florida State Athletics official site,https://seminoles.com/news/2026/9/4/kin-insurance-and-florida-state-athletics-announce-historic-four-year-jersey-partnership,2026-11-09,Patch debut Sept 7 2026 per press coverage
+Florida State,patch_term_years,4,years,2026,Florida State Athletics official site,https://seminoles.com/news/2026/9/4/kin-insurance-and-florida-state-athletics-announce-historic-four-year-jersey-partnership,2026-11-09,
+Florida State,patch_annual_value,--,USD,2026,Florida State Athletics official site,https://seminoles.com/news/2026/9/4/kin-insurance-and-florida-state-athletics-announce-historic-four-year-jersey-partnership,2026-11-09,Financial terms not disclosed
+Florida State,patch_total_value,--,USD,2026,Florida State Athletics official site,https://seminoles.com/news/2026/9/4/kin-insurance-and-florida-state-athletics-announce-historic-four-year-jersey-partnership,2026-11-09,Financial terms not disclosed
+Georgia Tech,fb_hc_name,Brent Key,text,2026,AJC,https://www.ajc.com/sports/2026/09/brent-keys-georgia-tech-football-contract-goes-well-beyond-a-salary-increase/,2026-11-09,
+Georgia Tech,fb_hc_annual_comp,6150000,USD,2026,AJC,https://www.ajc.com/sports/2026/09/brent-keys-georgia-tech-football-contract-goes-well-beyond-a-salary-increase/,2026-11-09,Base salary per AJC; earlier reports cited about $6.5M average; no guaranteed supplemental reported
+Georgia Tech,fb_hc_contract_end,2030,year,2026,AJC,https://www.ajc.com/sports/2026/09/brent-keys-georgia-tech-football-contract-goes-well-beyond-a-salary-increase/,2026-11-09,Win-based extensions possible
+Georgia Tech,fb_hc_pay_source_type,press report,text,2026,AJC,https://www.ajc.com/sports/2026/09/brent-keys-georgia-tech-football-contract-goes-well-beyond-a-salary-increase/,2026-11-09,AJC reporting on contract terms
+Georgia Tech,mbb_hc_name,Scott Cross,text,2026-27,AJC,https://feeds.ajc.com/sports/2026/08/details-of-scott-cross-georgia-tech-contract/,2026-11-09,Compensation described as low end for ACC; figures not read
+Georgia Tech,patch_partner,Veritiv,text,2026,Georgia Tech Athletics official site,https://ramblinwreck.com/news/2026/09/01/georgia-tech-athletics-veritiv-announce-historic-partnership,2026-11-09,First football jersey patch sponsor
+Georgia Tech,patch_industry,distribution and packaging,text,2026,Georgia Tech Athletics official site,https://ramblinwreck.com/news/2026/09/01/georgia-tech-athletics-veritiv-announce-historic-partnership,2026-11-09,Industry classification by Claude; Veritiv also Official Sustainability Partner
+Georgia Tech,patch_start_year,2026,year,2026,Georgia Tech Athletics official site,https://ramblinwreck.com/news/2026/09/01/georgia-tech-athletics-veritiv-announce-historic-partnership,2026-11-09,
+Georgia Tech,patch_term_years,--,years,2026,Georgia Tech Athletics official site,https://ramblinwreck.com/news/2026/09/01/georgia-tech-athletics-veritiv-announce-historic-partnership,2026-11-09,Multiyear; terms undisclosed
+Georgia Tech,patch_annual_value,--,USD,2026,Georgia Tech Athletics official site,https://ramblinwreck.com/news/2026/09/01/georgia-tech-athletics-veritiv-announce-historic-partnership,2026-11-09,Undisclosed
+Georgia Tech,patch_total_value,--,USD,2026,Georgia Tech Athletics official site,https://ramblinwreck.com/news/2026/09/01/georgia-tech-athletics-veritiv-announce-historic-partnership,2026-11-09,Undisclosed
+Georgia Tech,apparel_partner,Under Armour,text,2026,Georgia Tech Athletics official site,https://ramblinwreck.com/georgia-tech-reveals-2026-27-under-armour-uniforms/,2026-11-09,Announced Oct 2025; adidas deal ended 2024
+Georgia Tech,apparel_term_years,10,years,2026,Georgia Tech Athletics official site,https://ramblinwreck.com/georgia-tech-reveals-2026-27-under-armour-uniforms/,2026-11-09,10-year partnership per search summary of ramblinwreck.com
+Georgia Tech,mmr_partner,other,text,2023,Georgia Tech Athletics official site,https://ramblinwreck.com/news/2023/03/23/georgias-own-to-serve-as-presenting-sponsor-of-tech-spring-game,2026-11-09,Legends has managed corporate partnerships and MMR since 2021 per 2023 release; athletics site also references IMG College and GTSP
+Louisville,fb_hc_name,Jeff Brohm,text,2026,Press report (SI),https://www.si.com/college/louisville/football/breaking-down-brohm-contract-extension,2026-11-09,
+Louisville,fb_hc_annual_comp,6550000,USD,2026,Press report (SI),https://www.si.com/college/louisville/football/breaking-down-brohm-contract-extension,2026-11-09,2026 base 6300000 plus retention payment 250000; excludes CFP incentives
+Louisville,fb_hc_contract_end,2033,year,2026,Press report (SI),https://www.si.com/college/louisville/football/breaking-down-brohm-contract-extension,2026-11-09,Extension approved April 23 2026; ends Dec 31 2033
+Louisville,fb_hc_pay_source_type,press report,text,2026,Press report (SI),https://www.si.com/college/louisville/football/breaking-down-brohm-contract-extension,2026-11-09,
+Louisville,stadium_name,L&N Federal Credit Union Stadium,text,2026,Press report (Yahoo/FOS roundup),https://frontofficesports.com/article/ncaa-college-sports-jersey-patch-deals-football-basketbal-conference/,2026-11-09,Roundup states L&N Credit Union holds naming rights to football stadium and volleyball arena
+Louisville,stadium_nr_partner,L&N Federal Credit Union,text,2026,Front Office Sports,https://frontofficesports.com/article/ncaa-college-sports-jersey-patch-deals-football-basketbal-conference/,2026-11-09,
+Louisville,stadium_nr_industry,banking,text,2026,Front Office Sports,https://frontofficesports.com/article/ncaa-college-sports-jersey-patch-deals-football-basketbal-conference/,2026-11-09,Credit union
+Louisville,stadium_nr_deal_type,commercial,text,2026,Front Office Sports,https://frontofficesports.com/article/ncaa-college-sports-jersey-patch-deals-football-basketbal-conference/,2026-11-09,"Start year, term, values not retrieved"
+Louisville,patch_partner,L&N Federal Credit Union,text,2026,Front Office Sports,https://frontofficesports.com/article/ncaa-college-sports-jersey-patch-deals-football-basketbal-conference/,2026-11-09,Football and volleyball jerseys; terms undisclosed
+Louisville,patch_industry,banking,text,2026,Front Office Sports,https://frontofficesports.com/article/ncaa-college-sports-jersey-patch-deals-football-basketbal-conference/,2026-11-09,
+North Carolina,fb_hc_name,Bill Belichick,text,2026,CBS Sports,https://www.cbssports.com/college-football/news/bill-belichick-north-carolina-contract-details-official-terms-trickle-out-as-tar-heels-announce-hire,2026-11-09,
+North Carolina,fb_hc_annual_comp,10000000,USD,2026,CBS Sports,https://www.cbssports.com/college-football/news/bill-belichick-north-carolina-contract-details-official-terms-trickle-out-as-tar-heels-announce-hire,2026-11-09,$1M base plus $9M supplemental income per UNC-released contract; excludes up to $3.5M bonuses
+North Carolina,fb_hc_contract_end,2029,year,2026,CBS Sports,https://www.cbssports.com/college-football/news/bill-belichick-north-carolina-contract-details-official-terms-trickle-out-as-tar-heels-announce-hire,2026-11-09,Five-year deal; only first three years guaranteed
+North Carolina,fb_hc_pay_source_type,contract,text,2026,CBS Sports,https://www.cbssports.com/college-football/news/bill-belichick-north-carolina-contract-details-official-terms-trickle-out-as-tar-heels-announce-hire,2026-11-09,UNC released contract; terms read via press coverage
+North Carolina,mbb_hc_name,Michael Malone,text,2026-27,On3,https://www.on3.com/news/unc-basketball-coach-michael-malone-contract-details-buyout-revealed/,2026-11-09,Hired April 2026 replacing Hubert Davis per search coverage
+North Carolina,mbb_hc_annual_comp,7500000,USD,2026-27,On3,https://www.on3.com/news/unc-basketball-coach-michael-malone-contract-details-buyout-revealed/,2026-11-09,Year 1 salary reported as $7.5M of six-year $50M deal; year-by-year schedule not read
+North Carolina,mbb_hc_contract_end,--,year,2026-27,On3,https://www.on3.com/news/unc-basketball-coach-michael-malone-contract-details-buyout-revealed/,2026-11-09,Six-year deal announced April 2026; exact end year not read
+North Carolina,mbb_hc_pay_source_type,press report,text,2026-27,On3,https://www.on3.com/news/unc-basketball-coach-michael-malone-contract-details-buyout-revealed/,2026-11-09,
+North Carolina,apparel_partner,Jordan Brand,text,2018-2028,UNC Alumni / press,https://alumni.unc.edu/news/unc-nike-sign-new-10-year-contract,2026-11-09,10-year Nike/Jordan extension announced Dec 2018; terms and values not read
+NC State,fb_hc_name,Todd Goebbel (interim),text,2026,Press report (Wikipedia-derived summary and ClutchPoints),https://clutchpoints.com/ncaa-football/nc-state-football-rumors-all-signs-point-philip-rivers-next-head-coach,2026-11-09,Dave Doeren reported fired Oct 24 2026; Goebbel interim; permanent hire not confirmed
+NC State,fb_hc_annual_comp,--,USD,2026,Press report,https://clutchpoints.com/ncaa-football/nc-state-football-rumors-all-signs-point-philip-rivers-next-head-coach,2026-11-09,Interim; former coach Doeren 2024 deal $5.5M with $125K annual raises through 2029
+NC State,fb_hc_contract_end,--,year,2026,Press report,https://clutchpoints.com/ncaa-football/nc-state-football-rumors-all-signs-point-philip-rivers-next-head-coach,2026-11-09,Interim
+NC State,fb_hc_pay_source_type,--,text,2026,Press report,https://clutchpoints.com/ncaa-football/nc-state-football-rumors-all-signs-point-philip-rivers-next-head-coach,2026-11-09,Interim
+NC State,mmr_partner,Learfield,text,2026,NC State Athletics official site,https://gopack.com/sports/2015/4/27/GEN_20140101136,2026-11-09,Wolfpack Sports Properties JV of Learfield and Capitol Broadcasting
+Pittsburgh,fb_hc_name,Pat Narduzzi,text,2026,Pitt Athletics / Pitt News,https://pittnews.com/article/172501/sports/pitt-is-truly-home-narduzzi-signs-contract-extension-through-2030-season,2026-11-09,Current status Nov 2026 not independently re-verified
+Pittsburgh,fb_hc_annual_comp,--,USD,2026,Pitt News,https://pittnews.com/article/172501/sports/pitt-is-truly-home-narduzzi-signs-contract-extension-through-2030-season,2026-11-09,Pitt does not disclose contract terms; $4.81M FY2020 per tax documents
+Pittsburgh,fb_hc_contract_end,2030,year,2026,Pitt News,https://pittnews.com/article/172501/sports/pitt-is-truly-home-narduzzi-signs-contract-extension-through-2030-season,2026-11-09,March 2022 extension; later changes not found
+Pittsburgh,fb_hc_pay_source_type,school announcement,text,2026,Pitt News,https://pittnews.com/article/172501/sports/pitt-is-truly-home-narduzzi-signs-contract-extension-through-2030-season,2026-11-09,Term announced by school; pay not disclosed
+Pittsburgh,patch_partner,UPMC,text,2026,Front Office Sports,https://frontofficesports.com/article/ncaa-college-sports-jersey-patch-deals-football-basketbal-conference/,2026-11-09,Football jerseys; multiyear; announced Aug 2026
+Pittsburgh,patch_industry,healthcare,text,2026,Front Office Sports,https://frontofficesports.com/article/ncaa-college-sports-jersey-patch-deals-football-basketbal-conference/,2026-11-09,
+Pittsburgh,patch_start_year,2026,year,2026,Front Office Sports,https://frontofficesports.com/article/ncaa-college-sports-jersey-patch-deals-football-basketbal-conference/,2026-11-09,
+Pittsburgh,patch_total_value,--,USD,2026,Front Office Sports,https://frontofficesports.com/article/ncaa-college-sports-jersey-patch-deals-football-basketbal-conference/,2026-11-09,Not disclosed
+Virginia Tech,fb_hc_name,James Franklin,text,2026,Press report (SI),https://www.si.com/college-football/virginia-tech-contract-details-james-franklin-coach,2026-11-09,Hired Nov 2025
+Virginia Tech,fb_hc_annual_comp,5000000,USD,2026,Press report (Field Level Media via search),https://www.si.com/college-football/virginia-tech-contract-details-james-franklin-coach,2026-11-09,Reported as approximately $5M per year for first three years ($500K base plus supplemental); exact schedule not read; total deal at least $41.75M
+Virginia Tech,fb_hc_contract_end,2030,year,2026,Press report (SI),https://www.si.com/college-football/virginia-tech-contract-details-james-franklin-coach,2026-11-09,Five years through Dec 31 2030
+Virginia Tech,fb_hc_pay_source_type,press report,text,2026,Press report (SI),https://www.si.com/college-football/virginia-tech-contract-details-james-franklin-coach,2026-11-09,Virginia Tech released contract terms
+Virginia,fb_hc_name,Tony Elliott,text,2026,WSLS (AP),https://www.wsls.com/sports/2026/04/08/virginia-reaches-agreement-with-coach-tony-elliott-on-a-contract-extension-through-the-2030-season/,2026-11-09,
+Virginia,fb_hc_annual_comp,--,USD,2026,WSLS (AP),https://www.wsls.com/sports/2026/04/08/virginia-reaches-agreement-with-coach-tony-elliott-on-a-contract-extension-through-the-2030-season/,2026-11-09,New extension financial terms not disclosed; prior contract paid $4.4M per ESPN
+Virginia,fb_hc_contract_end,2030,year,2026,WSLS (AP),https://www.wsls.com/sports/2026/04/08/virginia-reaches-agreement-with-coach-tony-elliott-on-a-contract-extension-through-the-2030-season/,2026-11-09,
+Virginia,fb_hc_pay_source_type,school announcement,text,2026,WSLS (AP),https://www.wsls.com/sports/2026/04/08/virginia-reaches-agreement-with-coach-tony-elliott-on-a-contract-extension-through-the-2030-season/,2026-11-09,Extension announced by school without terms
+California,patch_partner,Dialpad,text,2026,EssentiallySports,https://www.essentiallysports.com/ncaa-college-football-news-historic-acc-program-lands-massive-sixteen-million-jersey-patch-deal-to-boost-revenue-california-golden-bears/,2026-11-09,All Cal programs per Front Office Sports; school release at calbears.com/news/2026/7/14
+California,patch_industry,technology,text,2026,EssentiallySports,https://www.essentiallysports.com/ncaa-college-football-news-historic-acc-program-lands-massive-sixteen-million-jersey-patch-deal-to-boost-revenue-california-golden-bears/,2026-11-09,AI customer-experience platform
+California,patch_start_year,2026,year,2026,EssentiallySports,https://www.essentiallysports.com/ncaa-college-football-news-historic-acc-program-lands-massive-sixteen-million-jersey-patch-deal-to-boost-revenue-california-golden-bears/,2026-11-09,Patch on jerseys for 2026 season
+California,patch_term_years,5,years,2026,EssentiallySports,https://www.essentiallysports.com/ncaa-college-football-news-historic-acc-program-lands-massive-sixteen-million-jersey-patch-deal-to-boost-revenue-california-golden-bears/,2026-11-09,
+California,patch_total_value,16000000,USD,2026,EssentiallySports,https://www.essentiallysports.com/ncaa-college-football-news-historic-acc-program-lands-massive-sixteen-million-jersey-patch-deal-to-boost-revenue-california-golden-bears/,2026-11-09,Reported five-year $16M; local press report
+California,stadium_name,California Memorial Stadium,text,2026,Databricks press release,https://www.databricks.com/company/newsroom/press-releases/soda-hall-football-field-databricks-returns-berkeley-roots-cal,2026-11-09,Playing surface named Databricks Field at California Memorial Stadium (Sept 24 2026)
+California,stadium_nr_partner,Databricks,text,2026,Databricks press release,https://www.databricks.com/company/newsroom/press-releases/soda-hall-football-field-databricks-returns-berkeley-roots-cal,2026-11-09,Field naming rights only (stadium name retained); includes helmet decals and Databricks Club
+California,stadium_nr_industry,technology,text,2026,Databricks press release,https://www.databricks.com/company/newsroom/press-releases/soda-hall-football-field-databricks-returns-berkeley-roots-cal,2026-11-09,Data and AI software
+California,stadium_nr_deal_type,commercial,text,2026,Databricks press release,https://www.databricks.com/company/newsroom/press-releases/soda-hall-football-field-databricks-returns-berkeley-roots-cal,2026-11-09,
+California,stadium_nr_start_year,2026,year,2026,Databricks press release,https://www.databricks.com/company/newsroom/press-releases/soda-hall-football-field-databricks-returns-berkeley-roots-cal,2026-11-09,
+California,stadium_nr_term_years,--,years,2026,Databricks press release,https://www.databricks.com/company/newsroom/press-releases/soda-hall-football-field-databricks-returns-berkeley-roots-cal,2026-11-09,Multi-year; term not disclosed
+California,stadium_nr_total_value,--,USD,2026,Digg summary of ACCSports,https://digg.com/sports/9ebi6nxj,2026-11-09,Value not disclosed by Cal; a $22.8M figure appears only in an unsourced secondary mention and is not used
+Boston College,fb_hc_name,Bill O'Brien,text,2026,Saturday Down South / CBS Sports,https://www.cbssports.com/college-football/news/boston-college-bill-obrien-college-football-commitment/,2026-11-09,Retained for 2026 after 2-10 season
+Boston College,fb_hc_annual_comp,--,USD,2026,CBS Sports,https://www.cbssports.com/college-football/news/boston-college-bill-obrien-college-football-commitment/,2026-11-09,private; compensation not disclosed
+Boston College,fb_hc_contract_end,--,year,2026,CBS Sports,https://www.cbssports.com/college-football/news/boston-college-bill-obrien-college-football-commitment/,2026-11-09,private; contract terms not public
+Miami (FL),fb_hc_name,Mario Cristobal,text,2026,ESPN,https://africa.espn.com/college-football/story/_/id/49525737/mario-cristobal-miami-agree-contract-extension,2026-11-09,Extension agreed Aug 2026
+Miami (FL),fb_hc_annual_comp,--,USD,2026,ESPN,https://africa.espn.com/college-football/story/_/id/49525737/mario-cristobal-miami-agree-contract-extension,2026-11-09,private; compensation not disclosed (prior deal about $8M per year reported)
+Miami (FL),fb_hc_contract_end,--,year,2026,ESPN,https://africa.espn.com/college-football/story/_/id/49525737/mario-cristobal-miami-agree-contract-extension,2026-11-09,Extension length not released; prior deal through 2031
+SMU,patch_partner,Texas Capital,text,2026,Front Office Sports,https://frontofficesports.com/article/ncaa-college-sports-jersey-patch-deals-football-basketbal-conference/,2026-11-09,All-sports patch announced Oct 2026; terms not public
+SMU,patch_industry,banking,text,2026,Front Office Sports,https://frontofficesports.com/article/ncaa-college-sports-jersey-patch-deals-football-basketbal-conference/,2026-11-09,
+Stanford,patch_partner,DoorDash,text,2026,Front Office Sports,https://frontofficesports.com/article/ncaa-college-sports-jersey-patch-deals-football-basketbal-conference/,2026-11-09,At least 15 programs incl. football; announced Sept 2026; terms not disclosed
+Stanford,patch_industry,food delivery,text,2026,Front Office Sports,https://frontofficesports.com/article/ncaa-college-sports-jersey-patch-deals-football-basketbal-conference/,2026-11-09,
+California,fin_report_url,--,url,FY2025,Not sourced,https://www.ncaa.org/what-we-do/finances/financial-reporting-system/,2026-11-09,no school-posted MFRS report located
+California,fin_fiscal_year,--,year,FY2025,Not sourced,https://www.ncaa.org/what-we-do/finances/financial-reporting-system/,2026-11-09,no school-posted MFRS report located
+California,total_operating_revenue,--,USD,FY2025,Not sourced,https://www.ncaa.org/what-we-do/finances/financial-reporting-system/,2026-11-09,no school-posted MFRS report located
+California,total_operating_expenses,--,USD,FY2025,Not sourced,https://www.ncaa.org/what-we-do/finances/financial-reporting-system/,2026-11-09,no school-posted MFRS report located
+California,media_rights_revenue,--,USD,FY2025,Not sourced,https://www.ncaa.org/what-we-do/finances/financial-reporting-system/,2026-11-09,no school-posted MFRS report located
+California,ticket_sales_revenue,--,USD,FY2025,Not sourced,https://www.ncaa.org/what-we-do/finances/financial-reporting-system/,2026-11-09,no school-posted MFRS report located
+California,contributions_revenue,--,USD,FY2025,Not sourced,https://www.ncaa.org/what-we-do/finances/financial-reporting-system/,2026-11-09,no school-posted MFRS report located
+California,ncaa_distributions,--,USD,FY2025,Not sourced,https://www.ncaa.org/what-we-do/finances/financial-reporting-system/,2026-11-09,no school-posted MFRS report located
+California,conference_distributions,--,USD,FY2025,Not sourced,https://www.ncaa.org/what-we-do/finances/financial-reporting-system/,2026-11-09,no school-posted MFRS report located
+California,conference_bowl_distributions,--,USD,FY2025,Not sourced,https://www.ncaa.org/what-we-do/finances/financial-reporting-system/,2026-11-09,no school-posted MFRS report located
+California,direct_institutional_support,--,USD,FY2025,Not sourced,https://www.ncaa.org/what-we-do/finances/financial-reporting-system/,2026-11-09,no school-posted MFRS report located
+California,indirect_institutional_support,--,USD,FY2025,Not sourced,https://www.ncaa.org/what-we-do/finances/financial-reporting-system/,2026-11-09,no school-posted MFRS report located
+California,student_fees,--,USD,FY2025,Not sourced,https://www.ncaa.org/what-we-do/finances/financial-reporting-system/,2026-11-09,no school-posted MFRS report located
+California,coaching_salaries,--,USD,FY2025,Not sourced,https://www.ncaa.org/what-we-do/finances/financial-reporting-system/,2026-11-09,no school-posted MFRS report located
+California,athletics_related_debt,--,USD,FY2025,Not sourced,https://www.ncaa.org/what-we-do/finances/financial-reporting-system/,2026-11-09,no school-posted MFRS report located
+California,debt_service,--,USD,FY2025,Not sourced,https://www.ncaa.org/what-we-do/finances/financial-reporting-system/,2026-11-09,no school-posted MFRS report located
+California,fb_hc_name,--,text,2026,Not sourced,https://www.footballscoop.com/2025/11/23/cal-parts-ways-with-justin-wilcox,2026-11-09,Justin Wilcox parted ways Nov 2025 per FootballScoop; current head coach not identified in research
+California,fb_hc_annual_comp,--,USD,2026,Not sourced,https://www.footballscoop.com/2025/11/23/cal-parts-ways-with-justin-wilcox,2026-11-09,Justin Wilcox parted ways Nov 2025 per FootballScoop; current head coach not identified in research
+California,fb_hc_contract_end,--,year,2026,Not sourced,https://www.footballscoop.com/2025/11/23/cal-parts-ways-with-justin-wilcox,2026-11-09,Justin Wilcox parted ways Nov 2025 per FootballScoop; current head coach not identified in research
+California,fb_hc_pay_source_type,--,text,2026,Not sourced,https://www.footballscoop.com/2025/11/23/cal-parts-ways-with-justin-wilcox,2026-11-09,Justin Wilcox parted ways Nov 2025 per FootballScoop; current head coach not identified in research
+California,mbb_hc_name,--,text,2026,Not sourced,https://calbears.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+California,mbb_hc_annual_comp,--,USD,2026,Not sourced,https://calbears.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+California,mbb_hc_contract_end,--,year,2026,Not sourced,https://calbears.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+California,mbb_hc_pay_source_type,--,text,2026,Not sourced,https://calbears.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+California,stadium_capacity,--,seats,2026,Not sourced,https://calbears.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+California,stadium_year_opened,--,year,2026,Not sourced,https://calbears.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+California,stadium_last_renovation_year,--,year,2026,Not sourced,https://calbears.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+California,arena_name,--,text,2026,Not sourced,https://calbears.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+California,arena_capacity,--,seats,2026,Not sourced,https://calbears.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+California,arena_year_opened,--,year,2026,Not sourced,https://calbears.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+California,stadium_nr_annual_value,--,USD,2026,Not sourced,https://calbears.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+California,arena_nr_partner,--,text,2026,Not sourced,https://calbears.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+California,arena_nr_industry,--,text,2026,Not sourced,https://calbears.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+California,arena_nr_deal_type,--,text,2026,Not sourced,https://calbears.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+California,arena_nr_start_year,--,year,2026,Not sourced,https://calbears.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+California,arena_nr_term_years,--,years,2026,Not sourced,https://calbears.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+California,arena_nr_annual_value,--,USD,2026,Not sourced,https://calbears.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+California,arena_nr_total_value,--,USD,2026,Not sourced,https://calbears.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+California,patch_annual_value,--,USD,2026,Not sourced,https://calbears.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+California,mmr_partner,--,text,2026,Not sourced,https://calbears.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+California,mmr_start_year,--,year,2026,Not sourced,https://calbears.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+California,mmr_term_years,--,years,2026,Not sourced,https://calbears.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+California,mmr_annual_value,--,USD,2026,Not sourced,https://calbears.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+California,mmr_total_value,--,USD,2026,Not sourced,https://calbears.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+California,apparel_partner,--,text,2026,Not sourced,https://calbears.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+California,apparel_start_year,--,year,2026,Not sourced,https://calbears.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+California,apparel_term_years,--,years,2026,Not sourced,https://calbears.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+California,apparel_annual_value,--,USD,2026,Not sourced,https://calbears.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+California,apparel_total_value,--,USD,2026,Not sourced,https://calbears.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Clemson,fin_report_url,--,url,FY2025,Not sourced,https://www.ncaa.org/what-we-do/finances/financial-reporting-system/,2026-11-09,no school-posted MFRS report located; SC State Library hosts only older Clemson AUP reports (FY2018 and earlier)
+Clemson,fin_fiscal_year,--,year,FY2025,Not sourced,https://www.ncaa.org/what-we-do/finances/financial-reporting-system/,2026-11-09,no school-posted MFRS report located; SC State Library hosts only older Clemson AUP reports (FY2018 and earlier)
+Clemson,total_operating_revenue,--,USD,FY2025,Not sourced,https://www.ncaa.org/what-we-do/finances/financial-reporting-system/,2026-11-09,no school-posted MFRS report located; SC State Library hosts only older Clemson AUP reports (FY2018 and earlier)
+Clemson,total_operating_expenses,--,USD,FY2025,Not sourced,https://www.ncaa.org/what-we-do/finances/financial-reporting-system/,2026-11-09,no school-posted MFRS report located; SC State Library hosts only older Clemson AUP reports (FY2018 and earlier)
+Clemson,media_rights_revenue,--,USD,FY2025,Not sourced,https://www.ncaa.org/what-we-do/finances/financial-reporting-system/,2026-11-09,no school-posted MFRS report located; SC State Library hosts only older Clemson AUP reports (FY2018 and earlier)
+Clemson,ticket_sales_revenue,--,USD,FY2025,Not sourced,https://www.ncaa.org/what-we-do/finances/financial-reporting-system/,2026-11-09,no school-posted MFRS report located; SC State Library hosts only older Clemson AUP reports (FY2018 and earlier)
+Clemson,contributions_revenue,--,USD,FY2025,Not sourced,https://www.ncaa.org/what-we-do/finances/financial-reporting-system/,2026-11-09,no school-posted MFRS report located; SC State Library hosts only older Clemson AUP reports (FY2018 and earlier)
+Clemson,ncaa_distributions,--,USD,FY2025,Not sourced,https://www.ncaa.org/what-we-do/finances/financial-reporting-system/,2026-11-09,no school-posted MFRS report located; SC State Library hosts only older Clemson AUP reports (FY2018 and earlier)
+Clemson,conference_distributions,--,USD,FY2025,Not sourced,https://www.ncaa.org/what-we-do/finances/financial-reporting-system/,2026-11-09,no school-posted MFRS report located; SC State Library hosts only older Clemson AUP reports (FY2018 and earlier)
+Clemson,conference_bowl_distributions,--,USD,FY2025,Not sourced,https://www.ncaa.org/what-we-do/finances/financial-reporting-system/,2026-11-09,no school-posted MFRS report located; SC State Library hosts only older Clemson AUP reports (FY2018 and earlier)
+Clemson,direct_institutional_support,--,USD,FY2025,Not sourced,https://www.ncaa.org/what-we-do/finances/financial-reporting-system/,2026-11-09,no school-posted MFRS report located; SC State Library hosts only older Clemson AUP reports (FY2018 and earlier)
+Clemson,indirect_institutional_support,--,USD,FY2025,Not sourced,https://www.ncaa.org/what-we-do/finances/financial-reporting-system/,2026-11-09,no school-posted MFRS report located; SC State Library hosts only older Clemson AUP reports (FY2018 and earlier)
+Clemson,student_fees,--,USD,FY2025,Not sourced,https://www.ncaa.org/what-we-do/finances/financial-reporting-system/,2026-11-09,no school-posted MFRS report located; SC State Library hosts only older Clemson AUP reports (FY2018 and earlier)
+Clemson,coaching_salaries,--,USD,FY2025,Not sourced,https://www.ncaa.org/what-we-do/finances/financial-reporting-system/,2026-11-09,no school-posted MFRS report located; SC State Library hosts only older Clemson AUP reports (FY2018 and earlier)
+Clemson,athletics_related_debt,--,USD,FY2025,Not sourced,https://www.ncaa.org/what-we-do/finances/financial-reporting-system/,2026-11-09,no school-posted MFRS report located; SC State Library hosts only older Clemson AUP reports (FY2018 and earlier)
+Clemson,debt_service,--,USD,FY2025,Not sourced,https://www.ncaa.org/what-we-do/finances/financial-reporting-system/,2026-11-09,no school-posted MFRS report located; SC State Library hosts only older Clemson AUP reports (FY2018 and earlier)
+Clemson,stadium_nr_partner,--,text,2026,Not sourced,https://clemsontigers.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Clemson,stadium_nr_industry,--,text,2026,Not sourced,https://clemsontigers.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Clemson,stadium_nr_deal_type,--,text,2026,Not sourced,https://clemsontigers.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Clemson,stadium_nr_start_year,--,year,2026,Not sourced,https://clemsontigers.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Clemson,stadium_nr_term_years,--,years,2026,Not sourced,https://clemsontigers.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Clemson,stadium_nr_annual_value,--,USD,2026,Not sourced,https://clemsontigers.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Clemson,stadium_nr_total_value,--,USD,2026,Not sourced,https://clemsontigers.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Clemson,arena_nr_partner,--,text,2026,Not sourced,https://clemsontigers.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Clemson,arena_nr_industry,--,text,2026,Not sourced,https://clemsontigers.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Clemson,arena_nr_deal_type,--,text,2026,Not sourced,https://clemsontigers.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Clemson,arena_nr_start_year,--,year,2026,Not sourced,https://clemsontigers.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Clemson,arena_nr_term_years,--,years,2026,Not sourced,https://clemsontigers.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Clemson,arena_nr_annual_value,--,USD,2026,Not sourced,https://clemsontigers.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Clemson,arena_nr_total_value,--,USD,2026,Not sourced,https://clemsontigers.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Clemson,patch_partner,none,text,2026,Front Office Sports,https://frontofficesports.com/article/ncaa-college-sports-jersey-patch-deals-football-basketbal-conference/,2026-11-09,Not listed in Front Office Sports 2026 jersey patch roundup (https://frontofficesports.com/article/ncaa-college-sports-jersey-patch-deals-football-basketbal-conference/); roundup may be incomplete
+Clemson,patch_industry,--,text,2026,Not sourced,https://clemsontigers.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Clemson,patch_start_year,--,year,2026,Not sourced,https://clemsontigers.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Clemson,patch_term_years,--,years,2026,Not sourced,https://clemsontigers.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Clemson,patch_annual_value,--,USD,2026,Not sourced,https://clemsontigers.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Clemson,patch_total_value,--,USD,2026,Not sourced,https://clemsontigers.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Clemson,mmr_partner,--,text,2026,Not sourced,https://clemsontigers.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Clemson,mmr_start_year,--,year,2026,Not sourced,https://clemsontigers.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Clemson,mmr_term_years,--,years,2026,Not sourced,https://clemsontigers.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Clemson,mmr_annual_value,--,USD,2026,Not sourced,https://clemsontigers.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Clemson,mmr_total_value,--,USD,2026,Not sourced,https://clemsontigers.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Clemson,apparel_annual_value,--,USD,2026,Not sourced,https://clemsontigers.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Florida State,fin_report_url,--,url,FY2025,Not sourced,https://www.ncaa.org/what-we-do/finances/financial-reporting-system/,2026-11-09,no school-posted MFRS report located
+Florida State,fin_fiscal_year,--,year,FY2025,Not sourced,https://www.ncaa.org/what-we-do/finances/financial-reporting-system/,2026-11-09,no school-posted MFRS report located
+Florida State,total_operating_revenue,--,USD,FY2025,Not sourced,https://www.ncaa.org/what-we-do/finances/financial-reporting-system/,2026-11-09,no school-posted MFRS report located
+Florida State,total_operating_expenses,--,USD,FY2025,Not sourced,https://www.ncaa.org/what-we-do/finances/financial-reporting-system/,2026-11-09,no school-posted MFRS report located
+Florida State,media_rights_revenue,--,USD,FY2025,Not sourced,https://www.ncaa.org/what-we-do/finances/financial-reporting-system/,2026-11-09,no school-posted MFRS report located
+Florida State,ticket_sales_revenue,--,USD,FY2025,Not sourced,https://www.ncaa.org/what-we-do/finances/financial-reporting-system/,2026-11-09,no school-posted MFRS report located
+Florida State,contributions_revenue,--,USD,FY2025,Not sourced,https://www.ncaa.org/what-we-do/finances/financial-reporting-system/,2026-11-09,no school-posted MFRS report located
+Florida State,ncaa_distributions,--,USD,FY2025,Not sourced,https://www.ncaa.org/what-we-do/finances/financial-reporting-system/,2026-11-09,no school-posted MFRS report located
+Florida State,conference_distributions,--,USD,FY2025,Not sourced,https://www.ncaa.org/what-we-do/finances/financial-reporting-system/,2026-11-09,no school-posted MFRS report located
+Florida State,conference_bowl_distributions,--,USD,FY2025,Not sourced,https://www.ncaa.org/what-we-do/finances/financial-reporting-system/,2026-11-09,no school-posted MFRS report located
+Florida State,direct_institutional_support,--,USD,FY2025,Not sourced,https://www.ncaa.org/what-we-do/finances/financial-reporting-system/,2026-11-09,no school-posted MFRS report located
+Florida State,indirect_institutional_support,--,USD,FY2025,Not sourced,https://www.ncaa.org/what-we-do/finances/financial-reporting-system/,2026-11-09,no school-posted MFRS report located
+Florida State,student_fees,--,USD,FY2025,Not sourced,https://www.ncaa.org/what-we-do/finances/financial-reporting-system/,2026-11-09,no school-posted MFRS report located
+Florida State,coaching_salaries,--,USD,FY2025,Not sourced,https://www.ncaa.org/what-we-do/finances/financial-reporting-system/,2026-11-09,no school-posted MFRS report located
+Florida State,athletics_related_debt,--,USD,FY2025,Not sourced,https://www.ncaa.org/what-we-do/finances/financial-reporting-system/,2026-11-09,no school-posted MFRS report located
+Florida State,debt_service,--,USD,FY2025,Not sourced,https://www.ncaa.org/what-we-do/finances/financial-reporting-system/,2026-11-09,no school-posted MFRS report located
+Florida State,stadium_year_opened,--,year,2026,Not sourced,https://seminoles.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Florida State,arena_name,--,text,2026,Not sourced,https://seminoles.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Florida State,arena_capacity,--,seats,2026,Not sourced,https://seminoles.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Florida State,arena_year_opened,--,year,2026,Not sourced,https://seminoles.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Florida State,stadium_nr_partner,--,text,2026,Not sourced,https://seminoles.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Florida State,stadium_nr_industry,--,text,2026,Not sourced,https://seminoles.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Florida State,stadium_nr_deal_type,--,text,2026,Not sourced,https://seminoles.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Florida State,stadium_nr_start_year,--,year,2026,Not sourced,https://seminoles.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Florida State,stadium_nr_term_years,--,years,2026,Not sourced,https://seminoles.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Florida State,stadium_nr_annual_value,--,USD,2026,Not sourced,https://seminoles.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Florida State,stadium_nr_total_value,--,USD,2026,Not sourced,https://seminoles.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Florida State,arena_nr_partner,--,text,2026,Not sourced,https://seminoles.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Florida State,arena_nr_industry,--,text,2026,Not sourced,https://seminoles.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Florida State,arena_nr_deal_type,--,text,2026,Not sourced,https://seminoles.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Florida State,arena_nr_start_year,--,year,2026,Not sourced,https://seminoles.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Florida State,arena_nr_term_years,--,years,2026,Not sourced,https://seminoles.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Florida State,arena_nr_annual_value,--,USD,2026,Not sourced,https://seminoles.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Florida State,arena_nr_total_value,--,USD,2026,Not sourced,https://seminoles.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Florida State,mmr_partner,--,text,2026,Not sourced,https://seminoles.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Florida State,mmr_start_year,--,year,2026,Not sourced,https://seminoles.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Florida State,mmr_term_years,--,years,2026,Not sourced,https://seminoles.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Florida State,mmr_annual_value,--,USD,2026,Not sourced,https://seminoles.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Florida State,mmr_total_value,--,USD,2026,Not sourced,https://seminoles.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Florida State,apparel_partner,--,text,2026,Not sourced,https://seminoles.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Florida State,apparel_start_year,--,year,2026,Not sourced,https://seminoles.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Florida State,apparel_term_years,--,years,2026,Not sourced,https://seminoles.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Florida State,apparel_annual_value,--,USD,2026,Not sourced,https://seminoles.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Florida State,apparel_total_value,--,USD,2026,Not sourced,https://seminoles.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Georgia Tech,fin_report_url,--,url,FY2025,Not sourced,https://www.ncaa.org/what-we-do/finances/financial-reporting-system/,2026-11-09,no school-posted MFRS report located; GTAA audited GAAP statements exist at controller.gatech.edu but are not MFRS/AUP
+Georgia Tech,fin_fiscal_year,--,year,FY2025,Not sourced,https://www.ncaa.org/what-we-do/finances/financial-reporting-system/,2026-11-09,no school-posted MFRS report located; GTAA audited GAAP statements exist at controller.gatech.edu but are not MFRS/AUP
+Georgia Tech,total_operating_revenue,--,USD,FY2025,Not sourced,https://www.ncaa.org/what-we-do/finances/financial-reporting-system/,2026-11-09,no school-posted MFRS report located; GTAA audited GAAP statements exist at controller.gatech.edu but are not MFRS/AUP
+Georgia Tech,total_operating_expenses,--,USD,FY2025,Not sourced,https://www.ncaa.org/what-we-do/finances/financial-reporting-system/,2026-11-09,no school-posted MFRS report located; GTAA audited GAAP statements exist at controller.gatech.edu but are not MFRS/AUP
+Georgia Tech,media_rights_revenue,--,USD,FY2025,Not sourced,https://www.ncaa.org/what-we-do/finances/financial-reporting-system/,2026-11-09,no school-posted MFRS report located; GTAA audited GAAP statements exist at controller.gatech.edu but are not MFRS/AUP
+Georgia Tech,ticket_sales_revenue,--,USD,FY2025,Not sourced,https://www.ncaa.org/what-we-do/finances/financial-reporting-system/,2026-11-09,no school-posted MFRS report located; GTAA audited GAAP statements exist at controller.gatech.edu but are not MFRS/AUP
+Georgia Tech,contributions_revenue,--,USD,FY2025,Not sourced,https://www.ncaa.org/what-we-do/finances/financial-reporting-system/,2026-11-09,no school-posted MFRS report located; GTAA audited GAAP statements exist at controller.gatech.edu but are not MFRS/AUP
+Georgia Tech,ncaa_distributions,--,USD,FY2025,Not sourced,https://www.ncaa.org/what-we-do/finances/financial-reporting-system/,2026-11-09,no school-posted MFRS report located; GTAA audited GAAP statements exist at controller.gatech.edu but are not MFRS/AUP
+Georgia Tech,conference_distributions,--,USD,FY2025,Not sourced,https://www.ncaa.org/what-we-do/finances/financial-reporting-system/,2026-11-09,no school-posted MFRS report located; GTAA audited GAAP statements exist at controller.gatech.edu but are not MFRS/AUP
+Georgia Tech,conference_bowl_distributions,--,USD,FY2025,Not sourced,https://www.ncaa.org/what-we-do/finances/financial-reporting-system/,2026-11-09,no school-posted MFRS report located; GTAA audited GAAP statements exist at controller.gatech.edu but are not MFRS/AUP
+Georgia Tech,direct_institutional_support,--,USD,FY2025,Not sourced,https://www.ncaa.org/what-we-do/finances/financial-reporting-system/,2026-11-09,no school-posted MFRS report located; GTAA audited GAAP statements exist at controller.gatech.edu but are not MFRS/AUP
+Georgia Tech,indirect_institutional_support,--,USD,FY2025,Not sourced,https://www.ncaa.org/what-we-do/finances/financial-reporting-system/,2026-11-09,no school-posted MFRS report located; GTAA audited GAAP statements exist at controller.gatech.edu but are not MFRS/AUP
+Georgia Tech,student_fees,--,USD,FY2025,Not sourced,https://www.ncaa.org/what-we-do/finances/financial-reporting-system/,2026-11-09,no school-posted MFRS report located; GTAA audited GAAP statements exist at controller.gatech.edu but are not MFRS/AUP
+Georgia Tech,coaching_salaries,--,USD,FY2025,Not sourced,https://www.ncaa.org/what-we-do/finances/financial-reporting-system/,2026-11-09,no school-posted MFRS report located; GTAA audited GAAP statements exist at controller.gatech.edu but are not MFRS/AUP
+Georgia Tech,athletics_related_debt,--,USD,FY2025,Not sourced,https://www.ncaa.org/what-we-do/finances/financial-reporting-system/,2026-11-09,no school-posted MFRS report located; GTAA audited GAAP statements exist at controller.gatech.edu but are not MFRS/AUP
+Georgia Tech,debt_service,--,USD,FY2025,Not sourced,https://www.ncaa.org/what-we-do/finances/financial-reporting-system/,2026-11-09,no school-posted MFRS report located; GTAA audited GAAP statements exist at controller.gatech.edu but are not MFRS/AUP
+Georgia Tech,mbb_hc_annual_comp,--,USD,2026,Not sourced,https://ramblinwreck.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Georgia Tech,mbb_hc_contract_end,--,year,2026,Not sourced,https://ramblinwreck.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Georgia Tech,mbb_hc_pay_source_type,--,text,2026,Not sourced,https://ramblinwreck.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Georgia Tech,stadium_name,--,text,2026,Not sourced,https://ramblinwreck.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Georgia Tech,stadium_capacity,--,seats,2026,Not sourced,https://ramblinwreck.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Georgia Tech,stadium_year_opened,--,year,2026,Not sourced,https://ramblinwreck.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Georgia Tech,stadium_last_renovation_year,--,year,2026,Not sourced,https://ramblinwreck.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Georgia Tech,arena_name,--,text,2026,Not sourced,https://ramblinwreck.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Georgia Tech,arena_capacity,--,seats,2026,Not sourced,https://ramblinwreck.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Georgia Tech,arena_year_opened,--,year,2026,Not sourced,https://ramblinwreck.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Georgia Tech,stadium_nr_partner,--,text,2026,Not sourced,https://ramblinwreck.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Georgia Tech,stadium_nr_industry,--,text,2026,Not sourced,https://ramblinwreck.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Georgia Tech,stadium_nr_deal_type,--,text,2026,Not sourced,https://ramblinwreck.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Georgia Tech,stadium_nr_start_year,--,year,2026,Not sourced,https://ramblinwreck.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Georgia Tech,stadium_nr_term_years,--,years,2026,Not sourced,https://ramblinwreck.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Georgia Tech,stadium_nr_annual_value,--,USD,2026,Not sourced,https://ramblinwreck.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Georgia Tech,stadium_nr_total_value,--,USD,2026,Not sourced,https://ramblinwreck.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Georgia Tech,arena_nr_partner,--,text,2026,Not sourced,https://ramblinwreck.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Georgia Tech,arena_nr_industry,--,text,2026,Not sourced,https://ramblinwreck.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Georgia Tech,arena_nr_deal_type,--,text,2026,Not sourced,https://ramblinwreck.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Georgia Tech,arena_nr_start_year,--,year,2026,Not sourced,https://ramblinwreck.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Georgia Tech,arena_nr_term_years,--,years,2026,Not sourced,https://ramblinwreck.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Georgia Tech,arena_nr_annual_value,--,USD,2026,Not sourced,https://ramblinwreck.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Georgia Tech,arena_nr_total_value,--,USD,2026,Not sourced,https://ramblinwreck.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Georgia Tech,mmr_start_year,--,year,2026,Not sourced,https://ramblinwreck.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Georgia Tech,mmr_term_years,--,years,2026,Not sourced,https://ramblinwreck.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Georgia Tech,mmr_annual_value,--,USD,2026,Not sourced,https://ramblinwreck.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Georgia Tech,mmr_total_value,--,USD,2026,Not sourced,https://ramblinwreck.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Georgia Tech,apparel_start_year,--,year,2026,Not sourced,https://ramblinwreck.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Georgia Tech,apparel_annual_value,--,USD,2026,Not sourced,https://ramblinwreck.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Georgia Tech,apparel_total_value,--,USD,2026,Not sourced,https://ramblinwreck.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Louisville,fin_report_url,--,url,FY2025,Not sourced,https://www.ncaa.org/what-we-do/finances/financial-reporting-system/,2026-11-09,no school-posted MFRS report located
+Louisville,fin_fiscal_year,--,year,FY2025,Not sourced,https://www.ncaa.org/what-we-do/finances/financial-reporting-system/,2026-11-09,no school-posted MFRS report located
+Louisville,total_operating_revenue,--,USD,FY2025,Not sourced,https://www.ncaa.org/what-we-do/finances/financial-reporting-system/,2026-11-09,no school-posted MFRS report located
+Louisville,total_operating_expenses,--,USD,FY2025,Not sourced,https://www.ncaa.org/what-we-do/finances/financial-reporting-system/,2026-11-09,no school-posted MFRS report located
+Louisville,media_rights_revenue,--,USD,FY2025,Not sourced,https://www.ncaa.org/what-we-do/finances/financial-reporting-system/,2026-11-09,no school-posted MFRS report located
+Louisville,ticket_sales_revenue,--,USD,FY2025,Not sourced,https://www.ncaa.org/what-we-do/finances/financial-reporting-system/,2026-11-09,no school-posted MFRS report located
+Louisville,contributions_revenue,--,USD,FY2025,Not sourced,https://www.ncaa.org/what-we-do/finances/financial-reporting-system/,2026-11-09,no school-posted MFRS report located
+Louisville,ncaa_distributions,--,USD,FY2025,Not sourced,https://www.ncaa.org/what-we-do/finances/financial-reporting-system/,2026-11-09,no school-posted MFRS report located
+Louisville,conference_distributions,--,USD,FY2025,Not sourced,https://www.ncaa.org/what-we-do/finances/financial-reporting-system/,2026-11-09,no school-posted MFRS report located
+Louisville,conference_bowl_distributions,--,USD,FY2025,Not sourced,https://www.ncaa.org/what-we-do/finances/financial-reporting-system/,2026-11-09,no school-posted MFRS report located
+Louisville,direct_institutional_support,--,USD,FY2025,Not sourced,https://www.ncaa.org/what-we-do/finances/financial-reporting-system/,2026-11-09,no school-posted MFRS report located
+Louisville,indirect_institutional_support,--,USD,FY2025,Not sourced,https://www.ncaa.org/what-we-do/finances/financial-reporting-system/,2026-11-09,no school-posted MFRS report located
+Louisville,student_fees,--,USD,FY2025,Not sourced,https://www.ncaa.org/what-we-do/finances/financial-reporting-system/,2026-11-09,no school-posted MFRS report located
+Louisville,coaching_salaries,--,USD,FY2025,Not sourced,https://www.ncaa.org/what-we-do/finances/financial-reporting-system/,2026-11-09,no school-posted MFRS report located
+Louisville,athletics_related_debt,--,USD,FY2025,Not sourced,https://www.ncaa.org/what-we-do/finances/financial-reporting-system/,2026-11-09,no school-posted MFRS report located
+Louisville,debt_service,--,USD,FY2025,Not sourced,https://www.ncaa.org/what-we-do/finances/financial-reporting-system/,2026-11-09,no school-posted MFRS report located
+Louisville,mbb_hc_name,--,text,2026,Not sourced,https://gocards.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Louisville,mbb_hc_annual_comp,--,USD,2026,Not sourced,https://gocards.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Louisville,mbb_hc_contract_end,--,year,2026,Not sourced,https://gocards.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Louisville,mbb_hc_pay_source_type,--,text,2026,Not sourced,https://gocards.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Louisville,stadium_capacity,--,seats,2026,Not sourced,https://gocards.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Louisville,stadium_year_opened,--,year,2026,Not sourced,https://gocards.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Louisville,stadium_last_renovation_year,--,year,2026,Not sourced,https://gocards.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Louisville,arena_name,--,text,2026,Not sourced,https://gocards.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Louisville,arena_capacity,--,seats,2026,Not sourced,https://gocards.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Louisville,arena_year_opened,--,year,2026,Not sourced,https://gocards.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Louisville,stadium_nr_start_year,--,year,2026,Not sourced,https://gocards.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Louisville,stadium_nr_term_years,--,years,2026,Not sourced,https://gocards.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Louisville,stadium_nr_annual_value,--,USD,2026,Not sourced,https://gocards.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Louisville,stadium_nr_total_value,--,USD,2026,Not sourced,https://gocards.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Louisville,arena_nr_partner,--,text,2026,Not sourced,https://gocards.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Louisville,arena_nr_industry,--,text,2026,Not sourced,https://gocards.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Louisville,arena_nr_deal_type,--,text,2026,Not sourced,https://gocards.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Louisville,arena_nr_start_year,--,year,2026,Not sourced,https://gocards.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Louisville,arena_nr_term_years,--,years,2026,Not sourced,https://gocards.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Louisville,arena_nr_annual_value,--,USD,2026,Not sourced,https://gocards.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Louisville,arena_nr_total_value,--,USD,2026,Not sourced,https://gocards.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Louisville,patch_start_year,--,year,2026,Not sourced,https://gocards.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Louisville,patch_term_years,--,years,2026,Not sourced,https://gocards.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Louisville,patch_annual_value,--,USD,2026,Not sourced,https://gocards.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Louisville,patch_total_value,--,USD,2026,Not sourced,https://gocards.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Louisville,mmr_partner,--,text,2026,Not sourced,https://gocards.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Louisville,mmr_start_year,--,year,2026,Not sourced,https://gocards.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Louisville,mmr_term_years,--,years,2026,Not sourced,https://gocards.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Louisville,mmr_annual_value,--,USD,2026,Not sourced,https://gocards.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Louisville,mmr_total_value,--,USD,2026,Not sourced,https://gocards.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Louisville,apparel_partner,--,text,2026,Not sourced,https://gocards.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Louisville,apparel_start_year,--,year,2026,Not sourced,https://gocards.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Louisville,apparel_term_years,--,years,2026,Not sourced,https://gocards.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Louisville,apparel_annual_value,--,USD,2026,Not sourced,https://gocards.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Louisville,apparel_total_value,--,USD,2026,Not sourced,https://gocards.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+North Carolina,fin_report_url,--,url,FY2025,Not sourced,https://www.ncaa.org/what-we-do/finances/financial-reporting-system/,2026-11-09,no school-posted MFRS report located; UNC System athletics transparency report exists but per-school MFRS lines not retrieved
+North Carolina,fin_fiscal_year,--,year,FY2025,Not sourced,https://www.ncaa.org/what-we-do/finances/financial-reporting-system/,2026-11-09,no school-posted MFRS report located; UNC System athletics transparency report exists but per-school MFRS lines not retrieved
+North Carolina,total_operating_revenue,--,USD,FY2025,Not sourced,https://www.ncaa.org/what-we-do/finances/financial-reporting-system/,2026-11-09,no school-posted MFRS report located; UNC System athletics transparency report exists but per-school MFRS lines not retrieved
+North Carolina,total_operating_expenses,--,USD,FY2025,Not sourced,https://www.ncaa.org/what-we-do/finances/financial-reporting-system/,2026-11-09,no school-posted MFRS report located; UNC System athletics transparency report exists but per-school MFRS lines not retrieved
+North Carolina,media_rights_revenue,--,USD,FY2025,Not sourced,https://www.ncaa.org/what-we-do/finances/financial-reporting-system/,2026-11-09,no school-posted MFRS report located; UNC System athletics transparency report exists but per-school MFRS lines not retrieved
+North Carolina,ticket_sales_revenue,--,USD,FY2025,Not sourced,https://www.ncaa.org/what-we-do/finances/financial-reporting-system/,2026-11-09,no school-posted MFRS report located; UNC System athletics transparency report exists but per-school MFRS lines not retrieved
+North Carolina,contributions_revenue,--,USD,FY2025,Not sourced,https://www.ncaa.org/what-we-do/finances/financial-reporting-system/,2026-11-09,no school-posted MFRS report located; UNC System athletics transparency report exists but per-school MFRS lines not retrieved
+North Carolina,ncaa_distributions,--,USD,FY2025,Not sourced,https://www.ncaa.org/what-we-do/finances/financial-reporting-system/,2026-11-09,no school-posted MFRS report located; UNC System athletics transparency report exists but per-school MFRS lines not retrieved
+North Carolina,conference_distributions,--,USD,FY2025,Not sourced,https://www.ncaa.org/what-we-do/finances/financial-reporting-system/,2026-11-09,no school-posted MFRS report located; UNC System athletics transparency report exists but per-school MFRS lines not retrieved
+North Carolina,conference_bowl_distributions,--,USD,FY2025,Not sourced,https://www.ncaa.org/what-we-do/finances/financial-reporting-system/,2026-11-09,no school-posted MFRS report located; UNC System athletics transparency report exists but per-school MFRS lines not retrieved
+North Carolina,direct_institutional_support,--,USD,FY2025,Not sourced,https://www.ncaa.org/what-we-do/finances/financial-reporting-system/,2026-11-09,no school-posted MFRS report located; UNC System athletics transparency report exists but per-school MFRS lines not retrieved
+North Carolina,indirect_institutional_support,--,USD,FY2025,Not sourced,https://www.ncaa.org/what-we-do/finances/financial-reporting-system/,2026-11-09,no school-posted MFRS report located; UNC System athletics transparency report exists but per-school MFRS lines not retrieved
+North Carolina,student_fees,--,USD,FY2025,Not sourced,https://www.ncaa.org/what-we-do/finances/financial-reporting-system/,2026-11-09,no school-posted MFRS report located; UNC System athletics transparency report exists but per-school MFRS lines not retrieved
+North Carolina,coaching_salaries,--,USD,FY2025,Not sourced,https://www.ncaa.org/what-we-do/finances/financial-reporting-system/,2026-11-09,no school-posted MFRS report located; UNC System athletics transparency report exists but per-school MFRS lines not retrieved
+North Carolina,athletics_related_debt,--,USD,FY2025,Not sourced,https://www.ncaa.org/what-we-do/finances/financial-reporting-system/,2026-11-09,no school-posted MFRS report located; UNC System athletics transparency report exists but per-school MFRS lines not retrieved
+North Carolina,debt_service,--,USD,FY2025,Not sourced,https://www.ncaa.org/what-we-do/finances/financial-reporting-system/,2026-11-09,no school-posted MFRS report located; UNC System athletics transparency report exists but per-school MFRS lines not retrieved
+North Carolina,stadium_name,--,text,2026,Not sourced,https://goheels.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+North Carolina,stadium_capacity,--,seats,2026,Not sourced,https://goheels.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+North Carolina,stadium_year_opened,--,year,2026,Not sourced,https://goheels.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+North Carolina,stadium_last_renovation_year,--,year,2026,Not sourced,https://goheels.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+North Carolina,arena_name,--,text,2026,Not sourced,https://goheels.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+North Carolina,arena_capacity,--,seats,2026,Not sourced,https://goheels.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+North Carolina,arena_year_opened,--,year,2026,Not sourced,https://goheels.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+North Carolina,stadium_nr_partner,--,text,2026,Not sourced,https://goheels.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+North Carolina,stadium_nr_industry,--,text,2026,Not sourced,https://goheels.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+North Carolina,stadium_nr_deal_type,--,text,2026,Not sourced,https://goheels.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+North Carolina,stadium_nr_start_year,--,year,2026,Not sourced,https://goheels.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+North Carolina,stadium_nr_term_years,--,years,2026,Not sourced,https://goheels.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+North Carolina,stadium_nr_annual_value,--,USD,2026,Not sourced,https://goheels.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+North Carolina,stadium_nr_total_value,--,USD,2026,Not sourced,https://goheels.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+North Carolina,arena_nr_partner,--,text,2026,Not sourced,https://goheels.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+North Carolina,arena_nr_industry,--,text,2026,Not sourced,https://goheels.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+North Carolina,arena_nr_deal_type,--,text,2026,Not sourced,https://goheels.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+North Carolina,arena_nr_start_year,--,year,2026,Not sourced,https://goheels.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+North Carolina,arena_nr_term_years,--,years,2026,Not sourced,https://goheels.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+North Carolina,arena_nr_annual_value,--,USD,2026,Not sourced,https://goheels.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+North Carolina,arena_nr_total_value,--,USD,2026,Not sourced,https://goheels.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+North Carolina,patch_partner,none,text,2026,Front Office Sports,https://frontofficesports.com/article/ncaa-college-sports-jersey-patch-deals-football-basketbal-conference/,2026-11-09,Not listed in Front Office Sports 2026 jersey patch roundup (https://frontofficesports.com/article/ncaa-college-sports-jersey-patch-deals-football-basketbal-conference/); roundup may be incomplete
+North Carolina,patch_industry,--,text,2026,Not sourced,https://goheels.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+North Carolina,patch_start_year,--,year,2026,Not sourced,https://goheels.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+North Carolina,patch_term_years,--,years,2026,Not sourced,https://goheels.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+North Carolina,patch_annual_value,--,USD,2026,Not sourced,https://goheels.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+North Carolina,patch_total_value,--,USD,2026,Not sourced,https://goheels.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+North Carolina,mmr_partner,--,text,2026,Not sourced,https://goheels.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+North Carolina,mmr_start_year,--,year,2026,Not sourced,https://goheels.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+North Carolina,mmr_term_years,--,years,2026,Not sourced,https://goheels.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+North Carolina,mmr_annual_value,--,USD,2026,Not sourced,https://goheels.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+North Carolina,mmr_total_value,--,USD,2026,Not sourced,https://goheels.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+North Carolina,apparel_start_year,--,year,2026,Not sourced,https://goheels.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+North Carolina,apparel_term_years,--,years,2026,Not sourced,https://goheels.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+North Carolina,apparel_annual_value,--,USD,2026,Not sourced,https://goheels.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+North Carolina,apparel_total_value,--,USD,2026,Not sourced,https://goheels.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+NC State,fin_report_url,--,url,FY2025,Not sourced,https://www.ncaa.org/what-we-do/finances/financial-reporting-system/,2026-11-09,no school-posted MFRS report located; UNC System athletics transparency report exists but per-school MFRS lines not retrieved
+NC State,fin_fiscal_year,--,year,FY2025,Not sourced,https://www.ncaa.org/what-we-do/finances/financial-reporting-system/,2026-11-09,no school-posted MFRS report located; UNC System athletics transparency report exists but per-school MFRS lines not retrieved
+NC State,total_operating_revenue,--,USD,FY2025,Not sourced,https://www.ncaa.org/what-we-do/finances/financial-reporting-system/,2026-11-09,no school-posted MFRS report located; UNC System athletics transparency report exists but per-school MFRS lines not retrieved
+NC State,total_operating_expenses,--,USD,FY2025,Not sourced,https://www.ncaa.org/what-we-do/finances/financial-reporting-system/,2026-11-09,no school-posted MFRS report located; UNC System athletics transparency report exists but per-school MFRS lines not retrieved
+NC State,media_rights_revenue,--,USD,FY2025,Not sourced,https://www.ncaa.org/what-we-do/finances/financial-reporting-system/,2026-11-09,no school-posted MFRS report located; UNC System athletics transparency report exists but per-school MFRS lines not retrieved
+NC State,ticket_sales_revenue,--,USD,FY2025,Not sourced,https://www.ncaa.org/what-we-do/finances/financial-reporting-system/,2026-11-09,no school-posted MFRS report located; UNC System athletics transparency report exists but per-school MFRS lines not retrieved
+NC State,contributions_revenue,--,USD,FY2025,Not sourced,https://www.ncaa.org/what-we-do/finances/financial-reporting-system/,2026-11-09,no school-posted MFRS report located; UNC System athletics transparency report exists but per-school MFRS lines not retrieved
+NC State,ncaa_distributions,--,USD,FY2025,Not sourced,https://www.ncaa.org/what-we-do/finances/financial-reporting-system/,2026-11-09,no school-posted MFRS report located; UNC System athletics transparency report exists but per-school MFRS lines not retrieved
+NC State,conference_distributions,--,USD,FY2025,Not sourced,https://www.ncaa.org/what-we-do/finances/financial-reporting-system/,2026-11-09,no school-posted MFRS report located; UNC System athletics transparency report exists but per-school MFRS lines not retrieved
+NC State,conference_bowl_distributions,--,USD,FY2025,Not sourced,https://www.ncaa.org/what-we-do/finances/financial-reporting-system/,2026-11-09,no school-posted MFRS report located; UNC System athletics transparency report exists but per-school MFRS lines not retrieved
+NC State,direct_institutional_support,--,USD,FY2025,Not sourced,https://www.ncaa.org/what-we-do/finances/financial-reporting-system/,2026-11-09,no school-posted MFRS report located; UNC System athletics transparency report exists but per-school MFRS lines not retrieved
+NC State,indirect_institutional_support,--,USD,FY2025,Not sourced,https://www.ncaa.org/what-we-do/finances/financial-reporting-system/,2026-11-09,no school-posted MFRS report located; UNC System athletics transparency report exists but per-school MFRS lines not retrieved
+NC State,student_fees,--,USD,FY2025,Not sourced,https://www.ncaa.org/what-we-do/finances/financial-reporting-system/,2026-11-09,no school-posted MFRS report located; UNC System athletics transparency report exists but per-school MFRS lines not retrieved
+NC State,coaching_salaries,--,USD,FY2025,Not sourced,https://www.ncaa.org/what-we-do/finances/financial-reporting-system/,2026-11-09,no school-posted MFRS report located; UNC System athletics transparency report exists but per-school MFRS lines not retrieved
+NC State,athletics_related_debt,--,USD,FY2025,Not sourced,https://www.ncaa.org/what-we-do/finances/financial-reporting-system/,2026-11-09,no school-posted MFRS report located; UNC System athletics transparency report exists but per-school MFRS lines not retrieved
+NC State,debt_service,--,USD,FY2025,Not sourced,https://www.ncaa.org/what-we-do/finances/financial-reporting-system/,2026-11-09,no school-posted MFRS report located; UNC System athletics transparency report exists but per-school MFRS lines not retrieved
+NC State,mbb_hc_name,--,text,2026,Not sourced,https://gopack.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+NC State,mbb_hc_annual_comp,--,USD,2026,Not sourced,https://gopack.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+NC State,mbb_hc_contract_end,--,year,2026,Not sourced,https://gopack.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+NC State,mbb_hc_pay_source_type,--,text,2026,Not sourced,https://gopack.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+NC State,stadium_name,--,text,2026,Not sourced,https://gopack.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+NC State,stadium_capacity,--,seats,2026,Not sourced,https://gopack.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+NC State,stadium_year_opened,--,year,2026,Not sourced,https://gopack.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+NC State,stadium_last_renovation_year,--,year,2026,Not sourced,https://gopack.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+NC State,arena_name,--,text,2026,Not sourced,https://gopack.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+NC State,arena_capacity,--,seats,2026,Not sourced,https://gopack.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+NC State,arena_year_opened,--,year,2026,Not sourced,https://gopack.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+NC State,stadium_nr_partner,--,text,2026,Not sourced,https://gopack.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+NC State,stadium_nr_industry,--,text,2026,Not sourced,https://gopack.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+NC State,stadium_nr_deal_type,--,text,2026,Not sourced,https://gopack.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+NC State,stadium_nr_start_year,--,year,2026,Not sourced,https://gopack.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+NC State,stadium_nr_term_years,--,years,2026,Not sourced,https://gopack.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+NC State,stadium_nr_annual_value,--,USD,2026,Not sourced,https://gopack.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+NC State,stadium_nr_total_value,--,USD,2026,Not sourced,https://gopack.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+NC State,arena_nr_partner,--,text,2026,Not sourced,https://gopack.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+NC State,arena_nr_industry,--,text,2026,Not sourced,https://gopack.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+NC State,arena_nr_deal_type,--,text,2026,Not sourced,https://gopack.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+NC State,arena_nr_start_year,--,year,2026,Not sourced,https://gopack.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+NC State,arena_nr_term_years,--,years,2026,Not sourced,https://gopack.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+NC State,arena_nr_annual_value,--,USD,2026,Not sourced,https://gopack.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+NC State,arena_nr_total_value,--,USD,2026,Not sourced,https://gopack.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+NC State,patch_partner,none,text,2026,Front Office Sports,https://frontofficesports.com/article/ncaa-college-sports-jersey-patch-deals-football-basketbal-conference/,2026-11-09,Not listed in Front Office Sports 2026 jersey patch roundup (https://frontofficesports.com/article/ncaa-college-sports-jersey-patch-deals-football-basketbal-conference/); roundup may be incomplete
+NC State,patch_industry,--,text,2026,Not sourced,https://gopack.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+NC State,patch_start_year,--,year,2026,Not sourced,https://gopack.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+NC State,patch_term_years,--,years,2026,Not sourced,https://gopack.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+NC State,patch_annual_value,--,USD,2026,Not sourced,https://gopack.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+NC State,patch_total_value,--,USD,2026,Not sourced,https://gopack.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+NC State,mmr_start_year,--,year,2026,Not sourced,https://gopack.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+NC State,mmr_term_years,--,years,2026,Not sourced,https://gopack.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+NC State,mmr_annual_value,--,USD,2026,Not sourced,https://gopack.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+NC State,mmr_total_value,--,USD,2026,Not sourced,https://gopack.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+NC State,apparel_partner,--,text,2026,Not sourced,https://gopack.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+NC State,apparel_start_year,--,year,2026,Not sourced,https://gopack.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+NC State,apparel_term_years,--,years,2026,Not sourced,https://gopack.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+NC State,apparel_annual_value,--,USD,2026,Not sourced,https://gopack.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+NC State,apparel_total_value,--,USD,2026,Not sourced,https://gopack.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Pittsburgh,fin_report_url,--,url,FY2025,Not sourced,https://www.ncaa.org/what-we-do/finances/financial-reporting-system/,2026-11-09,no school-posted MFRS report located
+Pittsburgh,fin_fiscal_year,--,year,FY2025,Not sourced,https://www.ncaa.org/what-we-do/finances/financial-reporting-system/,2026-11-09,no school-posted MFRS report located
+Pittsburgh,total_operating_revenue,--,USD,FY2025,Not sourced,https://www.ncaa.org/what-we-do/finances/financial-reporting-system/,2026-11-09,no school-posted MFRS report located
+Pittsburgh,total_operating_expenses,--,USD,FY2025,Not sourced,https://www.ncaa.org/what-we-do/finances/financial-reporting-system/,2026-11-09,no school-posted MFRS report located
+Pittsburgh,media_rights_revenue,--,USD,FY2025,Not sourced,https://www.ncaa.org/what-we-do/finances/financial-reporting-system/,2026-11-09,no school-posted MFRS report located
+Pittsburgh,ticket_sales_revenue,--,USD,FY2025,Not sourced,https://www.ncaa.org/what-we-do/finances/financial-reporting-system/,2026-11-09,no school-posted MFRS report located
+Pittsburgh,contributions_revenue,--,USD,FY2025,Not sourced,https://www.ncaa.org/what-we-do/finances/financial-reporting-system/,2026-11-09,no school-posted MFRS report located
+Pittsburgh,ncaa_distributions,--,USD,FY2025,Not sourced,https://www.ncaa.org/what-we-do/finances/financial-reporting-system/,2026-11-09,no school-posted MFRS report located
+Pittsburgh,conference_distributions,--,USD,FY2025,Not sourced,https://www.ncaa.org/what-we-do/finances/financial-reporting-system/,2026-11-09,no school-posted MFRS report located
+Pittsburgh,conference_bowl_distributions,--,USD,FY2025,Not sourced,https://www.ncaa.org/what-we-do/finances/financial-reporting-system/,2026-11-09,no school-posted MFRS report located
+Pittsburgh,direct_institutional_support,--,USD,FY2025,Not sourced,https://www.ncaa.org/what-we-do/finances/financial-reporting-system/,2026-11-09,no school-posted MFRS report located
+Pittsburgh,indirect_institutional_support,--,USD,FY2025,Not sourced,https://www.ncaa.org/what-we-do/finances/financial-reporting-system/,2026-11-09,no school-posted MFRS report located
+Pittsburgh,student_fees,--,USD,FY2025,Not sourced,https://www.ncaa.org/what-we-do/finances/financial-reporting-system/,2026-11-09,no school-posted MFRS report located
+Pittsburgh,coaching_salaries,--,USD,FY2025,Not sourced,https://www.ncaa.org/what-we-do/finances/financial-reporting-system/,2026-11-09,no school-posted MFRS report located
+Pittsburgh,athletics_related_debt,--,USD,FY2025,Not sourced,https://www.ncaa.org/what-we-do/finances/financial-reporting-system/,2026-11-09,no school-posted MFRS report located
+Pittsburgh,debt_service,--,USD,FY2025,Not sourced,https://www.ncaa.org/what-we-do/finances/financial-reporting-system/,2026-11-09,no school-posted MFRS report located
+Pittsburgh,mbb_hc_name,--,text,2026,Not sourced,https://pittsburghpanthers.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Pittsburgh,mbb_hc_annual_comp,--,USD,2026,Not sourced,https://pittsburghpanthers.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Pittsburgh,mbb_hc_contract_end,--,year,2026,Not sourced,https://pittsburghpanthers.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Pittsburgh,mbb_hc_pay_source_type,--,text,2026,Not sourced,https://pittsburghpanthers.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Pittsburgh,stadium_name,--,text,2026,Not sourced,https://pittsburghpanthers.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Pittsburgh,stadium_capacity,--,seats,2026,Not sourced,https://pittsburghpanthers.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Pittsburgh,stadium_year_opened,--,year,2026,Not sourced,https://pittsburghpanthers.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Pittsburgh,stadium_last_renovation_year,--,year,2026,Not sourced,https://pittsburghpanthers.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Pittsburgh,arena_name,--,text,2026,Not sourced,https://pittsburghpanthers.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Pittsburgh,arena_capacity,--,seats,2026,Not sourced,https://pittsburghpanthers.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Pittsburgh,arena_year_opened,--,year,2026,Not sourced,https://pittsburghpanthers.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Pittsburgh,stadium_nr_partner,--,text,2026,Not sourced,https://pittsburghpanthers.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Pittsburgh,stadium_nr_industry,--,text,2026,Not sourced,https://pittsburghpanthers.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Pittsburgh,stadium_nr_deal_type,--,text,2026,Not sourced,https://pittsburghpanthers.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Pittsburgh,stadium_nr_start_year,--,year,2026,Not sourced,https://pittsburghpanthers.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Pittsburgh,stadium_nr_term_years,--,years,2026,Not sourced,https://pittsburghpanthers.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Pittsburgh,stadium_nr_annual_value,--,USD,2026,Not sourced,https://pittsburghpanthers.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Pittsburgh,stadium_nr_total_value,--,USD,2026,Not sourced,https://pittsburghpanthers.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Pittsburgh,arena_nr_partner,--,text,2026,Not sourced,https://pittsburghpanthers.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Pittsburgh,arena_nr_industry,--,text,2026,Not sourced,https://pittsburghpanthers.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Pittsburgh,arena_nr_deal_type,--,text,2026,Not sourced,https://pittsburghpanthers.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Pittsburgh,arena_nr_start_year,--,year,2026,Not sourced,https://pittsburghpanthers.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Pittsburgh,arena_nr_term_years,--,years,2026,Not sourced,https://pittsburghpanthers.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Pittsburgh,arena_nr_annual_value,--,USD,2026,Not sourced,https://pittsburghpanthers.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Pittsburgh,arena_nr_total_value,--,USD,2026,Not sourced,https://pittsburghpanthers.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Pittsburgh,patch_term_years,--,years,2026,Not sourced,https://pittsburghpanthers.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Pittsburgh,patch_annual_value,--,USD,2026,Not sourced,https://pittsburghpanthers.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Pittsburgh,mmr_partner,--,text,2026,Not sourced,https://pittsburghpanthers.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Pittsburgh,mmr_start_year,--,year,2026,Not sourced,https://pittsburghpanthers.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Pittsburgh,mmr_term_years,--,years,2026,Not sourced,https://pittsburghpanthers.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Pittsburgh,mmr_annual_value,--,USD,2026,Not sourced,https://pittsburghpanthers.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Pittsburgh,mmr_total_value,--,USD,2026,Not sourced,https://pittsburghpanthers.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Pittsburgh,apparel_partner,--,text,2026,Not sourced,https://pittsburghpanthers.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Pittsburgh,apparel_start_year,--,year,2026,Not sourced,https://pittsburghpanthers.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Pittsburgh,apparel_term_years,--,years,2026,Not sourced,https://pittsburghpanthers.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Pittsburgh,apparel_annual_value,--,USD,2026,Not sourced,https://pittsburghpanthers.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Pittsburgh,apparel_total_value,--,USD,2026,Not sourced,https://pittsburghpanthers.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Virginia,mbb_hc_name,--,text,2026,Not sourced,https://virginiasports.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Virginia,mbb_hc_annual_comp,--,USD,2026,Not sourced,https://virginiasports.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Virginia,mbb_hc_contract_end,--,year,2026,Not sourced,https://virginiasports.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Virginia,mbb_hc_pay_source_type,--,text,2026,Not sourced,https://virginiasports.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Virginia,stadium_name,--,text,2026,Not sourced,https://virginiasports.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Virginia,stadium_capacity,--,seats,2026,Not sourced,https://virginiasports.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Virginia,stadium_year_opened,--,year,2026,Not sourced,https://virginiasports.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Virginia,stadium_last_renovation_year,--,year,2026,Not sourced,https://virginiasports.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Virginia,arena_name,--,text,2026,Not sourced,https://virginiasports.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Virginia,arena_capacity,--,seats,2026,Not sourced,https://virginiasports.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Virginia,arena_year_opened,--,year,2026,Not sourced,https://virginiasports.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Virginia,stadium_nr_partner,--,text,2026,Not sourced,https://virginiasports.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Virginia,stadium_nr_industry,--,text,2026,Not sourced,https://virginiasports.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Virginia,stadium_nr_deal_type,--,text,2026,Not sourced,https://virginiasports.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Virginia,stadium_nr_start_year,--,year,2026,Not sourced,https://virginiasports.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Virginia,stadium_nr_term_years,--,years,2026,Not sourced,https://virginiasports.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Virginia,stadium_nr_annual_value,--,USD,2026,Not sourced,https://virginiasports.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Virginia,stadium_nr_total_value,--,USD,2026,Not sourced,https://virginiasports.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Virginia,arena_nr_partner,--,text,2026,Not sourced,https://virginiasports.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Virginia,arena_nr_industry,--,text,2026,Not sourced,https://virginiasports.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Virginia,arena_nr_deal_type,--,text,2026,Not sourced,https://virginiasports.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Virginia,arena_nr_start_year,--,year,2026,Not sourced,https://virginiasports.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Virginia,arena_nr_term_years,--,years,2026,Not sourced,https://virginiasports.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Virginia,arena_nr_annual_value,--,USD,2026,Not sourced,https://virginiasports.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Virginia,arena_nr_total_value,--,USD,2026,Not sourced,https://virginiasports.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Virginia,patch_partner,none,text,2026,Front Office Sports,https://frontofficesports.com/article/ncaa-college-sports-jersey-patch-deals-football-basketbal-conference/,2026-11-09,Not listed in Front Office Sports 2026 jersey patch roundup (https://frontofficesports.com/article/ncaa-college-sports-jersey-patch-deals-football-basketbal-conference/); roundup may be incomplete
+Virginia,patch_industry,--,text,2026,Not sourced,https://virginiasports.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Virginia,patch_start_year,--,year,2026,Not sourced,https://virginiasports.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Virginia,patch_term_years,--,years,2026,Not sourced,https://virginiasports.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Virginia,patch_annual_value,--,USD,2026,Not sourced,https://virginiasports.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Virginia,patch_total_value,--,USD,2026,Not sourced,https://virginiasports.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Virginia,mmr_partner,--,text,2026,Not sourced,https://virginiasports.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Virginia,mmr_start_year,--,year,2026,Not sourced,https://virginiasports.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Virginia,mmr_term_years,--,years,2026,Not sourced,https://virginiasports.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Virginia,mmr_annual_value,--,USD,2026,Not sourced,https://virginiasports.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Virginia,mmr_total_value,--,USD,2026,Not sourced,https://virginiasports.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Virginia,apparel_partner,--,text,2026,Not sourced,https://virginiasports.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Virginia,apparel_start_year,--,year,2026,Not sourced,https://virginiasports.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Virginia,apparel_term_years,--,years,2026,Not sourced,https://virginiasports.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Virginia,apparel_annual_value,--,USD,2026,Not sourced,https://virginiasports.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Virginia,apparel_total_value,--,USD,2026,Not sourced,https://virginiasports.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Virginia Tech,mbb_hc_name,--,text,2026,Not sourced,https://hokiesports.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Virginia Tech,mbb_hc_annual_comp,--,USD,2026,Not sourced,https://hokiesports.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Virginia Tech,mbb_hc_contract_end,--,year,2026,Not sourced,https://hokiesports.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Virginia Tech,mbb_hc_pay_source_type,--,text,2026,Not sourced,https://hokiesports.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Virginia Tech,stadium_name,--,text,2026,Not sourced,https://hokiesports.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Virginia Tech,stadium_capacity,--,seats,2026,Not sourced,https://hokiesports.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Virginia Tech,stadium_year_opened,--,year,2026,Not sourced,https://hokiesports.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Virginia Tech,stadium_last_renovation_year,--,year,2026,Not sourced,https://hokiesports.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Virginia Tech,arena_name,--,text,2026,Not sourced,https://hokiesports.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Virginia Tech,arena_capacity,--,seats,2026,Not sourced,https://hokiesports.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Virginia Tech,arena_year_opened,--,year,2026,Not sourced,https://hokiesports.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Virginia Tech,stadium_nr_partner,--,text,2026,Not sourced,https://hokiesports.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Virginia Tech,stadium_nr_industry,--,text,2026,Not sourced,https://hokiesports.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Virginia Tech,stadium_nr_deal_type,--,text,2026,Not sourced,https://hokiesports.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Virginia Tech,stadium_nr_start_year,--,year,2026,Not sourced,https://hokiesports.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Virginia Tech,stadium_nr_term_years,--,years,2026,Not sourced,https://hokiesports.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Virginia Tech,stadium_nr_annual_value,--,USD,2026,Not sourced,https://hokiesports.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Virginia Tech,stadium_nr_total_value,--,USD,2026,Not sourced,https://hokiesports.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Virginia Tech,arena_nr_partner,--,text,2026,Not sourced,https://hokiesports.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Virginia Tech,arena_nr_industry,--,text,2026,Not sourced,https://hokiesports.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Virginia Tech,arena_nr_deal_type,--,text,2026,Not sourced,https://hokiesports.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Virginia Tech,arena_nr_start_year,--,year,2026,Not sourced,https://hokiesports.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Virginia Tech,arena_nr_term_years,--,years,2026,Not sourced,https://hokiesports.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Virginia Tech,arena_nr_annual_value,--,USD,2026,Not sourced,https://hokiesports.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Virginia Tech,arena_nr_total_value,--,USD,2026,Not sourced,https://hokiesports.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Virginia Tech,patch_partner,none,text,2026,Front Office Sports,https://frontofficesports.com/article/ncaa-college-sports-jersey-patch-deals-football-basketbal-conference/,2026-11-09,Not listed in Front Office Sports 2026 jersey patch roundup (https://frontofficesports.com/article/ncaa-college-sports-jersey-patch-deals-football-basketbal-conference/); roundup may be incomplete
+Virginia Tech,patch_industry,--,text,2026,Not sourced,https://hokiesports.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Virginia Tech,patch_start_year,--,year,2026,Not sourced,https://hokiesports.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Virginia Tech,patch_term_years,--,years,2026,Not sourced,https://hokiesports.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Virginia Tech,patch_annual_value,--,USD,2026,Not sourced,https://hokiesports.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Virginia Tech,patch_total_value,--,USD,2026,Not sourced,https://hokiesports.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Virginia Tech,mmr_partner,--,text,2026,Not sourced,https://hokiesports.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Virginia Tech,mmr_start_year,--,year,2026,Not sourced,https://hokiesports.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Virginia Tech,mmr_term_years,--,years,2026,Not sourced,https://hokiesports.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Virginia Tech,mmr_annual_value,--,USD,2026,Not sourced,https://hokiesports.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Virginia Tech,mmr_total_value,--,USD,2026,Not sourced,https://hokiesports.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Virginia Tech,apparel_partner,--,text,2026,Not sourced,https://hokiesports.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Virginia Tech,apparel_start_year,--,year,2026,Not sourced,https://hokiesports.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Virginia Tech,apparel_term_years,--,years,2026,Not sourced,https://hokiesports.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Virginia Tech,apparel_annual_value,--,USD,2026,Not sourced,https://hokiesports.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Virginia Tech,apparel_total_value,--,USD,2026,Not sourced,https://hokiesports.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Boston College,fb_hc_pay_source_type,--,text,2026,Not sourced,https://bceagles.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Boston College,mbb_hc_name,--,text,2026,Not sourced,https://bceagles.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Boston College,mbb_hc_annual_comp,--,USD,2026,Not sourced,https://bceagles.com/,2026-11-09,private; compensation not disclosed
+Boston College,mbb_hc_contract_end,--,year,2026,Not sourced,https://bceagles.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Boston College,mbb_hc_pay_source_type,--,text,2026,Not sourced,https://bceagles.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Boston College,stadium_name,--,text,2026,Not sourced,https://bceagles.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Boston College,stadium_capacity,--,seats,2026,Not sourced,https://bceagles.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Boston College,stadium_year_opened,--,year,2026,Not sourced,https://bceagles.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Boston College,stadium_last_renovation_year,--,year,2026,Not sourced,https://bceagles.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Boston College,arena_name,--,text,2026,Not sourced,https://bceagles.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Boston College,arena_capacity,--,seats,2026,Not sourced,https://bceagles.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Boston College,arena_year_opened,--,year,2026,Not sourced,https://bceagles.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Boston College,stadium_nr_partner,--,text,2026,Not sourced,https://bceagles.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Boston College,stadium_nr_industry,--,text,2026,Not sourced,https://bceagles.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Boston College,stadium_nr_deal_type,--,text,2026,Not sourced,https://bceagles.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Boston College,stadium_nr_start_year,--,year,2026,Not sourced,https://bceagles.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Boston College,stadium_nr_term_years,--,years,2026,Not sourced,https://bceagles.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Boston College,stadium_nr_annual_value,--,USD,2026,Not sourced,https://bceagles.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Boston College,stadium_nr_total_value,--,USD,2026,Not sourced,https://bceagles.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Boston College,arena_nr_partner,--,text,2026,Not sourced,https://bceagles.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Boston College,arena_nr_industry,--,text,2026,Not sourced,https://bceagles.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Boston College,arena_nr_deal_type,--,text,2026,Not sourced,https://bceagles.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Boston College,arena_nr_start_year,--,year,2026,Not sourced,https://bceagles.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Boston College,arena_nr_term_years,--,years,2026,Not sourced,https://bceagles.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Boston College,arena_nr_annual_value,--,USD,2026,Not sourced,https://bceagles.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Boston College,arena_nr_total_value,--,USD,2026,Not sourced,https://bceagles.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Boston College,patch_partner,none,text,2026,Front Office Sports,https://frontofficesports.com/article/ncaa-college-sports-jersey-patch-deals-football-basketbal-conference/,2026-11-09,Not listed in Front Office Sports 2026 jersey patch roundup (https://frontofficesports.com/article/ncaa-college-sports-jersey-patch-deals-football-basketbal-conference/); roundup may be incomplete
+Boston College,patch_industry,--,text,2026,Not sourced,https://bceagles.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Boston College,patch_start_year,--,year,2026,Not sourced,https://bceagles.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Boston College,patch_term_years,--,years,2026,Not sourced,https://bceagles.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Boston College,patch_annual_value,--,USD,2026,Not sourced,https://bceagles.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Boston College,patch_total_value,--,USD,2026,Not sourced,https://bceagles.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Boston College,mmr_partner,--,text,2026,Not sourced,https://bceagles.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Boston College,mmr_start_year,--,year,2026,Not sourced,https://bceagles.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Boston College,mmr_term_years,--,years,2026,Not sourced,https://bceagles.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Boston College,mmr_annual_value,--,USD,2026,Not sourced,https://bceagles.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Boston College,mmr_total_value,--,USD,2026,Not sourced,https://bceagles.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Boston College,apparel_partner,--,text,2026,Not sourced,https://bceagles.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Boston College,apparel_start_year,--,year,2026,Not sourced,https://bceagles.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Boston College,apparel_term_years,--,years,2026,Not sourced,https://bceagles.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Boston College,apparel_annual_value,--,USD,2026,Not sourced,https://bceagles.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Boston College,apparel_total_value,--,USD,2026,Not sourced,https://bceagles.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Duke,fb_hc_name,--,text,2026,Not sourced,https://goduke.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Duke,fb_hc_annual_comp,--,USD,2026,Not sourced,https://goduke.com/,2026-11-09,private; compensation not disclosed
+Duke,fb_hc_contract_end,--,year,2026,Not sourced,https://goduke.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Duke,fb_hc_pay_source_type,--,text,2026,Not sourced,https://goduke.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Duke,mbb_hc_name,--,text,2026,Not sourced,https://goduke.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Duke,mbb_hc_annual_comp,--,USD,2026,Not sourced,https://goduke.com/,2026-11-09,private; compensation not disclosed
+Duke,mbb_hc_contract_end,--,year,2026,Not sourced,https://goduke.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Duke,mbb_hc_pay_source_type,--,text,2026,Not sourced,https://goduke.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Duke,stadium_name,--,text,2026,Not sourced,https://goduke.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Duke,stadium_capacity,--,seats,2026,Not sourced,https://goduke.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Duke,stadium_year_opened,--,year,2026,Not sourced,https://goduke.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Duke,stadium_last_renovation_year,--,year,2026,Not sourced,https://goduke.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Duke,arena_name,--,text,2026,Not sourced,https://goduke.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Duke,arena_capacity,--,seats,2026,Not sourced,https://goduke.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Duke,arena_year_opened,--,year,2026,Not sourced,https://goduke.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Duke,stadium_nr_partner,--,text,2026,Not sourced,https://goduke.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Duke,stadium_nr_industry,--,text,2026,Not sourced,https://goduke.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Duke,stadium_nr_deal_type,--,text,2026,Not sourced,https://goduke.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Duke,stadium_nr_start_year,--,year,2026,Not sourced,https://goduke.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Duke,stadium_nr_term_years,--,years,2026,Not sourced,https://goduke.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Duke,stadium_nr_annual_value,--,USD,2026,Not sourced,https://goduke.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Duke,stadium_nr_total_value,--,USD,2026,Not sourced,https://goduke.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Duke,arena_nr_partner,--,text,2026,Not sourced,https://goduke.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Duke,arena_nr_industry,--,text,2026,Not sourced,https://goduke.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Duke,arena_nr_deal_type,--,text,2026,Not sourced,https://goduke.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Duke,arena_nr_start_year,--,year,2026,Not sourced,https://goduke.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Duke,arena_nr_term_years,--,years,2026,Not sourced,https://goduke.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Duke,arena_nr_annual_value,--,USD,2026,Not sourced,https://goduke.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Duke,arena_nr_total_value,--,USD,2026,Not sourced,https://goduke.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Duke,patch_partner,none,text,2026,Front Office Sports,https://frontofficesports.com/article/ncaa-college-sports-jersey-patch-deals-football-basketbal-conference/,2026-11-09,Not listed in Front Office Sports 2026 jersey patch roundup (https://frontofficesports.com/article/ncaa-college-sports-jersey-patch-deals-football-basketbal-conference/); roundup may be incomplete
+Duke,patch_industry,--,text,2026,Not sourced,https://goduke.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Duke,patch_start_year,--,year,2026,Not sourced,https://goduke.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Duke,patch_term_years,--,years,2026,Not sourced,https://goduke.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Duke,patch_annual_value,--,USD,2026,Not sourced,https://goduke.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Duke,patch_total_value,--,USD,2026,Not sourced,https://goduke.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Duke,mmr_partner,--,text,2026,Not sourced,https://goduke.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Duke,mmr_start_year,--,year,2026,Not sourced,https://goduke.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Duke,mmr_term_years,--,years,2026,Not sourced,https://goduke.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Duke,mmr_annual_value,--,USD,2026,Not sourced,https://goduke.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Duke,mmr_total_value,--,USD,2026,Not sourced,https://goduke.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Duke,apparel_partner,--,text,2026,Not sourced,https://goduke.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Duke,apparel_start_year,--,year,2026,Not sourced,https://goduke.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Duke,apparel_term_years,--,years,2026,Not sourced,https://goduke.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Duke,apparel_annual_value,--,USD,2026,Not sourced,https://goduke.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Duke,apparel_total_value,--,USD,2026,Not sourced,https://goduke.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Miami (FL),fb_hc_pay_source_type,--,text,2026,Not sourced,https://hurricanesports.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Miami (FL),mbb_hc_name,--,text,2026,Not sourced,https://hurricanesports.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Miami (FL),mbb_hc_annual_comp,--,USD,2026,Not sourced,https://hurricanesports.com/,2026-11-09,private; compensation not disclosed
+Miami (FL),mbb_hc_contract_end,--,year,2026,Not sourced,https://hurricanesports.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Miami (FL),mbb_hc_pay_source_type,--,text,2026,Not sourced,https://hurricanesports.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Miami (FL),stadium_name,--,text,2026,Not sourced,https://hurricanesports.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Miami (FL),stadium_capacity,--,seats,2026,Not sourced,https://hurricanesports.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Miami (FL),stadium_year_opened,--,year,2026,Not sourced,https://hurricanesports.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Miami (FL),stadium_last_renovation_year,--,year,2026,Not sourced,https://hurricanesports.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Miami (FL),arena_name,--,text,2026,Not sourced,https://hurricanesports.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Miami (FL),arena_capacity,--,seats,2026,Not sourced,https://hurricanesports.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Miami (FL),arena_year_opened,--,year,2026,Not sourced,https://hurricanesports.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Miami (FL),stadium_nr_partner,--,text,2026,Not sourced,https://hurricanesports.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Miami (FL),stadium_nr_industry,--,text,2026,Not sourced,https://hurricanesports.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Miami (FL),stadium_nr_deal_type,--,text,2026,Not sourced,https://hurricanesports.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Miami (FL),stadium_nr_start_year,--,year,2026,Not sourced,https://hurricanesports.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Miami (FL),stadium_nr_term_years,--,years,2026,Not sourced,https://hurricanesports.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Miami (FL),stadium_nr_annual_value,--,USD,2026,Not sourced,https://hurricanesports.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Miami (FL),stadium_nr_total_value,--,USD,2026,Not sourced,https://hurricanesports.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Miami (FL),arena_nr_partner,--,text,2026,Not sourced,https://hurricanesports.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Miami (FL),arena_nr_industry,--,text,2026,Not sourced,https://hurricanesports.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Miami (FL),arena_nr_deal_type,--,text,2026,Not sourced,https://hurricanesports.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Miami (FL),arena_nr_start_year,--,year,2026,Not sourced,https://hurricanesports.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Miami (FL),arena_nr_term_years,--,years,2026,Not sourced,https://hurricanesports.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Miami (FL),arena_nr_annual_value,--,USD,2026,Not sourced,https://hurricanesports.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Miami (FL),arena_nr_total_value,--,USD,2026,Not sourced,https://hurricanesports.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Miami (FL),patch_partner,--,text,2026,Not sourced,https://hurricanesports.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Miami (FL),patch_industry,--,text,2026,Not sourced,https://hurricanesports.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Miami (FL),patch_start_year,--,year,2026,Not sourced,https://hurricanesports.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Miami (FL),patch_term_years,--,years,2026,Not sourced,https://hurricanesports.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Miami (FL),patch_annual_value,--,USD,2026,Not sourced,https://hurricanesports.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Miami (FL),patch_total_value,--,USD,2026,Not sourced,https://hurricanesports.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Miami (FL),mmr_partner,--,text,2026,Not sourced,https://hurricanesports.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Miami (FL),mmr_start_year,--,year,2026,Not sourced,https://hurricanesports.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Miami (FL),mmr_term_years,--,years,2026,Not sourced,https://hurricanesports.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Miami (FL),mmr_annual_value,--,USD,2026,Not sourced,https://hurricanesports.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Miami (FL),mmr_total_value,--,USD,2026,Not sourced,https://hurricanesports.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Miami (FL),apparel_partner,--,text,2026,Not sourced,https://hurricanesports.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Miami (FL),apparel_start_year,--,year,2026,Not sourced,https://hurricanesports.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Miami (FL),apparel_term_years,--,years,2026,Not sourced,https://hurricanesports.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Miami (FL),apparel_annual_value,--,USD,2026,Not sourced,https://hurricanesports.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Miami (FL),apparel_total_value,--,USD,2026,Not sourced,https://hurricanesports.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+SMU,fb_hc_name,--,text,2026,Not sourced,https://smumustangs.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+SMU,fb_hc_annual_comp,--,USD,2026,Not sourced,https://smumustangs.com/,2026-11-09,private; compensation not disclosed
+SMU,fb_hc_contract_end,--,year,2026,Not sourced,https://smumustangs.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+SMU,fb_hc_pay_source_type,--,text,2026,Not sourced,https://smumustangs.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+SMU,mbb_hc_name,--,text,2026,Not sourced,https://smumustangs.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+SMU,mbb_hc_annual_comp,--,USD,2026,Not sourced,https://smumustangs.com/,2026-11-09,private; compensation not disclosed
+SMU,mbb_hc_contract_end,--,year,2026,Not sourced,https://smumustangs.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+SMU,mbb_hc_pay_source_type,--,text,2026,Not sourced,https://smumustangs.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+SMU,stadium_name,--,text,2026,Not sourced,https://smumustangs.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+SMU,stadium_capacity,--,seats,2026,Not sourced,https://smumustangs.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+SMU,stadium_year_opened,--,year,2026,Not sourced,https://smumustangs.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+SMU,stadium_last_renovation_year,--,year,2026,Not sourced,https://smumustangs.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+SMU,arena_name,--,text,2026,Not sourced,https://smumustangs.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+SMU,arena_capacity,--,seats,2026,Not sourced,https://smumustangs.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+SMU,arena_year_opened,--,year,2026,Not sourced,https://smumustangs.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+SMU,stadium_nr_partner,--,text,2026,Not sourced,https://smumustangs.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+SMU,stadium_nr_industry,--,text,2026,Not sourced,https://smumustangs.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+SMU,stadium_nr_deal_type,--,text,2026,Not sourced,https://smumustangs.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+SMU,stadium_nr_start_year,--,year,2026,Not sourced,https://smumustangs.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+SMU,stadium_nr_term_years,--,years,2026,Not sourced,https://smumustangs.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+SMU,stadium_nr_annual_value,--,USD,2026,Not sourced,https://smumustangs.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+SMU,stadium_nr_total_value,--,USD,2026,Not sourced,https://smumustangs.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+SMU,arena_nr_partner,--,text,2026,Not sourced,https://smumustangs.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+SMU,arena_nr_industry,--,text,2026,Not sourced,https://smumustangs.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+SMU,arena_nr_deal_type,--,text,2026,Not sourced,https://smumustangs.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+SMU,arena_nr_start_year,--,year,2026,Not sourced,https://smumustangs.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+SMU,arena_nr_term_years,--,years,2026,Not sourced,https://smumustangs.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+SMU,arena_nr_annual_value,--,USD,2026,Not sourced,https://smumustangs.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+SMU,arena_nr_total_value,--,USD,2026,Not sourced,https://smumustangs.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+SMU,patch_start_year,--,year,2026,Not sourced,https://smumustangs.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+SMU,patch_term_years,--,years,2026,Not sourced,https://smumustangs.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+SMU,patch_annual_value,--,USD,2026,Not sourced,https://smumustangs.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+SMU,patch_total_value,--,USD,2026,Not sourced,https://smumustangs.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+SMU,mmr_partner,--,text,2026,Not sourced,https://smumustangs.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+SMU,mmr_start_year,--,year,2026,Not sourced,https://smumustangs.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+SMU,mmr_term_years,--,years,2026,Not sourced,https://smumustangs.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+SMU,mmr_annual_value,--,USD,2026,Not sourced,https://smumustangs.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+SMU,mmr_total_value,--,USD,2026,Not sourced,https://smumustangs.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+SMU,apparel_partner,--,text,2026,Not sourced,https://smumustangs.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+SMU,apparel_start_year,--,year,2026,Not sourced,https://smumustangs.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+SMU,apparel_term_years,--,years,2026,Not sourced,https://smumustangs.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+SMU,apparel_annual_value,--,USD,2026,Not sourced,https://smumustangs.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+SMU,apparel_total_value,--,USD,2026,Not sourced,https://smumustangs.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Stanford,fb_hc_name,--,text,2026,Not sourced,https://gostanford.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Stanford,fb_hc_annual_comp,--,USD,2026,Not sourced,https://gostanford.com/,2026-11-09,private; compensation not disclosed
+Stanford,fb_hc_contract_end,--,year,2026,Not sourced,https://gostanford.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Stanford,fb_hc_pay_source_type,--,text,2026,Not sourced,https://gostanford.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Stanford,mbb_hc_name,--,text,2026,Not sourced,https://gostanford.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Stanford,mbb_hc_annual_comp,--,USD,2026,Not sourced,https://gostanford.com/,2026-11-09,private; compensation not disclosed
+Stanford,mbb_hc_contract_end,--,year,2026,Not sourced,https://gostanford.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Stanford,mbb_hc_pay_source_type,--,text,2026,Not sourced,https://gostanford.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Stanford,stadium_name,--,text,2026,Not sourced,https://gostanford.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Stanford,stadium_capacity,--,seats,2026,Not sourced,https://gostanford.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Stanford,stadium_year_opened,--,year,2026,Not sourced,https://gostanford.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Stanford,stadium_last_renovation_year,--,year,2026,Not sourced,https://gostanford.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Stanford,arena_name,--,text,2026,Not sourced,https://gostanford.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Stanford,arena_capacity,--,seats,2026,Not sourced,https://gostanford.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Stanford,arena_year_opened,--,year,2026,Not sourced,https://gostanford.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Stanford,stadium_nr_partner,--,text,2026,Not sourced,https://gostanford.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Stanford,stadium_nr_industry,--,text,2026,Not sourced,https://gostanford.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Stanford,stadium_nr_deal_type,--,text,2026,Not sourced,https://gostanford.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Stanford,stadium_nr_start_year,--,year,2026,Not sourced,https://gostanford.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Stanford,stadium_nr_term_years,--,years,2026,Not sourced,https://gostanford.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Stanford,stadium_nr_annual_value,--,USD,2026,Not sourced,https://gostanford.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Stanford,stadium_nr_total_value,--,USD,2026,Not sourced,https://gostanford.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Stanford,arena_nr_partner,--,text,2026,Not sourced,https://gostanford.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Stanford,arena_nr_industry,--,text,2026,Not sourced,https://gostanford.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Stanford,arena_nr_deal_type,--,text,2026,Not sourced,https://gostanford.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Stanford,arena_nr_start_year,--,year,2026,Not sourced,https://gostanford.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Stanford,arena_nr_term_years,--,years,2026,Not sourced,https://gostanford.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Stanford,arena_nr_annual_value,--,USD,2026,Not sourced,https://gostanford.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Stanford,arena_nr_total_value,--,USD,2026,Not sourced,https://gostanford.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Stanford,patch_start_year,--,year,2026,Not sourced,https://gostanford.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Stanford,patch_term_years,--,years,2026,Not sourced,https://gostanford.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Stanford,patch_annual_value,--,USD,2026,Not sourced,https://gostanford.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Stanford,patch_total_value,--,USD,2026,Not sourced,https://gostanford.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Stanford,mmr_partner,--,text,2026,Not sourced,https://gostanford.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Stanford,mmr_start_year,--,year,2026,Not sourced,https://gostanford.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Stanford,mmr_term_years,--,years,2026,Not sourced,https://gostanford.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Stanford,mmr_annual_value,--,USD,2026,Not sourced,https://gostanford.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Stanford,mmr_total_value,--,USD,2026,Not sourced,https://gostanford.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Stanford,apparel_partner,--,text,2026,Not sourced,https://gostanford.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Stanford,apparel_start_year,--,year,2026,Not sourced,https://gostanford.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Stanford,apparel_term_years,--,years,2026,Not sourced,https://gostanford.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Stanford,apparel_annual_value,--,USD,2026,Not sourced,https://gostanford.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Stanford,apparel_total_value,--,USD,2026,Not sourced,https://gostanford.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Syracuse,fb_hc_name,--,text,2026,Not sourced,https://cuse.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Syracuse,fb_hc_annual_comp,--,USD,2026,Not sourced,https://cuse.com/,2026-11-09,private; compensation not disclosed
+Syracuse,fb_hc_contract_end,--,year,2026,Not sourced,https://cuse.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Syracuse,fb_hc_pay_source_type,--,text,2026,Not sourced,https://cuse.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Syracuse,mbb_hc_name,--,text,2026,Not sourced,https://cuse.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Syracuse,mbb_hc_annual_comp,--,USD,2026,Not sourced,https://cuse.com/,2026-11-09,private; compensation not disclosed
+Syracuse,mbb_hc_contract_end,--,year,2026,Not sourced,https://cuse.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Syracuse,mbb_hc_pay_source_type,--,text,2026,Not sourced,https://cuse.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Syracuse,stadium_name,--,text,2026,Not sourced,https://cuse.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Syracuse,stadium_capacity,--,seats,2026,Not sourced,https://cuse.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Syracuse,stadium_year_opened,--,year,2026,Not sourced,https://cuse.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Syracuse,stadium_last_renovation_year,--,year,2026,Not sourced,https://cuse.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Syracuse,arena_name,--,text,2026,Not sourced,https://cuse.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Syracuse,arena_capacity,--,seats,2026,Not sourced,https://cuse.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Syracuse,arena_year_opened,--,year,2026,Not sourced,https://cuse.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Syracuse,stadium_nr_partner,--,text,2026,Not sourced,https://cuse.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Syracuse,stadium_nr_industry,--,text,2026,Not sourced,https://cuse.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Syracuse,stadium_nr_deal_type,--,text,2026,Not sourced,https://cuse.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Syracuse,stadium_nr_start_year,--,year,2026,Not sourced,https://cuse.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Syracuse,stadium_nr_term_years,--,years,2026,Not sourced,https://cuse.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Syracuse,stadium_nr_annual_value,--,USD,2026,Not sourced,https://cuse.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Syracuse,stadium_nr_total_value,--,USD,2026,Not sourced,https://cuse.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Syracuse,arena_nr_partner,--,text,2026,Not sourced,https://cuse.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Syracuse,arena_nr_industry,--,text,2026,Not sourced,https://cuse.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Syracuse,arena_nr_deal_type,--,text,2026,Not sourced,https://cuse.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Syracuse,arena_nr_start_year,--,year,2026,Not sourced,https://cuse.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Syracuse,arena_nr_term_years,--,years,2026,Not sourced,https://cuse.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Syracuse,arena_nr_annual_value,--,USD,2026,Not sourced,https://cuse.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Syracuse,arena_nr_total_value,--,USD,2026,Not sourced,https://cuse.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Syracuse,patch_partner,none,text,2026,Front Office Sports,https://frontofficesports.com/article/ncaa-college-sports-jersey-patch-deals-football-basketbal-conference/,2026-11-09,Not listed in Front Office Sports 2026 jersey patch roundup (https://frontofficesports.com/article/ncaa-college-sports-jersey-patch-deals-football-basketbal-conference/); roundup may be incomplete
+Syracuse,patch_industry,--,text,2026,Not sourced,https://cuse.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Syracuse,patch_start_year,--,year,2026,Not sourced,https://cuse.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Syracuse,patch_term_years,--,years,2026,Not sourced,https://cuse.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Syracuse,patch_annual_value,--,USD,2026,Not sourced,https://cuse.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Syracuse,patch_total_value,--,USD,2026,Not sourced,https://cuse.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Syracuse,mmr_partner,--,text,2026,Not sourced,https://cuse.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Syracuse,mmr_start_year,--,year,2026,Not sourced,https://cuse.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Syracuse,mmr_term_years,--,years,2026,Not sourced,https://cuse.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Syracuse,mmr_annual_value,--,USD,2026,Not sourced,https://cuse.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Syracuse,mmr_total_value,--,USD,2026,Not sourced,https://cuse.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Syracuse,apparel_partner,--,text,2026,Not sourced,https://cuse.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Syracuse,apparel_start_year,--,year,2026,Not sourced,https://cuse.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Syracuse,apparel_term_years,--,years,2026,Not sourced,https://cuse.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Syracuse,apparel_annual_value,--,USD,2026,Not sourced,https://cuse.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Syracuse,apparel_total_value,--,USD,2026,Not sourced,https://cuse.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Wake Forest,fb_hc_name,--,text,2026,Not sourced,https://godeacs.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Wake Forest,fb_hc_annual_comp,--,USD,2026,Not sourced,https://godeacs.com/,2026-11-09,private; compensation not disclosed
+Wake Forest,fb_hc_contract_end,--,year,2026,Not sourced,https://godeacs.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Wake Forest,fb_hc_pay_source_type,--,text,2026,Not sourced,https://godeacs.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Wake Forest,mbb_hc_name,--,text,2026,Not sourced,https://godeacs.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Wake Forest,mbb_hc_annual_comp,--,USD,2026,Not sourced,https://godeacs.com/,2026-11-09,private; compensation not disclosed
+Wake Forest,mbb_hc_contract_end,--,year,2026,Not sourced,https://godeacs.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Wake Forest,mbb_hc_pay_source_type,--,text,2026,Not sourced,https://godeacs.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Wake Forest,stadium_name,--,text,2026,Not sourced,https://godeacs.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Wake Forest,stadium_capacity,--,seats,2026,Not sourced,https://godeacs.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Wake Forest,stadium_year_opened,--,year,2026,Not sourced,https://godeacs.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Wake Forest,stadium_last_renovation_year,--,year,2026,Not sourced,https://godeacs.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Wake Forest,arena_name,--,text,2026,Not sourced,https://godeacs.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Wake Forest,arena_capacity,--,seats,2026,Not sourced,https://godeacs.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Wake Forest,arena_year_opened,--,year,2026,Not sourced,https://godeacs.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Wake Forest,stadium_nr_partner,--,text,2026,Not sourced,https://godeacs.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Wake Forest,stadium_nr_industry,--,text,2026,Not sourced,https://godeacs.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Wake Forest,stadium_nr_deal_type,--,text,2026,Not sourced,https://godeacs.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Wake Forest,stadium_nr_start_year,--,year,2026,Not sourced,https://godeacs.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Wake Forest,stadium_nr_term_years,--,years,2026,Not sourced,https://godeacs.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Wake Forest,stadium_nr_annual_value,--,USD,2026,Not sourced,https://godeacs.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Wake Forest,stadium_nr_total_value,--,USD,2026,Not sourced,https://godeacs.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Wake Forest,arena_nr_partner,--,text,2026,Not sourced,https://godeacs.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Wake Forest,arena_nr_industry,--,text,2026,Not sourced,https://godeacs.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Wake Forest,arena_nr_deal_type,--,text,2026,Not sourced,https://godeacs.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Wake Forest,arena_nr_start_year,--,year,2026,Not sourced,https://godeacs.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Wake Forest,arena_nr_term_years,--,years,2026,Not sourced,https://godeacs.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Wake Forest,arena_nr_annual_value,--,USD,2026,Not sourced,https://godeacs.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Wake Forest,arena_nr_total_value,--,USD,2026,Not sourced,https://godeacs.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Wake Forest,patch_partner,none,text,2026,Front Office Sports,https://frontofficesports.com/article/ncaa-college-sports-jersey-patch-deals-football-basketbal-conference/,2026-11-09,Not listed in Front Office Sports 2026 jersey patch roundup (https://frontofficesports.com/article/ncaa-college-sports-jersey-patch-deals-football-basketbal-conference/); roundup may be incomplete
+Wake Forest,patch_industry,--,text,2026,Not sourced,https://godeacs.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Wake Forest,patch_start_year,--,year,2026,Not sourced,https://godeacs.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Wake Forest,patch_term_years,--,years,2026,Not sourced,https://godeacs.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Wake Forest,patch_annual_value,--,USD,2026,Not sourced,https://godeacs.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Wake Forest,patch_total_value,--,USD,2026,Not sourced,https://godeacs.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Wake Forest,mmr_partner,--,text,2026,Not sourced,https://godeacs.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Wake Forest,mmr_start_year,--,year,2026,Not sourced,https://godeacs.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Wake Forest,mmr_term_years,--,years,2026,Not sourced,https://godeacs.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Wake Forest,mmr_annual_value,--,USD,2026,Not sourced,https://godeacs.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Wake Forest,mmr_total_value,--,USD,2026,Not sourced,https://godeacs.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Wake Forest,apparel_partner,--,text,2026,Not sourced,https://godeacs.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Wake Forest,apparel_start_year,--,year,2026,Not sourced,https://godeacs.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Wake Forest,apparel_term_years,--,years,2026,Not sourced,https://godeacs.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Wake Forest,apparel_annual_value,--,USD,2026,Not sourced,https://godeacs.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
+Wake Forest,apparel_total_value,--,USD,2026,Not sourced,https://godeacs.com/,2026-11-09,Not sourced within research effort/search budget; no verified value
