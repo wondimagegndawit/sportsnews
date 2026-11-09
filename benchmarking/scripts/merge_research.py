@@ -3,7 +3,8 @@ plus data/review_rejections.csv. One row per (school, metric): first accepted va
 import csv, re, json, os
 from collections import OrderedDict
 R='/tmp/claude-0/-home-user-sportsnews/13880bdf-16ac-52e7-abd6-56bf6c41826b/scratchpad/research'
-files=['data/bulk_values.csv']+[f'{R}/{c}.csv' for c in ('acc','bigten','big12','sec')]
+import glob
+files=["data/bulk_values.csv"]+sorted(glob.glob(f"{R}/*.csv"))
 NUM=re.compile(r'(revenue|expense|distributions|support|fees|salaries|debt|_comp$|_end$|capacity|opened|renovation|start_year|term_years|annual_value|total_value|varsity|fiscal_year|enrollment$|_wins_|_losses_|apr|gsr$|dcup_)')
 QUAL=re.compile(r'(approx|about|~|\best\b|up to|unknown|unverified|tbd|n/a|\?)',re.I)
 rows=[]; rej=[]
@@ -19,7 +20,10 @@ for r in rows:
     if m in ('fin_report_url',): continue
     url=r['source_url'].lower()
     if not url: reject(r,'no source URL'); continue
-    if 'usatoday' in url or 'wikipedia' in url or 'usa today' in r['source_name'].lower(): reject(r,'prohibited source'); continue
+    if 'usatoday' in url or 'wikipedia' in url or 'wikiwand' in url or 'usa today' in r['source_name'].lower(): reject(r,'prohibited source'); continue
+    if 'stadiumjourney' in url or 'wiki' in url: reject(r,'fan site or wiki mirror not accepted as a source'); continue
+    if re.search(r'(inferred|computed from|not stated directly|assum|estimat|derived from the term sheet|plus \$?\d|average of|not read directly|probably|unverified|not verified|wikipedia mirror)',r['notes'],re.I) and (m.endswith('_comp') or m.endswith('_contract_end') or re.search(r'(capacity|opened|renovation|start_year|term_years|annual_value|total_value)',m)):
+        reject(r,'value inferred, computed or unverified per the note'); continue
     if NUM.search(m) and m not in ('enrollment_year','academic_data_year'):
         if not re.fullmatch(r'-?\d+(\.\d+)?',v.replace(',','')): reject(r,'numeric metric with non-numeric value'); continue
         r['value']=v.replace(',','')
