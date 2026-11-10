@@ -176,8 +176,8 @@ NS=len(order); print('schools kept',NS,'excluded',EXCLUDED)
 # ---------- workbook (house style: SMASHSPORTS diligence workbook conventions) ----------
 BRAND=CellRichText(TextBlock(InlineFont(rFont='Montserrat',sz=11,b=True,color='000000'),'SMASH'),TextBlock(InlineFont(rFont='Montserrat',sz=11,b=False,color='000000'),'SPORTS')); ENTITY='Power 4 Athletic Department Benchmarking'
 FN='Aptos Narrow'; FS=9
-F_BASE=Font(name=FN,size=FS); F_B=Font(name=FN,size=FS,bold=True); F_I=Font(name=FN,size=FS,italic=True)
-F_HDR=Font(name=FN,size=FS,color='FFFFFF'); F_BRAND=Font(name='Montserrat',size=11,color='000000'); F_LINKED=Font(name=FN,size=FS,underline='single')
+F_BASE=Font(name=FN,size=FS); F_B=Font(name=FN,size=FS,bold=True); F_I=Font(name=FN,size=FS,color='008000'); F_HC=Font(name=FN,size=FS,color='0000FF')
+F_HDR=Font(name=FN,size=FS,color='FFFFFF'); F_BRAND=Font(name='Montserrat',size=11,color='000000'); F_LINKED=Font(name=FN,size=FS,color='0000FF',underline='single')
 FILL_BLACK=PatternFill('solid',fgColor='000000'); FILL_SEC=PatternFill('solid',fgColor='E8E8E8'); FILL_IN=PatternFill('solid',fgColor='FFFFCC'); FILL_SUB=PatternFill('solid',fgColor='D9D9D9')
 THIN=Side(style='thin',color='000000'); DBL=Side(style='double',color='000000')
 B_TB=Border(top=THIN,bottom=THIN); B_T=Border(top=THIN); B_TOT=Border(top=THIN,bottom=DBL)
@@ -194,8 +194,6 @@ def prep(ws,title,units='Whole dollars unless the column header says otherwise')
     ws.row_dimensions[2].height=16.5; ws.row_dimensions[R_HDR].height=24
     ws['B2']=BRAND; ws['B2'].font=F_BRAND; ws['B2'].alignment=Alignment(horizontal='left')
     ws['B3']=ENTITY; ws['B3'].font=F_B
-    ws['B4']=title; ws['B4'].font=F_BASE
-    if units: ws['B5']=units; ws['B5'].font=F_BASE
 def header(ws,labels,first_col=1):
     for j,h in enumerate(labels):
         c=ws.cell(row=R_HDR,column=first_col+OFF+j,value=h); c.font=F_HDR; c.fill=FILL_BLACK; c.border=B_TB; c.alignment=CENTER
@@ -233,16 +231,16 @@ for conf,sname in CONFS:
                 put_cell(cell,f,F_BASE,m['fmt']); continue
             val,url=R[key]
             if key in IDENT: put_cell(cell,val if val is not None else '--',F_BASE,m['fmt'],align=IND1 if key=='school' else None)
-            elif val is None: put_cell(cell,'--',F_BASE,m['fmt'],FILL_IN)
-            elif key in NOLINK: put_cell(cell,val,F_BASE,m['fmt'],FILL_IN)
+            elif val is None: put_cell(cell,'--',F_HC,m['fmt'])
+            elif key in NOLINK: put_cell(cell,val,F_HC,m['fmt'])
             else:
-                put_cell(cell,val,F_LINKED if url else F_BASE,m['fmt'],FILL_IN)
+                put_cell(cell,val,F_LINKED if url else F_HC,m['fmt'])
                 if url: cell.hyperlink=url; cell.font=F_LINKED
         for pre in ('stadium_nr','arena_nr','patch','mmr','apparel'):
             a,t,tot=R[pre+'_annual_value'][0],R[pre+'_term_years'][0],R[pre+'_total_value'][0]
             ca,ct,ctot=ws[A(pre+'_annual_value')],ws[A(pre+'_term_years')],ws[A(pre+'_total_value')]
             def formula_cell(c,f,fmt):
-                c.hyperlink=None; put_cell(c,f,F_BASE,fmt,PatternFill(fill_type=None))
+                c.hyperlink=None; put_cell(c,f,F_BASE,fmt)
             if a is not None and t is not None and tot is not None:
                 formula_cell(ctot,f'=IF(AND(ISNUMBER({A(pre+"_annual_value")}),ISNUMBER({A(pre+"_term_years")})),{A(pre+"_annual_value")}*{A(pre+"_term_years")},"--")','usd')
                 for row in sourcelog:
@@ -286,7 +284,7 @@ for k,(rr,lab,conf) in enumerate(blockrows):
         if conf=='All schools': cell.value=f'=IFERROR({"AVERAGE" if lab=="Average" else "MEDIAN"}({col}{all_first}:{col}{all_last}),"--")'
         elif lab=='Average': cell.value=f'=IFERROR(AVERAGEIF(${CL(2)}${all_first}:${CL(2)}${all_last},${CL(2)}{rr},{col}{all_first}:{col}{all_last}),"--")'
         else:
-            lay=conf_layout[conf]; cell.value=f"='{lay['sheet']}'!{col}{lay['med']}"; cell.font=Font(name=FN,size=FS,bold=True,italic=True)
+            lay=conf_layout[conf]; cell.value=f"='{lay['sheet']}'!{col}{lay['med']}"; cell.font=Font(name=FN,size=FS,bold=True,color='008000')
 setw(ws,{i:max(len(m['hdr']),14)+2 for i,m in enumerate(S,1)}); ws.column_dimensions[CL(1)].width=22; ws.freeze_panes=f'{CL(2)}{R0}'
 
 # ---- 00 - Read Me ----
@@ -299,7 +297,7 @@ lines=[
  'The Financial source basis column states Sportico or MFRS own posting for each school; the fiscal year column states the report year.',
  "Other sources: NCAA APR and GSR search tools (2024-25 release), IPEDS fall 2024 headcount, ESPN standings (football 2021-25) and Sports-Reference (men's basketball 2021-22 to 2025-26), NACDA Directors' Cup final standings (2024-25 and 2025-26), school and partner releases and trade press for venues and commercial deals.",
  "Revenue breakout: Football, Men's basketball and Non-program-specific revenue are the sport columns of the MFRS Total Operating Revenues line; Other sports revenue is the remainder by formula.",
- 'Conventions: yellow-filled cells are hardcoded figures (underlined where a source hyperlink is attached), unfilled black cells are formulas, italic cells are links to another tab, gray rows are averages and medians; financial cells are sourced through the hyperlink on Financial source basis; "--" means not publicly sourced, with the reason in 06 - Source Log.',
+ 'Conventions: blue cells are hardcoded figures (underlined where a source hyperlink is attached), black cells are formulas and identity text, green cells are links to another tab, gray rows are averages and medians, yellow is the input cell on 07; financial cells are sourced through the hyperlink on Financial source basis; "--" means not publicly sourced, with the reason in 06 - Source Log.',
  'No newspaper-compiled finance or coaching-salary databases are used anywhere in this workbook. Date accessed for all sources: 2026-11-09 and 2026-11-10.',
 ]
 for k,t in enumerate(lines): ws.cell(row=R0+k,column=1+OFF,value=t).font=F_BASE
@@ -312,7 +310,7 @@ prep(ws,'Source log: one row per sourced value (values, not formulas)',units=Non
 header(ws,hdr)
 for j,row in enumerate(sourcelog):
     for i,v in enumerate(row,1):
-        c=ws.cell(row=R0+j,column=i+OFF,value=(v if v not in (None,'') else '--')); c.font=F_BASE; c.fill=FILL_IN
+        c=ws.cell(row=R0+j,column=i+OFF,value=(v if v not in (None,'') else '--')); c.font=F_BASE
 setw(ws,{1:20,2:10,3:36,4:18,5:10,6:26,7:22,8:40,9:60,10:13,11:80}); ws.freeze_panes=f'{CL(1)}{R0}'
 
 # ---- 07 - School Lookup and school tabs ----
