@@ -28,9 +28,11 @@ FMT={'usd':'$#,##0;($#,##0);-','pct':'0.0%','cnt':'#,##0','wp':'0.000','yr':'0',
 # kind: text | num | formula
 S=[]
 def M(sec,hdr,key,kind,fmt=None,agg=False): S.append(dict(sec=sec,hdr=hdr,key=key,kind=kind,fmt=fmt,agg=agg))
-M('Identity','School','school','text'); M('Identity','Conference','conference','text'); M('Identity','Public or Private','control','text'); M('Identity','State','state','text'); M('Identity','Flagship (Y/N)','flagship','text')
+M('Identity','School','school','text'); M('Identity','Conference','conference','text'); M('Identity','Public or Private','control','text'); M('Identity','State','state','text')
 M('Financial','Fiscal year','fin_fiscal_year','num','yr'); M('Financial','Financial source basis','fin_basis','text')
-M('Financial','Total operating revenue','total_operating_revenue','num','usd',True); M('Financial','Total operating expenses','total_operating_expenses','num','usd',True)
+M('Financial','Total operating revenue','total_operating_revenue','num','usd',True)
+M('Financial','Football revenue','fb_revenue','num','usd',True); M('Financial','Men\'s basketball revenue','mbb_revenue','num','usd',True); M('Financial','Other sports revenue','f_other_sports_revenue','formula','usd',True); M('Financial','Non-program-specific revenue','nonprogram_revenue','num','usd',True)
+M('Financial','Total operating expenses','total_operating_expenses','num','usd',True)
 M('Financial','Operating surplus (deficit)','f_surplus','formula','usd',True)
 M('Financial','Media rights revenue','media_rights_revenue','num','usd',True); M('Financial','Ticket sales revenue','ticket_sales_revenue','num','usd',True); M('Financial','Contributions revenue','contributions_revenue','num','usd',True)
 M('Financial','NCAA and conference distributions','ncaa_conf_distributions','num','usd',True)
@@ -90,7 +92,7 @@ for s in order:
     nav=f"https://nces.ed.gov/collegenavigator/?id={s['unitid']}"
     put('school',n,nav,'text','','IPEDS','IPEDS College Navigator',nav,f"UNITID {s['unitid']}; {s['ipeds_name']}")
     put('conference',s['conf'],CONF_URL[s['conf']],'text','2026-27','other','Conference official site',CONF_URL[s['conf']],'Membership as of the 2026-27 academic year')
-    for key in ('control','state','flagship'):
+    for key in ('control','state'):
         r=get(n,key); put(key,r['value'],r['source_url'],r['unit'],r['fiscal_year_or_season'],stype_of(r),r['source_name'],r['notes'])
     # financial
     tor=get(n,'total_operating_revenue'); sp=get(n,'sp_total_operating_revenue')
@@ -105,7 +107,7 @@ for s in order:
             xnote=f" Cross-check against the school-posted report ({tor['fiscal_year_or_season']}, {repurl}): total operating revenue {num(tor['value']):,} ({'matches' if num(tor['value'])==num(sp['value']) else 'differs'})."
         put('fin_fiscal_year',fy,sp['source_url'],'year',f'FY{fy}',SPB,sp['source_name'],'Fiscal year of the NCAA MFRS report as compiled by Sportico.'+xnote)
         put('fin_basis',SPB,sp['source_url'],'text',f'FY{fy}',SPB,sp['source_name'],"Sportico College Sports Finances Database, compiled from the school's NCAA MFRS report (public schools only)."+xnote)
-        for key in ('total_operating_revenue','total_operating_expenses','media_rights_revenue','ticket_sales_revenue','contributions_revenue','ncaa_conf_distributions','direct_institutional_support','indirect_institutional_support','student_fees','coaching_salaries','athletics_related_debt','debt_service'):
+        for key in ('total_operating_revenue','fb_revenue','mbb_revenue','nonprogram_revenue','total_operating_expenses','media_rights_revenue','ticket_sales_revenue','contributions_revenue','ncaa_conf_distributions','direct_institutional_support','indirect_institutional_support','student_fees','coaching_salaries','athletics_related_debt','debt_service'):
             r=get(n,'sp_'+key); o=get(n,key); on=''
             if r and r['value']!='--':
                 if o and o['value']!='--' and key!='ncaa_conf_distributions': on=f" School-posted report value: {num(o['value']):,} ({'matches' if num(o['value'])==num(r['value']) else 'differs'})."
@@ -116,7 +118,7 @@ for s in order:
         rep=get(n,'fin_report_url'); repurl=rep['value'] if rep and rep['value'] not in ('--','') else tor['source_url']
         put('fin_fiscal_year',fy,repurl,'year',f'FY{fy}','MFRS own posting',tor['source_name'],'Fiscal year of the school-posted NCAA MFRS/AUP report')
         put('fin_basis','MFRS own posting',repurl,'text',f'FY{fy}','MFRS own posting',tor['source_name'],'School-posted NCAA Membership Financial Reporting System / agreed-upon procedures report')
-        for key in ('total_operating_revenue','total_operating_expenses','media_rights_revenue','ticket_sales_revenue','contributions_revenue','direct_institutional_support','indirect_institutional_support','student_fees','coaching_salaries','athletics_related_debt','debt_service'):
+        for key in ('total_operating_revenue','fb_revenue','mbb_revenue','nonprogram_revenue','total_operating_expenses','media_rights_revenue','ticket_sales_revenue','contributions_revenue','direct_institutional_support','indirect_institutional_support','student_fees','coaching_salaries','athletics_related_debt','debt_service'):
             r=get(n,key)
             if r and r['value']!='--': put(key,num(r['value']),r['source_url'],'USD',f'FY{fy}','MFRS own posting',r['source_name'],r['notes'])
             else: put(key,None,'','USD',f'FY{fy}','MFRS own posting',tor['source_name'],(r['notes'] if r else 'line not reported'))
@@ -133,6 +135,10 @@ for s in order:
         put('fin_basis','EADA',er['source_url'],'text','FY2025','EADA',er['source_name'],'EADA basis: U.S. Dept. of Education Equity in Athletics data; revenue and expense definitions differ from NCAA MFRS. '+why)
         put('total_operating_revenue',num(er['value']),er['source_url'],'USD','FY2025','EADA',er['source_name'],er['notes'])
         put('total_operating_expenses',num(ee['value']),ee['source_url'],'USD','FY2025','EADA',ee['source_name'],ee['notes'])
+        for key in ('fb_revenue','mbb_revenue','nonprogram_revenue'):
+            r=get(n,'eada_'+key)
+            if r and r['value']!='--': put(key,num(r['value']),r['source_url'],'USD','FY2025','EADA',r['source_name'],r['notes'])
+            else: put(key,None,'','USD','FY2025','EADA','EADA 2024-25','not reported in EADA')
         for key in ('media_rights_revenue','ticket_sales_revenue','contributions_revenue','ncaa_conf_distributions','direct_institutional_support','indirect_institutional_support','student_fees','coaching_salaries','athletics_related_debt','debt_service'):
             put(key,None,'','USD','FY2025','EADA','EADA 2024-25','EADA basis; this MFRS line item is not reported in EADA. '+why)
     # everything else straight from merged rows
@@ -157,6 +163,7 @@ for s in order:
         put(key,val,r['source_url'],r['unit'],r['fiscal_year_or_season'],st,r['source_name'],r['notes'])
     resolved[n]=R
 
+NOLINK={'school','conference','control','state','fin_fiscal_year','total_operating_revenue','total_operating_expenses','media_rights_revenue','ticket_sales_revenue','contributions_revenue','ncaa_conf_distributions','direct_institutional_support','indirect_institutional_support','student_fees','coaching_salaries','athletics_related_debt','debt_service','fb_revenue','mbb_revenue','nonprogram_revenue'}
 # ---------- workbook ----------
 wb=openpyxl.Workbook(); wb.remove(wb.active)
 def prep(ws,ncols,title):
@@ -188,6 +195,7 @@ for conf,sname in CONFS:
             if m['kind']=='formula':
                 if key=='f_surplus': f=f'=IF(AND(ISNUMBER({A("total_operating_revenue")}),ISNUMBER({A("total_operating_expenses")})),{A("total_operating_revenue")}-{A("total_operating_expenses")},"--")'
                 elif key=='f_subsidy': f=f'=IF(AND(ISNUMBER({A("direct_institutional_support")}),ISNUMBER({A("student_fees")})),{A("direct_institutional_support")}+{A("student_fees")}+IF(ISNUMBER({A("indirect_institutional_support")}),{A("indirect_institutional_support")},0),"--")'
+                elif key=='f_other_sports_revenue': f=f'=IF(AND(ISNUMBER({A("total_operating_revenue")}),ISNUMBER({A("fb_revenue")}),ISNUMBER({A("mbb_revenue")}),ISNUMBER({A("nonprogram_revenue")})),{A("total_operating_revenue")}-{A("fb_revenue")}-{A("mbb_revenue")}-{A("nonprogram_revenue")},"--")'
                 elif key=='f_subsidy_pct': f=f'=IF(AND(ISNUMBER({A("f_subsidy")}),ISNUMBER({A("total_operating_revenue")}),{A("total_operating_revenue")}>0),{A("f_subsidy")}/{A("total_operating_revenue")},"--")'
                 elif key=='f_fb_winpct': f=f'=IF(AND(ISNUMBER({A("fb_wins_2021_25")}),ISNUMBER({A("fb_losses_2021_25")})),{A("fb_wins_2021_25")}/({A("fb_wins_2021_25")}+{A("fb_losses_2021_25")}),"--")'
                 elif key=='f_mbb_winpct': f=f'=IF(AND(ISNUMBER({A("mbb_wins_2122_2526")}),ISNUMBER({A("mbb_losses_2122_2526")})),{A("mbb_wins_2122_2526")}/({A("mbb_wins_2122_2526")}+{A("mbb_losses_2122_2526")}),"--")'
@@ -196,6 +204,7 @@ for conf,sname in CONFS:
                 write_text(cell,f,F_BLACK,m['fmt']); continue
             val,url=R[key]
             if val is None: write_text(cell,'--',F_BLUE_PLAIN,m['fmt'])
+            elif key in NOLINK: write_text(cell,val,F_BLUE_PLAIN,m['fmt'])
             else:
                 write_text(cell,val,F_BLUE,m['fmt'])
                 if url: cell.hyperlink=url; cell.font=F_BLUE
@@ -261,7 +270,8 @@ lines=[
  'Private schools and public schools absent from Sportico use the federal EADA file (2024-25 reporting year); the Financial source basis column states Sportico, MFRS own posting or EADA for each school.',
  'MFRS vs. EADA caveat: EADA revenue and expense definitions differ from NCAA MFRS, and EADA reports no line-item detail, so media rights, ticketing, contributions, subsidy and debt lines are "--" on EADA-basis rows.',
  'Other sources: NCAA APR and GSR search tools (2024-25 release), IPEDS fall 2024 headcount, ESPN standings (football 2021-25) and Sports-Reference (men\'s basketball 2021-22 to 2025-26), NACDA Directors\' Cup final standings (2024-25 and 2025-26), school and partner releases and trade press for venues and commercial deals.',
- 'Conventions: blue cells are hardcodes hyperlinked to their source, black cells are formulas, green cells are cross-tab links, yellow is the input cell on 07; "--" means not publicly sourced, with the reason in 06 - Source Log.',
+ 'Revenue breakout: Football, Men\'s basketball and Non-program-specific revenue are the sport columns of the MFRS Total Operating Revenues line (EADA football and men\'s basketball revenue and unallocated revenue for EADA-basis schools); Other sports revenue is the remainder by formula.',
+ 'Conventions: blue cells are hardcodes, black cells are formulas, green cells are cross-tab links, yellow is the input cell on 07; financial cells are sourced through the hyperlink on Financial source basis, every other hardcode carries its own source hyperlink; "--" means not publicly sourced, with the reason in 06 - Source Log.',
  'No newspaper-compiled finance or coaching-salary databases are used anywhere in this workbook. Date accessed for all sources: 2026-11-09.',
 ]
 for k,t in enumerate(lines): ws.cell(row=3+k,column=1,value=t).font=F_BLACK

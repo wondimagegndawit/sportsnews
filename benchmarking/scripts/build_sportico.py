@@ -68,6 +68,13 @@ for s in master:
                 x=line(v,'Total Athletics Related Debt')
                 if x is not None: vals['athletics_related_debt']=x; break
     add(s,'sp_fiscal_year',int(yr),'year',yr,note)
+    trv=None
+    for k,v in T.items():
+        if k.strip().lower().startswith('total operating revenues') and isinstance(v,list) and len(v)==6: trv=[num(x) for x in v]; break
+    bk=note+'; Total Operating Revenues row, sport column of the Sportico Totals view'
+    add(s,'sp_fb_revenue',trv[0] if trv else None,'USD',yr,bk+' (Football)')
+    add(s,'sp_mbb_revenue',trv[1] if trv else None,'USD',yr,bk+" (Men's Basketball)")
+    add(s,'sp_nonprogram_revenue',trv[4] if trv else None,'USD',yr,bk+' (Non-Program Specific: revenue not attributable to a sport, e.g. media rights, institutional support, student fees)')
     for k in ('total_operating_revenue','total_operating_expenses','media_rights_revenue','ticket_sales_revenue','contributions_revenue','direct_institutional_support','student_fees','coaching_salaries','debt_service','athletics_related_debt'):
         add(s,'sp_'+k,vals[k],'USD',yr,note+('; line 34 includes leases and rental fees' if k=='debt_service' else '')+('; line 22, paid by the university and related entities' if k=='coaching_salaries' else '')+('; line 52' if k=='athletics_related_debt' else ''))
     ind=None

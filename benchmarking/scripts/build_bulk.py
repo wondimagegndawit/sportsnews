@@ -33,6 +33,12 @@ for s in master:
 
 # ---------- EADA financial fallback (FY ending in 2025, 2024-25 reporting year) ----------
 EADA_URL='https://ope.ed.gov/athletics/api/dataFiles/file?fileName=EADA_2024-2025.zip'
+wbs=openpyxl.load_workbook('data/eada/extracted/schools.xlsx',read_only=True); wss=wbs.active
+its=wss.iter_rows(values_only=True); hdrs=next(its); eada_sport={}
+for r in its:
+    d=dict(zip(hdrs,r)); u=str(d['unitid'])
+    if d.get('Sports')=='Football' and d.get('TOTAL_REVENUE_ALL') is not None: eada_sport.setdefault(u,{})['Football']=int(d['TOTAL_REVENUE_ALL'])
+    if d.get('Sports')=='Basketball' and d.get('REV_MEN') is not None: eada_sport.setdefault(u,{})['Basketball']=int(d['REV_MEN'])
 wb=openpyxl.load_workbook('data/eada/extracted/instLevel.xlsx',read_only=True); ws=wb.active
 it=ws.iter_rows(values_only=True); hdr=next(it)
 eada={}
@@ -44,6 +50,11 @@ for s in master:
     note=f"EADA institution-level file, unitid {s['unitid']}, {d['institution_name']}; EADA revenue/expense definitions differ from NCAA MFRS; institution page https://ope.ed.gov/athletics/#/institution/{s['unitid']}"
     add(s['name'],'eada_total_revenue',int(d['GRND_TOTAL_REVENUE']),'USD','FY2025 (2024-25 EADA reporting year)','EADA 2024-25 (GRND_TOTAL_REVENUE)',EADA_URL,note)
     add(s['name'],'eada_total_expense',int(d['GRND_TOTAL_EXPENSE']),'USD','FY2025 (2024-25 EADA reporting year)','EADA 2024-25 (GRND_TOTAL_EXPENSE)',EADA_URL,note)
+    na=d.get('TOT_REVENUE_ALL_NOTALLOC')
+    add(s['name'],'eada_nonprogram_revenue',int(na) if na is not None else '--','USD','FY2025 (2024-25 EADA reporting year)','EADA 2024-25 (TOT_REVENUE_ALL_NOTALLOC)',EADA_URL,note+'; Total Revenues Not Allocated by Sex/Sport')
+    sp=eada_sport.get(s['unitid'],{})
+    add(s['name'],'eada_fb_revenue',sp.get('Football','--'),'USD','FY2025 (2024-25 EADA reporting year)','EADA 2024-25 schools file (Football TOTAL_REVENUE_ALL)',EADA_URL,note+'; per-sport file, Football row, total revenue')
+    add(s['name'],'eada_mbb_revenue',sp.get('Basketball','--'),'USD','FY2025 (2024-25 EADA reporting year)','EADA 2024-25 schools file (Basketball REV_MEN)',EADA_URL,note+"; per-sport file, Basketball row, men's revenue")
 
 # ---------- Academics (NCAA APR / GSR search) ----------
 NCAA='https://web3.ncaa.org'
