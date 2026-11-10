@@ -70,6 +70,7 @@ def logrow(s,metric_hdr,value,unit,fy,stype,sname,url,note):
 def stype_of(r):
     u=(r.get('source_url') or '').lower(); n=(r.get('source_name') or '').lower(); f=r.get('_file','')
     if 'knightnewhouse' in u: return 'Knight-Newhouse'
+    if 'sportico' in u: return 'Sportico (MFRS compilation)'
     if 'ope.ed.gov' in u or 'eada' in n: return 'EADA'
     if 'ncaa.org' in u: return 'NCAA'
     if 'nces.ed.gov' in u or 'ipeds' in n: return 'IPEDS'
@@ -92,8 +93,25 @@ for s in order:
     for key in ('control','state','flagship'):
         r=get(n,key); put(key,r['value'],r['source_url'],r['unit'],r['fiscal_year_or_season'],stype_of(r),r['source_name'],r['notes'])
     # financial
-    tor=get(n,'total_operating_revenue')
+    tor=get(n,'total_operating_revenue'); sp=get(n,'sp_total_operating_revenue')
+    own_fy=None
     if tor and tor['value']!='--':
+        fyr=get(n,'fin_fiscal_year'); own_fy=num(fyr['value']) if fyr and fyr['value']!='--' else num(re.sub(r'\D','',tor['fiscal_year_or_season'])[:4])
+    if sp and sp['value']!='--' and num(get(n,'sp_fiscal_year')['value'])>=2024 and not (own_fy and own_fy>num(get(n,'sp_fiscal_year')['value'])):
+        fy=num(get(n,'sp_fiscal_year')['value']); SPB='Sportico (MFRS compilation)'
+        xnote=''
+        if tor and tor['value']!='--':
+            rep=get(n,'fin_report_url'); repurl=rep['value'] if rep and rep['value'] not in ('--','') else tor['source_url']
+            xnote=f" Cross-check against the school-posted report ({tor['fiscal_year_or_season']}, {repurl}): total operating revenue {num(tor['value']):,} ({'matches' if num(tor['value'])==num(sp['value']) else 'differs'})."
+        put('fin_fiscal_year',fy,sp['source_url'],'year',f'FY{fy}',SPB,sp['source_name'],'Fiscal year of the NCAA MFRS report as compiled by Sportico.'+xnote)
+        put('fin_basis',SPB,sp['source_url'],'text',f'FY{fy}',SPB,sp['source_name'],"Sportico College Sports Finances Database, compiled from the school's NCAA MFRS report (public schools only)."+xnote)
+        for key in ('total_operating_revenue','total_operating_expenses','media_rights_revenue','ticket_sales_revenue','contributions_revenue','ncaa_conf_distributions','direct_institutional_support','indirect_institutional_support','student_fees','coaching_salaries','athletics_related_debt','debt_service'):
+            r=get(n,'sp_'+key); o=get(n,key); on=''
+            if r and r['value']!='--':
+                if o and o['value']!='--' and key!='ncaa_conf_distributions': on=f" School-posted report value: {num(o['value']):,} ({'matches' if num(o['value'])==num(r['value']) else 'differs'})."
+                put(key,num(r['value']),r['source_url'],'USD',f'FY{fy}',SPB,r['source_name'],r['notes']+on)
+            else: put(key,None,'','USD',f'FY{fy}',SPB,sp['source_name'],'line not reported in the Sportico entry')
+    elif tor and tor['value']!='--':
         fyr=get(n,'fin_fiscal_year'); fy=num(fyr['value']) if fyr and fyr['value']!='--' else num(re.sub(r'\D','',tor['fiscal_year_or_season'])[:4])
         rep=get(n,'fin_report_url'); repurl=rep['value'] if rep and rep['value'] not in ('--','') else tor['source_url']
         put('fin_fiscal_year',fy,repurl,'year',f'FY{fy}','MFRS own posting',tor['source_name'],'Fiscal year of the school-posted NCAA MFRS/AUP report')
@@ -170,7 +188,7 @@ for conf,sname in CONFS:
             if m['kind']=='formula':
                 if key=='f_surplus': f=f'=IF(AND(ISNUMBER({A("total_operating_revenue")}),ISNUMBER({A("total_operating_expenses")})),{A("total_operating_revenue")}-{A("total_operating_expenses")},"--")'
                 elif key=='f_subsidy': f=f'=IF(AND(ISNUMBER({A("direct_institutional_support")}),ISNUMBER({A("student_fees")})),{A("direct_institutional_support")}+{A("student_fees")}+IF(ISNUMBER({A("indirect_institutional_support")}),{A("indirect_institutional_support")},0),"--")'
-                elif key=='f_subsidy_pct': f=f'=IF(AND(ISNUMBER({A("f_subsidy")}),ISNUMBER({A("total_operating_revenue")})),{A("f_subsidy")}/{A("total_operating_revenue")},"--")'
+                elif key=='f_subsidy_pct': f=f'=IF(AND(ISNUMBER({A("f_subsidy")}),ISNUMBER({A("total_operating_revenue")}),{A("total_operating_revenue")}>0),{A("f_subsidy")}/{A("total_operating_revenue")},"--")'
                 elif key=='f_fb_winpct': f=f'=IF(AND(ISNUMBER({A("fb_wins_2021_25")}),ISNUMBER({A("fb_losses_2021_25")})),{A("fb_wins_2021_25")}/({A("fb_wins_2021_25")}+{A("fb_losses_2021_25")}),"--")'
                 elif key=='f_mbb_winpct': f=f'=IF(AND(ISNUMBER({A("mbb_wins_2122_2526")}),ISNUMBER({A("mbb_losses_2122_2526")})),{A("mbb_wins_2122_2526")}/({A("mbb_wins_2122_2526")}+{A("mbb_losses_2122_2526")}),"--")'
                 elif key.endswith('_expires'):
@@ -239,8 +257,8 @@ ws=wb.create_sheet('00 - Read Me',0); prep(ws,2,'Power 4 athletic department ben
 lines=[
  'Coverage: all 67 Power 4 athletic departments (ACC 17, Big Ten 18, Big 12 16, SEC 16); one row per school on the conference tabs, which hold every hardcoded value.',
  'Structure: 01 links every conference-tab cell; 06 is the audit trail (values); 07 looks up any school; tabs 08 onward are one per school, all formulas.',
- 'Source hierarchy for financials: school-posted NCAA MFRS or agreed-upon procedures report first (FY2025 where posted), otherwise the federal EADA file (2024-25 reporting year).',
- 'Knight-Newhouse was not reachable from the build environment, so no school uses that basis; the Financial source basis column states MFRS own posting or EADA for each school.',
+ 'Financials for public schools come from the Sportico College Sports Finances Database, which compiles each school\'s NCAA MFRS report (FY2025, FY2024 where that is the latest posted); where the school also posts its own MFRS report, the Source Log records that figure as a cross-check.',
+ 'Private schools and public schools absent from Sportico use the federal EADA file (2024-25 reporting year); the Financial source basis column states Sportico, MFRS own posting or EADA for each school.',
  'MFRS vs. EADA caveat: EADA revenue and expense definitions differ from NCAA MFRS, and EADA reports no line-item detail, so media rights, ticketing, contributions, subsidy and debt lines are "--" on EADA-basis rows.',
  'Other sources: NCAA APR and GSR search tools (2024-25 release), IPEDS fall 2024 headcount, ESPN standings (football 2021-25) and Sports-Reference (men\'s basketball 2021-22 to 2025-26), NACDA Directors\' Cup final standings (2024-25 and 2025-26), school and partner releases and trade press for venues and commercial deals.',
  'Conventions: blue cells are hardcodes hyperlinked to their source, black cells are formulas, green cells are cross-tab links, yellow is the input cell on 07; "--" means not publicly sourced, with the reason in 06 - Source Log.',

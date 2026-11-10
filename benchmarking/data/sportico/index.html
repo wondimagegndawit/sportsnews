@@ -1,0 +1,1835 @@
+<html>
+<head>
+<meta name="robots" content="noindex">
+<title>MFRS Reports</title>
+<link href="https://fonts.googleapis.com/css?family=Crimson+Text" rel="stylesheet"><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/default.min.css">
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script type="text/javascript" src="json.json"></script>
+<script type="text/javascript" src="json2.json"></script>
+<script type="text/javascript" src="jsonManual.json"></script>
+<script type="text/javascript" src="json4.json"></script>
+<script type="text/javascript" src="json5.json"></script>
+<script type="text/javascript" src="json6.json"></script>
+<script type="text/javascript" src="json7.json"></script>
+<script type="text/javascript" src="json8.json"></script>
+<script type="text/javascript" src="dictionaries.js"></script>
+<script type="text/javascript" src="results.js"></script>
+<script type="text/javascript" src="teams.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
+<style>
+@font-face {
+  font-family: myFirstFont;
+  src: url(Geograph/Geograph-Thin.otf);
+}
+@font-face {
+  font-family: mySecondFont;
+  src: url(Geograph/Geograph-Medium.otf);
+}
+@font-face {
+  font-family: myThirdFont;
+  src: url(Geograph/Geograph-Regular.otf);
+}
+body{
+  background-color: #f0f0f0;
+  width: 1150px;
+  font-family:myThirdFont;
+}
+h2 {
+    font-family:mySecondFont;
+    padding-top: 15px;
+}
+h4 {
+  margin-left: 30px;
+  font-size: 30px;
+  letter-spacing: 0.5;
+  font-family:mySecondFont;
+  margin-top: 5px;
+  float: left;
+}
+.top {
+  text-align: left;
+}
+p {
+  font-size: 11pt;
+}
+#banner {
+  margin-left: -25px;
+}
+#topmost{
+  width: 1150px;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: grey;
+  margin-bottom: 30;
+}
+#date {
+  font-size: 10pt;
+  margin-right: 30px;
+  width: 150px;
+  font-family:mySecondFont;
+  letter-spacing:0.05em;
+}
+#head {
+  width: 800px;
+}
+#featured {
+  color: red;
+  margin-left: 150px;
+  width: 200px;
+  margin-top: 12px;
+  font-family:mySecondFont;
+}
+#contain {
+  display: flex;
+  align-items: center;
+  margin-bottom: -10px;
+}
+#containertop {
+  margin-left: 20px;
+}
+.tab {
+  width: 49%;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+}
+.tab:focus {
+  outline:0;
+}
+.selectedtab {
+  background-color: #bbbbbb;
+  cursor: ;
+}
+.bar {
+  margin-bottom: 40px;
+  border-bottom: black solid 1px;
+}
+svg { 
+  background-color: #f0f0f0;
+}
+svg text{
+  font-family:myThirdFont;
+  stroke-width: 1px;
+}
+button {
+  background-color: transparent; 
+  color: black; 
+  text-align: center; 
+  font-size: 16px; 
+  border: 0.5px solid #343a40; 
+  padding: 12px 12px; 
+  margin-top:10px;
+  font-weight:700; 
+  stroke: #343a40;
+  border-radius: 8px;
+  text-align-last:center;
+  font-family: mySecondFont;
+}
+button:hover {
+  background-color: #dddddd;
+}
+#viewAllSchools {
+  margin-top: 5px;
+  margin-bottom: 30px;
+  font-size: 30px;
+  cursor: pointer;
+  background-color: #B22A2D;
+  color: white;
+}
+#viewAllSchools:hover {
+  background-color:#96041a;
+}
+#viewAllSchools2 {
+  float: right;
+  cursor: pointer;
+  margin-top: 5px;
+}
+.tabb {
+  background-color: #999;
+  border-radius: 0px;
+  color:white;
+  width:19.5%;
+  border: none;
+  cursor: pointer;
+}
+.tabb:hover {
+  background-color: #888;
+}
+.selectedtabb {
+  background-color: #B22A2D;
+  border-radius:12px 12px 0px 0px;
+  height:60px;
+}
+.selectedtabb:hover{
+  background-color:#96041a;
+}
+#tabs{
+  margin-bottom:10px;
+}
+
+a {
+  text-decoration: none;
+  font-size: 20;
+  display: inline-block;
+  padding: 8px 16px;
+}
+a:hover {
+  background-color: #ccc;
+  color: black;
+  cursor: pointer;
+}
+.back {
+  background-color: #ddd;
+  color: black;
+  padding-right: 30;
+  padding-left: 30;
+  font-size: 30;
+  padding-top: 0;
+  padding-bottom: 5;
+  border-radius: 10%;
+}
+#backToSearch {
+  font-size:20;
+  margin-left: 15;
+  font-family: mySecondFont;
+}
+
+select{
+  background-color: transparent; 
+  color: black; 
+  text-align-last: center; 
+  width: 210px;
+  font-size: 14px; 
+  border: 0.5px solid #343a40; 
+  padding: 5px;
+  font-weight:700; 
+  stroke: #343a40;
+  border-radius: 8px;
+  margin-right: 10px;
+  margin-top: 5px;
+  font-family: myThirdFont;
+}
+input[type=text] {
+  float: left;
+  width: 500px;
+  padding: 12px 20px;
+  margin: 10px 10px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  background-color: #f9f9f9;
+}
+.selectdiv{
+  width:24%;
+  display:inline-block;
+}
+label {
+  margin-right: 20px;
+}
+
+.hidden {
+  display: none;
+}
+path.lineGraph { 
+    fill: none; 
+    stroke-width: 2; 
+}
+.tooltip {
+  position: relative;
+  display: inline-block;
+  margin-left: 10px;
+  margin-right: 5px;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 100px;
+  background-color: grey;
+  color: #fff;
+  font-size:12px;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+  top: 100%;
+  left: 50%;
+  margin-left: -50px;
+  margin-top: 5px;
+}
+select:hover {
+  background-color: #dddddd;
+}
+select-items {
+  width: 200px
+}
+#toggle {
+  margin-left:10;
+  margin-top: 30;
+  margin-bottom:30;
+  float: left;
+}
+/*.tooltip:hover .tooltiptext {
+  visibility: visible;
+}*/
+.source {
+  font-family:myThirdFont;
+}
+.boxLabel {
+   font-family: myThirdFont;
+}
+#myTable {
+  width: 1130px;
+}
+
+table, th, td {
+  margin: auto;
+  margin-top: 40px;
+  border: none;
+  border-collapse: collapse;
+}
+thead {
+  font-family:mySecondFont;
+  border-bottom: .5px solid black;
+}
+tbody {
+  font-family:myThirdFont;
+}
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+td {
+  padding: 7px;
+  padding-right:20px;
+}
+.rank {
+  width: 40px;
+  text-align: center;
+}
+.boldedRow{
+  font-family:mySecondFont;
+}
+thead td:hover{ 
+    background-color: #dddddd ;
+    cursor: pointer;
+}
+.rankHead:hover{
+   background-color: #f0f0f0;
+   cursor: default;
+}
+#notIncluded {
+  margin-top: 30px;
+  margin-bottom: 15px;
+  font-size: 12px;
+}
+
+.rect:hover{
+  fill:#888888;
+}
+.xaxis{
+  font-size: 7pt;
+}
+.xaxis .tick line{
+  visibility:hidden;
+}
+
+#schoolLogo {
+  height: 50px;
+  float:left;
+}
+#miniLogo {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+  float:left;
+}
+.miniSchool:hover {
+  background-color: #cccccc ;
+  text-decoration: underline;
+  cursor: pointer;
+}
+#boxes {
+  margin-top: 40px;
+  margin-left: 10px;
+}
+#error {
+  display: none;
+}
+#errorMessage {
+  float: left;
+  border-color: red;
+  border-style: solid;
+  padding: 30px;
+  border-radius: 10px;
+  color: red;
+  border-width: 0.5;
+}
+#schoolHeader {
+  margin-top: 30px;
+}
+#teams {
+  display: none;
+}
+.graph {
+  padding-bottom: 20px;
+  margin-bottom: 5px;
+  border-radius: 10px;
+  background-color: white;
+}
+.graphLeft {
+  float: left;
+}
+.graphRight {
+  float: right;
+  margin-left: 20px;
+}
+.svgContainer {
+  display: none;
+  margin-bottom: 20px;
+}
+
+#selectcontainer {
+  margin-top: 25px;
+  text-align: center;
+}
+#buttoncontainer {
+  text-align: center;
+}
+.bold {
+  font-weight: bold;
+}
+#alignment {
+  text-align: center;
+  margin-bottom: -10px;
+}
+#alignment3 {
+  margin-bottom: 20px;
+}
+#results {
+  margin: 10px
+}
+#teams {
+  margin: 10px
+}
+#link {
+  color: red;
+  font-family:mySecondFont;
+  text-decoration: underline;
+  float: right;
+  font-size: 16px;
+}
+#link:hover {
+  background-color: #f0f0f0;
+}
+#schoolYear {
+  margin-left: 30px;
+  width: 120px;
+  margin-top: 10px;
+}
+
+</style>
+</head>
+<body>
+<img src="banner.jpg" width="1200px" id="banner"></img>
+<div id="topmost">
+  <div id="containertop">
+     <div id="contain">
+        <span id="head">
+           <h2>Sportico's College Sports Finances Database</h2>
+        </span>
+         <span id="featured"> <a id="link" href="https://www.sportico.com/?p=1234645998" target="_blank">Learn More</a>
+         </span>
+    </div>
+  <p id="dek"> <i>Sportico</i> maintains an interactive, real-time database that tracks the official balance sheets of public university athletic departments in the Football Bowl Subdivision. You can see how revenue and expense categories stack up among FBS programs by going to "Compare Schools," or click on the buttons below for school-specific data viz. We are in the process of adding schools for the 2024-25 season.
+  </p><br>
+  </div>
+</div>
+<div id="results">
+  <div id="alignment3">
+    <a class="back" onclick="schoolSearchView()">&#8249;</a>
+    <span id="backToSearch">Back to Search</span>
+  </div>
+<div id="top">
+<div id="tabs">
+  <button value="Totals" class="tabb selectedtabb" type="button" onclick="typeChange2('Totals')">TOTALS</button>
+  <button value="Expenses" class="tabb" type="button" onclick="typeChange2('Expenses')">EXPENSE CATEGORIES</button>
+  <button value="Revenues" class="tabb" type="button" onclick="typeChange2('Revenues')">REVENUE CATEGORIES</button>
+  <button value="Individual Sports" class="tabb" type="button" onclick="typeChange2('Individual Sports')">INDIVIDUAL SPORTS</button>
+  <button value="Numbers" class="tabb" type="button" onclick="typeChange2('Numbers')">DEBT & OTHER DATA</button>
+</div>
+<div id="selectcontainer">
+  <!-- <select id="type" onchange="typeChange()">
+    <option value="Totals">Totals</option> 
+    <option value="Revenues">Revenue Categories</option>
+    <option value="Expenses">Expense Categories</option>
+    <option value="Individual Sports">Individual Sports</option>
+    <option value="Numbers">School-Related Data</option>
+  </select>-->
+  <div class="selectdiv">
+  <label for="cateogory">Choose a Category </label><br>
+  <select id="category" onchange="results()">
+    <option value="Total Operating Revenues">Total Operating Revenues</option>
+    <option value="Total Operating Expenses" selected>Total Operating Expenses</option>
+    <option value="Generated Revenue">Generated Revenue</option>
+    <option value="Subsidies">Subsidies</option>
+  </select>
+ </div>
+  <div class="selectdiv">
+  <label for="sport">Choose a Sport</label><br>
+  <select id="sport" onchange="results()">
+    <option value="5">All Sports</option>
+    <option value="0">Football</option>
+    <option value="1">Men's Basketball</option>
+    <option value="2">Women's Basketball</option>
+  </select>
+ </div>
+ <div class="selectdiv">
+  <label for="year">Choose a Year</label><br>
+  <select id="year" onchange="results()">
+    <option value="2025" selected>2024-25</option>
+    <option value="2024">2023-24</option>
+    <option value="2023">2022-23</option>
+    <option value="2022">2021-22</option>
+    <option value="2021">2020-21</option>
+    <option value="2020">2019-20</option>
+    <option value="2019">2018-19</option>
+    <option value="2018">2017-18</option>
+    <option value="diff20252024">2023-24 vs. 2024-25</option>
+    <option value="diff20242019">2018-19 vs. 2023-24</option>
+    <option value="diff20242018">2017-18 vs. 2023-24</option>
+  </select>
+  </div>
+  <div class="selectdiv">
+  <label for="conference">Choose a Conference</label><br>
+    <select id="conference" onchange="results()">
+    <option value="all" class="bold">All Conferences</option>
+    <option value="Power Five" class="bold">Power Five</option>
+    <option value="Group of Five" class="bold">Group of Five</option>
+    <option value="ACC">ACC</option>
+    <option value="Big 12">Big 12</option>
+    <option value="Big Ten">Big Ten</option>
+    <option value="Pac-12">Pac-12</option>
+    <option value="SEC">SEC</option>
+    <option value="AAC">AAC</option>
+    <option value="C-USA">C-USA</option>
+    <option value="MAC">MAC</option>
+    <option value="Mountain West">Mountain West</option>
+    <option value="Sun Belt">Sun Belt</option>
+    <option value="Independent">Independents</option>
+  </select>
+  </div>
+  </div>
+  <!-- <div id="buttoncontainer">
+    <button id="toggle" type="button" onclick="results()">Get Results</button>
+  </div>-->
+</div>
+<table id="myTable">
+  <thead id="header">
+  </thead>
+  <tbody id="body"></tbody>
+</table>
+<p id="notIncluded"></p>
+</div>
+<!-- Here's an SVG element. Note that in this file it looks like the <div> above. -->
+<div id="teams">
+  <div id="alignment">
+    <button id="viewAllSchools" type="button" onclick="resultsView()"> Compare Schools </button><br>
+    <span id='search'>
+      <input type="text" id="schoolsearch" name="schoolsearch" placeholder="Search for a school..." onkeyup="keyup()"></input>
+    </span>
+  </div>
+  <div id="alignment2">
+    <a class="back" onclick="schoolSearchView()">&#8249;</a>
+    <span id="backToSearch">Back to Search</span>
+    <button id="viewAllSchools2" type="button" onclick="resultsView()"> Compare Schools </button>
+  </div>
+<span id=schoolHeader>
+  <img id="schoolLogo" src=""></img>
+  <h4 id="schoolName"></h4>
+   <select id="schoolYear" onchange="graphIt()">
+    <option value="2025" selected>2024-25</option>
+    <option value="2024">2023-24</option>
+    <option value="2023">2022-23</option>
+    <option value="2022">2021-22</option>
+    <option value="2021">2020-21</option>
+    <option value="2020">2019-20</option>
+    <option value="2019">2018-19</option>
+    <option value="2018">2017-18</option>
+  </select>
+</span>
+<span id="error">
+  <p id="errorMessage"></p>
+</span>
+<!--<svg id="franchiseCard" height="500" width="1000"></svg>-->
+<svg id="boxes" width="1130px" height="3300px"></svg>
+<div id="svgContainer" class="svgContainer">
+  <svg id="graph" class="graph graphLeft" width="530px" height="400px"></svg>
+  <svg id="graphr" class="graph graphRight" width="580px" height="400px"></svg>
+</div>
+<div id="svgContainer2" class="svgContainer">
+  <svg id="graph2" class="graph graphLeft" width="530px" height="400px"></svg>
+  <svg id="graph2r" class="graph graphRight" width="580px" height="400px"></svg>
+</div>
+</div>
+
+<script>
+var svg = d3.select("#graph");
+var svgr = d3.select("#graphr");
+var svg2 = d3.select("#graph2");
+var svg2r = d3.select("#graph2r");
+var allData;
+var width = 1200;
+
+var sortColumn;
+var sortDirection;
+var type = "Totals";
+
+allData = data[0];
+addJson8();
+addJson7();
+addJson6();
+addJson5();
+addJson4();
+addJsonManual();
+addJson2();
+d3.csv('MissingSports.csv', function(error, data) {
+  data.forEach(function(row){
+    var school = row['School']
+    var year = row['Year']
+    var sport = row['Sport']
+    var revenue = Number(row['Revenue'])
+    allData[school][year]['Revenues'][sport] = revenue
+    if (row['Expense'] != 'no'){
+      var expense = Number(row['Expense'])
+      allData[school][year]['Expenses'][sport] = expense
+    }
+  })
+  cleanData();
+  options();
+  results();
+  schoolSearchView();
+})
+
+//resultsView();
+
+/*var ddd = Object.keys(allData);
+var cats = Object.keys(allData['Oregon State University']['2019']['Totals'])
+var dddict = {}
+cats.forEach(function(cat){
+  dddict[cat] = 0;
+})
+ddd.forEach(function(key) {
+      if (Object.keys(allData[key]).includes('2019')){
+        cats.forEach(function(cat){
+          if (allData[key]['2019']['Totals'][cat]){
+            console.log(allData[key]['2019']['Totals'][cat][5])
+            dddict[cat] += numberify(allData[key]['2019']['Totals'][cat][5]);
+          }
+        })     
+      }
+})
+cats.forEach(function(cat){
+  dddict[cat] = dddict[cat]/ddd.length;
+})
+console.log(dddict)*/
+
+function formatNumber(num) {
+  return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
+}
+
+function numberify(n){
+  if (n){
+    if (typeof n == 'number'){
+      return n
+    } else {
+      if (n.substring(0,1) == "$"){
+        return parseInt(n.substring(1).replace(/,/g, ''), 10)
+      }
+      else if (n.substring(1,2) == "$"){
+        return -1 * parseInt(n.substring(2).replace(/,/g, ''), 10)
+      } 
+    }
+  } else {
+    return 0;
+  }
+}
+
+function addJson2(){
+  Object.keys(data2[0]).forEach(function(school) {
+    Object.keys(data2[0][school]).forEach(function(year) {
+      if (Object.keys(allData).includes(school)){
+        allData[school][year] = data2[0][school][year]
+      } else {
+        allData[school] = data2[0][school]
+      }
+    });
+  });
+  allData["Pittsburgh"] = {};
+  allData["Temple"] = {};
+}
+
+
+function addJsonManual(){
+  Object.keys(dataManual[0]).forEach(function(school) {
+    Object.keys(dataManual[0][school]).forEach(function(year) {
+      if (Object.keys(allData).includes(school)){
+        allData[school][year] = dataManual[0][school][year]
+      } else {
+        allData[school] = dataManual[0][school]
+      }
+    });
+  });
+}
+
+function addJson4(){
+  Object.keys(data4[0]).forEach(function(school) {
+    Object.keys(data4[0][school]).forEach(function(year) {
+      if (Object.keys(allData).includes(school)){
+        allData[school][year] = data4[0][school][year]
+      } else {
+        allData[school] = data4[0][school]
+      }
+    });
+  });
+}
+
+function addJson5(){
+  Object.keys(data5[0]).forEach(function(school) {
+    Object.keys(data5[0][school]).forEach(function(year) {
+      if (Object.keys(allData).includes(school)){
+        allData[school][year] = data5[0][school][year]
+      } else {
+        allData[school] = data5[0][school]
+      }
+    });
+  });
+}
+
+function addJson6(){
+  Object.keys(data6[0]).forEach(function(school) {
+    Object.keys(data6[0][school]).forEach(function(year) {
+      if (Object.keys(allData).includes(school)){
+        allData[school][year] = data6[0][school][year]
+      } else {
+        allData[school] = data6[0][school]
+      }
+    });
+  });
+}
+
+function addJson7(){
+  Object.keys(data7[0]).forEach(function(school) {
+    Object.keys(data7[0][school]).forEach(function(year) {
+      if (Object.keys(allData).includes(school)){
+        allData[school][year] = data7[0][school][year]
+      } else {
+        allData[school] = data7[0][school]
+      }
+    });
+  });
+}
+
+function addJson8(){
+  Object.keys(data8[0]).forEach(function(school) {
+    Object.keys(data8[0][school]).forEach(function(year) {
+      if (Object.keys(allData).includes(school)){
+        allData[school][year] = data8[0][school][year]
+      } else {
+        allData[school] = data8[0][school]
+      }
+    });
+  });
+}
+
+
+function cleanData(){
+
+  allData["University of Louisiana at Monroe"]["2019"] = allData["University of Louisiana Monroe"]["2019"]
+  allData["University of Louisiana at Monroe"]["2020"] = allData["University of Louisiana Monroe"]["2020"]
+  allData["University of Louisiana at Monroe"]["2021"] = allData["University of Louisiana Monroe"]["2021"]
+  allData["University of Louisiana at Monroe"]["2022"] = allData["University of Louisiana Monroe"]["2022"]
+  allData["University of Louisiana at Monroe"]["2023"] = allData["University of Louisiana Monroe"]["2023"]
+  allData["University of Louisiana at Monroe"]["2024"] = allData["University of Louisiana Monroe"]["2024"]
+  //allData["University of Louisiana at Monroe"]["2025"] = allData["University of Louisiana Monroe"]["2025"]
+  allData["University of Nebraska, Lincoln"]["2023"] = allData["University of Nebraska-Lincoln"]["2023"]
+  allData["University of Nebraska, Lincoln"]["2024"] = allData["University of Nebraska-Lincoln"]["2024"]
+  allData["University of Nebraska, Lincoln"]["2025"] = allData["University of Nebraska-Lincoln"]["2025"]
+  allData["University of Colorado, Boulder"]["2025"] = allData["University of Colorado Boulder"]["2025"]
+  //console.log(allData["Miami University (Ohio)"]["2024"]["Totals"])
+
+  delete allData["University of Nebraska-Lincoln"]
+  delete allData["University of Louisiana Monroe"]
+  delete allData["University of Colorado Boulder"]
+  delete allData["Virginia Commonwealth University"]
+  delete allData["Sam Houston State University"]
+  delete allData["Missouri State University"]
+  delete allData["University of Hawaii, Manoa"]['2021']
+  //delete allData["University of Hawaii, Manoa"]['2022']
+  delete allData["University of Hawaii, Manoa"]['2019']
+  //delete allData["U.S. Naval Academy"]["2023"]
+  delete allData["U.S. Naval Academy"]["2025"]
+
+
+  allData["University of Michigan"]['2025']['Totals']['Total Operating Expenses'] = [61663185,14358515,5858896,58513487,121162185,261556268]
+  allData["University of Connecticut"]['2025']['Totals']['Total Operating Expenses'] = [20651432,21554604,13169775,25960358,28337839,109674009]
+   allData["University of Texas at San Antonio"]['2025']['Totals']['Total Operating Expenses'] = [19277444,2916916,2651288,10515577,18037488,53398713]
+  allData["Florida Atlantic University"]['2025']['Totals']['Total Operating Expenses'] = [18753366,4931154,2450646,12337808,14075664,52548638]
+
+  allData["Miami University (Ohio)"]["2024"]["Totals"]['Sports Camp Revenues'] = [0,0,0,0,575868,575868]
+  allData["Ohio University"]["2024"]["Totals"]['Sports Camp Revenues'] = [28877,160948,0,229573,0,419398]
+  allData["Utah State University"]["2024"]["Totals"]['Sports Camp Revenues'] = [0,0,0,0,0,0]
+  allData["University of Texas at El Paso"]["2024"]["Totals"]['Sports Camp Revenues'] = [9386,29683,4251,153866,0,197186]
+
+  allData["Coastal Carolina University"]['2023']['Totals']['Sports Camp Revenues'] = [0,0,0,0,31451,31451]
+  allData["Eastern Michigan University"]['2023']['Totals']['Sports Camp Revenues'] = [36716,20477,2404,120108,0,179705]
+  allData["University of Texas at El Paso"]['2023']['Totals']['Sports Camp Revenues'] = [5192,11434,921,136567,0,154114]
+
+  allData["U.S. Naval Academy"]['2023']['Totals']['Conference Distributions (Non Media and Non Football Bowl)'] = [6701191,0,0,1175,0,6702366]
+  allData["U.S. Naval Academy"]['2023']['Totals']['Conference Distributions of Football Bowl Generated Revenue'] = [0,0,0,0,0,0]
+
+  allData["University of Louisville"]['2023']['Totals']['Conference Distributions (Non Media and Non Football Bowl)'] = [8206667,2360000,0,0,115940,10682607]
+  allData["University of Louisville"]['2023']['Totals']['Conference Distributions of Football Bowl Generated Revenue'] = [0,0,0,0,0,0]
+  allData["Old Dominion University"]['2023']['Totals']['Conference Distributions (Non Media and Non Football Bowl)'] = [0,1239,0,35070,5000,41309]
+  allData["Old Dominion University"]['2023']['Totals']['Conference Distributions of Football Bowl Generated Revenue'] = [0,0,0,0,0,0]
+   allData["Texas A&M University, College Station"]['2023']['Totals']['Conference Distributions (Non Media and Non Football Bowl)'] = [727296,457639,36563,106726,930064,2258288]
+  allData["Texas A&M University, College Station"]['2023']['Totals']['Conference Distributions of Football Bowl Generated Revenue'] = [9155146,0,0,0,0,9155146]
+  allData["Utah State University"]['2023']['Totals']['Conference Distributions (Non Media and Non Football Bowl)'] = [0,4850940,0,0,136167,621261]
+  allData["Utah State University"]['2023']['Totals']['Conference Distributions of Football Bowl Generated Revenue'] = [1422607,0,0,0,0,1422607]
+  allData["University of Arizona"]['2023']['Totals']['Conference Distributions (Non Media and Non Football Bowl)'] = [0,0,0,0,3237999,3237999]
+  allData["University of Arizona"]['2023']['Totals']['Conference Distributions of Football Bowl Generated Revenue'] = [0,0,0,0,0,0]
+  allData["University of Memphis"]['2023']['Totals']['Conference Distributions (Non Media and Non Football Bowl)'] = [0,0,0,0,6762961,6762961]
+  allData["University of Memphis"]['2023']['Totals']['Conference Distributions of Football Bowl Generated Revenue'] = [0,0,0,0,0,0]
+  allData["University of North Texas"]['2023']['Totals']['Conference Distributions (Non Media and Non Football Bowl)'] = [0,0,0,0,1130000,1130000]
+  allData["University of North Texas"]['2023']['Totals']['Conference Distributions of Football Bowl Generated Revenue'] = [0,0,0,0,0,0]
+  allData["Air Force"]['2023']['Totals']['Conference Distributions (Non Media and Non Football Bowl)'] = [1962408,26027,26027,0,0,2014462]
+  allData["Air Force"]['2023']['Totals']['Conference Distributions of Football Bowl Generated Revenue'] = [0,0,0,0,0,0]
+  allData["University of New Mexico"]['2023']['Totals']['Conference Distributions (Non Media and Non Football Bowl)'] = [0,0,0,0,1267115,1267115]
+  allData["University of New Mexico"]['2023']['Totals']['Conference Distributions of Football Bowl Generated Revenue'] = [158333,0,0,0,0,158333]
+
+
+  allData["University of Wisconsin-Madison"]["2023"]['Totals']['Football Bowl Expenses'] = [2438523,0,0,0,0,2438523]
+  allData["University of Wisconsin-Madison"]["2023"]['Totals']['Football Bowl Expenses - Coaching Compensation/Bonuses'] = [109087,0,0,0,0,109087]
+  allData["University of Tennessee, Knoxville"]["2023"]['Totals']['Football Bowl Expenses'] = [2415268,0,0,0,0,2415268]
+  allData["University of Tennessee, Knoxville"]["2023"]['Totals']['Football Bowl Expenses - Coaching Compensation/Bonuses'] = [973391,0,0,0,0,973391]
+  allData["University of Michigan"]["2023"]['Totals']['Football Bowl Expenses'] = [4915346,0,0,0,0,4915346]
+  allData["University of Michigan"]["2023"]['Totals']['Football Bowl Expenses - Coaching Compensation/Bonuses'] = [1050000,0,0,0,0,1050000]
+  allData["Pennsylvania State University"]["2023"]['Totals']['Football Bowl Expenses'] = [4493133,0,0,0,0,4493133]
+  allData["Pennsylvania State University"]["2023"]['Totals']['Football Bowl Expenses - Coaching Compensation/Bonuses'] = [699725,0,0,0,0,699725]
+  allData["University of Washington"]["2023"]['Totals']['Football Bowl Expenses'] = [2514616,0,0,0,0,2514616]
+  allData["University of Washington"]["2023"]['Totals']['Football Bowl Expenses - Coaching Compensation/Bonuses'] = [239360,0,0,0,0,239360]
+  allData["Auburn University"]["2023"]['Totals']['Football Bowl Expenses'] = [0,0,0,0,0,0]
+  allData["Auburn University"]["2023"]['Totals']['Football Bowl Expenses - Coaching Compensation/Bonuses'] = [0,0,0,0,0,0]
+  allData["University of Texas at Austin"]["2023"]['Totals']['Football Bowl Expenses'] = [1526085,0,0,0,0,1526085]
+  allData["University of Texas at Austin"]["2023"]['Totals']['Football Bowl Expenses - Coaching Compensation/Bonuses'] = [0,0,0,0,0,0]
+  allData["Rutgers, The State University of New"]["2023"]['Totals']['Football Bowl Expenses'] = [0,0,0,0,0,0]
+  allData["Rutgers, The State University of New"]["2023"]['Totals']['Football Bowl Expenses - Coaching Compensation/Bonuses'] = [0,0,0,0,0,0]
+  allData["Louisiana State University"]["2023"]['Totals']['Football Bowl Expenses'] = [2197191,0,0,0,0,2197191]
+  allData["Louisiana State University"]["2023"]['Totals']['Football Bowl Expenses - Coaching Compensation/Bonuses'] = [1305898,0,0,0,0,1305898]
+  allData["University of Oklahoma"]["2023"]['Totals']['Football Bowl Expenses'] = [3219949,0,0,0,0,3219949]
+  allData["University of Oklahoma"]["2023"]['Totals']['Football Bowl Expenses - Coaching Compensation/Bonuses'] = [186252,0,0,0,0,186252]
+  allData["University of South Carolina, Columbia"]["2023"]['Totals']['Football Bowl Expenses'] = [1420787,0,0,0,0,1420787]
+  allData["The Ohio State University"]["2023"]['Totals']['Football Bowl Expenses'] = [3970135,0,0,0,0,3970135]
+  allData["University of Nebraska, Lincoln"]["2023"]['Totals']['Football Bowl Expenses'] = [0,0,0,0,0,0]
+  allData["University of Alabama"]["2023"]['Totals']['Football Bowl Expenses'] = [3677046,0,0,0,0,3677046]
+  allData["University of Georgia"]["2023"]['Totals']['Football Bowl Expenses'] = [6574801,0,0,0,0,6574801]
+
+  var BowlCoaches2024 = {"University of Wisconsin-Madison": 0,
+                          "University of Georgia":1760481,
+                          "University of South Florida": 0,
+                          "University of Iowa":1710968,
+                          "University of Tennessee, Knoxville": 543652,
+                          "Auburn University": 1041967,
+                          "University of Connecticut": 0,
+                          "University of Michigan": 2500000,
+                          "Louisiana State University": 746129,
+                          "The Ohio State University": 2067022,
+                          "University of Oregon": 850000,
+                          "Pennsylvania State University": 1076203,
+                          "University of Washington": 1920450,
+                          "Texas A&M University, College Station": 130000,
+                          'University of Nebraska, Lincoln': 0,
+                          'University of Texas at Austin': 1209675,
+                          'University of Alabama': 1917925,
+                          'University of Oklahoma': 451889,
+                          'University of Florida': 0
+                       }
+  Object.keys(BowlCoaches2024).forEach(function(school) {
+
+
+    var amount = BowlCoaches2024[school]
+    delete allData[school]["2024"]['Totals']['Football Bowl Expenses - Coaching Compensation/Bonuses']
+    delete allData[school]["2024"]['Totals']['Football Bowl Expenses - Coaching Compensation/']
+    delete allData[school]["2024"]['Totals']['Bowl Expenses - Coaching Compensation/Bonuses']
+
+    allData[school]["2024"]['Totals']['Football Bowl Expenses - Coaching Compensation/Bonuses'] = [amount,0,0,0,0,amount]
+  })
+
+  var BowlCoaches2023 = {"University of Arkansas, Fayetteville": 811453,
+                         "Clemson University": 1523047,
+                         "Florida State University":300000,
+                         "Georgia Institute of Technology": 0,
+                         "University of Illinois Urbana-Champaign": 652627,
+                         "Iowa State University": 0,
+                         "University of Iowa": 1444148,
+                         "University of Kansas": 423250,
+                         "Kansas State University": 1249400,
+                         "University of Kentucky": 666510,
+                         "University of Maryland, College Park": 671063,
+                         "Michigan State University": 0,
+                         "University of Missouri, Columbia": 408958,
+                         "University of Minnesota, Twin Cities": 580032,
+                         "North Carolina State University": 333279,
+                         "University of North Carolina, Chapel Hill": 1462620,
+                         "University of Oregon": 335000,
+                         "Texas Tech University": 544372,
+                         "University of Virginia": 0,
+                         "Virginia Polytechnic Institute and State": 0,
+                         "West Virginia University": 0,
+                         "University of Utah": 1547144,
+                         "University of Mississippi":292192,
+                         "University of South Carolina, Columbia":617657,
+                         "The Ohio State University":2489837,
+                         "University of Nebraska, Lincoln":0,
+                         "University of California, Berkeley":0,
+                         "University of Connecticut":317043,
+                         "Oklahoma State University":755691,
+                         "Purdue University":608422,
+                         "University of South Florida":0,
+                         "University of California, Los Angeles":198432,
+                         "University of Alabama": 1482683,
+                         "Arizona State University":0,
+                         "University of Georgia":3540129,
+                         "Indiana University, Bloomington":0,
+                         "University of Houston":248458,
+                         "University of Florida":1346735
+                       }
+  Object.keys(BowlCoaches2023).forEach(function(school) {
+    var amount = BowlCoaches2023[school]
+    allData[school]["2023"]['Totals']['Football Bowl Expenses - Coaching Compensation/Bonuses'] = [amount,0,0,0,0,amount]
+  })
+
+
+  allData["University of Texas at Austin"]["2022"]['Totals']['Football Bowl Expenses'] = [0,0,0,0,0,0]
+  allData["Rutgers, The State University of New"]["2022"]['Totals']['Football Bowl Expenses'] = [1481551,0,0,0,0,1481551]
+  allData["The Ohio State University"]["2022"]['Totals']['Football Bowl Expenses'] = [6030490,0,0,0,0,6030490]
+  allData["University of Georgia"]["2022"]['Totals']['Football Bowl Expenses'] = [5736219,0,0,0,0,5736219]
+  allData["University of Michigan"]["2022"]['Totals']['Football Bowl Expenses'] = [3669203,0,0,0,0,3669203]
+  allData["Pennsylvania State University"]["2022"]['Totals']['Football Bowl Expenses'] = [2791214,0,0,0,0,2791214]
+  allData["Auburn University"]["2022"]['Totals']['Football Bowl Expenses'] = [870914,0,0,0,0,870914]
+  allData["University of Oklahoma"]["2022"]['Totals']['Football Bowl Expenses'] = [3367191,0,0,0,0,3367191]
+  allData["Arizona State University"]["2022"]['Totals']['Football Bowl Expenses'] = [1845366,0,0,0,0,1845366]
+  allData["Louisiana Tech University"]["2022"]['Totals']['Football Bowl Revenues'] = [0,0,0,0,0,0]
+  allData["Louisiana Tech University"]["2022"]['Totals']['Football Bowl Expenses'] = [29501,0,0,0,0,29501]
+  allData["Louisiana State University"]["2022"]['Totals']['Football Bowl Expenses - Coaching Compensation/Bonuses'] = [400667,0,0,0,0,400667]
+  allData["North Carolina State University"]["2022"]['Totals']['Football Bowl Expenses - Coaching Compensation/Bonuses'] = [627196,0,0,0,0,627196]
+  allData["University of Connecticut"]["2022"]['Totals']['Football Bowl Expenses - Coaching Compensation/Bonuses'] = [0,0,0,0,0,0]
+  allData["Florida State University"]["2022"]['Totals']['Football Bowl Expenses - Coaching Compensation/Bonuses'] = [0,0,0,0,0,0]
+  allData["University of Arizona"]["2022"]['Totals']['Football Bowl Expenses - Coaching Compensation/Bonuses'] = [0,0,0,0,0,0]
+  allData["University of New Mexico"]["2022"]['Totals']['Football Bowl Expenses - Coaching Compensation/Bonuses'] = [0,0,0,0,0,0]
+  allData["University of Texas at Austin"]["2022"]['Totals']['Football Bowl Expenses - Coaching Compensation/Bonuses'] = [0,0,0,0,0,0]
+  allData["University of Kansas"]["2022"]['Totals']['Football Bowl Expenses - Coaching Compensation/Bonuses'] = [0,0,0,0,0,0]
+  allData["University of Washington"]["2022"]['Totals']['Football Bowl Expenses - Coaching Compensation/Bonuses'] = [0,0,0,0,0,0]
+  allData["University of Illinois Urbana-Champaign"]["2022"]['Totals']['Football Bowl Expenses - Coaching Compensation/Bonuses'] = [0,0,0,0,0,0]
+  allData["University of Nebraska, Lincoln"]["2022"]['Totals']['Football Bowl Expenses - Coaching Compensation/Bonuses'] = [0,0,0,0,0,0]
+  allData["University of Oregon"]["2022"]['Totals']['Football Bowl Expenses - Coaching Compensation/Bonuses'] = [325000,0,0,0,0,325000]
+  allData["Iowa State University"]["2022"]['Totals']['Football Bowl Expenses - Coaching Compensation/Bonuses'] = [501000,0,0,0,0,501000]
+  allData["West Virginia University"]["2022"]['Totals']['Football Bowl Expenses - Coaching Compensation/Bonuses'] = [345000,0,0,0,0,345000]
+  allData["University of Iowa"]["2022"]['Totals']['Football Bowl Expenses - Coaching Compensation/Bonuses'] = [1966198,0,0,0,0,1966198]
+  allData["University of Kentucky"]["2022"]['Totals']['Football Bowl Expenses - Coaching Compensation/Bonuses'] = [1087280,0,0,0,0,1087280]
+  allData["University of Arkansas, Fayetteville"]["2022"]['Totals']['Football Bowl Expenses - Coaching Compensation/Bonuses'] = [883427,0,0,0,0,883427]
+  allData["Rutgers, The State University of New"]["2022"]['Totals']['Football Bowl Expenses - Coaching Compensation/Bonuses'] = [182356,0,0,0,0,182356]
+  allData["University of Maryland, College Park"]["2022"]['Totals']['Football Bowl Expenses - Coaching Compensation/Bonuses'] = [434408,0,0,0,0,434408]
+  allData["University of Louisville"]["2022"]['Totals']['Football Bowl Expenses - Coaching Compensation/Bonuses'] = [407513,0,0,0,0,407513]
+  //allData["Georgia Southern University"]["2022"]['Totals']['Football Bowl Expenses - Coaching Compensation/Bonuses'] = [62500,0,0,0,0,62500]
+  allData["University of Wisconsin-Madison"]["2022"]['Totals']['Football Bowl Expenses - Coaching Compensation/Bonuses'] = [497000,0,0,0,0,497000]
+  allData["University of Missouri, Columbia"]["2022"]['Totals']['Football Bowl Expenses - Coaching Compensation/Bonuses'] = [320017,0,0,0,0,320017]
+  allData["University of Utah"]["2022"]['Totals']['Football Bowl Expenses - Coaching Compensation/Bonuses'] = [1565140,0,0,0,0,1565140]
+  allData["Texas A&M University, College Station"]["2022"]['Totals']['Football Bowl Expenses - Coaching Compensation/Bonuses'] = [135850,0,0,0,0,135850]
+  allData["Texas Tech University"]["2022"]['Totals']['Football Bowl Expenses - Coaching Compensation/Bonuses'] = [452664,0,0,0,0,452664]
+  allData["University of Tennessee, Knoxville"]["2022"]['Totals']['Football Bowl Expenses - Coaching Compensation/Bonuses'] = [531268,0,0,0,0,531268]
+  allData["University of North Carolina, Chapel Hill"]["2022"]['Totals']['Football Bowl Expenses - Coaching Compensation/Bonuses'] = [1631376,0,0,0,0,1631376]
+  allData["Michigan State University"]["2022"]['Totals']['Football Bowl Expenses - Coaching Compensation/Bonuses'] = [1222725,0,0,0,0,1222725]
+  allData["The Ohio State University"]["2022"]['Totals']['Football Bowl Expenses - Coaching Compensation/Bonuses'] = [1739277,0,0,0,0,1739277]
+  allData["Purdue University"]["2022"]['Totals']['Football Bowl Expenses - Coaching Compensation/Bonuses'] = [587078,0,0,0,0,587078]
+  allData["University of California, Los Angeles"]["2022"]['Totals']['Football Bowl Expenses - Coaching Compensation/Bonuses'] = [152295,0,0,0,0,152295]
+  allData["University of Georgia"]["2022"]['Totals']['Football Bowl Expenses - Coaching Compensation/Bonuses'] = [3075231,0,0,0,0,3075231]
+  allData["University of Michigan"]["2022"]['Totals']['Football Bowl Expenses - Coaching Compensation/Bonuses'] = [1057000,0,0,0,0,1057000]
+  allData["Pennsylvania State University"]["2022"]['Totals']['Football Bowl Expenses - Coaching Compensation/Bonuses'] = [457513,0,0,0,0,457513]
+  allData["Auburn University"]["2022"]['Totals']['Football Bowl Expenses - Coaching Compensation/Bonuses'] = [267680,0,0,0,0,267680]
+  allData["Georgia Institute of Technology"]["2022"]['Totals']['Football Bowl Expenses - Coaching Compensation/Bonuses'] = [0,0,0,0,0,0]
+  allData["Indiana University, Bloomington"]["2022"]['Totals']['Football Bowl Expenses - Coaching Compensation/Bonuses'] = [0,0,0,0,0,0]
+  allData["University of Houston"]["2022"]['Totals']['Football Bowl Expenses - Coaching Compensation/Bonuses'] = [283006,0,0,0,0,283006]
+  allData["Oklahoma State University"]["2022"]['Totals']['Football Bowl Expenses - Coaching Compensation/Bonuses'] = [1003512,0,0,0,0,1003512]
+  allData["University of Mississippi"]["2022"]['Totals']['Football Bowl Expenses - Coaching Compensation/Bonuses'] = [643546,0,0,0,0,643546]
+  allData["University of Virginia"]["2022"]['Totals']['Football Bowl Expenses - Coaching Compensation/Bonuses'] = [0,0,0,0,0,0]
+  allData["University of South Carolina, Columbia"]["2022"]['Totals']['Football Bowl Expenses - Coaching Compensation/Bonuses'] = [543724,0,0,0,0,543724]
+  allData["University of Oklahoma"]["2022"]['Totals']['Football Bowl Expenses - Coaching Compensation/Bonuses'] = [515845,0,0,0,0,515845]
+  allData["Arizona State University"]["2022"]['Totals']['Football Bowl Expenses - Coaching Compensation/Bonuses'] = [219936,0,0,0,0,219936]
+  allData["University of Florida"]["2022"]['Totals']['Football Bowl Expenses - Coaching Compensation/Bonuses'] = [854406,0,0,0,0,854406]
+  allData["Virginia Polytechnic Institute and State"]["2022"]['Totals']['Football Bowl Expenses - Coaching Compensation/Bonuses'] = [231435,0,0,0,0,231435]
+
+  allData["University of Utah"]["2021"]['Totals']['Football Bowl Expenses - Coaching Compensation/Bonuses'] = [0,0,0,0,0,0]
+  allData["University of Louisville"]["2021"]['Totals']['Football Bowl Expenses - Coaching Compensation/Bonuses'] = [0,0,0,0,0,0]
+  allData["University of Minnesota, Twin Cities"]["2021"]['Totals']['Football Bowl Expenses - Coaching Compensation/Bonuses'] = [0,0,0,0,0,0]
+  allData["University of Kansas"]["2021"]['Totals']['Football Bowl Expenses - Coaching Compensation/Bonuses'] = [0,0,0,0,0,0]
+  allData["University of Maryland, College Park"]["2021"]['Totals']['Football Bowl Expenses - Coaching Compensation/Bonuses'] = [0,0,0,0,0,0]
+  allData["University of Arkansas, Fayetteville"]["2021"]['Totals']['Football Bowl Expenses - Coaching Compensation/Bonuses'] = [565981,0,0,0,0,565981]
+  allData["University of Mississippi"]["2021"]['Totals']['Football Bowl Expenses - Coaching Compensation/Bonuses'] = [193597,0,0,0,0,193597]
+  allData["University of Nebraska, Lincoln"]["2021"]['Totals']['Football Bowl Expenses - Coaching Compensation/Bonuses'] = [0,0,0,0,0,0]
+  allData["University of Missouri, Columbia"]["2021"]['Totals']['Football Bowl Expenses - Coaching Compensation/Bonuses'] = [0,0,0,0,0,0]
+  allData["Texas A&M University, College Station"]["2021"]['Totals']['Football Bowl Expenses - Coaching Compensation/Bonuses'] = [0,0,0,0,0,0]
+  allData["Iowa State University"]["2021"]['Totals']['Football Bowl Expenses - Coaching Compensation/Bonuses'] = [294500,0,0,0,0,294500]
+  allData["University of Illinois Urbana-Champaign"]["2021"]['Totals']['Football Bowl Expenses - Coaching Compensation/Bonuses'] = [0,0,0,0,0,0]
+  allData["Rutgers, The State University of New"]["2021"]["Totals"]['Football Bowl Expenses'] = [0,0,0,0,0,0]
+  allData["Rutgers, The State University of New"]["2021"]["Totals"]['Football Bowl Expenses - Coaching Compensation/Bonuses'] = [0,0,0,0,0,0]
+  allData["University of Tennessee, Knoxville"]["2021"]["Totals"]['Football Bowl Expenses - Coaching Compensation/Bonuses'] = [0,0,0,0,0,0]
+  allData["University of Kentucky"]["2021"]["Totals"]['Football Bowl Expenses - Coaching Compensation/Bonuses'] = [127905,0,0,0,0,127905]
+  allData["Michigan State University"]["2021"]["Totals"]['Football Bowl Expenses - Coaching Compensation/Bonuses'] = [0,0,0,0,0,0]
+  allData["University of Oregon"]["2021"]["Totals"]['Football Bowl Expenses - Coaching Compensation/Bonuses'] = [0,0,0,0,0,0]
+  allData["Florida State University"]["2021"]["Totals"]['Football Bowl Expenses - Coaching Compensation/Bonuses'] = [0,0,0,0,0,0]
+  allData["Arizona State University"]["2021"]["Totals"]['Football Bowl Expenses - Coaching Compensation/Bonuses'] = [0,0,0,0,0,0]
+  allData["University of Michigan"]["2021"]["Totals"]['Football Bowl Expenses - Coaching Compensation/Bonuses'] = [0,0,0,0,0,0]
+  allData["University of North Carolina, Chapel Hill"]["2021"]["Totals"]['Football Bowl Expenses - Coaching Compensation/Bonuses'] = [2720659,0,0,0,0,2720659]
+  allData["Indiana University, Bloomington"]["2021"]["Totals"]['Football Bowl Expenses - Coaching Compensation/Bonuses'] = [450000,0,0,0,0,450000]
+  allData["Auburn University"]["2021"]["Totals"]['Football Bowl Expenses - Coaching Compensation/Bonuses'] = [468000,0,0,0,0,468000]
+  allData["University of Texas at Austin"]["2021"]["Totals"]['Football Bowl Expenses - Coaching Compensation/Bonuses'] = [0,0,0,0,0,0]
+  allData["The Ohio State University"]["2021"]["Totals"]['Football Bowl Expenses - Coaching Compensation/Bonuses'] = [3148426,0,0,0,0,3148426]
+  allData["University of Houston"]["2021"]["Totals"]['Football Bowl Expenses - Coaching Compensation/Bonuses'] = [55826,0,0,0,0,55826]
+  allData["University of Oklahoma"]["2021"]["Totals"]['Football Bowl Expenses - Coaching Compensation/Bonuses'] = [351872,0,0,0,0,351872]
+  allData["University of Arizona"]["2021"]["Totals"]['Football Bowl Expenses - Coaching Compensation/Bonuses'] = [0,0,0,0,0,0]
+  allData["University of California, Los Angeles"]["2021"]["Totals"]['Football Bowl Expenses - Coaching Compensation/Bonuses'] = [0,0,0,0,0,0]
+
+  allData['Boise State University']['2021']['Totals']['Sports Camp Revenues'] = [37635,0,70,7707,0,45412]
+  allData["Coastal Carolina University"]['2021']['Totals']['Sports Camp Revenues'] = [0,0,0,0,9134,9134]
+  allData["Florida International University"]['2021']['Totals']['Sports Camp Revenues'] = [0,0,0,0,0,0]
+  allData["University of Louisiana at Monroe"]['2021']['Totals']['Sports Camp Revenues'] = [0,0,0,0,0,0]
+  allData["University of South Florida"]['2021']['Totals']['Sports Camp Revenues'] = [0,0,0,0,0,0]
+  allData["University of Texas at El Paso"]['2021']['Totals']['Sports Camp Revenues'] = [0,21035,0,83631,0,104666]
+  allData["University of Texas at San Antonio"]['2021']['Totals']['Sports Camp Revenues'] = [70850,0,0,93741,4755,169346]
+
+  allData['Eastern Michigan University']['2021']['Totals']['Indirect Institutional Support (Expenses)'] = [0,0,0,0,550000,550000]
+  allData['Eastern Michigan University']['2021']['Totals']['Other Operating Revenue'] = [17243,172,2429,10583,330389,360816]
+  allData['Troy University']['2021']['Totals']['Indirect Institutional Support (Expenses)'] = [0,0,0,0,2138552,2138552]
+  allData['Troy University']['2021']['Totals']['Other Operating Revenue'] = [0,0,0,0,0,0]
+  allData["Kent State University"]['2021']['Totals']['Indirect Institutional Support (Expenses)'] = [0,0,0,0,0,0]
+  allData["Kent State University"]['2021']['Totals']['Other Operating Revenue'] = [0,0,0,0,37518,37518]
+  allData["Middle Tennessee State University"]['2021']['Totals']['Indirect Institutional Support (Expenses)'] = [369252,214880,199236,312845,758296,1854509]
+  allData["Middle Tennessee State University"]['2021']['Totals']['Other Operating Revenue'] = [0,0,0,1440,2535,3975]
+  allData["Rutgers, The State University of New"]['2021']['Totals']['Fund Raising, Marketing and Promotion'] = [205837,38950,46487,18465,902673,1212412]
+  delete allData["Rutgers, The State University of New"]['2021']['Totals']['Fund Raising, Marketing and Promotion Sports Camp']
+  allData['Louisiana Tech University']['2021']['Totals']['Other Operating Revenue'] = [0,0,0,0,0,63232]
+  allData['Ohio University']['2021']['Totals']['Other Operating Revenue'] = [0,0,0,0,7340,63532]
+
+  allData["University of Michigan"]["2020"]["Totals"]['Bowl Expenses'] = [2072998,0,0,0,0,2072998]
+  allData["University of Michigan"]["2020"]["Totals"]['Bowl Expenses - Coaching Compensation/Bonuses'] = [775596,0,0,0,0,775596]
+  allData["The Ohio State University"]["2020"]["Totals"]['Bowl Expenses'] = [4752076,0,0,0,0,4752076]
+  allData["The Ohio State University"]["2020"]["Totals"]['Bowl Expenses - Coaching Compensation/Bonuses'] = [1792750,0,0,0,0,1792750]
+  allData["Rutgers, The State University of New"]["2020"]["Totals"]['Bowl Expenses - Coaching Compensation/Bonuses'] = [0,0,0,0,0,0]
+  allData["University of Texas at Austin"]["2020"]["Totals"]['Bowl Expenses'] = [989717,0,0,0,0,989717]
+  allData["University of Texas at Austin"]["2020"]["Totals"]['Bowl Expenses - Coaching Compensation/Bonuses'] = [308383,0,0,0,0,308383]
+  allData["Pennsylvania State University"]["2020"]["Totals"]['Bowl Expenses'] = [2836616,0,0,0,0,2836616]
+  allData["Pennsylvania State University"]["2020"]["Totals"]['Bowl Expenses - Coaching Compensation/Bonuses'] = [662048,0,0,0,0,662048]
+
+  allData["University of Georgia"]["2019"]["Totals"]['Bowl Expenses'] = [2261824,0,0,0,0,2261824]
+  allData["University of Georgia"]["2019"]["Totals"]['Bowl Expenses - Coaching Compensation/Bonuses'] = [1313718,0,0,0,0,1313718]
+  allData["University of Michigan"]["2019"]["Totals"]['Bowl Expenses'] = [2236153,0,0,0,0,2236153]
+  allData["University of Michigan"]["2019"]["Totals"]['Bowl Expenses - Coaching Compensation/Bonuses'] = [770360,0,0,0,0,770360]
+  allData["The Ohio State University"]["2019"]["Totals"]['Bowl Expenses'] = [7034456,0,0,0,0,7034456]
+  allData["The Ohio State University"]["2019"]["Totals"]['Bowl Expenses - Coaching Compensation/Bonuses'] = [1545730,0,0,0,0,1545730]
+  allData["University of Oklahoma"]["2019"]["Totals"]['Bowl Expenses'] = [2713769,0,0,0,0,2713769]
+  allData["University of Oklahoma"]["2019"]["Totals"]['Bowl Expenses - Coaching Compensation/Bonuses'] = [490885,0,0,0,0,490885]
+  allData["Pennsylvania State University"]["2019"]["Totals"]['Bowl Expenses'] = [2191375,0,0,0,0,2191375]
+  allData["Pennsylvania State University"]["2019"]["Totals"]['Bowl Expenses - Coaching Compensation/Bonuses'] = [484425,0,0,0,0,484425]
+  allData["Rutgers, The State University of New"]["2019"]["Totals"]['Bowl Expenses'] = [0,0,0,0,0,0]
+  allData["Rutgers, The State University of New"]["2019"]["Totals"]['Bowl Expenses - Coaching Compensation/Bonuses'] = [0,0,0,0,0,0]
+  allData["University of Texas at Austin"]["2019"]["Totals"]['Bowl Expenses'] = [1687662,0,0,0,0,1687662]
+  allData["University of Texas at Austin"]["2019"]["Totals"]['Bowl Expenses - Coaching Compensation/Bonuses'] = [799800,0,0,0,0,799800]
+
+  allData["University of Alabama"]["2018"]["Totals"]['Bowl Expenses'] = [8414105,0,0,0,0,8414105]
+  allData["University of Alabama"]["2018"]["Totals"]['Bowl Expenses - Coaching Compensation/Bonuses'] = [0,0,0,0,0,0]
+  allData["University of Georgia"]["2018"]["Totals"]['Bowl Expenses'] = [4648154,0,0,0,0,4648154]
+  allData["University of Georgia"]["2018"]["Totals"]['Bowl Expenses - Coaching Compensation/Bonuses'] = [2177773,0,0,0,0,2177773]
+  allData["University of Michigan"]["2018"]["Totals"]['Bowl Expenses'] = [2037265,0,0,0,0,2037265]
+  allData["University of Michigan"]["2018"]["Totals"]['Bowl Expenses - Coaching Compensation/Bonuses'] = [412250,0,0,0,0,412250]
+  allData["The Ohio State University"]["2018"]["Totals"]['Bowl Expenses - Coaching Compensation/Bonuses'] = [1331569,0,0,0,0,1331569]
+  allData["University of Oklahoma"]["2018"]["Totals"]['Bowl Expenses - Coaching Compensation/Bonuses'] = [413424,0,0,0,0,413424]
+  allData["Pennsylvania State University"]["2018"]["Totals"]['Bowl Expenses - Coaching Compensation/Bonuses'] = [586693,0,0,0,0,586693]
+  allData["Rutgers, The State University of New"]["2018"]["Totals"]['Bowl Expenses - Coaching Compensation/Bonuses'] = [0,0,0,0,0,0]
+  allData["University of Texas at Austin"]["2018"]["Totals"]['Bowl Expenses - Coaching Compensation/Bonuses'] = [159400,0,0,0,0,159400]
+  allData["Texas A&M University, College Station"]["2018"]["Totals"]['Bowl Expenses - Coaching Compensation/Bonuses'] = [514881,0,0,0,0,514881]
+
+  allData["Miami University (Ohio)"]["2018"]["Totals"]['Indirect Institutional Support (Expenses)'] = [0,0,0,0,27706,27706]
+  allData["University of Texas at El Paso"]["2018"]["Totals"]['Indirect Institutional Support (Expenses)'] = [689399,105437,121659,735629,0,1652124]
+  allData["University of Alabama at Birmingham"]["2018"]["Totals"]['Indirect Institutional Support (Expenses)'] = [0,0,0,0,232275,232275]
+  allData["Middle Tennessee State University"]["2018"]["Totals"]['Indirect Institutional Support (Expenses)'] = [479177,235821,210497,329417,807439,2062351]
+
+  allData["University of Wyoming"]["2018"]["Totals"]['Bowl Revenues'] = [609716,0,0,0,0,609716]
+  allData["Ohio University"]["2019"]["Totals"]['Bowl Revenues'] = [7814,0,0,0,0,7814]
+  allData["Utah State University"]["2018"]["Totals"]['Bowl Revenues'] = [816529,0,0,0,0,816529]
+  allData["Eastern Michigan University"]["2019"]["Totals"]['Bowl Revenues'] = [350190,0,0,0,0,350190]
+  allData["Eastern Michigan University"]["2020"]["Totals"]['Bowl Revenues'] = [141665,0,0,0,0,141665]
+  allData["University of South Alabama"]["2020"]["Totals"]['Bowl Revenues'] = [0,0,0,0,0,0]
+  allData["University at Buffalo, the State University"]["2019"]["Totals"]['Bowl Revenues'] = [369766,0,0,0,0,369766]
+  allData["Western Kentucky University"]["2019"]["Totals"]['Bowl Revenues'] = [0,0,0,0,0,0]
+  allData["Western Kentucky University"]["2020"]["Totals"]['Bowl Revenues'] = [711072,0,0,0,0,711072]
+  allData["Louisiana Tech University"]["2020"]["Totals"]['Bowl Revenues'] = [504155,0,0,0,0,504155]
+
+  allData["University at Buffalo, the State University"]["2020"]["Totals"]['Other Operating Revenue'] = [3310,0,0,190,24542,28043]
+  allData["Miami University (Ohio)"]["2019"]["Totals"]['Other Operating Revenue'] = [0,140,210600,97488,372071,680299]
+  allData["Miami University (Ohio)"]["2020"]["Totals"]['Other Operating Revenue'] = [561,800,0,96163,260417,357941]
+  allData["University of Alabama at Birmingham"]["2019"]["Totals"]['Other Operating Revenue'] = [9198,950,0,89712,209973,309833]
+  allData["University of Alabama at Birmingham"]["2020"]["Totals"]['Other Operating Revenue'] = [12144,4700,140,80870,646277,744131]
+  allData["Middle Tennessee State University"]["2020"]["Totals"]['Other Operating Revenue'] = [0,0,0,36505,5732,42237]
+  allData["Ohio University"]["2020"]["Totals"]['Other Operating Revenue'] = [22657,0,0,19025,235765,277447]
+  allData["The University of North Carolina at"]["2020"]["Totals"]['Other Operating Revenue'] = [188,0,0,2240,213297,215725]
+
+  allData["University of Nevada, Reno"]["2019"]["Totals"]['Sports Camp Revenues'] = [0,0,0,0,0,0]
+  allData["University of Nevada, Reno"]["2020"]["Totals"]['Sports Camp Revenues'] = [10936,71166,11785,171295,0,265182]
+  allData["University of Wyoming"]["2020"]["Totals"]['Sports Camp Revenues'] = [0,0,0,0,0,0]
+  //allData["University of Georgia"]["2018"]["Totals"]['Sports Camp Revenues'] = [0,2475,2703,8433,0,13611]
+  allData["University of Michigan"]["2018"]["Totals"]['Sports Camp Revenues'] = [0,0,0,0,216738,216738]
+  //allData["University of Alabama"]["2018"]["Totals"]['Sports Camp Revenues'] = [695959,0,10807,82435,1034233,1823434]
+  allData["Georgia Southern University"]["2019"]["Totals"]['Sports Camp Revenues'] = [0,0,0,0,0,0]
+  allData["Georgia Southern University"]["2020"]["Totals"]['Sports Camp Revenues'] = [0,0,0,0,0,0]
+  allData["Pennsylvania State University"]["2018"]["Totals"]['Sports Camp Revenues'] = [0,0,0,0,0,0]
+  allData["Boise State University"]["2019"]["Totals"]['Sports Camp Revenues'] = [363488,29359,14531,285102,0,692480]
+  allData["University of Texas at El Paso"]["2019"]["Totals"]['Sports Camp Revenues'] = [11935,27279,4140,77673,0,121027]
+  allData["University of Texas at El Paso"]["2020"]["Totals"]['Sports Camp Revenues'] = [0,0,0,0,0,0]
+  allData["Utah State University"]["2019"]["Totals"]['Sports Camp Revenues'] = [0,0,0,0,0,0]
+  allData["Utah State University"]["2020"]["Totals"]['Sports Camp Revenues'] = [0,0,0,0,0,0]
+  allData["University of New Mexico"]["2019"]["Totals"]['Sports Camp Revenues'] = [0,0,0,0,0,0]
+  //allData["University of Texas at Austin"]["2018"]["Totals"]['Sports Camp Revenues'] = [97713,78009,80423,3853536,271278,4380959]
+  allData["University of Louisiana at Monroe"]["2019"]["Totals"]['Sports Camp Revenues'] = [0,0,0,0,0,0]
+  //allData["The Ohio State University"]["2018"]["Totals"]['Sports Camp Revenues'] = [430741,66243,35640,1760966,70299,2363889]
+  allData["University of Oklahoma"]["2018"]["Totals"]['Sports Camp Revenues'] = [0,0,0,0,0,0]
+  allData["Coastal Carolina University"]["2020"]["Totals"]['Sports Camp Revenues'] = [0,0,0,0,15523,15523]
+
+ allData["University of Tennessee, Knoxville"]['2018']['Numbers'] = {}
+ allData["University of Tennessee, Knoxville"]['2018']['Numbers']['Excess Transfers to Institution'] = "$0"
+ allData["University of Tennessee, Knoxville"]['2018']['Numbers']['Conference Realignment Expenses'] = "$0"
+ allData["University of Tennessee, Knoxville"]['2018']['Numbers']['Total Athletics Related Debt'] = "$127,796,821"
+ allData["University of Tennessee, Knoxville"]['2018']['Numbers']['Total Institutional Debt'] = "$715,603,593"
+ allData["University of Tennessee, Knoxville"]['2018']['Numbers']['Athletics Dedicated Endowments'] = "$47,632,402"
+ allData["University of Tennessee, Knoxville"]['2018']['Numbers']['Institutional Endowments'] = "$621,845,197"
+ allData["University of Tennessee, Knoxville"]['2018']['Numbers']['Athletics Related Capital Expenditures'] = "$13,441,532"
+ allData["University of Tennessee, Knoxville"]['2018']['Numbers']['Institutional Expenses'] = "$1,096,330,275"
+ allData["University of Tennessee, Knoxville"]['2018']['Numbers']['Athletically-Related Facilities Annual Debt Service'] = "$16,877,235"
+ allData["University of Tennessee, Knoxville"]['2018']['Numbers']["Institution's Annual Debt Service"] = "$61,558,621"
+ allData["University of Tennessee, Knoxville"]['2018']['Numbers']["Institution's Education and General Expenses"] = "$649,145,622"
+ allData["University of Tennessee, Knoxville"]['2018']['Numbers']['Average Cost of Full Grant-in-Aid - In-State'] = "$25,264"
+ allData["University of Tennessee, Knoxville"]['2018']['Numbers']['Average Cost of Full Grant-in-Aid - Out-of-State'] = "$43,684"
+ allData["University of Tennessee, Knoxville"]['2018']['Numbers']['Average Cost of Attendance - In-State'] = "$30,930"
+ allData["University of Tennessee, Knoxville"]['2018']['Numbers']['Expenses Dedicated to Compliance'] = "$717,387"
+
+ allData["University of New Mexico"]['2020']['Numbers']['Total Institutional Debt'] = "$366,985,000"
+
+ allData["University of Hawaii, Manoa"]['2022']['Totals']['Coaching Salaries, Benefits and Bonuses paid by the University and Related Entities'] = [3040203,1041056,686217,3350537,0,8118003]
+ allData["University of Hawaii, Manoa"]['2022']['Totals']['Support Staff/Administrative Compensation, Benefits and Bonuses paid by the University and Related Entities'] = [606307,114288,114287,93977,9000938,9929797]
+
+ allData["University of Alabama"]["2019"]["Revenues"]["Men's Tennis"] = 76420
+ delete allData["University of Maryland, College Park"]["2021"]["Revenues"]["Softball"]
+ delete allData["Bowling Green State University"]["2021"]["Revenues"]["Softball"]
+ delete allData["Arizona State University"]["2022"]["Revenues"]["Men's Expenditure"]
+ delete allData["Arizona State University"]["2022"]["Revenues"]["Women's Expenditure"]
+ delete allData["Arizona State University"]["2022"]["Expenses"]["Men's Expenditure"]
+ delete allData["Arizona State University"]["2022"]["Expenses"]["Women's Expenditure"]
+      
+  Object.keys(allData).forEach(function(school) {
+
+    Object.keys(allData[school]).forEach(function(year) {
+      if (year == '2023' && (schoolNames[school] == "Louisvilla" ||
+                             schoolNames[school] == 'Texas A&M' ||
+                             schoolNames[school] == 'Old Dominion' ||
+                             schoolNames[school] == 'Utah State' ||
+                             schoolNames[school] == 'North Texas' ||
+                             schoolNames[school] == 'New Mexico' ||
+                             schoolNames[school] == 'Arizona' ||
+                             schoolNames[school] == 'Air Force' ||
+                             schoolNames[school] == 'Memphis') 
+      ) {
+          delete allData[school]['2023']['Totals']['Conference Distributions (Non Media and Non Bowl)']
+          delete allData[school]['2023']['Totals']['Conference Distributions of Bowl Generated Revenue']
+     }     
+
+      if (year == "2018"){
+        allData[school][year]['Totals']['Conference Distributions of Bowl Generated Revenue'] = "N/A";
+      }
+      if (year == "2021"){
+        allData[school][year]['Totals']['Bowl Revenues'] = allData[school][year]['Totals']['Football Bowl Revenues']
+        allData[school][year]['Totals']['Conference Distributions (Non Media and Non Bowl)'] = allData[school][year]['Totals']['Conference Distributions (Non Media and Non Football Bowl)']
+        allData[school][year]['Totals']['Conference Distributions of Bowl Generated Revenue'] = allData[school][year]['Totals']['Conference Distributions of Football Bowl Generated Revenue']
+        allData[school][year]['Totals']['Bowl Expenses'] = allData[school][year]['Totals']['Football Bowl Expenses']
+        delete allData[school][year]['Totals']['Football Bowl Revenues'];
+        delete allData[school][year]['Totals']['Conference Distributions (Non Media and Non Football Bowl)'];
+        delete allData[school][year]['Totals']['Conference Distributions of Football Bowl Generated Revenue'];
+        delete allData[school][year]['Totals']['Football Bowl Expenses'];
+        delete allData[school][year]['Totals']['Football Bowl'];
+      }
+      if (year == "2025"){
+        if (Object.keys(allData[school][year]['Totals']).includes('Post-Season Football Expenses')){
+          allData[school][year]['Totals']['Bowl Expenses'] = allData[school][year]['Totals']['Post-Season Football Expenses']
+          delete allData[school][year]['Totals']['Post-Season Football Expenses'];
+        }
+        if (Object.keys(allData[school][year]['Totals']).includes('Post-Season Football Expense Reimbursements')){
+          allData[school][year]['Totals']['Bowl Revenues'] = allData[school][year]['Totals']['Post-Season Football Expense Reimbursements']
+          delete allData[school][year]['Totals']['Post-Season Football Expense Reimbursements'];
+        }
+        if (Object.keys(allData[school][year]['Totals']).includes('Sports Equipment Uniforms and Supplies')){
+          allData[school][year]['Totals']['Sports Equipment, Uniforms and Supplies'] = allData[school][year]['Totals']['Sports Equipment Uniforms and Supplies']
+          delete allData[school][year]['Totals']['Sports Equipment Uniforms and Supplies'];
+        }
+        if (Object.keys(allData[school][year]['Totals']).includes('Football Bowl Revenues')){
+            allData[school][year]['Totals']['Bowl Revenues'] = allData[school][year]['Totals']['Football Bowl Revenues']
+            delete allData[school][year]['Totals']['Football Bowl Revenues'];
+        }
+        if (Object.keys(allData[school][year]['Totals']).includes('Football Bowl Expenses')){
+            allData[school][year]['Totals']['Bowl Expenses'] = allData[school][year]['Totals']['Football Bowl Expenses']
+            delete allData[school][year]['Totals']['Football Bowl Expenses'];
+        }        
+      }
+      if (year == "2022" || year == "2023" || year == "2024"){
+        if (Object.keys(allData[school][year]['Totals']).includes('Conference Distributions (Non Media and Non Football Bowl)')){
+            allData[school][year]['Totals']['Conference Distributions (Non Media and Non Bowl)'] = allData[school][year]['Totals']['Conference Distributions (Non Media and Non Football Bowl)']
+            delete allData[school][year]['Totals']['Conference Distributions (Non Media and Non Football Bowl)'];
+        }
+        if (Object.keys(allData[school][year]['Totals']).includes('Conference Distributions of Football Bowl Generated Revenue')){
+            allData[school][year]['Totals']['Conference Distributions of Bowl Generated Revenue'] = allData[school][year]['Totals']['Conference Distributions of Football Bowl Generated Revenue']
+            delete allData[school][year]['Totals']['Conference Distributions of Football Bowl Generated Revenue'];
+        }
+        if (Object.keys(allData[school][year]['Totals']).includes('Football Bowl Revenues')){
+            allData[school][year]['Totals']['Bowl Revenues'] = allData[school][year]['Totals']['Football Bowl Revenues']
+            delete allData[school][year]['Totals']['Football Bowl Revenues'];
+        }
+        if (Object.keys(allData[school][year]['Totals']).includes('Football Bowl Expenses')){
+            allData[school][year]['Totals']['Bowl Expenses'] = allData[school][year]['Totals']['Football Bowl Expenses']
+            delete allData[school][year]['Totals']['Football Bowl Expenses'];
+        }        
+        delete allData[school][year]['Totals']['Football Bowl'];
+      }
+      if (Object.keys(allData[school][year]['Totals']).includes("Institutional NIL Revenue Share Total Operating Expenses")){
+           allData[school][year]['Totals']["Institutional NIL Revenue Share"] = allData[school][year]['Totals']["Institutional NIL Revenue Share Total Operating Expenses"]
+           delete allData[school][year]['Totals']["Institutional NIL Revenue Share Total Operating Expenses"];    
+       }
+       if (Object.keys(allData[school][year]['Totals']).includes("NCAA Post-Season Non- Football Expenses")){
+           allData[school][year]['Totals']["NCAA Post-Season Non-Football Expenses"] = allData[school][year]['Totals']["NCAA Post-Season Non- Football Expenses"]
+           delete allData[school][year]['Totals']["NCAA Post-Season Non- Football Expenses"];    
+       }
+       if (Object.keys(allData[school][year]['Totals']).includes("Post-Season Non- Football NCAA Expense Reimbursements")){
+           allData[school][year]['Totals']["Post-Season Non-Football NCAA Expense Reimbursements"] = allData[school][year]['Totals']["Post-Season Non- Football NCAA Expense Reimbursements"]
+           delete allData[school][year]['Totals']["Post-Season Non- Football NCAA Expense Reimbursements"];    
+       }
+       if (Object.keys(allData[school][year]['Totals']).includes("Conference Distributions of Post- Season Generated Revenue")){
+           allData[school][year]['Totals']["Conference Distributions of Post-Season Generated Revenue"] = allData[school][year]['Totals']["Conference Distributions of Post- Season Generated Revenue"]
+           delete allData[school][year]['Totals']["Conference Distributions of Post- Season Generated Revenue"];    
+       }
+       if (Object.keys(allData[school][year]['Totals']).includes("Conference Distributions (Non Media and Non Post")){
+           allData[school][year]['Totals']["Conference Distributions (Non Media and Non Bowl)"] = allData[school][year]['Totals']["Conference Distributions (Non Media and Non Post"]
+           delete allData[school][year]['Totals']["Conference Distributions (Non Media and Non Post"];    
+       }
+       if (Object.keys(allData[school][year]['Totals']).includes("Conference Distributions (Non Media and Non Post Season)")){
+           allData[school][year]['Totals']["Conference Distributions (Non Media and Non Bowl)"] = allData[school][year]['Totals']["Conference Distributions (Non Media and Non Post Season)"]
+           delete allData[school][year]['Totals']["Conference Distributions (Non Media and Non Post Season)"];    
+       }
+       if (Object.keys(allData[school][year]['Totals']).includes("Conference Distributions of Post-Season Generated")){
+           allData[school][year]['Totals']["Conference Distributions of Post-Season Generated Revenue"] = allData[school][year]['Totals']["Conference Distributions of Post-Season Generated"]
+           delete allData[school][year]['Totals']["Conference Distributions of Post-Season Generated"];    
+       }    
+       if (Object.keys(allData[school][year]['Totals']).includes("Enhanced Educational Benefits (Alston or other) Institutional NIL Revenue")){
+           allData[school][year]['Totals']["Enhanced Educational Benefits (Alston or other)"] = allData[school][year]['Totals']["Enhanced Educational Benefits (Alston or other) Institutional NIL Revenue"]
+           delete allData[school][year]['Totals']["Enhanced Educational Benefits (Alston or other) Institutional NIL Revenue"]; 
+       }
+       if (Object.keys(allData[school][year]['Totals']).includes("Post-Season Football Expenses – Coaching Compensation/ Bonuses")){
+           allData[school][year]['Totals']["Bowl Expenses – Coaching Compensation/Bonuses"] = allData[school][year]['Totals']["Post-Season Football Expenses – Coaching Compensation/ Bonuses"]
+           delete allData[school][year]['Totals']["Post-Season Football Expenses – Coaching Compensation/ Bonuses"]; 
+       }
+       if (Object.keys(allData[school][year]['Totals']).includes("Conference Distributions of Post-Season Generated Revenue")){
+           allData[school][year]['Totals']["Conference Distributions of Bowl Generated Revenue"] = allData[school][year]['Totals']["Conference Distributions of Post-Season Generated Revenue"]
+           delete allData[school][year]['Totals']["Conference Distributions of Post-Season Generated Revenue"];    
+       }
+
+
+        
+
+
+      if (Object.keys(allData[school][year]['Totals']).includes('Football Bowl Expenses - Coaching')){
+           allData[school][year]['Totals']['Bowl Expenses - Coaching Compensation/Bonuses'] = allData[school][year]['Totals']['Football Bowl Expenses - Coaching']
+           delete allData[school][year]['Totals']['Football Bowl Expenses - Coaching'];      
+       }
+      if (Object.keys(allData[school][year]['Totals']).includes('Football Bowl Expenses - Coaching')){
+           allData[school][year]['Totals']['Bowl Expenses - Coaching Compensation/Bonuses'] = allData[school][year]['Totals']['Football Bowl Expenses - Coaching']
+           delete allData[school][year]['Totals']['Football Bowl Expenses - Coaching'];      
+       }
+      if (Object.keys(allData[school][year]['Totals']).includes('Football Bowl Expenses - Coaching Compensation/ Bonuses')){
+           allData[school][year]['Totals']['Bowl Expenses - Coaching Compensation/Bonuses'] = allData[school][year]['Totals']['Football Bowl Expenses - Coaching Compensation/ Bonuses']
+           delete allData[school][year]['Totals']['Football Bowl Expenses - Coaching Compensation/ Bonuses'];      
+       }
+       if (Object.keys(allData[school][year]['Totals']).includes('Football Bowl Expenses - Coaching Compensation/Bonuses')){
+           allData[school][year]['Totals']['Bowl Expenses - Coaching Compensation/Bonuses'] = allData[school][year]['Totals']['Football Bowl Expenses - Coaching Compensation/Bonuses']
+           delete allData[school][year]['Totals']['Football Bowl Expenses - Coaching Compensation/Bonuses'];      
+       }
+      if (Object.keys(allData[school][year]['Totals']).includes('Total Operating Expenses Excess (Deficiencies) of Revenues Over (Under) Expenses')){
+          allData[school][year]['Totals']['Total Operating Expenses'] = allData[school][year]['Totals']['Total Operating Expenses Excess (Deficiencies) of Revenues Over (Under) Expenses'];
+          delete allData[school][year]['Totals']['Total Operating Expenses Excess (Deficiencies) of Revenues Over (Under) Expenses'];
+      }
+      if (Object.keys(allData[school][year]['Totals']).includes('Bowl Expenses Total Operating Expenses Excess (Deficiencies) of Revenues Over (Under) Expenses')){
+          allData[school][year]['Totals']['Total Operating Expenses'] = allData[school][year]['Totals']['Bowl Expenses Total Operating Expenses Excess (Deficiencies) of Revenues Over (Under) Expenses'];
+          delete allData[school][year]['Totals']['Bowl Expenses Total Operating Expenses Excess (Deficiencies) of Revenues Over (Under) Expenses'];
+      }
+      if (Object.keys(allData[school][year]['Totals']).includes('Total Operating Expenses.')){
+          allData[school][year]['Totals']['Total Operating Expenses'] = allData[school][year]['Totals']['Total Operating Expenses.'];
+          delete allData[school][year]['Totals']['Total Operating Expenses.'];
+      }
+      if (Object.keys(allData[school][year]['Totals']).includes('Total Expenses')){
+          allData[school][year]['Totals']['Total Operating Expenses'] = allData[school][year]['Totals']['Total Expenses'];
+          delete allData[school][year]['Totals']['Total Expenses'];
+      }
+      if (Object.keys(allData[school][year]['Totals']).includes('Total Operating')){
+          allData[school][year]['Totals']['Total Operating Expenses'] = allData[school][year]['Totals']['Total Operating'];
+          delete allData[school][year]['Totals']['Total Operating'];
+      }
+      if (Object.keys(allData[school][year]['Totals']).includes('Total Operating Revenue. Expenses')){
+          allData[school][year]['Totals']['Total Operating Revenues'] = allData[school][year]['Totals']['Total Operating Revenue. Expenses'];
+          delete allData[school][year]['Totals']['Total Operating Revenue. Expenses'];
+      }
+      if (Object.keys(allData[school][year]['Totals']).includes('Bowl Expenses - Coaching Compensation/ Bonuses')){
+          allData[school][year]['Totals']['Bowl Expenses - Coaching Compensation/Bonuses'] = allData[school][year]['Totals']['Bowl Expenses - Coaching Compensation/ Bonuses'];
+          delete allData[school][year]['Totals']['Bowl Expenses - Coaching Compensation/ Bonuses'];
+      }
+      if (Object.keys(allData[school][year]['Totals']).includes('Excess (Deficiencies)')){
+          allData[school][year]['Totals']['Excess (Deficiencies) of Revenues Over (Under) Expenses'] = allData[school][year]['Totals']['Excess (Deficiencies)'];
+          delete allData[school][year]['Totals']['Excess (Deficiencies)'];
+      }
+      if (Object.keys(allData[school][year]['Totals']).includes('Excess (Deficiencies) of Revenues Over (Under) Expenses') && allData[school][year]['Totals']['Excess (Deficiencies) of Revenues Over (Under) Expenses'] == []){
+          delete allData[school][year]['Totals']['Excess (Deficiencies) of Revenues Over (Under) Expenses'];
+      }
+      if (Object.keys(allData[school][year]['Totals']).includes('Less- Transfers to Institution')){
+          allData[school][year]['Totals']['Less - Transfers to Institution'] = allData[school][year]['Totals']['Less- Transfers to Institution'];
+          delete allData[school][year]['Totals']['Less- Transfers to Institution'];
+      }
+      if (Object.keys(allData[school][year]['Totals']).includes('Royalties, Licesing, Advertisement and Sponsorships')){
+          allData[school][year]['Totals']['Royalties, Licensing, Advertisement and Sponsorships'] = allData[school][year]['Totals']['Royalties, Licesing, Advertisement and Sponsorships'];
+          delete allData[school][year]['Totals']['Royalties, Licesing, Advertisement and Sponsorships'];
+      }
+      if (Object.keys(allData[school][year]['Totals']).includes('Support Staff/ Administrative Compensation, Benefits and Bonuses paid by the University...')){
+          allData[school][year]['Totals']['Support Staff/ Administrative Compensation, Benefits and Bonuses paid by the University and Related Entities'] = allData[school][year]['Totals']['Support Staff/ Administrative Compensation, Benefits and Bonuses paid by the University...'];
+          delete allData[school][year]['Totals']['Support Staff/ Administrative Compensation, Benefits and Bonuses paid by the University...'];
+      }
+      
+      // Michigan State 2020 and 2019
+      if (Object.keys(allData[school][year]['Totals']).includes('Compensation and Bene ts provided by a third party')){
+          allData[school][year]['Totals']['Compensation and Benefits provided by a third party'] = allData[school][year]['Totals']['Compensation and Bene ts provided by a third party'];
+          delete allData[school][year]['Totals']['Compensation and Bene ts provided by a third party'];
+      }
+      // Arkansas State 2018
+      if (Object.keys(allData[school][year]['Totals']).includes('Compensation and third party')){
+          allData[school][year]['Totals']['Compensation and Benefits provided by a third party'] = allData[school][year]['Totals']['Compensation and third party'];
+          delete allData[school][year]['Totals']['Compensation and third party'];
+      }
+      // Nevada 2018, Georgia Southern 2018, Boise State 2018, New Mexico 2018
+      if (Object.keys(allData[school][year]['Totals']).includes('Athletics Restricted Endowment and')){
+          allData[school][year]['Totals']['Athletics Restricted Endowment and Investments Income'] = allData[school][year]['Totals']['Athletics Restricted Endowment and'];
+          delete allData[school][year]['Totals']['Athletics Restricted Endowment and'];
+      }
+      // Auburn 2020 and MANY OTHERS
+      if (Object.keys(allData[school][year]['Totals']).includes('Royalties, Licensing, Advertisement and')){
+          allData[school][year]['Totals']['Royalties, Licensing, Advertisement and Sponsorships'] = allData[school][year]['Totals']['Royalties, Licensing, Advertisement and'];
+          delete allData[school][year]['Totals']['Royalties, Licensing, Advertisement and'];
+      }
+      // Miami (Ohio) 2020, 2019, 2018
+      if (Object.keys(allData[school][year]['Totals']).includes('Student-Athlete Meals (non- travel)')){
+          allData[school][year]['Totals']['Student-Athlete Meals (non-travel)'] = allData[school][year]['Totals']['Student-Athlete Meals (non- travel)'];
+          delete allData[school][year]['Totals']['Student-Athlete Meals (non- travel)'];
+      }
+      // Oklahoma 2020
+       if (Object.keys(allData[school][year]['Totals']).includes('Bowl Expenses - Coaching Compensation/')){
+          allData[school][year]['Totals']['Bowl Expenses - Coaching Compensation/Bonuses'] = allData[school][year]['Totals']['Bowl Expenses - Coaching Compensation/'];
+          delete allData[school][year]['Totals']['Bowl Expenses - Coaching Compensation/'];
+      }
+      // Alabama, Georgia, Texas, Ohio State 2018
+       if (Object.keys(allData[school][year]['Totals']).includes('Sports Camp')){
+          allData[school][year]['Totals']['Sports Camp Revenues'] = allData[school][year]['Totals']['Sports Camp'];
+          delete allData[school][year]['Totals']['Sports Camp'];
+      }
+      // Michigan State 2020, 2019
+      if (Object.keys(allData[school][year]['Totals']).includes('Coaching Salaries, Bene ts and Bonuses paid by the University and Related Entities')){
+          allData[school][year]['Totals']['Coaching Salaries, Benefits and Bonuses paid by the University and Related Entities'] = allData[school][year]['Totals']['Coaching Salaries, Bene ts and Bonuses paid by the University and Related Entities'];
+          delete allData[school][year]['Totals']['Coaching Salaries, Bene ts and Bonuses paid by the University and Related Entities'];
+      }
+      if (Object.keys(allData[school][year]['Totals']).includes('Coaching Salaries, Bene ts and Bonuses paid by a Third Party')){
+          allData[school][year]['Totals']['Coaching Salaries, Benefits and Bonuses paid by a Third Party'] = allData[school][year]['Totals']['Coaching Salaries, Bene ts and Bonuses paid by a Third Party'];
+          delete allData[school][year]['Totals']['Coaching Salaries, Bene ts and Bonuses paid by a Third Party'];
+      }
+      if (Object.keys(allData[school][year]['Totals']).includes('Support Staff/ Administrative Compensation, Bene ts and Bonuses paid by the University and Related Entities')){
+          allData[school][year]['Totals']['Support Staff/ Administrative Compensation, Benefits and Bonuses paid by the University and Related Entities'] = allData[school][year]['Totals']['Support Staff/ Administrative Compensation, Bene ts and Bonuses paid by the University and Related Entities'];
+          delete allData[school][year]['Totals']['Support Staff/ Administrative Compensation, Bene ts and Bonuses paid by the University and Related Entities'];
+      }
+      if (Object.keys(allData[school][year]['Totals']).includes('Support Staff/ Administrative Compensation, Bene ts and Bonuses paid by Third Party')){
+          allData[school][year]['Totals']['Support Staff/ Administrative Compensation, Benefits and Bonuses paid by Third Party'] = allData[school][year]['Totals']['Support Staff/ Administrative Compensation, Bene ts and Bonuses paid by Third Party'];
+          delete allData[school][year]['Totals']['Support Staff/ Administrative Compensation, Bene ts and Bonuses paid by Third Party'];
+      }   
+      // South Alabama 2020
+      if (Object.keys(allData[school][year]['Totals']).includes('Support Staff/Administrative Compensation, Benefits and Bonuses paid by the University and Related Entities')){
+          allData[school][year]['Totals']['Support Staff/ Administrative Compensation, Benefits and Bonuses paid by the University and Related Entities'] = allData[school][year]['Totals']['Support Staff/Administrative Compensation, Benefits and Bonuses paid by the University and Related Entities'];
+          delete allData[school][year]['Totals']['Support Staff/Administrative Compensation, Benefits and Bonuses paid by the University and Related Entities' ];
+      }   
+      if (Object.keys(allData[school][year]['Totals']).includes('Support Staff/Administrative Compensation, Benefits and Bonuses paid by Third Party')){
+          allData[school][year]['Totals']['Support Staff/ Administrative Compensation, Benefits and Bonuses paid by Third Party'] = allData[school][year]['Totals']['Support Staff/Administrative Compensation, Benefits and Bonuses paid by Third Party'];
+          delete allData[school][year]['Totals']['Support Staff/Administrative Compensation, Benefits and Bonuses paid by Third Party'];
+      }   
+      // Arkansas State 2018
+      if (Object.keys(allData[school][year]['Totals']).includes('Coaching Salaries, paid by the University and Related Entities')){
+          allData[school][year]['Totals']['Coaching Salaries, Benefits and Bonuses paid by the University and Related Entities'] = allData[school][year]['Totals']['Coaching Salaries, paid by the University and Related Entities'];
+          delete allData[school][year]['Totals']['Coaching Salaries, paid by the University and Related Entities'];
+      }
+      if (Object.keys(allData[school][year]['Totals']).includes('Coaching Salaries, paid by a Third Party')){
+          allData[school][year]['Totals']['Coaching Salaries, Benefits and Bonuses paid by a Third Party'] = allData[school][year]['Totals']['Coaching Salaries, paid by a Third Party'];
+          delete allData[school][year]['Totals']['Coaching Salaries, paid by a Third Party'];
+      }
+      if (Object.keys(allData[school][year]['Totals']).includes('Support Staff/ Administrative and Bonuses paid by the University and Related Entities')){
+          allData[school][year]['Totals']['Support Staff/ Administrative Compensation, Benefits and Bonuses paid by the University and Related Entities'] = allData[school][year]['Totals']['Support Staff/ Administrative and Bonuses paid by the University and Related Entities'];
+          delete allData[school][year]['Totals']['Support Staff/ Administrative and Bonuses paid by the University and Related Entities'];
+      }
+      if (Object.keys(allData[school][year]['Totals']).includes('Support Staff/ Administrative and Bonuses paid by Third Party')){
+          allData[school][year]['Totals']['Support Staff/ Administrative Compensation, Benefits and Bonuses paid by Third Party'] = allData[school][year]['Totals']['Support Staff/ Administrative and Bonuses paid by Third Party'];
+          delete allData[school][year]['Totals']['Support Staff/ Administrative and Bonuses paid by Third Party'];
+      }  
+
+      if ((year == "2022" || year == "2023" || year == "2024") && (schoolNames[school] == "Texas" || schoolNames[school] == "Ohio State" || schoolNames[school] == "Auburn" || schoolNames[school] == "Penn State" || schoolNames[school] == "Georgia" || schoolNames[school] == "Michigan" || schoolNames[school] == "Oklahoma" || schoolNames[school] == "LSU" || schoolNames[school] == "Tennessee" || schoolNames[school] == "Washington" || schoolNames[school] == "Wisconsin" || schoolNames[school] == "Nebraska" || schoolNames[school] == "Alabama")){
+        if (Object.keys(allData[school][year]['Totals']).includes('Other Operating')){
+          allData[school][year]['Totals']['Other Operating Expenses'] = allData[school][year]['Totals']['Other Operating'];
+          delete allData[school][year]['Totals']['Other Operating'];
+        }
+      }
+      if (year == '2024' || year == '2023' || year == "2022" || year == '2021' && (schoolNames[school] == "Illinois" ||
+                             schoolNames[school] == 'Arkansas' ||
+                             schoolNames[school] == 'Louisville' ||
+                             schoolNames[school] == 'Nebraska' ||
+                             schoolNames[school] == 'Minnesota' ||
+                             schoolNames[school] == 'Ole Miss' ||
+                             schoolNames[school] == 'Missouri' ||
+                             schoolNames[school] == 'Rutgers' ||
+                             schoolNames[school] == 'Kentucky' ||
+                             schoolNames[school] == 'Tennessee' ||
+                             schoolNames[school] == 'Michigan State' ||
+                             schoolNames[school] == "Florida State" ||
+                             schoolNames[school] == "Indiana" ||
+                             schoolNames[school] == "Michigan" ||
+                             schoolNames[school] == "Auburn" ||
+                             schoolNames[school] == "Ohio State" ||
+                             schoolNames[school] == "Texas" ||
+                             schoolNames[school] == "Arizona" ||
+                             schoolNames[school] == "Oklahoma" ||
+                             schoolNames[school] == "Texas A&M") 
+      ) {
+        if (Object.keys(allData[school][year]['Totals']).includes('Team Travel Sports Equipment,')){
+          allData[school][year]['Totals']['Team Travel'] = allData[school][year]['Totals']['Team Travel Sports Equipment,'];
+          delete allData[school][year]['Totals']['Team Travel Sports Equipment,'];
+        }
+        if (Object.keys(allData[school][year]['Totals']).includes('Sports Equipment, Uniforms and Supplies Game Expenses')){
+          allData[school][year]['Totals']['Sports Equipment, Uniforms and Supplies'] = allData[school][year]['Totals']['Sports Equipment, Uniforms and Supplies Game Expenses'];
+          delete allData[school][year]['Totals']['Sports Equipment, Uniforms and Supplies Game Expenses'];
+        }
+        if (Object.keys(allData[school][year]['Totals']).includes('Game Expenses Fund Raising,')){
+          allData[school][year]['Totals']['Game Expenses'] = allData[school][year]['Totals']['Game Expenses Fund Raising,'];
+          delete allData[school][year]['Totals']['Game Expenses Fund Raising,'];
+        }
+        if (Object.keys(allData[school][year]['Totals']).includes('Fund Raising, Marketing and Promotion Sports Camp')){
+          allData[school][year]['Totals']['Fund Raising, Marketing and Promotion'] = allData[school][year]['Totals']['Fund Raising, Marketing and Promotion Sports Camp'];
+          delete allData[school][year]['Totals']['Fund Raising, Marketing and Promotion Sports Camp'];
+        }
+        if (Object.keys(allData[school][year]['Totals']).includes('Fund Raising, Marketing and Promotion Sports Camp Expenses')){
+          allData[school][year]['Totals']['Fund Raising, Marketing and Promotion'] = allData[school][year]['Totals']['Fund Raising, Marketing and Promotion Sports Camp Expenses'];
+          delete allData[school][year]['Totals']['Fund Raising, Marketing and Promotion Sports Camp Expenses'];
+        }
+        if (Object.keys(allData[school][year]['Totals']).includes('Sports Camp Expenses Spirit Groups')){
+          allData[school][year]['Totals']['Sports Camp Expenses'] = allData[school][year]['Totals']['Sports Camp Expenses Spirit Groups'];
+          delete allData[school][year]['Totals']['Sports Camp Expenses Spirit Groups'];
+        }
+        if (Object.keys(allData[school][year]['Totals']).includes('Spirit Groups Athletic Facilities')){
+          allData[school][year]['Totals']['Spirit Groups'] = allData[school][year]['Totals']['Spirit Groups Athletic Facilities'];
+          delete allData[school][year]['Totals']['Spirit Groups Athletic Facilities'];
+        }
+        if (Object.keys(allData[school][year]['Totals']).includes('Athletic Facilities Debt Service, Leases and Rental Fee Direct Overhead and')){
+          allData[school][year]['Totals']['Athletic Facilities Debt Service, Leases and Rental Fee'] = allData[school][year]['Totals']['Athletic Facilities Debt Service, Leases and Rental Fee Direct Overhead and'];
+          delete allData[school][year]['Totals']['Athletic Facilities Debt Service, Leases and Rental Fee Direct Overhead and'];
+        }
+        if (Object.keys(allData[school][year]['Totals']).includes('Direct Overhead and Administrative Expenses Indirect Institutional')){
+          allData[school][year]['Totals']['Direct Overhead and Administrative Expenses'] = allData[school][year]['Totals']['Direct Overhead and Administrative Expenses Indirect Institutional'];
+          delete allData[school][year]['Totals']['Direct Overhead and Administrative Expenses Indirect Institutional'];
+        }
+        if (Object.keys(allData[school][year]['Totals']).includes('Indirect Institutional Support Medical Expenses')){
+          allData[school][year]['Totals']['Indirect Institutional Support (Expenses)'] = allData[school][year]['Totals']['Indirect Institutional Support Medical Expenses'];
+          delete allData[school][year]['Totals']['Indirect Institutional Support Medical Expenses'];
+        }
+        if (Object.keys(allData[school][year]['Totals']).includes('Indirect Institutional Support Medical Expenses and')){
+          allData[school][year]['Totals']['Indirect Institutional Support (Expenses)'] = allData[school][year]['Totals']['Indirect Institutional Support Medical Expenses and'];
+          delete allData[school][year]['Totals']['Indirect Institutional Support Medical Expenses and'];
+        }
+        if (Object.keys(allData[school][year]['Totals']).includes('Medical Expenses and Insurance Memberships and')){
+          allData[school][year]['Totals']['Medical Expenses and Insurance'] = allData[school][year]['Totals']['Medical Expenses and Insurance Memberships and'];
+          delete allData[school][year]['Totals']['Medical Expenses and Insurance Memberships and'];
+        }
+        if (Object.keys(allData[school][year]['Totals']).includes('Memberships and Dues Student-Athlete')){
+          allData[school][year]['Totals']['Memberships and Dues'] = allData[school][year]['Totals']['Memberships and Dues Student-Athlete'];
+          delete allData[school][year]['Totals']['Memberships and Dues Student-Athlete'];
+        }
+        if (Object.keys(allData[school][year]['Totals']).includes('Memberships and Dues Student-Athlete Meals')){
+          allData[school][year]['Totals']['Memberships and Dues'] = allData[school][year]['Totals']['Memberships and Dues Student-Athlete Meals'];
+          delete allData[school][year]['Totals']['Memberships and Dues Student-Athlete Meals'];
+        }
+        if (Object.keys(allData[school][year]['Totals']).includes('Student-Athlete Meals (non-travel) Other Operating')){
+          allData[school][year]['Totals']['Student-Athlete Meals (non-travel)'] = allData[school][year]['Totals']['Student-Athlete Meals (non-travel) Other Operating'];
+          delete allData[school][year]['Totals']['Student-Athlete Meals (non-travel) Other Operating'];
+        }
+        if (Object.keys(allData[school][year]['Totals']).includes('Other Operating Expenses Football Bowl')){
+          allData[school][year]['Totals']['Other Operating Expenses'] = allData[school][year]['Totals']['Other Operating Expenses Football Bowl'];
+          delete allData[school][year]['Totals']['Other Operating Expenses Football Bowl'];
+        }
+      }
+
+      if ((schoolNames[school] == "Georgia" && year == "2019")
+        || (schoolNames[school] == "Michigan" && (year == "2019" || year == "2020"))
+        || (schoolNames[school] == "Penn State" && (year == "2019" || year == "2020"))
+        || (schoolNames[school] == "Texas" && (year == "2019" || year == "2020"))
+        || (schoolNames[school] == "Ohio State" && (year == "2019" || year == "2020"))
+        || (schoolNames[school] == "Oklahoma" && year == "2019")
+      ) {
+        if (Object.keys(allData[school][year]['Totals']).includes('Sports Equipment, Uniforms and Supplies Game Expenses')){
+          allData[school][year]['Totals']['Sports Equipment, Uniforms and Supplies'] = allData[school][year]['Totals']['Sports Equipment, Uniforms and Supplies Game Expenses'];
+          delete allData[school][year]['Totals']['Sports Equipment, Uniforms and Supplies Game Expenses'];
+        }
+        if (Object.keys(allData[school][year]['Totals']).includes('Game Expenses Fund Raising,')){
+          allData[school][year]['Totals']['Game Expenses'] = allData[school][year]['Totals']['Game Expenses Fund Raising,'];
+          delete allData[school][year]['Totals']['Game Expenses Fund Raising,'];
+        }
+        if (Object.keys(allData[school][year]['Totals']).includes('Fund Raising, Marketing and Promotion Sports Camp')){
+          allData[school][year]['Totals']['Fund Raising, Marketing and Promotion'] = allData[school][year]['Totals']['Fund Raising, Marketing and Promotion Sports Camp'];
+          delete allData[school][year]['Totals']['Fund Raising, Marketing and Promotion Sports Camp'];
+        }
+        if (Object.keys(allData[school][year]['Totals']).includes('Sports Camp Expenses Spirit Groups')){
+          allData[school][year]['Totals']['Sports Camp Expenses'] = allData[school][year]['Totals']['Sports Camp Expenses Spirit Groups'];
+          delete allData[school][year]['Totals']['Sports Camp Expenses Spirit Groups'];
+        }
+        if (Object.keys(allData[school][year]['Totals']).includes('Spirit Groups Athletic Facilities')){
+          allData[school][year]['Totals']['Spirit Groups'] = allData[school][year]['Totals']['Spirit Groups Athletic Facilities'];
+          delete allData[school][year]['Totals']['Spirit Groups Athletic Facilities'];
+        }
+        if (Object.keys(allData[school][year]['Totals']).includes('Athletic Facilities Debt Service, Leases and Rental Fee Direct Overhead and')){
+          allData[school][year]['Totals']['Athletic Facilities Debt Service, Leases and Rental Fee'] = allData[school][year]['Totals']['Athletic Facilities Debt Service, Leases and Rental Fee Direct Overhead and'];
+          delete allData[school][year]['Totals']['Athletic Facilities Debt Service, Leases and Rental Fee Direct Overhead and'];
+        }
+        if (Object.keys(allData[school][year]['Totals']).includes('Direct Overhead and Administrative Expenses Indirect Institutional')){
+          allData[school][year]['Totals']['Direct Overhead and Administrative Expenses'] = allData[school][year]['Totals']['Direct Overhead and Administrative Expenses Indirect Institutional'];
+          delete allData[school][year]['Totals']['Direct Overhead and Administrative Expenses Indirect Institutional'];
+        }
+        if (Object.keys(allData[school][year]['Totals']).includes('Indirect Institutional Support Medical Expenses')){
+          allData[school][year]['Totals']['Indirect Institutional Support (Expenses)'] = allData[school][year]['Totals']['Indirect Institutional Support Medical Expenses'];
+          delete allData[school][year]['Totals']['Indirect Institutional Support Medical Expenses'];
+        }
+        if (Object.keys(allData[school][year]['Totals']).includes('Medical Expenses and Insurance Memberships and')){
+          allData[school][year]['Totals']['Medical Expenses and Insurance'] = allData[school][year]['Totals']['Medical Expenses and Insurance Memberships and'];
+          delete allData[school][year]['Totals']['Medical Expenses and Insurance Memberships and'];
+        }
+        if (Object.keys(allData[school][year]['Totals']).includes('Memberships and Dues Student-Athlete')){
+          allData[school][year]['Totals']['Memberships and Dues'] = allData[school][year]['Totals']['Memberships and Dues Student-Athlete'];
+          delete allData[school][year]['Totals']['Memberships and Dues Student-Athlete'];
+        }
+        if (Object.keys(allData[school][year]['Totals']).includes('Student-Athlete Meals (non-travel) Other Operating')){
+          allData[school][year]['Totals']['Student-Athlete Meals (non-travel)'] = allData[school][year]['Totals']['Student-Athlete Meals (non-travel) Other Operating'];
+          delete allData[school][year]['Totals']['Student-Athlete Meals (non-travel) Other Operating'];
+        }
+      }
+
+        if ((schoolNames[school] == "Buffalo" && year == "2018")
+          || (schoolNames[school] == "Western Kentucky" && year == "2018")
+          || (schoolNames[school] == "Ohio" && year == "2018")
+          || (schoolNames[school] == "Louisiana Tech" && year == "2018")
+        ) {
+          if (Object.keys(allData[school][year]['Totals']).includes('Athletic Student Aid Guarantees')){
+            allData[school][year]['Totals']['Athletic Student Aid'] = allData[school][year]['Totals']['Athletic Student Aid Guarantees'];
+            delete allData[school][year]['Totals']['Athletic Student Aid Guarantees'];
+          }
+          if (Object.keys(allData[school][year]['Totals']).includes('Guarantees Coaching Salaries, Benefits')){
+            allData[school][year]['Totals']['Guarantees (Expenses)'] = allData[school][year]['Totals']['Guarantees Coaching Salaries, Benefits'];
+            delete allData[school][year]['Totals']['Guarantees Coaching Salaries, Benefits'];
+          }
+          if (Object.keys(allData[school][year]['Totals']).includes('Coaching Salaries, Benefits and Bonuses paid by the University and Related Entities Coaching Salaries, Benefits')){
+            allData[school][year]['Totals']['Coaching Salaries, Benefits and Bonuses paid by the University and Related Entities'] = allData[school][year]['Totals']['Coaching Salaries, Benefits and Bonuses paid by the University and Related Entities Coaching Salaries, Benefits'];
+            delete allData[school][year]['Totals']['Coaching Salaries, Benefits and Bonuses paid by the University and Related Entities Coaching Salaries, Benefits'];
+          }
+          if (Object.keys(allData[school][year]['Totals']).includes('Coaching Salaries, Benefits and Bonuses paid by a Third Party Support Staff/Administrative')){
+            allData[school][year]['Totals']['Coaching Salaries, Benefits and Bonuses paid by a Third Party'] = allData[school][year]['Totals']['Coaching Salaries, Benefits and Bonuses paid by a Third Party Support Staff/Administrative'];
+            delete allData[school][year]['Totals']['Coaching Salaries, Benefits and Bonuses paid by a Third Party Support Staff/Administrative'];
+          }
+          if (Object.keys(allData[school][year]['Totals']).includes('Support Staff/Administrative Compensation, Benefits and Bonuses paid by the University and Related Entities Support Staff/Administrative')){
+            allData[school][year]['Totals']['Support Staff/ Administrative Compensation, Benefits and Bonuses paid by the University and Related Entities'] = allData[school][year]['Totals']['Support Staff/Administrative Compensation, Benefits and Bonuses paid by the University and Related Entities Support Staff/Administrative'];
+            delete allData[school][year]['Totals']['Support Staff/Administrative Compensation, Benefits and Bonuses paid by the University and Related Entities Support Staff/Administrative'];
+          }
+          if (Object.keys(allData[school][year]['Totals']).includes('Support Staff/Administrative Compensation, Benefits and Bonuses paid by Third Party Severance Payments')){
+            allData[school][year]['Totals']['Support Staff/ Administrative Compensation, Benefits and Bonuses paid by Third Party'] = allData[school][year]['Totals']['Support Staff/Administrative Compensation, Benefits and Bonuses paid by Third Party Severance Payments'];
+            delete allData[school][year]['Totals']['Support Staff/Administrative Compensation, Benefits and Bonuses paid by Third Party Severance Payments'];
+          }
+          if (Object.keys(allData[school][year]['Totals']).includes('Severance Payments Recruiting')){
+            allData[school][year]['Totals']['Severance Payments'] = allData[school][year]['Totals']['Severance Payments Recruiting'];
+            delete allData[school][year]['Totals']['Severance Payments Recruiting'];
+          }
+          if (Object.keys(allData[school][year]['Totals']).includes('Recruiting Team Travel')){
+            allData[school][year]['Totals']['Recruiting'] = allData[school][year]['Totals']['Recruiting Team Travel'];
+            delete allData[school][year]['Totals']['Recruiting Team Travel'];
+          }
+          if (Object.keys(allData[school][year]['Totals']).includes('Team Travel Sports Equipment, Uniforms')){
+            allData[school][year]['Totals']['Team Travel'] = allData[school][year]['Totals']['Team Travel Sports Equipment, Uniforms'];
+            delete allData[school][year]['Totals']['Team Travel Sports Equipment, Uniforms'];
+          }
+          if (Object.keys(allData[school][year]['Totals']).includes('Sports Equipment, Uniforms and Supplies Game Expenses')){
+            allData[school][year]['Totals']['Sports Equipment, Uniforms and Supplies'] = allData[school][year]['Totals']['Sports Equipment, Uniforms and Supplies Game Expenses'];
+            delete allData[school][year]['Totals']['Sports Equipment, Uniforms and Supplies Game Expenses'];
+          }
+          if (Object.keys(allData[school][year]['Totals']).includes('Game Expenses Fund Raising, Marketing and')){
+            allData[school][year]['Totals']['Game Expenses'] = allData[school][year]['Totals']['Game Expenses Fund Raising, Marketing and'];
+            delete allData[school][year]['Totals']['Game Expenses Fund Raising, Marketing and'];
+          }
+          if (Object.keys(allData[school][year]['Totals']).includes('Fund Raising, Marketing and Promotion Sports Camp Expenses')){
+            allData[school][year]['Totals']['Fund Raising, Marketing and Promotion'] = allData[school][year]['Totals']['Fund Raising, Marketing and Promotion Sports Camp Expenses'];
+            delete allData[school][year]['Totals']['Fund Raising, Marketing and Promotion Sports Camp Expenses'];
+          }
+          if (Object.keys(allData[school][year]['Totals']).includes('Sports Camp Expenses Spirit Groups')){
+            allData[school][year]['Totals']['Sports Camp Expenses'] = allData[school][year]['Totals']['Sports Camp Expenses Spirit Groups'];
+            delete allData[school][year]['Totals']['Sports Camp Expenses Spirit Groups'];
+          }
+          if (Object.keys(allData[school][year]['Totals']).includes('Spirit Groups Athletic Facilities Debt')){
+            allData[school][year]['Totals']['Spirit Groups'] = allData[school][year]['Totals']['Spirit Groups Athletic Facilities Debt'];
+            delete allData[school][year]['Totals']['Spirit Groups Athletic Facilities Debt'];
+          }
+          if (Object.keys(allData[school][year]['Totals']).includes('Athletic Facilities Debt Service, Leases and Rental Fee Direct Overhead and')){
+            allData[school][year]['Totals']['Athletic Facilities Debt Service, Leases and Rental Fee'] = allData[school][year]['Totals']['Athletic Facilities Debt Service, Leases and Rental Fee Direct Overhead and'];
+            delete allData[school][year]['Totals']['Athletic Facilities Debt Service, Leases and Rental Fee Direct Overhead and'];
+          }
+          if (Object.keys(allData[school][year]['Totals']).includes('Direct Overhead and Administrative Expenses Indirect Institutional Support')){
+            allData[school][year]['Totals']['Direct Overhead and Administrative Expenses'] = allData[school][year]['Totals']['Direct Overhead and Administrative Expenses Indirect Institutional Support'];
+            delete allData[school][year]['Totals']['Direct Overhead and Administrative Expenses Indirect Institutional Support'];
+          }
+          if (Object.keys(allData[school][year]['Totals']).includes('Indirect Institutional Support Medical Expenses and')){
+            allData[school][year]['Totals']['Indirect Institutional Support (Expenses)'] = allData[school][year]['Totals']['Indirect Institutional Support Medical Expenses and'];
+            delete allData[school][year]['Totals']['Indirect Institutional Support Medical Expenses and'];
+          }
+          if (Object.keys(allData[school][year]['Totals']).includes('Medical Expenses and Insurance Memberships and Dues')){
+            allData[school][year]['Totals']['Medical Expenses and Insurance'] = allData[school][year]['Totals']['Medical Expenses and Insurance Memberships and Dues'];
+            delete allData[school][year]['Totals']['Medical Expenses and Insurance Memberships and Dues'];
+          }
+          if (Object.keys(allData[school][year]['Totals']).includes('Memberships and Dues Student-Athlete')){
+            allData[school][year]['Totals']['Memberships and Dues'] = allData[school][year]['Totals']['Memberships and Dues Student-Athlete'];
+            delete allData[school][year]['Totals']['Memberships and Dues Student-Athlete'];
+          }
+          if (Object.keys(allData[school][year]['Totals']).includes('Student-Athlete Meals (non-travel) Other Operating')){
+            allData[school][year]['Totals']['Student-Athlete Meals (non-travel)'] = allData[school][year]['Totals']['Student-Athlete Meals (non-travel) Other Operating'];
+            delete allData[school][year]['Totals']['Student-Athlete Meals (non-travel) Other Operating'];
+          }
+        }
+
+
+        if (Object.keys(allData[school][year]['Numbers']).includes("Institutional's Annual Debt Service")){
+            allData[school][year]['Numbers']["Institution's Annual Debt Service"] = allData[school][year]['Numbers']["Institutional's Annual Debt Service"];
+            delete allData[school][year]['Numbers']["Institutional's Annual Debt Service"];
+        }
+        if (Object.keys(allData[school][year]['Numbers']).includes("Institution's Edcuation and General Expenses")){
+            allData[school][year]['Numbers']["Institution's Education and General Expenses"] = allData[school][year]['Numbers']["Institution's Edcuation and General Expenses"];
+            delete allData[school][year]['Numbers']["Institution's Edcuation and General Expenses"];
+        }
+        if (Object.keys(allData[school][year]['Totals']).includes("Indirect Insititutional Suport - Athletic Facilities Debt Service, Lease and Rental Fees")){
+            allData[school][year]['Totals']["Indirect Institutional Support - Athletic Facilities Debt Service, Lease and Rental Fees"] = allData[school][year]['Totals']["Indirect Insititutional Suport - Athletic Facilities Debt Service, Lease and Rental Fees"];
+            delete allData[school][year]['Totals']["Indirect Insititutional Suport - Athletic Facilities Debt Service, Lease and Rental Fees"];
+        }
+
+
+      if (["2018",'2019','2020','2021','2022','2023','2024'].includes(year)){
+        allData[school][year]['Totals']['Enhanced Educational Benefits (Alston or other)'] = [0,0,0,0,0,0]
+        allData[school][year]['Totals']['Institutional NIL Revenue Share'] = [0,0,0,0,0,0]
+      }
+
+
+
+      // Calculate Expenses
+      if (!Object.keys(allData[school][year]['Totals']).includes('Total Operating Expenses')){
+        if (year == "2025"){
+          console.log(year,school)
+        }
+        var keys = Object.keys(allData[school][year]['Totals']);
+        var sum = [0,0,0,0,0,0]
+        keys.forEach( k => {
+          if (!(k == "Conference Distributions of Bowl Generated Revenue" && year == "2018")){
+            sum[0] += numberify(allData[school][year]['Totals'][k][0]);
+            sum[1] += numberify(allData[school][year]['Totals'][k][1]);
+            sum[2] += numberify(allData[school][year]['Totals'][k][2]);
+            sum[3] += numberify(allData[school][year]['Totals'][k][3]);
+            sum[4] += numberify(allData[school][year]['Totals'][k][4]);
+            sum[5] += numberify(allData[school][year]['Totals'][k][5]);
+          }
+        });
+        sum[0] -= (numberify(allData[school][year]['Totals']['Total Operating Revenues'][0]) * 2)
+        sum[1] -= (numberify(allData[school][year]['Totals']['Total Operating Revenues'][1]) * 2)
+        sum[2] -= (numberify(allData[school][year]['Totals']['Total Operating Revenues'][2]) * 2)
+        sum[3] -= (numberify(allData[school][year]['Totals']['Total Operating Revenues'][3]) * 2)
+        sum[4] -= (numberify(allData[school][year]['Totals']['Total Operating Revenues'][4]) * 2)
+        sum[5] -= (numberify(allData[school][year]['Totals']['Total Operating Revenues'][5]) * 2)
+        allData[school][year]['Totals']['Total Operating Expenses'] = sum;
+      }
+
+      // Calculate Excess
+      if (!Object.keys(allData[school][year]['Totals']).includes('Excess (Deficiencies) of Revenues Over (Under) Expenses') && allData[school][year]['Totals']['Total Operating Revenues'] && allData[school][year]['Totals']['Total Operating Expenses']){
+        excess = [0,0,0,0,0,0] 
+        excess[0] = numberify(allData[school][year]['Totals']['Total Operating Revenues'][0]) - numberify(allData[school][year]['Totals']['Total Operating Expenses'][0]);
+        excess[1] = numberify(allData[school][year]['Totals']['Total Operating Revenues'][1]) - numberify(allData[school][year]['Totals']['Total Operating Expenses'][1]);
+        excess[2] = numberify(allData[school][year]['Totals']['Total Operating Revenues'][2]) - numberify(allData[school][year]['Totals']['Total Operating Expenses'][2]);
+        excess[3] = numberify(allData[school][year]['Totals']['Total Operating Revenues'][3]) - numberify(allData[school][year]['Totals']['Total Operating Expenses'][3]);
+        excess[4] = numberify(allData[school][year]['Totals']['Total Operating Revenues'][4]) - numberify(allData[school][year]['Totals']['Total Operating Expenses'][4]);
+        excess[5] = numberify(allData[school][year]['Totals']['Total Operating Revenues'][5]) - numberify(allData[school][year]['Totals']['Total Operating Expenses'][5]);                
+        allData[school][year]['Totals']['Excess (Deficiencies) of Revenues Over (Under) Expenses'] = excess
+      }
+
+      //Calculate Generated Revenue and Subsidies
+      if (Object.keys(allData[school][year]['Totals']).includes('Total Operating Revenues') 
+          && Object.keys(allData[school][year]['Totals']).includes('Direct State or Other Government Support') 
+          && Object.keys(allData[school][year]['Totals']).includes('Direct Institutional Support')
+          && Object.keys(allData[school][year]['Totals']).includes('Less - Transfers to Institution')
+          && Object.keys(allData[school][year]['Totals']).includes('Student Fees')
+          && Object.keys(allData[school][year]['Totals']).includes('Indirect Institutional Support')
+          && Object.keys(allData[school][year]['Totals']).includes('Indirect Institutional Support - Athletic Facilities Debt Service, Lease and Rental Fees')){
+        generated = [0,0,0,0,0,0] 
+        subsidies = [0,0,0,0,0,0]
+        for (i = 0; i < 6; i++) {
+          generated[i] = numberify(allData[school][year]['Totals']['Total Operating Revenues'][i])
+                          - numberify(allData[school][year]['Totals']['Direct State or Other Government Support'][i])
+                          - numberify(allData[school][year]['Totals']['Direct Institutional Support'][i])
+                          - numberify(allData[school][year]['Totals']['Less - Transfers to Institution'][i])
+                          - numberify(allData[school][year]['Totals']['Student Fees'][i])
+                          - numberify(allData[school][year]['Totals']['Indirect Institutional Support'][i])
+                          - numberify(allData[school][year]['Totals']['Indirect Institutional Support - Athletic Facilities Debt Service, Lease and Rental Fees'][i])
+          subsidies[i] = numberify(allData[school][year]['Totals']['Direct State or Other Government Support'][i])
+                          + numberify(allData[school][year]['Totals']['Direct Institutional Support'][i])
+                          + numberify(allData[school][year]['Totals']['Less - Transfers to Institution'][i])
+                          + numberify(allData[school][year]['Totals']['Student Fees'][i])
+                          + numberify(allData[school][year]['Totals']['Indirect Institutional Support'][i])
+                          + numberify(allData[school][year]['Totals']['Indirect Institutional Support - Athletic Facilities Debt Service, Lease and Rental Fees'][i])
+        }              
+        allData[school][year]['Totals']['Generated Revenue'] = generated
+        allData[school][year]['Totals']['Subsidies'] = subsidies
+      }
+
+
+      //Calculate Rifle
+      if (Object.keys(allData[school][year]['Expenses']).includes("Men's Rifle") || Object.keys(allData[school][year]['Expenses']).includes("Women's Rifle")){
+        e1 = (allData[school][year]['Expenses']["Rifle"]) ? numberify('$' + allData[school][year]['Expenses']["Rifle"]) : 0
+        e2 = (allData[school][year]['Expenses']["Men's Rifle"]) ? numberify('$' + allData[school][year]['Expenses']["Men's Rifle"]) : 0
+        e3 = (allData[school][year]['Expenses']["Women's Rifle"]) ? numberify('$' + allData[school][year]['Expenses']["Women's Rifle"]) : 0
+        r1 = (allData[school][year]['Revenues']["Rifle"]) ? numberify('$' + allData[school][year]['Revenues']["Rifle"]) : 0
+        r2 = (allData[school][year]['Revenues']["Men's Rifle"]) ? numberify('$' + allData[school][year]['Revenues']["Men's Rifle"]) : 0
+        r3 = (allData[school][year]['Revenues']["Women's Rifle"]) ? numberify('$' + allData[school][year]['Revenues']["Women's Rifle"]) : 0
+        allData[school][year]['Expenses']["Rifle"] = e1 + e2 + e3
+        allData[school][year]['Revenues']["Rifle"] = r1 + r2 + r3 
+        delete allData[school][year]['Expenses']["Men's Rifle"];
+        delete allData[school][year]['Expenses']["Women's Rifle"];
+        delete allData[school][year]['Revenues']["Men's Rifle"];
+        delete allData[school][year]['Revenues']["Women's Rifle"];
+      }
+
+    
+      if (year == "2022"){
+      var keys = Object.keys(allData[school][year]['Totals']);
+      var revs = Object.keys(allData[school][year]['Revenues']);
+      var rev = 0
+      revs.forEach(function(sport){
+        rev += numberify('$' + allData[school][year]['Revenues'][sport])
+      })
+      var exps = Object.keys(allData[school][year]['Expenses']);
+      var exp = 0
+      exps.forEach(function(sport){
+        exp += numberify('$' + allData[school][year]['Expenses'][sport])
+      })
+      if (keys.includes("Total Operating Revenues") && (year == "2018" || year == "2019" || year == "2020" || year == "2021" || year == "2022")){
+        if (rev != numberify(allData[school][year]['Totals']['Total Operating Revenues'][5]) - numberify(allData[school][year]['Totals']['Total Operating Revenues'][4])){
+          console.log(allData[school][year]['Revenues'])        
+          console.log(rev)
+          console.log(numberify(allData[school][year]['Totals']['Total Operating Revenues'][5]) - numberify(allData[school][year]['Totals']['Total Operating Revenues'][4]))
+          console.log(allData[school][year]['Totals']['Total Operating Revenues'])
+          console.log(allData[school][year]['Totals'])
+          console.log(school + ' ' + year)
+        } else {
+          console.log('checks out')
+        }
+        if (exp != numberify(allData[school][year]['Totals']['Total Operating Expenses'][5]) - numberify(allData[school][year]['Totals']['Total Operating Expenses'][4])){
+          console.log(allData[school][year]['Expenses'])
+          console.log(exp)
+          console.log(numberify(allData[school][year]['Totals']['Total Operating Expenses'][5]) - numberify(allData[school][year]['Totals']['Total Operating Expenses'][4]))
+          console.log(allData[school][year]['Totals']['Total Operating Expenses'])
+          console.log(allData[school][year]['Totals'])
+          console.log(school + ' ' + year)
+        } else {
+          console.log('checks out')
+        }
+      }
+    }
+
+     /*var keys = Object.keys(allData[school][year]['Totals']);
+      if (keys.includes("Total Operating Revenues")){
+        if (numberify('$' + allData[school][year]['Expenses']["Football"]) != numberify(allData[school][year]['Totals']['Total Operating Expenses'][0])){
+          //console.log(allData[school][year]['Expenses'])
+          //console.log(numberify('$' + allData[school][year]['Expenses']["Football"]))
+          //console.log(numberify(allData[school][year]['Totals']['Total Operating Expenses'][0]))
+          //console.log(school + ' ' + year)
+        } 
+        if (numberify('$' + allData[school][year]['Expenses']["Men's Basketball"]) != numberify(allData[school][year]['Totals']['Total Operating Expenses'][1])){
+          //console.log(allData[school][year]['Expenses'])
+          //console.log(numberify('$' + allData[school][year]['Expenses']["Men's Basketball"]))
+          //console.log(numberify(allData[school][year]['Totals']['Total Operating Expenses'][1]))
+          //console.log(school + ' ' + year)
+        }
+        if (numberify('$' + allData[school][year]['Revenues']["Men's Basketball"]) != numberify(allData[school][year]['Totals']['Total Operating Revenues'][1])){
+          console.log(allData[school][year]['Revenues'])
+          console.log(numberify('$' + allData[school][year]['Revenues']["Men's Basketball"]))
+          console.log(numberify(allData[school][year]['Totals']['Total Operating Revenues'][1]))
+          console.log(school + ' ' + year)
+        } else {
+          console.log('checks out')
+        }
+      }*/
+
+       /* var keys = Object.keys(allData[school][year]['Totals']);
+        if (!keys.includes("Total Operating Revenues")){
+          console.log(school + ' ' + year)
+        } else {
+          check = 0;
+          i = 5
+          keys.forEach( function(k) {
+            check += numberify(allData[school][year]['Totals'][k][i])
+          })
+          check -= numberify(allData[school][year]['Totals']['Total Operating Expenses'][i]) * 2
+          check -= numberify(allData[school][year]['Totals']['Total Operating Revenues'][i]) * 2
+          if (check - numberify(allData[school][year]['Totals']['Total Operating Revenues'][i]) > 0){
+            console.log(check)
+            console.log(school + ' ' + year)
+          }
+        }*/
+
+      /*categories.forEach(function(category){
+        if ((year == "2020" || year == "2019" || year == "2018") && !Object.keys(allData[school][year]['Totals']).includes(category)){
+          if (!(category == "Conference Distributions of Bowl Generated Revenue" && year == "2018")){
+            console.log(school + " " + year + " " + category)
+          }
+        }
+      })
+      
+      if (!Object.keys(allData[school][year]['Totals']).includes('Support Staff/ Administrative Compensation, Benefits and Bonuses paid by the University and Related Entities')){
+        console.log(school + " " + year)
+      }*/
+
+    });
+  });
+
+}
+
+</script>
+<script type="text/javascript" src="teams.js"></script>

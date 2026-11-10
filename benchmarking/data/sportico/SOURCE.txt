@@ -1,0 +1,1 @@
+source: https://d3data.sportico.com/NCAADatabase/ (embedded in https://www.sportico.com/leagues/college-sports/2023/college-sports-finances-database-intercollegiate-1234646029/); downloaded 2026-11-10
