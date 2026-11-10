@@ -2,10 +2,12 @@
 plus data/review_rejections.csv. One row per (school, metric): first accepted valued row wins; else first '--' row."""
 import csv, re, json, os
 from collections import OrderedDict
-R='/tmp/claude-0/-home-user-sportsnews/13880bdf-16ac-52e7-abd6-56bf6c41826b/scratchpad/research'
+R='data/research'
 import glob
-files=["data/bulk_values.csv","data/sportico_values.csv"]+sorted(glob.glob(f"{R}/*.csv"))
-NUM=re.compile(r'(revenue|expense|distributions|support|fees|salaries|debt|_comp$|_end$|capacity|opened|renovation|start_year|term_years|annual_value|total_value|varsity|fiscal_year|enrollment$|_wins_|_losses_|apr|gsr$|dcup_)')
+research=sorted(glob.glob(f"{R}/*.csv"))
+assert research, f'no research CSVs found in {R}; refusing to merge without them'
+files=["data/bulk_values.csv","data/sportico_values.csv","data/attendance_values.csv"]+research
+NUM=re.compile(r'(revenue|expense|distributions|support|fees|salaries|debt|_comp$|_end$|capacity|opened|renovation|start_year|term_years|annual_value|total_value|varsity|fiscal_year|enrollment$|_wins_|_losses_|apr|gsr$|dcup_|attendance)')
 QUAL=re.compile(r'(approx|about|~|\best\b|up to|unknown|unverified|tbd|n/a|\?)',re.I)
 rows=[]; rej=[]
 for f in files:

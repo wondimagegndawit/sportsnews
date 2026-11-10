@@ -7,6 +7,7 @@ from openpyxl.utils import get_column_letter as L
 from openpyxl.worksheet.datavalidation import DataValidation
 from openpyxl.cell.rich_text import CellRichText, TextBlock
 from openpyxl.cell.text import InlineFont
+from openpyxl.worksheet.formula import ArrayFormula
 
 OUT='Power4_Athletic_Department_Benchmarking.xlsx'
 DATE='2026-11-09'
@@ -44,6 +45,7 @@ M('Financial','Total coaching salaries and benefits','coaching_salaries','num','
 M('Coaching','Head football coach','fb_hc_name','text'); M('Coaching','FB HC annual guaranteed compensation','fb_hc_annual_comp','num','usd',True); M('Coaching','FB HC contract end year','fb_hc_contract_end','num','yr'); M('Coaching','FB HC pay source type','fb_hc_pay_source_type','text')
 M('Coaching','Head men\'s basketball coach','mbb_hc_name','text'); M('Coaching','MBB HC annual guaranteed compensation','mbb_hc_annual_comp','num','usd',True); M('Coaching','MBB HC contract end year','mbb_hc_contract_end','num','yr'); M('Coaching','MBB HC pay source type','mbb_hc_pay_source_type','text')
 M('Venues','Football stadium','stadium_name','text'); M('Venues','Stadium capacity','stadium_capacity','num','cnt',True); M('Venues','Stadium year opened','stadium_year_opened','num','yr',True); M('Venues','Stadium last major renovation year','stadium_last_renovation_year','num','yr',True)
+for _y in (2023,2024,2025): M('Venues',f'FB average home attendance {_y}',f'fb_avg_attendance_{_y}','num','cnt',True)
 M('Venues','Men\'s basketball arena','arena_name','text'); M('Venues','Arena capacity','arena_capacity','num','cnt',True); M('Venues','Arena year opened','arena_year_opened','num','yr',True)
 for pre,lab in [('stadium_nr','Stadium naming rights'),('arena_nr','Arena naming rights')]:
     M(lab,f'{lab} partner',f'{pre}_partner','text'); M(lab,f'{lab} industry',f'{pre}_industry','text'); M(lab,f'{lab} deal type',f'{pre}_deal_type','text')
@@ -56,6 +58,7 @@ M('Performance','FB wins 2021-25','fb_wins_2021_25','num','cnt',True); M('Perfor
 M('Performance','MBB wins 2021-22 to 2025-26','mbb_wins_2122_2526','num','cnt',True); M('Performance','MBB losses 2021-22 to 2025-26','mbb_losses_2122_2526','num','cnt',True); M('Performance','MBB win % 2021-22 to 2025-26','f_mbb_winpct','formula','wp',True)
 M('Performance','Directors\' Cup rank 2024-25','dcup_rank_2425','num','cnt',True); M('Performance','Directors\' Cup points 2024-25','dcup_points_2425','num','pts',True); M('Performance','Directors\' Cup rank 2025-26','dcup_rank_2526','num','cnt',True); M('Performance','Directors\' Cup points 2025-26','dcup_points_2526','num','pts',True)
 M('Academic','FB multi-year APR','fb_apr_multiyear','num','idx',True); M('Academic','Department GSR (%)','dept_gsr','num','idx',True); M('Academic','FB GSR (%)','fb_gsr','num','idx',True); M('Academic','Academic data year','academic_data_year','text')
+for m in S: m['byfy']=bool(m['sec']=='Financial' and m['agg'])   # MFRS line items: averages and medians also broken out by fiscal year
 COL={m['key']:i+1 for i,m in enumerate(S)}; NC=len(S); LAST=L(NC)
 assert len({m['hdr'] for m in S})==NC
 
@@ -69,8 +72,8 @@ def get(school,key):
     if not r: return None
     return r
 sourcelog=[]
-def logrow(s,metric_hdr,value,unit,fy,stype,sname,url,note):
-    sourcelog.append([s['name'],s['conf'],metric_hdr,value,unit,fy,stype,sname,url,DATE,note])
+def logrow(s,metric_hdr,value,unit,fy,stype,sname,url,note,date=None):
+    sourcelog.append([s['name'],s['conf'],metric_hdr,value,unit,fy,stype,sname,url,date or DATE,note])
 def stype_of(r):
     u=(r.get('source_url') or '').lower(); n=(r.get('source_name') or '').lower(); f=r.get('_file','')
     if 'knightnewhouse' in u: return 'Knight-Newhouse'
@@ -88,9 +91,9 @@ def stype_of(r):
 resolved={}   # resolved[school][key] = (value, url, logged?) ; value None -> '--'
 for s in order:
     n=s['name']; R={}
-    def put(key,val,url,unit,fy,stype,sname,note,log=True):
+    def put(key,val,url,unit,fy,stype,sname,note,log=True,date=None):
         R[key]=(val,url)
-        if log: logrow(s,next(m['hdr'] for m in S if m['key']==key),val if val is not None else '--',unit,fy,stype,sname,url if val is not None else '--',note)
+        if log: logrow(s,next(m['hdr'] for m in S if m['key']==key),val if val is not None else '--',unit,fy,stype,sname,url if val is not None else '--',note,date)
     nav=f"https://nces.ed.gov/collegenavigator/?id={s['unitid']}"
     put('school',n,nav,'text','','IPEDS','IPEDS College Navigator',nav,f"UNITID {s['unitid']}; {s['ipeds_name']}")
     put('conference',s['conf'],CONF_URL[s['conf']],'text','2026-27','other','Conference official site',CONF_URL[s['conf']],'Membership as of the 2026-27 academic year')
@@ -107,14 +110,14 @@ for s in order:
         if tor and tor['value']!='--':
             rep=get(n,'fin_report_url'); repurl=rep['value'] if rep and rep['value'] not in ('--','') else tor['source_url']
             xnote=f" Cross-check against the school-posted report ({tor['fiscal_year_or_season']}, {repurl}): total operating revenue {num(tor['value']):,} ({'matches' if num(tor['value'])==num(sp['value']) else 'differs'})."
-        put('fin_fiscal_year',fy,sp['source_url'],'year',f'FY{fy}',SPB,sp['source_name'],'Fiscal year of the NCAA MFRS report as compiled by Sportico.'+xnote)
-        put('fin_basis',SPB,sp['source_url'],'text',f'FY{fy}',SPB,sp['source_name'],"Sportico College Sports Finances Database, compiled from the school's NCAA MFRS report (public schools only)."+xnote)
+        put('fin_fiscal_year',fy,sp['source_url'],'year',f'FY{fy}',SPB,sp['source_name'],'Fiscal year of the NCAA MFRS report as compiled by Sportico.'+xnote,date=sp['date_accessed'])
+        put('fin_basis',SPB,sp['source_url'],'text',f'FY{fy}',SPB,sp['source_name'],"Sportico College Sports Finances Database, compiled from the school's NCAA MFRS report (public schools only)."+xnote,date=sp['date_accessed'])
         for key in ('total_operating_revenue','fb_revenue','mbb_revenue','nonprogram_revenue','total_operating_expenses','media_rights_revenue','ticket_sales_revenue','contributions_revenue','ncaa_conf_distributions','direct_institutional_support','indirect_institutional_support','student_fees','coaching_salaries','athletics_related_debt','debt_service'):
             r=get(n,'sp_'+key); o=get(n,key); on=''
             if r and r['value']!='--':
                 if o and o['value']!='--' and key!='ncaa_conf_distributions': on=f" School-posted report value: {num(o['value']):,} ({'matches' if num(o['value'])==num(r['value']) else 'differs'})."
-                put(key,num(r['value']),r['source_url'],'USD',f'FY{fy}',SPB,r['source_name'],r['notes']+on)
-            else: put(key,None,'','USD',f'FY{fy}',SPB,sp['source_name'],'line not reported in the Sportico entry')
+                put(key,num(r['value']),r['source_url'],'USD',f'FY{fy}',SPB,r['source_name'],r['notes']+on,date=r['date_accessed'])
+            else: put(key,None,'','USD',f'FY{fy}',SPB,sp['source_name'],'line not reported in the Sportico entry',date=sp['date_accessed'])
     elif tor and tor['value']!='--':
         fyr=get(n,'fin_fiscal_year'); fy=num(fyr['value']) if fyr and fyr['value']!='--' else num(re.sub(r'\D','',tor['fiscal_year_or_season'])[:4])
         rep=get(n,'fin_report_url'); repurl=rep['value'] if rep and rep['value'] not in ('--','') else tor['source_url']
@@ -162,7 +165,7 @@ for s in order:
         val=num(r['value']) if m['kind']=='num' else r['value']
         if key.endswith('_pay_source_type'): st={'contract':'contract','school announcement':'press release','state salary database':'contract','press report':'other'}[val]
         else: st=stype_of(r)
-        put(key,val,r['source_url'],r['unit'],r['fiscal_year_or_season'],st,r['source_name'],r['notes'])
+        put(key,val,r['source_url'],r['unit'],r['fiscal_year_or_season'],st,r['source_name'],r['notes'],date=r.get('date_accessed'))
     resolved[n]=R
 
 IDENT={'school','conference','control','state'}
@@ -206,14 +209,29 @@ def put_cell(cell,val,font,fmt=None,fill=None,border=None,align=None):
     if border: cell.border=border
     if align: cell.alignment=align
 
+# ---- summary scopes: each fiscal year present in the data (newest first), then all years ----
+FYS=sorted({resolved[s['name']]['fin_fiscal_year'][0] for s in order},reverse=True)
+SCOPES=[(fy,f'FY{fy}') for fy in FYS]+[('All','All years')]
+STATS=(('Average','AVERAGE'),('Median','MEDIAN'))
+FYC=COL['fin_fiscal_year']
+F_BG=Font(name=FN,size=FS,bold=True,color='008000')
+def summary_style(cell,top=False,bottom=False):
+    cell.fill=FILL_SUB; cell.font=F_B
+    if top and bottom: cell.border=Border(top=THIN,bottom=DBL)
+    elif top: cell.border=B_T
+    elif bottom: cell.border=Border(bottom=DBL)
 # ---- conference tabs ----
 conf_rows={}; conf_layout={}
 for conf,sname in CONFS:
     ws=wb.create_sheet(sname); ss=by_conf[conf]; n=len(ss)
     prep(ws,f'{conf}: NCAA MFRS benchmarking, one row per school, latest fiscal year')
     header(ws,[m['hdr'] for m in S])
-    avg_row=R0+n; med_row=avg_row+1
-    conf_layout[conf]=dict(sheet=sname,first=R0,last=R0+n-1,avg=avg_row,med=med_row)
+    # summary rows: Average for each fiscal year and all years, then Median for the same scopes
+    summary={st:{} for st,_ in STATS}; rr=R0+n
+    for st,_ in STATS:
+        for fy,_lab in SCOPES: summary[st][str(fy)]=rr; rr+=1
+    avg_row=summary['Average']['All']; med_row=summary['Median']['All']
+    conf_layout[conf]=dict(sheet=sname,first=R0,last=R0+n-1,avg=avg_row,med=med_row,sum_first=R0+n,sum_last=rr-1,summary=summary)
     for j,s in enumerate(ss):
         r=R0+j; conf_rows[s['name']]=(sname,r); R=resolved[s['name']]
         def A(key): return f"{CL(COL[key])}{r}"
@@ -248,12 +266,20 @@ for conf,sname in CONFS:
             elif a is not None and t is not None and tot is None: formula_cell(ctot,f'=IF(AND(ISNUMBER({A(pre+"_annual_value")}),ISNUMBER({A(pre+"_term_years")})),{A(pre+"_annual_value")}*{A(pre+"_term_years")},"--")','usd')
             elif tot is not None and t is not None and a is None: formula_cell(ca,f'=IF(AND(ISNUMBER({A(pre+"_total_value")}),ISNUMBER({A(pre+"_term_years")})),{A(pre+"_total_value")}/{A(pre+"_term_years")},"--")','usd')
             elif a is not None and tot is not None and t is None: formula_cell(ct,f'=IF(AND(ISNUMBER({A(pre+"_total_value")}),ISNUMBER({A(pre+"_annual_value")})),{A(pre+"_total_value")}/{A(pre+"_annual_value")},"--")','cnt')
-    for rr,lab,fn in ((avg_row,'Average','AVERAGE'),(med_row,'Median','MEDIAN')):
-        for i,m in enumerate(S,1):
-            cell=ws.cell(row=rr,column=i+OFF); cell.fill=FILL_SUB; cell.font=F_B; cell.border=B_T if rr==avg_row else B_TOT
-            if i==1: cell.value=lab; continue
-            if m['agg']: cell.value=f'=IFERROR({fn}({CL(i)}{R0}:{CL(i)}{R0+n-1}),"--")'; cell.number_format=FMT[m['fmt']]
-            else: cell.value='--'
+    fyr=f'${CL(FYC)}${R0}:${CL(FYC)}${R0+n-1}'
+    for st,fn in STATS:
+        for k,(fy,slab) in enumerate(SCOPES):
+            rr=summary[st][str(fy)]
+            for i,m in enumerate(S,1):
+                cell=ws.cell(row=rr,column=i+OFF); summary_style(cell,top=(k==0),bottom=(st=='Median' and k==len(SCOPES)-1))
+                rng=f'{CL(i)}{R0}:{CL(i)}{R0+n-1}'; crit=f'${CL(FYC)}{rr}'
+                if i==1: cell.value=f'{st}, {slab}'; continue
+                if i==FYC: cell.value=fy; cell.number_format=FMT['yr']; cell.alignment=Alignment(horizontal='right'); continue
+                if not m['agg'] or (fy!='All' and not m['byfy']): cell.value='--'; continue
+                cell.number_format=FMT[m['fmt']]
+                if fy=='All': cell.value=f'=IFERROR({fn}({rng}),"--")'
+                elif st=='Average': cell.value=f'=IFERROR(AVERAGEIFS({rng},{fyr},{crit}),"--")'
+                else: cell.value=ArrayFormula(cell.coordinate,f'=IFERROR(MEDIAN(IF({fyr}={crit},{rng},"")),"--")')
     widths={i:max(len(m['hdr']),max((len(str(resolved[s['name']][m['key']][0] or '--')) for s in ss),default=0) if m['kind']!='formula' else 14)+2 for i,m in enumerate(S,1)}
     widths[1]=max(widths[1],22); setw(ws,widths); ws.freeze_panes=f'{CL(2)}{R0}'
 
@@ -268,24 +294,29 @@ for j,s in enumerate(order):
         cell=ws.cell(row=r,column=i+OFF,value=f"='{sname}'!{CL(i)}{sr}"); cell.font=F_BASE if m['key'] in IDENT else F_I
         if m['fmt']: cell.number_format=FMT[m['fmt']]
         if m['key']=='school': cell.alignment=IND1
-r=all_last+2; blockrows=[]
-for conf,sname in CONFS: blockrows.append((r,'Average',conf)); r+=1
-for conf,sname in CONFS: blockrows.append((r,'Median',conf)); r+=1
-blockrows.append((r,'Average','All schools')); blockrows.append((r+1,'Median','All schools'))
-for k,(rr,lab,conf) in enumerate(blockrows):
-    for i,m in enumerate(S,1):
-        cell=ws.cell(row=rr,column=i+OFF); cell.fill=FILL_SUB; cell.font=F_B
-        if k==0: cell.border=B_T
-        if k==len(blockrows)-1: cell.border=B_TOT
-        if i==1: cell.value=lab; continue
-        if i==2: cell.value=conf; continue
-        if not m['agg']: cell.value='--'; continue
-        col=CL(i); cell.number_format=FMT[m['fmt']]
-        if conf=='All schools': cell.value=f'=IFERROR({"AVERAGE" if lab=="Average" else "MEDIAN"}({col}{all_first}:{col}{all_last}),"--")'
-        elif lab=='Average': cell.value=f'=IFERROR(AVERAGEIF(${CL(2)}${all_first}:${CL(2)}${all_last},${CL(2)}{rr},{col}{all_first}:{col}{all_last}),"--")'
-        else:
-            lay=conf_layout[conf]; cell.value=f"='{lay['sheet']}'!{col}{lay['med']}"; cell.font=Font(name=FN,size=FS,bold=True,color='008000')
-setw(ws,{i:max(len(m['hdr']),14)+2 for i,m in enumerate(S,1)}); ws.column_dimensions[CL(1)].width=22; ws.freeze_panes=f'{CL(2)}{R0}'
+# summary blocks: one per fiscal year, then all years; each block is Average then Median for the four conferences and all schools
+r=all_last+2; all_blocks=[]
+confr=f'${CL(2)}${all_first}:${CL(2)}${all_last}'; fyr=f'${CL(FYC)}${all_first}:${CL(FYC)}${all_last}'
+for fy,slab in SCOPES:
+    block=[(st,fn,conf) for st,fn in STATS for conf in [c for c,_ in CONFS]+['All schools']]; blk=dict(scope=str(fy),first=r,rows=[])
+    for k,(st,fn,conf) in enumerate(block):
+        rr=r+k; blk['rows'].append([rr,st,conf])
+        for i,m in enumerate(S,1):
+            cell=ws.cell(row=rr,column=i+OFF); summary_style(cell,top=(k==0),bottom=(k==len(block)-1))
+            col=CL(i); rng=f'{col}{all_first}:{col}{all_last}'; cc=f'${CL(2)}{rr}'; cf=f'${CL(FYC)}{rr}'
+            if i==1: cell.value=f'{conf} {st.lower()}, {slab}'; continue
+            if i==2: cell.value=conf; continue
+            if i==FYC: cell.value=fy; cell.number_format=FMT['yr']; cell.alignment=Alignment(horizontal='right'); continue
+            if not m['agg'] or (fy!='All' and not m['byfy']): cell.value='--'; continue
+            cell.number_format=FMT[m['fmt']]
+            if conf!='All schools' and st=='Median':
+                lay=conf_layout[conf]; cell.value=f"='{lay['sheet']}'!{col}{lay['summary']['Median'][str(fy)]}"; cell.font=F_BG
+            elif conf!='All schools': cell.value=f'=IFERROR(AVERAGEIF({confr},{cc},{rng}),"--")' if fy=='All' else f'=IFERROR(AVERAGEIFS({rng},{confr},{cc},{fyr},{cf}),"--")'
+            elif fy=='All': cell.value=f'=IFERROR({fn}({rng}),"--")'
+            elif st=='Average': cell.value=f'=IFERROR(AVERAGEIFS({rng},{fyr},{cf}),"--")'
+            else: cell.value=ArrayFormula(cell.coordinate,f'=IFERROR(MEDIAN(IF({fyr}={cf},{rng},"")),"--")')
+    blk['last']=r+len(block)-1; all_blocks.append(blk); r+=len(block)+1
+setw(ws,{i:max(len(m['hdr']),14)+2 for i,m in enumerate(S,1)}); ws.column_dimensions[CL(1)].width=30; ws.freeze_panes=f'{CL(2)}{R0}'
 
 # ---- 00 - Read Me ----
 ws=wb.create_sheet('00 - Read Me',0); prep(ws,'Read me: scope, sources, conventions',units=None)
@@ -296,6 +327,8 @@ lines=[
  "Financials for public schools come from the Sportico College Sports Finances Database, which compiles each school's NCAA MFRS report (FY2025, FY2024 where that is the latest posted); where the school also posts its own MFRS report, the Source Log records that figure as a cross-check.",
  'The Financial source basis column states Sportico or MFRS own posting for each school; the fiscal year column states the report year.',
  "Other sources: NCAA APR and GSR search tools (2024-25 release), IPEDS fall 2024 headcount, ESPN standings (football 2021-25) and Sports-Reference (men's basketball 2021-22 to 2025-26), NACDA Directors' Cup final standings (2024-25 and 2025-26), school and partner releases and trade press for venues and commercial deals.",
+ "Football average home attendance (2023, 2024, 2025) is the Final Average column of the D1.ticker FBS Attendance Trends page for each season, as displayed; the pages do not state their underlying data source or whether figures are announced or paid.",
+ f"Averages and medians: financial line items (the MFRS columns) are shown for {', '.join(l for _,l in SCOPES[:-1])} and for all years, using the Fiscal year column as the filter; every other column is summarized across all years only. Summary rows sit under the schools on each conference tab and, by conference and for all schools, on 01.",
  "Revenue breakout: Football, Men's basketball and Non-program-specific revenue are the sport columns of the MFRS Total Operating Revenues line; Other sports revenue is the remainder by formula.",
  'Conventions: blue cells are hardcoded figures (underlined where a source hyperlink is attached), black cells are formulas and identity text, green cells are links to another tab, gray rows are averages and medians, yellow is the input cell on 07; financial cells are sourced through the hyperlink on Financial source basis; "--" means not publicly sourced, with the reason in 06 - Source Log.',
  'No newspaper-compiled finance or coaching-salary databases are used anywhere in this workbook. Date accessed for all sources: 2026-11-09 and 2026-11-10.',
@@ -352,4 +385,4 @@ names=['00 - Read Me','01 - All Schools']+[sn for _,sn in CONFS]+['06 - Source L
 wb._sheets=[wb[n] for n in names]
 for ws in wb: ws.sheet_view.showGridLines=False
 wb.save(OUT); print('saved',OUT,'sheets',len(wb.sheetnames),'sourcelog rows',len(sourcelog))
-json.dump(dict(S=S,conf_layout=conf_layout,all_first=all_first,all_last=all_last,n_schools=NS,excluded=EXCLUDED,col_offset=OFF,header_row=R_HDR),open('data/workbook_layout.json','w'))
+json.dump(dict(S=S,conf_layout=conf_layout,all_first=all_first,all_last=all_last,all_blocks=all_blocks,fiscal_years=FYS,n_schools=NS,excluded=EXCLUDED,col_offset=OFF,header_row=R_HDR),open('data/workbook_layout.json','w'))

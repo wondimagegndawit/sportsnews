@@ -22,7 +22,7 @@ for sch,s in master.items():
         if have[sch].get(pre+'_deal_type','').lower()=='honorific': k=[m for m in k if m not in (pre+'_industry',pre+'_start_year',pre+'_term_years',pre+'_annual_value',pre+'_total_value')]
     gaps[sch]=k
 tag=sys.argv[1] if len(sys.argv)>1 else 'gaps4'
-R='/tmp/claude-0/-home-user-sportsnews/13880bdf-16ac-52e7-abd6-56bf6c41826b/scratchpad/research'
+R='data/research'
 with open('data/gaps_remaining.csv','w',newline='') as f:
     w=csv.writer(f); w.writerow(['school','conference','public_or_private','state','metric','already_known_context'])
     for conf in ('ACC','Big Ten','Big 12','SEC'):

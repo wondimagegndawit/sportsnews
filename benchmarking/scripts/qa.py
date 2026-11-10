@@ -1,5 +1,6 @@
 """QA checks on the built workbook (run after recalc)."""
-import openpyxl, json, random, sys
+import openpyxl, json, random, sys, statistics
+from openpyxl.worksheet.formula import ArrayFormula
 from collections import Counter
 lay=json.load(open('data/workbook_layout.json')); S=lay['S']; OFF=lay.get('col_offset',0); HR=lay.get('header_row',2)
 F='Power4_Athletic_Department_Benchmarking.xlsx'
@@ -16,7 +17,7 @@ for c in confs:
         for i,m in enumerate(S,1):
             cell=ws.cell(row=r,column=i+OFF); cv=wsv.cell(row=r,column=i+OFF).value
             if cv is None or cv=='': blanks.append((c,cell.coordinate))
-            isf=isinstance(cell.value,str) and cell.value.startswith('=')
+            isf=(isinstance(cell.value,str) and cell.value.startswith('=')) or isinstance(cell.value,ArrayFormula)
             if m['kind']=='num' and r<=lc['last'] and cell.value!='--' and not isf and cell.data_type!='n': bad.append((c,cell.coordinate,cell.value))
             if (m['kind']=='formula' or isf) and not (isinstance(cv,(int,float)) or cv=='--'): bad.append((c,cell.coordinate,'formula result',cv))
         if r<=lc['last']:
@@ -42,6 +43,33 @@ for ws in wbv:
         for cell in row:
             if (cell.value=='' or cell.value is None) and wbf[ws.title][cell.coordinate].value is not None: empt+=1
 print('  empty formula results on link tabs',empt)
+# 7: recompute every average and median (by fiscal year and all years) in Python from the school rows and compare
+errv=[(ws.title,c.coordinate,c.value) for ws in wbv for row in ws.iter_rows() for c in row if isinstance(c.value,str) and c.value.startswith(('#','Err:'))]
+print('7 formula error values anywhere',len(errv),errv[:5])
+FYC=[i for i,m in enumerate(S,1) if m['key']=='fin_fiscal_year'][0]; school={}; nsum=0; sbad=[]
+def expect(vals,st): 
+    vals=[v for v in vals if isinstance(v,(int,float)) and not isinstance(v,bool)]
+    return '--' if not vals else (sum(vals)/len(vals) if st=='Average' else statistics.median(vals))
+def same(a,b): return a==b if (a=='--' or b=='--') else (isinstance(a,(int,float)) and abs(a-b)<=1e-6*max(1,abs(b)))
+for c in confs:
+    conf=c.split(' - ')[1]; lc=lay['conf_layout'][conf]; wsv=wbv[c]
+    school[conf]=[[wsv.cell(row=r,column=i+OFF).value for i in range(1,len(S)+1)] for r in range(lc['first'],lc['last']+1)]
+def check(sheet,rr,st,fy,rows):
+    global nsum
+    for i,m in enumerate(S,1):
+        if i<=2 or i==FYC: continue
+        got=wbv[sheet].cell(row=rr,column=i+OFF).value
+        if not m['agg'] or (fy!='All' and not m['byfy']): exp='--'
+        else: exp=expect([row[i-1] for row in rows if fy=='All' or str(row[FYC-1])==fy],st)
+        nsum+=1
+        if not same(got,exp): sbad.append((sheet,rr,m['hdr'],got,exp))
+for c in confs:
+    conf=c.split(' - ')[1]
+    for st,d in lay['conf_layout'][conf]['summary'].items():
+        for fy,rr in d.items(): check(c,rr,st,fy,school[conf])
+for b in lay['all_blocks']:
+    for rr,st,conf in b['rows']: check('01 - All Schools',rr,st,b['scope'],[x for k,v in school.items() for x in v] if conf=='All schools' else school[conf])
+print('  summary cells recomputed',nsum,'| mismatches',len(sbad),sbad[:5])
 cov=[]
 for i,m in enumerate(S,1):
     n=sum(1 for c in confs for r in range(lay['conf_layout'][c.split(' - ')[1]]['first'],lay['conf_layout'][c.split(' - ')[1]]['last']+1) if wbv[c].cell(row=r,column=i+OFF).value!='--')
