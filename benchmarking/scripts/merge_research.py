@@ -22,6 +22,7 @@ for r in rows:
     if not url: reject(r,'no source URL'); continue
     if 'usatoday' in url or 'wikipedia' in url or 'wikiwand' in url or 'usa today' in r['source_name'].lower(): reject(r,'prohibited source'); continue
     if 'stadiumjourney' in url or 'wiki' in url: reject(r,'fan site or wiki mirror not accepted as a source'); continue
+    if re.search(r'(projection|expected to generate|conservative estimated)',r['notes'],re.I) and re.search(r'(annual_value|total_value)',m): reject(r,'projected value, not a contract figure'); continue
     if re.search(r'(inferred|computed from|not stated directly|assum|estimat|derived from the term sheet|plus \$?\d|average of|not read directly|probably|unverified|not verified|wikipedia mirror)',r['notes'],re.I) and (m.endswith('_comp') or m.endswith('_contract_end') or re.search(r'(capacity|opened|renovation|start_year|term_years|annual_value|total_value)',m)):
         reject(r,'value inferred, computed or unverified per the note'); continue
     if NUM.search(m) and m not in ('enrollment_year','academic_data_year'):
@@ -41,9 +42,20 @@ for r in rows:
         elif 'press' in vv or 'report' in vv or 'news' in vv: r['value']='press report'
         else: reject(r,'unrecognized pay source type'); continue
 merged=OrderedDict()
+# files are processed in order (bulk, then research rounds r1..r4 alphabetically); a later valued row overrides an
+# earlier one (later rounds only re-reported a cell to correct it). A changed deal partner also voids the earlier
+# round's sub-fields for that deal, since they describe the superseded contract.
 for r in rows:
     k=(r['school'],r['metric'])
-    if k not in merged or (merged[k]['value']=='--' and r['value']!='--'): merged[k]=r
+    if k not in merged: merged[k]=r; continue
+    if r['value']=='--': continue
+    prev=merged[k]
+    if prev['value']!='--' and prev['value'].lower()!=r['value'].lower() and r['metric'].endswith('_partner'):
+        pre=r['metric'][:-8]
+        for kk in list(merged):
+            if kk[0]==r['school'] and kk[1].startswith(pre+'_') and kk[1]!=r['metric'] and merged[kk]['_file']!=r['_file']:
+                merged[kk]=dict(merged[kk],value='--',source_url='',notes='superseded: deal partner changed to '+r['value']+'; '+merged[kk]['notes'])
+    merged[k]=r
 fields=['school','metric','value','unit','fiscal_year_or_season','source_name','source_url','date_accessed','notes','_file']
 with open('data/merged_values.csv','w',newline='') as f:
     w=csv.DictWriter(f,fieldnames=fields,extrasaction='ignore'); w.writeheader(); w.writerows(merged.values())
