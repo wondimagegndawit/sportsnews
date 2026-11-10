@@ -163,6 +163,7 @@ for s in order:
         put(key,val,r['source_url'],r['unit'],r['fiscal_year_or_season'],st,r['source_name'],r['notes'])
     resolved[n]=R
 
+IDENT={'school','conference','control','state'}
 NOLINK={'school','conference','control','state','fin_fiscal_year','total_operating_revenue','total_operating_expenses','media_rights_revenue','ticket_sales_revenue','contributions_revenue','ncaa_conf_distributions','direct_institutional_support','indirect_institutional_support','student_fees','coaching_salaries','athletics_related_debt','debt_service','fb_revenue','mbb_revenue','nonprogram_revenue'}
 # ---------- drop schools without NCAA MFRS data (EADA basis) ----------
 EXCLUDED=sorted(n for n in resolved if resolved[n]['fin_basis'][0]=='EADA')
@@ -210,6 +211,7 @@ for conf,sname in CONFS:
                 write_text(cell,f,F_BLACK,m['fmt']); continue
             val,url=R[key]
             if val is None: write_text(cell,'--',F_BLUE_PLAIN,m['fmt'])
+            elif key in IDENT: write_text(cell,val,F_BLACK,m['fmt'])
             elif key in NOLINK: write_text(cell,val,F_BLUE_PLAIN,m['fmt'])
             else:
                 write_text(cell,val,F_BLUE,m['fmt'])
@@ -244,7 +246,7 @@ all_first=3; all_last=3+len(order)-1
 for j,s in enumerate(order):
     sname,sr=conf_rows[s['name']]; r=all_first+j
     for i,m in enumerate(S,1):
-        cell=ws.cell(row=r,column=i,value=f"='{sname}'!{L(i)}{sr}"); cell.font=F_GREEN
+        cell=ws.cell(row=r,column=i,value=f"='{sname}'!{L(i)}{sr}"); cell.font=F_BLACK if m['key'] in IDENT else F_GREEN
         if m['fmt']: cell.number_format=FMT[m['fmt']]
 r=all_last+2
 blockrows=[]
@@ -278,7 +280,7 @@ lines=[
  'MFRS vs. EADA caveat: EADA revenue and expense definitions differ from NCAA MFRS, and EADA reports no line-item detail, so media rights, ticketing, contributions, subsidy and debt lines are "--" on EADA-basis rows.',
  'Other sources: NCAA APR and GSR search tools (2024-25 release), IPEDS fall 2024 headcount, ESPN standings (football 2021-25) and Sports-Reference (men\'s basketball 2021-22 to 2025-26), NACDA Directors\' Cup final standings (2024-25 and 2025-26), school and partner releases and trade press for venues and commercial deals.',
  'Revenue breakout: Football, Men\'s basketball and Non-program-specific revenue are the sport columns of the MFRS Total Operating Revenues line (EADA football and men\'s basketball revenue and unallocated revenue for EADA-basis schools); Other sports revenue is the remainder by formula.',
- 'Conventions: blue cells are hardcodes, black cells are formulas, green cells are cross-tab links, yellow is the input cell on 07; financial cells are sourced through the hyperlink on Financial source basis, every other hardcode carries its own source hyperlink; "--" means not publicly sourced, with the reason in 06 - Source Log.',
+ 'Conventions: blue cells are hardcoded figures, black cells are formulas and identity text (school, conference, public or private, state), green cells are cross-tab links, yellow is the input cell on 07; financial cells are sourced through the hyperlink on Financial source basis, every other hardcode carries its own source hyperlink; "--" means not publicly sourced, with the reason in 06 - Source Log.',
  'No newspaper-compiled finance or coaching-salary databases are used anywhere in this workbook. Date accessed for all sources: 2026-11-09.',
 ]
 for k,t in enumerate(lines): ws.cell(row=3+k,column=1,value=t).font=F_BLACK
@@ -313,23 +315,23 @@ def vertical_sheet(ws,title,name_cell_value,name_font,src_sheet,first,last,avg_r
                 c=ws.cell(row=r,column=i); c.fill=FILL_LB; c.font=F_BOLD
             ws.cell(row=r,column=1).value=sec; r+=1
         ws.cell(row=r,column=1,value=m['hdr']).font=F_BLACK
-        c=ws.cell(row=r,column=2,value=f'=INDEX({rng},MATCH($B$3,{namerng},0),MATCH($A{r},{hdrrng},0))'); c.font=F_GREEN
+        c=ws.cell(row=r,column=2,value=f'=INDEX({rng},MATCH($B$3,{namerng},0),MATCH($A{r},{hdrrng},0))'); c.font=F_BLACK if m['key'] in IDENT else F_GREEN
         if m['fmt']: c.number_format=FMT[m['fmt']]
         if with_avg:
             avgrng=f"'{src_sheet}'!$A${avg_row}:${LAST}${avg_row}"
-            c2=ws.cell(row=r,column=3,value=f'=IF(ISNUMBER(B{r}),INDEX({avgrng},1,MATCH($A{r},{hdrrng},0)),"--")'); c2.font=F_GREEN
+            c2=ws.cell(row=r,column=3,value=f'=IF(ISNUMBER(B{r}),INDEX({avgrng},1,MATCH($A{r},{hdrrng},0)),"--")'); c2.font=F_BLACK if m['key'] in IDENT else F_GREEN
             c3=ws.cell(row=r,column=4,value=f'=IF(AND(ISNUMBER(B{r}),ISNUMBER(C{r})),B{r}-C{r},"--")'); c3.font=F_BLACK
             if m['fmt']: c2.number_format=FMT[m['fmt']]; c3.number_format=FMT[m['fmt']]
         r+=1
     setw(ws,{1:40,2:44,3:22,4:22})
 ws=wb.create_sheet('07 - School Lookup')
-vertical_sheet(ws,'School lookup: choose a school in the yellow cell','Alabama',AR(color='0000FF'),'01 - All Schools',all_first,all_last,None,False)
+vertical_sheet(ws,'School lookup: choose a school in the yellow cell','Alabama',F_BLACK,'01 - All Schools',all_first,all_last,None,False)
 ws['B3'].fill=FILL_YEL
 dv=DataValidation(type='list',formula1=f"='01 - All Schools'!$A${all_first}:$A${all_last}",allow_blank=False); ws.add_data_validation(dv); dv.add('B3')
 for k,s in enumerate(order,8):
     sname,sr=conf_rows[s['name']]; conf=s['conf']; lay=conf_layout[conf]
     ws=wb.create_sheet(f"{k:02d} - {s['name']}")
-    vertical_sheet(ws,f"School profile: {s['name']}",f"='{sname}'!A{sr}",F_GREEN,sname,lay['first'],lay['last'],lay['avg'],True)
+    vertical_sheet(ws,f"School profile: {s['name']}",f"='{sname}'!A{sr}",F_BLACK,sname,lay['first'],lay['last'],lay['avg'],True)
 # sheet order: 00,01,02..05,06,07,08..
 names=['00 - Read Me','01 - All Schools']+[sn for _,sn in CONFS]+['06 - Source Log','07 - School Lookup']+[f"{k:02d} - {s['name']}" for k,s in enumerate(order,8)]
 wb._sheets=[wb[n] for n in names]
