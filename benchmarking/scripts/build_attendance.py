@@ -1,6 +1,8 @@
 """Football average home attendance, 2023 to 2025, from the D1.ticker FBS Attendance Trends pages saved unmodified in
 data/d1ticker/. Each season is read from that season's own page ("<year> Final Average" column); the prior-year column
-on the following season's page is used only as a cross-check and recorded in the note. Writes data/attendance_values.csv."""
+on the following season's page is used only as a cross-check and recorded in the note.
+Men's basketball average home attendance, 2025-26, from the NCAA Men's Basketball Attendance Records PDF saved unmodified in
+data/ncaa_attendance/ (Attend_layout.txt is its `pdftotext -layout` extract). Writes data/attendance_values.csv."""
 import csv, html, json, re
 DATE='2026-11-10'
 URL='https://www.d1ticker.com/{y}-fbs-attendance-trends/'
@@ -39,6 +41,31 @@ for s in master:
         if d['_star']:
             note+=(" The page marks this school with an asterisk: stadium under renovation and capacity not the same as 2023." if y==2024 else " The page marks this school with an asterisk and gives no footnote text.")
         out.append([name,metric,v,'fans per game',f'{y} season',src,URL.format(y=y),DATE,note])
+# ---- men's basketball: NCAA attendance records book, 2026 Attendance Summary, Division I Team-by-Team Attendance ----
+MBB_URL='http://fs.ncaa.org.s3.amazonaws.com/Docs/stats/m_basketball_RB/Attend.pdf'
+MBB_SRC="NCAA Men's Basketball Attendance Records through 2025-26 (2026 Attendance Summary, Division I Team-by-Team Attendance)"
+MBB_ALIAS={'USC':'Southern California'}
+MBB_ALIAS.update({x:x.replace(' State',' St.') for x in ('Florida State','Michigan State','Ohio State','Penn State','Arizona State','Iowa State','Kansas State','Oklahoma State','Mississippi State')})
+txt=open('data/ncaa_attendance/Attend_layout.txt',encoding='utf-8').read().split('\n')
+assert any('THROUGH 2025-26' in l for l in txt[:10])
+a=next(i for i,l in enumerate(txt) if l.strip().startswith('DIVISION I ') and 'School' in l); b=next(i for i,l in enumerate(txt) if l.strip().startswith('DIVISION II'))
+pat=re.compile(r"(?:(\d+)\.\s+)?([A-Z][A-Za-z.&'()\- ]*?[A-Za-z.)])\s+(\d{1,2})\s+([\d,]{3,})\s+([\d,]+)(?=\s|$)")
+teams={}
+for l in txt[a:b]:
+    for m in pat.finditer(l):
+        rank,nm,g,att,avg=m.groups()
+        if rank: continue                      # ranked leader tables repeat the same teams
+        v=(int(g),n(att),n(avg)); assert teams.get(nm,v)==v,(nm,teams[nm],v); teams[nm]=v
+# tie-out: Division I home totals plus the four reclassifying teams, as printed on the summary page
+d1=next(l for l in txt if l.startswith('NCAA Division I Home Attendance')).split(); rc=[teams[x] for x in ('West Ga.','New Haven','Le Moyne','Mercyhurst')]
+assert len(teams)==n(d1[5])+4 and sum(v[0] for v in teams.values())==n(d1[6])+sum(v[0] for v in rc) and sum(v[1] for v in teams.values())==n(d1[7])+sum(v[1] for v in rc), 'team table does not tie to the Division I home totals'
+mmiss=[]
+for s in master:
+    name=s['name']; key=MBB_ALIAS.get(name,name); metric='mbb_avg_attendance_2526'
+    if key not in teams: mmiss.append(name); out.append([name,metric,'--','fans per game','2025-26 season',MBB_SRC,MBB_URL,DATE,'school not listed in the table']); continue
+    g,att,avg=teams[key]
+    out.append([name,metric,avg,'fans per game','2025-26 season',MBB_SRC,MBB_URL,DATE,f"Average column as printed, row '{key}': {g} home games, total home attendance {att:,}; the team table ties to the summary line 'NCAA Division I Home Attendance' on page 2 of the PDF."])
+print('mbb teams parsed',len(teams),'missing',mmiss)
 with open('data/attendance_values.csv','w',newline='') as f:
     w=csv.writer(f); w.writerow(['school','metric','value','unit','fiscal_year_or_season','source_name','source_url','date_accessed','notes']); w.writerows(out)
 print('rows',len(out),'missing',miss); print('cross-check differences',len(diffs))
