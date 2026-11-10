@@ -32,3 +32,7 @@ Financial line items (the MFRS columns) are summarized for each fiscal year pres
 ## Football attendance
 
 `data/d1ticker/` holds the D1.ticker FBS Attendance Trends pages for 2023, 2024 and 2025, saved unmodified. `scripts/build_attendance.py` reads the Final Average column of each season's own page into `data/attendance_values.csv`.
+
+## Men's basketball attendance
+
+`data/ncaa_attendance/Attend.pdf` is the NCAA Men's Basketball Attendance Records book (through 2025-26), saved unmodified, with `Attend_layout.txt` as its `pdftotext -layout` extract. The same script reads the Average column of the Division I team-by-team table for 2025-26 and checks that the table ties to the PDF's Division I home totals. The PDF carries team figures for 2025-26 only.
