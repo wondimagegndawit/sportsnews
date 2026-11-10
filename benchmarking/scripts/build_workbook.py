@@ -164,6 +164,12 @@ for s in order:
     resolved[n]=R
 
 NOLINK={'school','conference','control','state','fin_fiscal_year','total_operating_revenue','total_operating_expenses','media_rights_revenue','ticket_sales_revenue','contributions_revenue','ncaa_conf_distributions','direct_institutional_support','indirect_institutional_support','student_fees','coaching_salaries','athletics_related_debt','debt_service','fb_revenue','mbb_revenue','nonprogram_revenue'}
+# ---------- drop schools without NCAA MFRS data (EADA basis) ----------
+EXCLUDED=sorted(n for n in resolved if resolved[n]['fin_basis'][0]=='EADA')
+order=[s for s in order if s['name'] not in EXCLUDED]
+by_conf={c:[s for s in v if s['name'] not in EXCLUDED] for c,v in by_conf.items()}
+sourcelog=[r for r in sourcelog if r[0] not in EXCLUDED]
+NS=len(order); print('schools kept',NS,'excluded',EXCLUDED)
 # ---------- workbook ----------
 wb=openpyxl.Workbook(); wb.remove(wb.active)
 def prep(ws,ncols,title):
@@ -231,7 +237,7 @@ for conf,sname in CONFS:
 
 # 01 - All Schools
 ws=wb.create_sheet('01 - All Schools',0)
-prep(ws,NC,'Power 4 athletic department benchmarking: all 67 schools')
+prep(ws,NC,f'Power 4 athletic department benchmarking: all {NS} schools')
 for i,m in enumerate(S,1):
     c=ws.cell(row=2,column=i,value=m['hdr']); c.font=F_BOLD; c.fill=FILL_LB; c.border=B_BOTTOM
 all_first=3; all_last=3+len(order)-1
@@ -264,10 +270,11 @@ setw(ws,{i:max(len(m['hdr']),14)+2 for i,m in enumerate(S,1)}); ws.column_dimens
 # 00 - Read Me
 ws=wb.create_sheet('00 - Read Me',0); prep(ws,2,'Power 4 athletic department benchmarking: read me')
 lines=[
- 'Coverage: all 67 Power 4 athletic departments (ACC 17, Big Ten 18, Big 12 16, SEC 16); one row per school on the conference tabs, which hold every hardcoded value.',
+ f'Coverage: the {NS} Power 4 athletic departments with public NCAA MFRS financial data ({", ".join(f"{c} {len(by_conf[c])}" for c,_ in CONFS)}); one row per school on the conference tabs, which hold every hardcoded value.',
+ 'Excluded: the 13 private universities and Pittsburgh, which do not file public MFRS reports (only federal EADA totals exist for them, and EADA definitions are not comparable to MFRS).',
  'Structure: 01 links every conference-tab cell; 06 is the audit trail (values); 07 looks up any school; tabs 08 onward are one per school, all formulas.',
  'Financials for public schools come from the Sportico College Sports Finances Database, which compiles each school\'s NCAA MFRS report (FY2025, FY2024 where that is the latest posted); where the school also posts its own MFRS report, the Source Log records that figure as a cross-check.',
- 'Private schools and public schools absent from Sportico use the federal EADA file (2024-25 reporting year); the Financial source basis column states Sportico, MFRS own posting or EADA for each school.',
+ 'The Financial source basis column states Sportico or MFRS own posting for each school; the fiscal year column states the report year.',
  'MFRS vs. EADA caveat: EADA revenue and expense definitions differ from NCAA MFRS, and EADA reports no line-item detail, so media rights, ticketing, contributions, subsidy and debt lines are "--" on EADA-basis rows.',
  'Other sources: NCAA APR and GSR search tools (2024-25 release), IPEDS fall 2024 headcount, ESPN standings (football 2021-25) and Sports-Reference (men\'s basketball 2021-22 to 2025-26), NACDA Directors\' Cup final standings (2024-25 and 2025-26), school and partner releases and trade press for venues and commercial deals.',
  'Revenue breakout: Football, Men\'s basketball and Non-program-specific revenue are the sport columns of the MFRS Total Operating Revenues line (EADA football and men\'s basketball revenue and unallocated revenue for EADA-basis schools); Other sports revenue is the remainder by formula.',
@@ -328,4 +335,4 @@ names=['00 - Read Me','01 - All Schools']+[sn for _,sn in CONFS]+['06 - Source L
 wb._sheets=[wb[n] for n in names]
 for ws in wb: ws.sheet_view.showGridLines=False
 wb.save(OUT); print('saved',OUT,'sheets',len(wb.sheetnames),'sourcelog rows',len(sourcelog))
-json.dump(dict(S=S,conf_layout=conf_layout,all_first=all_first,all_last=all_last),open('data/workbook_layout.json','w'))
+json.dump(dict(S=S,conf_layout=conf_layout,all_first=all_first,all_last=all_last,n_schools=NS,excluded=EXCLUDED),open('data/workbook_layout.json','w'))

@@ -6,7 +6,7 @@ F='Power4_Athletic_Department_Benchmarking.xlsx'
 wbf=openpyxl.load_workbook(F); wbv=openpyxl.load_workbook(F,data_only=True)
 confs=['02 - ACC','03 - Big Ten','04 - Big 12','05 - SEC']
 tot=sum(lay['conf_layout'][c.split(' - ')[1]]['last']-lay['conf_layout'][c.split(' - ')[1]]['first']+1 for c in confs)
-print('1 rows: conference',tot,'| 01',lay['all_last']-lay['all_first']+1,'| school tabs',sum(1 for n in wbf.sheetnames if int(n[:2])>=8))
+print('1 rows: expected',lay.get('n_schools'),'| conference',tot,'| 01',lay['all_last']-lay['all_first']+1,'| school tabs',sum(1 for n in wbf.sheetnames if int(n[:2])>=8))
 hits=[(ws.title,c.coordinate) for ws in wbf for row in ws.iter_rows() for c in row if c.value is not None and ('usatoday' in (str(c.value)+(c.hyperlink.target if c.hyperlink else '')).lower() or 'usa today' in str(c.value).lower())]
 print('3 USA Today hits',hits)
 bad=[]; blanks=[]; fontbad=[]; trip=[]
@@ -47,7 +47,7 @@ for i,m in enumerate(S,1):
     n=sum(1 for c in confs for r in range(lay['conf_layout'][c.split(' - ')[1]]['first'],lay['conf_layout'][c.split(' - ')[1]]['last']+1) if wbv[c].cell(row=r,column=i).value!='--')
     cov.append((m['hdr'],n))
 json.dump(cov,open('data/coverage.json','w'))
-print('6 coverage:'); [print(f'  {n:3d}/67  {h}') for h,n in cov]
+print('6 coverage:'); [print(f"  {n:3d}/{lay.get('n_schools')}  {h}") for h,n in cov]
 ib=[i for i,m in enumerate(S,1) if m['key']=='fin_basis'][0]; ify=[i for i,m in enumerate(S,1) if m['key']=='fin_fiscal_year'][0]
 eada=[]; fy=[]
 for c in confs:
