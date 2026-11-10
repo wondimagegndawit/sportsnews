@@ -5,6 +5,8 @@ import openpyxl
 from openpyxl.styles import Font, PatternFill, Border, Side, Alignment
 from openpyxl.utils import get_column_letter as L
 from openpyxl.worksheet.datavalidation import DataValidation
+from openpyxl.cell.rich_text import CellRichText, TextBlock
+from openpyxl.cell.text import InlineFont
 
 OUT='Power4_Athletic_Department_Benchmarking.xlsx'
 DATE='2026-11-09'
@@ -172,7 +174,7 @@ by_conf={c:[s for s in v if s['name'] not in EXCLUDED] for c,v in by_conf.items(
 sourcelog=[r for r in sourcelog if r[0] not in EXCLUDED]
 NS=len(order); print('schools kept',NS,'excluded',EXCLUDED)
 # ---------- workbook (house style: SMASHSPORTS diligence workbook conventions) ----------
-BRAND='SMASHSPORTS'; ENTITY='Power 4 Athletic Department Benchmarking'
+BRAND=CellRichText(TextBlock(InlineFont(rFont='Montserrat',sz=11,b=True,color='000000'),'SMASH'),TextBlock(InlineFont(rFont='Montserrat',sz=11,b=False,color='000000'),'SPORTS')); ENTITY='Power 4 Athletic Department Benchmarking'
 FN='Aptos Narrow'; FS=9
 F_BASE=Font(name=FN,size=FS); F_B=Font(name=FN,size=FS,bold=True); F_I=Font(name=FN,size=FS,italic=True)
 F_HDR=Font(name=FN,size=FS,color='FFFFFF'); F_BRAND=Font(name='Montserrat',size=11,color='000000'); F_LINKED=Font(name=FN,size=FS,underline='single')
