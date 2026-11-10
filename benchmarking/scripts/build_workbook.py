@@ -171,34 +171,54 @@ order=[s for s in order if s['name'] not in EXCLUDED]
 by_conf={c:[s for s in v if s['name'] not in EXCLUDED] for c,v in by_conf.items()}
 sourcelog=[r for r in sourcelog if r[0] not in EXCLUDED]
 NS=len(order); print('schools kept',NS,'excluded',EXCLUDED)
-# ---------- workbook ----------
+# ---------- workbook (house style: SMASHSPORTS diligence workbook conventions) ----------
+BRAND='SMASHSPORTS'; ENTITY='Power 4 Athletic Department Benchmarking'
+FN='Aptos Narrow'; FS=9
+F_BASE=Font(name=FN,size=FS); F_B=Font(name=FN,size=FS,bold=True); F_I=Font(name=FN,size=FS,italic=True)
+F_HDR=Font(name=FN,size=FS,color='FFFFFF'); F_BRAND=Font(name='Montserrat',size=11,color='000000'); F_LINKED=Font(name=FN,size=FS,underline='single')
+FILL_BLACK=PatternFill('solid',fgColor='000000'); FILL_SEC=PatternFill('solid',fgColor='E8E8E8'); FILL_IN=PatternFill('solid',fgColor='FFFFCC'); FILL_SUB=PatternFill('solid',fgColor='D9D9D9')
+THIN=Side(style='thin',color='000000'); DBL=Side(style='double',color='000000')
+B_TB=Border(top=THIN,bottom=THIN); B_T=Border(top=THIN); B_TOT=Border(top=THIN,bottom=DBL)
+ACCT='_(* #,##0_);_(* \\(#,##0\\);_(* "-"??_);_(@_)'
+FMT={'usd':ACCT,'pct':'0.0%','cnt':ACCT,'wp':'0.000','yr':'0','pts':'#,##0.00','idx':'0'}
+OFF=2                      # data starts in column C; A is a 1-wide gutter, B carries the title block
+def CL(i): return L(i+OFF)
+R_HDR=6; R0=7
+CENTER=Alignment(horizontal='center'); IND1=Alignment(indent=1)
 wb=openpyxl.Workbook(); wb.remove(wb.active)
-def prep(ws,ncols,title):
+def prep(ws,title,units='Whole dollars unless the column header says otherwise'):
     ws.sheet_view.showGridLines=False
-    for c in range(1,ncols+1):
-        cell=ws.cell(row=1,column=c); cell.fill=FILL_NAVY; cell.font=F_WHITE_B
-    ws['A1']=title
+    ws.column_dimensions['A'].width=1; ws.column_dimensions['B'].width=2
+    ws.row_dimensions[2].height=16.5; ws.row_dimensions[R_HDR].height=24
+    ws['B2']=BRAND; ws['B2'].font=F_BRAND; ws['B2'].alignment=Alignment(horizontal='left')
+    ws['B3']=ENTITY; ws['B3'].font=F_B
+    ws['B4']=title; ws['B4'].font=F_BASE
+    if units: ws['B5']=units; ws['B5'].font=F_BASE
+def header(ws,labels,first_col=1):
+    for j,h in enumerate(labels):
+        c=ws.cell(row=R_HDR,column=first_col+OFF+j,value=h); c.font=F_HDR; c.fill=FILL_BLACK; c.border=B_TB; c.alignment=CENTER
 def setw(ws,widths):
-    for c,w in widths.items(): ws.column_dimensions[L(c)].width=min(max(w,8),70)
-def write_text(cell,val,font,fmt=None):
+    for c,w in widths.items(): ws.column_dimensions[CL(c)].width=min(max(w,8),70)
+def put_cell(cell,val,font,fmt=None,fill=None,border=None,align=None):
     cell.value=val; cell.font=font
     if fmt: cell.number_format=FMT[fmt]
+    if fill: cell.fill=fill
+    if border: cell.border=border
+    if align: cell.alignment=align
 
-# conference tabs
-conf_rows={}   # name -> (sheetname, row)
-conf_layout={}
+# ---- conference tabs ----
+conf_rows={}; conf_layout={}
 for conf,sname in CONFS:
     ws=wb.create_sheet(sname); ss=by_conf[conf]; n=len(ss)
-    prep(ws,NC,f'Power 4 athletic department benchmarking: {conf}')
-    for i,m in enumerate(S,1):
-        c=ws.cell(row=2,column=i,value=m['hdr']); c.font=F_BOLD; c.fill=FILL_LB; c.border=B_BOTTOM
-    r0=3; avg_row=r0+n; med_row=avg_row+1
-    conf_layout[conf]=dict(sheet=sname,first=r0,last=r0+n-1,avg=avg_row,med=med_row)
+    prep(ws,f'{conf}: NCAA MFRS benchmarking, one row per school, latest fiscal year')
+    header(ws,[m['hdr'] for m in S])
+    avg_row=R0+n; med_row=avg_row+1
+    conf_layout[conf]=dict(sheet=sname,first=R0,last=R0+n-1,avg=avg_row,med=med_row)
     for j,s in enumerate(ss):
-        r=r0+j; conf_rows[s['name']]=(sname,r); R=resolved[s['name']]
-        def A(key): return f"{L(COL[key])}{r}"
+        r=R0+j; conf_rows[s['name']]=(sname,r); R=resolved[s['name']]
+        def A(key): return f"{CL(COL[key])}{r}"
         for i,m in enumerate(S,1):
-            cell=ws.cell(row=r,column=i); key=m['key']
+            cell=ws.cell(row=r,column=i+OFF); key=m['key']
             if m['kind']=='formula':
                 if key=='f_surplus': f=f'=IF(AND(ISNUMBER({A("total_operating_revenue")}),ISNUMBER({A("total_operating_expenses")})),{A("total_operating_revenue")}-{A("total_operating_expenses")},"--")'
                 elif key=='f_subsidy': f=f'=IF(AND(ISNUMBER({A("direct_institutional_support")}),ISNUMBER({A("student_fees")})),{A("direct_institutional_support")}+{A("student_fees")}+IF(ISNUMBER({A("indirect_institutional_support")}),{A("indirect_institutional_support")},0),"--")'
@@ -208,133 +228,128 @@ for conf,sname in CONFS:
                 elif key=='f_mbb_winpct': f=f'=IF(AND(ISNUMBER({A("mbb_wins_2122_2526")}),ISNUMBER({A("mbb_losses_2122_2526")})),{A("mbb_wins_2122_2526")}/({A("mbb_wins_2122_2526")}+{A("mbb_losses_2122_2526")}),"--")'
                 elif key.endswith('_expires'):
                     pre=key[2:-8]; f=f'=IF(AND(ISNUMBER({A(pre+"_start_year")}),ISNUMBER({A(pre+"_term_years")})),{A(pre+"_start_year")}+{A(pre+"_term_years")},"--")'
-                write_text(cell,f,F_BLACK,m['fmt']); continue
+                put_cell(cell,f,F_BASE,m['fmt']); continue
             val,url=R[key]
-            if val is None: write_text(cell,'--',F_BLUE_PLAIN,m['fmt'])
-            elif key in IDENT: write_text(cell,val,F_BLACK,m['fmt'])
-            elif key in NOLINK: write_text(cell,val,F_BLUE_PLAIN,m['fmt'])
+            if key in IDENT: put_cell(cell,val if val is not None else '--',F_BASE,m['fmt'],align=IND1 if key=='school' else None)
+            elif val is None: put_cell(cell,'--',F_BASE,m['fmt'],FILL_IN)
+            elif key in NOLINK: put_cell(cell,val,F_BASE,m['fmt'],FILL_IN)
             else:
-                write_text(cell,val,F_BLUE,m['fmt'])
-                if url: cell.hyperlink=url; cell.font=F_BLUE
-        # deal triplets: derive the third when two are reported
+                put_cell(cell,val,F_LINKED if url else F_BASE,m['fmt'],FILL_IN)
+                if url: cell.hyperlink=url; cell.font=F_LINKED
         for pre in ('stadium_nr','arena_nr','patch','mmr','apparel'):
             a,t,tot=R[pre+'_annual_value'][0],R[pre+'_term_years'][0],R[pre+'_total_value'][0]
             ca,ct,ctot=ws[A(pre+'_annual_value')],ws[A(pre+'_term_years')],ws[A(pre+'_total_value')]
+            def formula_cell(c,f,fmt):
+                c.hyperlink=None; put_cell(c,f,F_BASE,fmt,PatternFill(fill_type=None))
             if a is not None and t is not None and tot is not None:
-                write_text(ctot,f'=IF(AND(ISNUMBER({A(pre+"_annual_value")}),ISNUMBER({A(pre+"_term_years")})),{A(pre+"_annual_value")}*{A(pre+"_term_years")},"--")',F_BLACK,'usd'); ctot.hyperlink=None
+                formula_cell(ctot,f'=IF(AND(ISNUMBER({A(pre+"_annual_value")}),ISNUMBER({A(pre+"_term_years")})),{A(pre+"_annual_value")}*{A(pre+"_term_years")},"--")','usd')
                 for row in sourcelog:
                     if row[0]==s['name'] and row[2]==next(mm['hdr'] for mm in S if mm['key']==pre+'_total_value'): row[10]=f'Reported total {tot:,}; cell shows Annual x Term per the deal-value rule. '+row[10]
-            elif a is not None and t is not None and tot is None: write_text(ctot,f'=IF(AND(ISNUMBER({A(pre+"_annual_value")}),ISNUMBER({A(pre+"_term_years")})),{A(pre+"_annual_value")}*{A(pre+"_term_years")},"--")',F_BLACK,'usd'); ctot.hyperlink=None
-            elif tot is not None and t is not None and a is None: write_text(ca,f'=IF(AND(ISNUMBER({A(pre+"_total_value")}),ISNUMBER({A(pre+"_term_years")})),{A(pre+"_total_value")}/{A(pre+"_term_years")},"--")',F_BLACK,'usd'); ca.hyperlink=None
-            elif a is not None and tot is not None and t is None: write_text(ct,f'=IF(AND(ISNUMBER({A(pre+"_total_value")}),ISNUMBER({A(pre+"_annual_value")})),{A(pre+"_total_value")}/{A(pre+"_annual_value")},"--")',F_BLACK,'cnt'); ct.hyperlink=None
+            elif a is not None and t is not None and tot is None: formula_cell(ctot,f'=IF(AND(ISNUMBER({A(pre+"_annual_value")}),ISNUMBER({A(pre+"_term_years")})),{A(pre+"_annual_value")}*{A(pre+"_term_years")},"--")','usd')
+            elif tot is not None and t is not None and a is None: formula_cell(ca,f'=IF(AND(ISNUMBER({A(pre+"_total_value")}),ISNUMBER({A(pre+"_term_years")})),{A(pre+"_total_value")}/{A(pre+"_term_years")},"--")','usd')
+            elif a is not None and tot is not None and t is None: formula_cell(ct,f'=IF(AND(ISNUMBER({A(pre+"_total_value")}),ISNUMBER({A(pre+"_annual_value")})),{A(pre+"_total_value")}/{A(pre+"_annual_value")},"--")','cnt')
     for rr,lab,fn in ((avg_row,'Average','AVERAGE'),(med_row,'Median','MEDIAN')):
         for i,m in enumerate(S,1):
-            cell=ws.cell(row=rr,column=i); cell.fill=FILL_GRAY; cell.font=F_BLACK_B
-            if rr==avg_row: cell.border=B_TOP
+            cell=ws.cell(row=rr,column=i+OFF); cell.fill=FILL_SUB; cell.font=F_B; cell.border=B_T if rr==avg_row else B_TOT
             if i==1: cell.value=lab; continue
-            if m['agg']: cell.value=f'=IFERROR({fn}({L(i)}{r0}:{L(i)}{r0+n-1}),"--")'; cell.number_format=FMT[m['fmt']]
+            if m['agg']: cell.value=f'=IFERROR({fn}({CL(i)}{R0}:{CL(i)}{R0+n-1}),"--")'; cell.number_format=FMT[m['fmt']]
             else: cell.value='--'
     widths={i:max(len(m['hdr']),max((len(str(resolved[s['name']][m['key']][0] or '--')) for s in ss),default=0) if m['kind']!='formula' else 14)+2 for i,m in enumerate(S,1)}
-    widths[1]=max(widths[1],18); setw(ws,widths)
+    widths[1]=max(widths[1],22); setw(ws,widths); ws.freeze_panes=f'{CL(2)}{R0}'
 
-# 01 - All Schools
+# ---- 01 - All Schools ----
 ws=wb.create_sheet('01 - All Schools',0)
-prep(ws,NC,f'Power 4 athletic department benchmarking: all {NS} schools')
-for i,m in enumerate(S,1):
-    c=ws.cell(row=2,column=i,value=m['hdr']); c.font=F_BOLD; c.fill=FILL_LB; c.border=B_BOTTOM
-all_first=3; all_last=3+len(order)-1
+prep(ws,f'All {NS} schools: links to the conference tabs, with averages and medians by conference')
+header(ws,[m['hdr'] for m in S])
+all_first=R0; all_last=R0+len(order)-1
 for j,s in enumerate(order):
     sname,sr=conf_rows[s['name']]; r=all_first+j
     for i,m in enumerate(S,1):
-        cell=ws.cell(row=r,column=i,value=f"='{sname}'!{L(i)}{sr}"); cell.font=F_BLACK if m['key'] in IDENT else F_GREEN
+        cell=ws.cell(row=r,column=i+OFF,value=f"='{sname}'!{CL(i)}{sr}"); cell.font=F_BASE if m['key'] in IDENT else F_I
         if m['fmt']: cell.number_format=FMT[m['fmt']]
-r=all_last+2
-blockrows=[]
-for conf,sname in CONFS:
-    blockrows.append((r,'Average',conf)); r+=1
-for conf,sname in CONFS:
-    blockrows.append((r,'Median',conf)); r+=1
+        if m['key']=='school': cell.alignment=IND1
+r=all_last+2; blockrows=[]
+for conf,sname in CONFS: blockrows.append((r,'Average',conf)); r+=1
+for conf,sname in CONFS: blockrows.append((r,'Median',conf)); r+=1
 blockrows.append((r,'Average','All schools')); blockrows.append((r+1,'Median','All schools'))
-for rr,lab,conf in blockrows:
+for k,(rr,lab,conf) in enumerate(blockrows):
     for i,m in enumerate(S,1):
-        cell=ws.cell(row=rr,column=i); cell.fill=FILL_GRAY; cell.font=F_BLACK_B
+        cell=ws.cell(row=rr,column=i+OFF); cell.fill=FILL_SUB; cell.font=F_B
+        if k==0: cell.border=B_T
+        if k==len(blockrows)-1: cell.border=B_TOT
         if i==1: cell.value=lab; continue
         if i==2: cell.value=conf; continue
         if not m['agg']: cell.value='--'; continue
-        col=L(i); cell.number_format=FMT[m['fmt']]
+        col=CL(i); cell.number_format=FMT[m['fmt']]
         if conf=='All schools': cell.value=f'=IFERROR({"AVERAGE" if lab=="Average" else "MEDIAN"}({col}{all_first}:{col}{all_last}),"--")'
-        elif lab=='Average': cell.value=f'=IFERROR(AVERAGEIF($B${all_first}:$B${all_last},$B{rr},{col}{all_first}:{col}{all_last}),"--")'
+        elif lab=='Average': cell.value=f'=IFERROR(AVERAGEIF(${CL(2)}${all_first}:${CL(2)}${all_last},${CL(2)}{rr},{col}{all_first}:{col}{all_last}),"--")'
         else:
-            lay=conf_layout[conf]; cell.value=f"='{lay['sheet']}'!{col}{lay['med']}"; cell.font=AR(color='008000',bold=True)
-for i in range(1,NC+1): ws.cell(row=blockrows[0][0],column=i).border=B_TOP
-setw(ws,{i:max(len(m['hdr']),14)+2 for i,m in enumerate(S,1)}); ws.column_dimensions['A'].width=20
+            lay=conf_layout[conf]; cell.value=f"='{lay['sheet']}'!{col}{lay['med']}"; cell.font=Font(name=FN,size=FS,bold=True,italic=True)
+setw(ws,{i:max(len(m['hdr']),14)+2 for i,m in enumerate(S,1)}); ws.column_dimensions[CL(1)].width=22; ws.freeze_panes=f'{CL(2)}{R0}'
 
-# 00 - Read Me
-ws=wb.create_sheet('00 - Read Me',0); prep(ws,2,'Power 4 athletic department benchmarking: read me')
+# ---- 00 - Read Me ----
+ws=wb.create_sheet('00 - Read Me',0); prep(ws,'Read me: scope, sources, conventions',units=None)
 lines=[
  f'Coverage: the {NS} Power 4 athletic departments with public NCAA MFRS financial data ({", ".join(f"{c} {len(by_conf[c])}" for c,_ in CONFS)}); one row per school on the conference tabs, which hold every hardcoded value.',
  'Excluded: the 13 private universities and Pittsburgh, which do not file public MFRS reports (only federal EADA totals exist for them, and EADA definitions are not comparable to MFRS).',
  'Structure: 01 links every conference-tab cell; 06 is the audit trail (values); 07 looks up any school; tabs 08 onward are one per school, all formulas.',
- 'Financials for public schools come from the Sportico College Sports Finances Database, which compiles each school\'s NCAA MFRS report (FY2025, FY2024 where that is the latest posted); where the school also posts its own MFRS report, the Source Log records that figure as a cross-check.',
+ "Financials for public schools come from the Sportico College Sports Finances Database, which compiles each school's NCAA MFRS report (FY2025, FY2024 where that is the latest posted); where the school also posts its own MFRS report, the Source Log records that figure as a cross-check.",
  'The Financial source basis column states Sportico or MFRS own posting for each school; the fiscal year column states the report year.',
- 'MFRS vs. EADA caveat: EADA revenue and expense definitions differ from NCAA MFRS, and EADA reports no line-item detail, so media rights, ticketing, contributions, subsidy and debt lines are "--" on EADA-basis rows.',
- 'Other sources: NCAA APR and GSR search tools (2024-25 release), IPEDS fall 2024 headcount, ESPN standings (football 2021-25) and Sports-Reference (men\'s basketball 2021-22 to 2025-26), NACDA Directors\' Cup final standings (2024-25 and 2025-26), school and partner releases and trade press for venues and commercial deals.',
- 'Revenue breakout: Football, Men\'s basketball and Non-program-specific revenue are the sport columns of the MFRS Total Operating Revenues line (EADA football and men\'s basketball revenue and unallocated revenue for EADA-basis schools); Other sports revenue is the remainder by formula.',
- 'Conventions: blue cells are hardcoded figures, black cells are formulas and identity text (school, conference, public or private, state), green cells are cross-tab links, yellow is the input cell on 07; financial cells are sourced through the hyperlink on Financial source basis, every other hardcode carries its own source hyperlink; "--" means not publicly sourced, with the reason in 06 - Source Log.',
- 'No newspaper-compiled finance or coaching-salary databases are used anywhere in this workbook. Date accessed for all sources: 2026-11-09.',
+ "Other sources: NCAA APR and GSR search tools (2024-25 release), IPEDS fall 2024 headcount, ESPN standings (football 2021-25) and Sports-Reference (men's basketball 2021-22 to 2025-26), NACDA Directors' Cup final standings (2024-25 and 2025-26), school and partner releases and trade press for venues and commercial deals.",
+ "Revenue breakout: Football, Men's basketball and Non-program-specific revenue are the sport columns of the MFRS Total Operating Revenues line; Other sports revenue is the remainder by formula.",
+ 'Conventions: yellow-filled cells are hardcoded figures (underlined where a source hyperlink is attached), unfilled black cells are formulas, italic cells are links to another tab, gray rows are averages and medians; financial cells are sourced through the hyperlink on Financial source basis; "--" means not publicly sourced, with the reason in 06 - Source Log.',
+ 'No newspaper-compiled finance or coaching-salary databases are used anywhere in this workbook. Date accessed for all sources: 2026-11-09 and 2026-11-10.',
 ]
-for k,t in enumerate(lines): ws.cell(row=3+k,column=1,value=t).font=F_BLACK
-ws.column_dimensions['A'].width=200
+for k,t in enumerate(lines): ws.cell(row=R0+k,column=1+OFF,value=t).font=F_BASE
+ws.column_dimensions[CL(1)].width=220
 
-# 06 - Source Log
+# ---- 06 - Source Log ----
 ws=wb.create_sheet('06 - Source Log')
 hdr=['School','Conference','Metric','Value','Unit','Fiscal year or season','Source type','Source name','URL','Date accessed','Note']
-prep(ws,len(hdr),'Source log: one row per sourced value (values, not formulas)')
-for i,h in enumerate(hdr,1):
-    c=ws.cell(row=2,column=i,value=h); c.font=F_BOLD; c.fill=FILL_LB; c.border=B_BOTTOM
+prep(ws,'Source log: one row per sourced value (values, not formulas)',units=None)
+header(ws,hdr)
 for j,row in enumerate(sourcelog):
     for i,v in enumerate(row,1):
-        c=ws.cell(row=3+j,column=i,value=(v if v not in (None,'') else '--')); c.font=F_BLACK
-setw(ws,{1:20,2:10,3:36,4:18,5:10,6:26,7:18,8:40,9:60,10:13,11:80})
+        c=ws.cell(row=R0+j,column=i+OFF,value=(v if v not in (None,'') else '--')); c.font=F_BASE; c.fill=FILL_IN
+setw(ws,{1:20,2:10,3:36,4:18,5:10,6:26,7:22,8:40,9:60,10:13,11:80}); ws.freeze_panes=f'{CL(1)}{R0}'
 
-# 07 - School Lookup and school tabs
-def vertical_sheet(ws,title,name_cell_value,name_font,src_sheet,first,last,avg_row,with_avg):
+# ---- 07 - School Lookup and school tabs ----
+def vertical_sheet(ws,title,name_value,name_font,name_fill,src_sheet,first,last,avg_row,with_avg):
     ncols=4 if with_avg else 2
-    prep(ws,ncols,title)
-    ws['A3']='School'; ws['A3'].font=F_BOLD
-    ws['B3']=name_cell_value; ws['B3'].font=name_font
-    hdrs=['Metric','Value']+(['Conference average','Difference'] if with_avg else [])
-    for i,h in enumerate(hdrs,1):
-        c=ws.cell(row=5,column=i,value=h); c.font=F_BOLD; c.fill=FILL_LB; c.border=B_BOTTOM
-    r=6; sec=None
-    rng=f"'{src_sheet}'!$A${first}:${LAST}${last}"; hdrrng=f"'{src_sheet}'!$A$2:${LAST}$2"; namerng=f"'{src_sheet}'!$A${first}:$A${last}"
+    prep(ws,title,units=None)
+    ws.cell(row=5,column=1+OFF,value='School').font=F_B
+    nc=ws.cell(row=5,column=2+OFF,value=name_value); nc.font=name_font
+    if name_fill: nc.fill=name_fill
+    NAME=f'${CL(2)}$5'
+    header(ws,['Metric','Value']+(['Conference average','Difference'] if with_avg else []))
+    r=R0; sec=None
+    rng=f"'{src_sheet}'!${CL(1)}${first}:${CL(NC)}${last}"; hdrrng=f"'{src_sheet}'!${CL(1)}${R_HDR}:${CL(NC)}${R_HDR}"; namerng=f"'{src_sheet}'!${CL(1)}${first}:${CL(1)}${last}"
     for m in S:
         if m['sec']!=sec:
             sec=m['sec']
             for i in range(1,ncols+1):
-                c=ws.cell(row=r,column=i); c.fill=FILL_LB; c.font=F_BOLD
-            ws.cell(row=r,column=1).value=sec; r+=1
-        ws.cell(row=r,column=1,value=m['hdr']).font=F_BLACK
-        c=ws.cell(row=r,column=2,value=f'=INDEX({rng},MATCH($B$3,{namerng},0),MATCH($A{r},{hdrrng},0))'); c.font=F_BLACK if m['key'] in IDENT else F_GREEN
+                c=ws.cell(row=r,column=i+OFF); c.fill=FILL_SEC; c.font=F_B; c.border=B_TB
+            ws.cell(row=r,column=1+OFF).value=sec; r+=1
+        lab=ws.cell(row=r,column=1+OFF,value=m['hdr']); lab.font=F_BASE; lab.alignment=IND1
+        labref=f'${CL(1)}{r}'
+        c=ws.cell(row=r,column=2+OFF,value=f'=INDEX({rng},MATCH({NAME},{namerng},0),MATCH({labref},{hdrrng},0))'); c.font=F_BASE if m['key'] in IDENT else F_I
         if m['fmt']: c.number_format=FMT[m['fmt']]
         if with_avg:
-            avgrng=f"'{src_sheet}'!$A${avg_row}:${LAST}${avg_row}"
-            c2=ws.cell(row=r,column=3,value=f'=IF(ISNUMBER(B{r}),INDEX({avgrng},1,MATCH($A{r},{hdrrng},0)),"--")'); c2.font=F_BLACK if m['key'] in IDENT else F_GREEN
-            c3=ws.cell(row=r,column=4,value=f'=IF(AND(ISNUMBER(B{r}),ISNUMBER(C{r})),B{r}-C{r},"--")'); c3.font=F_BLACK
+            avgrng=f"'{src_sheet}'!${CL(1)}${avg_row}:${CL(NC)}${avg_row}"
+            c2=ws.cell(row=r,column=3+OFF,value=f'=IF(ISNUMBER({CL(2)}{r}),INDEX({avgrng},1,MATCH({labref},{hdrrng},0)),"--")'); c2.font=F_BASE if m['key'] in IDENT else F_I
+            c3=ws.cell(row=r,column=4+OFF,value=f'=IF(AND(ISNUMBER({CL(2)}{r}),ISNUMBER({CL(3)}{r})),{CL(2)}{r}-{CL(3)}{r},"--")'); c3.font=F_BASE
             if m['fmt']: c2.number_format=FMT[m['fmt']]; c3.number_format=FMT[m['fmt']]
         r+=1
-    setw(ws,{1:40,2:44,3:22,4:22})
+    setw(ws,{1:40,2:44,3:22,4:22}); ws.freeze_panes=f'{CL(2)}{R0}'
 ws=wb.create_sheet('07 - School Lookup')
-vertical_sheet(ws,'School lookup: choose a school in the yellow cell','Alabama',F_BLACK,'01 - All Schools',all_first,all_last,None,False)
-ws['B3'].fill=FILL_YEL
-dv=DataValidation(type='list',formula1=f"='01 - All Schools'!$A${all_first}:$A${all_last}",allow_blank=False); ws.add_data_validation(dv); dv.add('B3')
+vertical_sheet(ws,'School lookup: choose a school in the yellow cell','Alabama',F_BASE,FILL_IN,'01 - All Schools',all_first,all_last,None,False)
+dv=DataValidation(type='list',formula1=f"='01 - All Schools'!${CL(1)}${all_first}:${CL(1)}${all_last}",allow_blank=False); ws.add_data_validation(dv); dv.add(f'{CL(2)}5')
 for k,s in enumerate(order,8):
     sname,sr=conf_rows[s['name']]; conf=s['conf']; lay=conf_layout[conf]
     ws=wb.create_sheet(f"{k:02d} - {s['name']}")
-    vertical_sheet(ws,f"School profile: {s['name']}",f"='{sname}'!A{sr}",F_BLACK,sname,lay['first'],lay['last'],lay['avg'],True)
-# sheet order: 00,01,02..05,06,07,08..
+    vertical_sheet(ws,f"School profile: {s['name']}",f"='{sname}'!{CL(1)}{sr}",F_BASE,None,sname,lay['first'],lay['last'],lay['avg'],True)
 names=['00 - Read Me','01 - All Schools']+[sn for _,sn in CONFS]+['06 - Source Log','07 - School Lookup']+[f"{k:02d} - {s['name']}" for k,s in enumerate(order,8)]
 wb._sheets=[wb[n] for n in names]
 for ws in wb: ws.sheet_view.showGridLines=False
 wb.save(OUT); print('saved',OUT,'sheets',len(wb.sheetnames),'sourcelog rows',len(sourcelog))
-json.dump(dict(S=S,conf_layout=conf_layout,all_first=all_first,all_last=all_last,n_schools=NS,excluded=EXCLUDED),open('data/workbook_layout.json','w'))
+json.dump(dict(S=S,conf_layout=conf_layout,all_first=all_first,all_last=all_last,n_schools=NS,excluded=EXCLUDED,col_offset=OFF,header_row=R_HDR),open('data/workbook_layout.json','w'))
