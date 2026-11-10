@@ -12,7 +12,7 @@ from openpyxl.worksheet.formula import ArrayFormula
 OUT='Power4_Athletic_Department_Benchmarking.xlsx'
 DATE='2026-11-09'
 master=json.load(open('data/schools_master.json'))
-CONFS=[('ACC','02 - ACC'),('Big Ten','03 - Big Ten'),('Big 12','04 - Big 12'),('SEC','05 - SEC')]
+CONFS=[('ACC','ACC'),('Big Ten','Big Ten'),('Big 12','Big 12'),('SEC','SEC')]   # (conference, tab name); tab names carry no number prefix
 CONF_URL={'ACC':'https://theacc.com/','Big Ten':'https://bigten.org/','Big 12':'https://big12sports.com/','SEC':'https://www.secsports.com/'}
 by_conf={c:sorted([s for s in master if s['conf']==c],key=lambda s:s['name'].lower()) for c,_ in CONFS}
 order=[s for c,_ in CONFS for s in by_conf[c]]
@@ -283,8 +283,8 @@ for conf,sname in CONFS:
     widths={i:max(len(m['hdr']),max((len(str(resolved[s['name']][m['key']][0] or '--')) for s in ss),default=0) if m['kind']!='formula' else 14)+2 for i,m in enumerate(S,1)}
     widths[1]=max(widths[1],22); setw(ws,widths); ws.freeze_panes=f'{CL(2)}{R0}'
 
-# ---- 01 - All Schools ----
-ws=wb.create_sheet('01 - All Schools',0)
+# ---- All Schools ----
+ws=wb.create_sheet('All Schools',0)
 prep(ws,f'All {NS} schools: links to the conference tabs, with averages and medians by conference')
 header(ws,[m['hdr'] for m in S])
 all_first=R0; all_last=R0+len(order)-1
@@ -318,26 +318,26 @@ for fy,slab in SCOPES:
     blk['last']=r+len(block)-1; all_blocks.append(blk); r+=len(block)+1
 setw(ws,{i:max(len(m['hdr']),14)+2 for i,m in enumerate(S,1)}); ws.column_dimensions[CL(1)].width=30; ws.freeze_panes=f'{CL(2)}{R0}'
 
-# ---- 00 - Read Me ----
-ws=wb.create_sheet('00 - Read Me',0); prep(ws,'Read me: scope, sources, conventions',units=None)
+# ---- Read Me ----
+ws=wb.create_sheet('Read Me',0); prep(ws,'Read me: scope, sources, conventions',units=None)
 lines=[
  f'Coverage: the {NS} Power 4 athletic departments with public NCAA MFRS financial data ({", ".join(f"{c} {len(by_conf[c])}" for c,_ in CONFS)}); one row per school on the conference tabs, which hold every hardcoded value.',
  'Excluded: the 13 private universities and Pittsburgh, which do not file public MFRS reports (only federal EADA totals exist for them, and EADA definitions are not comparable to MFRS).',
- 'Structure: 01 links every conference-tab cell; 06 is the audit trail (values); 07 looks up any school; tabs 08 onward are one per school, all formulas.',
+ 'Structure: All Schools links every conference-tab cell; Source Log is the audit trail (values); School Lookup looks up any school; the tabs after it are one per school, all formulas.',
  "Financials for public schools come from the Sportico College Sports Finances Database, which compiles each school's NCAA MFRS report (FY2025, FY2024 where that is the latest posted); where the school also posts its own MFRS report, the Source Log records that figure as a cross-check.",
  'The Financial source basis column states Sportico or MFRS own posting for each school; the fiscal year column states the report year.',
  "Other sources: NCAA APR and GSR search tools (2024-25 release), IPEDS fall 2024 headcount, ESPN standings (football 2021-25) and Sports-Reference (men's basketball 2021-22 to 2025-26), NACDA Directors' Cup final standings (2024-25 and 2025-26), school and partner releases and trade press for venues and commercial deals.",
  "Football average home attendance (2023, 2024, 2025) is the Final Average column of the D1.ticker FBS Attendance Trends page for each season, as displayed; the pages do not state their underlying data source or whether figures are announced or paid.",
- f"Averages and medians: financial line items (the MFRS columns) are shown for {', '.join(l for _,l in SCOPES[:-1])} and for all years, using the Fiscal year column as the filter; every other column is summarized across all years only. Summary rows sit under the schools on each conference tab and, by conference and for all schools, on 01.",
+ f"Averages and medians: financial line items (the MFRS columns) are shown for {', '.join(l for _,l in SCOPES[:-1])} and for all years, using the Fiscal year column as the filter; every other column is summarized across all years only. Summary rows sit under the schools on each conference tab and, by conference and for all schools, on All Schools.",
  "Revenue breakout: Football, Men's basketball and Non-program-specific revenue are the sport columns of the MFRS Total Operating Revenues line; Other sports revenue is the remainder by formula.",
- 'Conventions: blue cells are hardcoded figures (underlined where a source hyperlink is attached), black cells are formulas and identity text, green cells are links to another tab, gray rows are averages and medians, yellow is the input cell on 07; financial cells are sourced through the hyperlink on Financial source basis; "--" means not publicly sourced, with the reason in 06 - Source Log.',
+ 'Conventions: blue cells are hardcoded figures (underlined where a source hyperlink is attached), black cells are formulas and identity text, green cells are links to another tab, gray rows are averages and medians, yellow is the input cell on School Lookup; financial cells are sourced through the hyperlink on Financial source basis; "--" means not publicly sourced, with the reason in Source Log.',
  'No newspaper-compiled finance or coaching-salary databases are used anywhere in this workbook. Date accessed for all sources: 2026-11-09 and 2026-11-10.',
 ]
 for k,t in enumerate(lines): ws.cell(row=R0+k,column=1+OFF,value=t).font=F_BASE
 ws.column_dimensions[CL(1)].width=220
 
-# ---- 06 - Source Log ----
-ws=wb.create_sheet('06 - Source Log')
+# ---- Source Log ----
+ws=wb.create_sheet('Source Log')
 hdr=['School','Conference','Metric','Value','Unit','Fiscal year or season','Source type','Source name','URL','Date accessed','Note']
 prep(ws,'Source log: one row per sourced value (values, not formulas)',units=None)
 header(ws,hdr)
@@ -346,7 +346,7 @@ for j,row in enumerate(sourcelog):
         c=ws.cell(row=R0+j,column=i+OFF,value=(v if v not in (None,'') else '--')); c.font=F_BASE
 setw(ws,{1:20,2:10,3:36,4:18,5:10,6:26,7:22,8:40,9:60,10:13,11:80}); ws.freeze_panes=f'{CL(1)}{R0}'
 
-# ---- 07 - School Lookup and school tabs ----
+# ---- School Lookup and school tabs ----
 def vertical_sheet(ws,title,name_value,name_font,name_fill,src_sheet,first,last,avg_row,with_avg):
     ncols=4 if with_avg else 2
     prep(ws,title,units=None)
@@ -374,14 +374,14 @@ def vertical_sheet(ws,title,name_value,name_font,name_fill,src_sheet,first,last,
             if m['fmt']: c2.number_format=FMT[m['fmt']]; c3.number_format=FMT[m['fmt']]
         r+=1
     setw(ws,{1:40,2:44,3:22,4:22}); ws.freeze_panes=f'{CL(2)}{R0}'
-ws=wb.create_sheet('07 - School Lookup')
-vertical_sheet(ws,'School lookup: choose a school in the yellow cell','Alabama',F_BASE,FILL_IN,'01 - All Schools',all_first,all_last,None,False)
-dv=DataValidation(type='list',formula1=f"='01 - All Schools'!${CL(1)}${all_first}:${CL(1)}${all_last}",allow_blank=False); ws.add_data_validation(dv); dv.add(f'{CL(2)}5')
+ws=wb.create_sheet('School Lookup')
+vertical_sheet(ws,'School lookup: choose a school in the yellow cell','Alabama',F_BASE,FILL_IN,'All Schools',all_first,all_last,None,False)
+dv=DataValidation(type='list',formula1=f"='All Schools'!${CL(1)}${all_first}:${CL(1)}${all_last}",allow_blank=False); ws.add_data_validation(dv); dv.add(f'{CL(2)}5')
 for k,s in enumerate(order,8):
     sname,sr=conf_rows[s['name']]; conf=s['conf']; lay=conf_layout[conf]
-    ws=wb.create_sheet(f"{k:02d} - {s['name']}")
+    ws=wb.create_sheet(s['name'])
     vertical_sheet(ws,f"School profile: {s['name']}",f"='{sname}'!{CL(1)}{sr}",F_BASE,None,sname,lay['first'],lay['last'],lay['avg'],True)
-names=['00 - Read Me','01 - All Schools']+[sn for _,sn in CONFS]+['06 - Source Log','07 - School Lookup']+[f"{k:02d} - {s['name']}" for k,s in enumerate(order,8)]
+names=['Read Me','All Schools']+[sn for _,sn in CONFS]+['Source Log','School Lookup']+[s['name'] for k,s in enumerate(order,8)]
 wb._sheets=[wb[n] for n in names]
 for ws in wb: ws.sheet_view.showGridLines=False
 wb.save(OUT); print('saved',OUT,'sheets',len(wb.sheetnames),'sourcelog rows',len(sourcelog))

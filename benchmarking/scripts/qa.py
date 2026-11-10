@@ -5,14 +5,14 @@ from collections import Counter
 lay=json.load(open('data/workbook_layout.json')); S=lay['S']; OFF=lay.get('col_offset',0); HR=lay.get('header_row',2)
 F='Power4_Athletic_Department_Benchmarking.xlsx'
 wbf=openpyxl.load_workbook(F); wbv=openpyxl.load_workbook(F,data_only=True)
-confs=['02 - ACC','03 - Big Ten','04 - Big 12','05 - SEC']
-tot=sum(lay['conf_layout'][c.split(' - ')[1]]['last']-lay['conf_layout'][c.split(' - ')[1]]['first']+1 for c in confs)
-print('1 rows: expected',lay.get('n_schools'),'| conference',tot,'| 01',lay['all_last']-lay['all_first']+1,'| school tabs',sum(1 for n in wbf.sheetnames if int(n[:2])>=8))
+confs=['ACC','Big Ten','Big 12','SEC']
+tot=sum(lay['conf_layout'][c]['last']-lay['conf_layout'][c]['first']+1 for c in confs)
+print('1 rows: expected',lay.get('n_schools'),'| conference',tot,'| All Schools',lay['all_last']-lay['all_first']+1,'| school tabs',len(wbf.sheetnames)-wbf.sheetnames.index('School Lookup')-1)
 hits=[(ws.title,c.coordinate) for ws in wbf for row in ws.iter_rows() for c in row if c.value is not None and ('usatoday' in (str(c.value)+(c.hyperlink.target if c.hyperlink else '')).lower() or 'usa today' in str(c.value).lower())]
 print('3 USA Today hits',hits)
 bad=[]; blanks=[]; fontbad=[]; trip=[]
 for c in confs:
-    ws=wbf[c]; wsv=wbv[c]; lc=lay['conf_layout'][c.split(' - ')[1]]
+    ws=wbf[c]; wsv=wbv[c]; lc=lay['conf_layout'][c]
     for r in range(lc['first'],lc['med']+1):
         for i,m in enumerate(S,1):
             cell=ws.cell(row=r,column=i+OFF); cv=wsv.cell(row=r,column=i+OFF).value
@@ -38,7 +38,7 @@ for ws in wbf:
 print('  font/wrap issues',len(fontbad))
 empt=0
 for ws in wbv:
-    if ws.title in confs or ws.title in ('00 - Read Me','06 - Source Log'): continue
+    if ws.title in confs or ws.title in ('Read Me','Source Log'): continue
     for row in ws.iter_rows(min_row=HR+1):
         for cell in row:
             if (cell.value=='' or cell.value is None) and wbf[ws.title][cell.coordinate].value is not None: empt+=1
@@ -46,13 +46,14 @@ print('  empty formula results on link tabs',empt)
 # 7: recompute every average and median (by fiscal year and all years) in Python from the school rows and compare
 errv=[(ws.title,c.coordinate,c.value) for ws in wbv for row in ws.iter_rows() for c in row if isinstance(c.value,str) and c.value.startswith(('#','Err:'))]
 print('7 formula error values anywhere',len(errv),errv[:5])
+print('  tab names with a number prefix',[n for n in wbf.sheetnames if n[:1].isdigit()])
 FYC=[i for i,m in enumerate(S,1) if m['key']=='fin_fiscal_year'][0]; school={}; nsum=0; sbad=[]
 def expect(vals,st): 
     vals=[v for v in vals if isinstance(v,(int,float)) and not isinstance(v,bool)]
     return '--' if not vals else (sum(vals)/len(vals) if st=='Average' else statistics.median(vals))
 def same(a,b): return a==b if (a=='--' or b=='--') else (isinstance(a,(int,float)) and abs(a-b)<=1e-6*max(1,abs(b)))
 for c in confs:
-    conf=c.split(' - ')[1]; lc=lay['conf_layout'][conf]; wsv=wbv[c]
+    conf=c; lc=lay['conf_layout'][conf]; wsv=wbv[c]
     school[conf]=[[wsv.cell(row=r,column=i+OFF).value for i in range(1,len(S)+1)] for r in range(lc['first'],lc['last']+1)]
 def check(sheet,rr,st,fy,rows):
     global nsum
@@ -64,29 +65,29 @@ def check(sheet,rr,st,fy,rows):
         nsum+=1
         if not same(got,exp): sbad.append((sheet,rr,m['hdr'],got,exp))
 for c in confs:
-    conf=c.split(' - ')[1]
+    conf=c
     for st,d in lay['conf_layout'][conf]['summary'].items():
         for fy,rr in d.items(): check(c,rr,st,fy,school[conf])
 for b in lay['all_blocks']:
-    for rr,st,conf in b['rows']: check('01 - All Schools',rr,st,b['scope'],[x for k,v in school.items() for x in v] if conf=='All schools' else school[conf])
+    for rr,st,conf in b['rows']: check('All Schools',rr,st,b['scope'],[x for k,v in school.items() for x in v] if conf=='All schools' else school[conf])
 print('  summary cells recomputed',nsum,'| mismatches',len(sbad),sbad[:5])
 cov=[]
 for i,m in enumerate(S,1):
-    n=sum(1 for c in confs for r in range(lay['conf_layout'][c.split(' - ')[1]]['first'],lay['conf_layout'][c.split(' - ')[1]]['last']+1) if wbv[c].cell(row=r,column=i+OFF).value!='--')
+    n=sum(1 for c in confs for r in range(lay['conf_layout'][c]['first'],lay['conf_layout'][c]['last']+1) if wbv[c].cell(row=r,column=i+OFF).value!='--')
     cov.append((m['hdr'],n))
 json.dump(cov,open('data/coverage.json','w'))
 print('6 coverage:'); [print(f"  {n:3d}/{lay.get('n_schools')}  {h}") for h,n in cov]
 ib=[i for i,m in enumerate(S,1) if m['key']=='fin_basis'][0]; ify=[i for i,m in enumerate(S,1) if m['key']=='fin_fiscal_year'][0]
 eada=[]; fy=[]
 for c in confs:
-    ws=wbf[c]; lc=lay['conf_layout'][c.split(' - ')[1]]
+    ws=wbf[c]; lc=lay['conf_layout'][c]
     for r in range(lc['first'],lc['last']+1):
         if ws.cell(row=r,column=ib+OFF).value=='EADA': eada.append(ws.cell(row=r,column=1+OFF).value)
         if ws.cell(row=r,column=ify+OFF).value!=2025: fy.append((ws.cell(row=r,column=1+OFF).value,ws.cell(row=r,column=ify+OFF).value))
 print('EADA basis',len(eada),eada); print('FY not 2025',fy)
 random.seed(int(sys.argv[1]) if len(sys.argv)>1 else 1); cands=[]
 for c in confs:
-    ws=wbf[c]; lc=lay['conf_layout'][c.split(' - ')[1]]
+    ws=wbf[c]; lc=lay['conf_layout'][c]
     for r in range(lc['first'],lc['last']+1):
         for i,m in enumerate(S,1):
             cell=ws.cell(row=r,column=i+OFF)

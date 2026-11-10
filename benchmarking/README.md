@@ -1,6 +1,6 @@
 # Power 4 athletic department benchmarking
 
-`Power4_Athletic_Department_Benchmarking.xlsx` benchmarks the 53 Power 4 athletic departments with public NCAA MFRS financial data (the 13 private universities and Pittsburgh are excluded). It was built from scratch with openpyxl (`scripts/`) and recalculated with LibreOffice; every hardcoded value on the conference tabs is hyperlinked to its source and logged on `06 - Source Log`.
+`Power4_Athletic_Department_Benchmarking.xlsx` benchmarks the 53 Power 4 athletic departments with public NCAA MFRS financial data (the 13 private universities and Pittsburgh are excluded). It was built from scratch with openpyxl (`scripts/`) and recalculated with LibreOffice; every hardcoded value on the conference tabs is hyperlinked to its source and logged on `Source Log`.
 
 ## Folders
 
@@ -27,7 +27,7 @@ python3 -I scripts/qa.py
 
 ## Averages and medians
 
-Financial line items (the MFRS columns) are summarized for each fiscal year present in the data and for all years; every other column is summarized across all years only. The summary rows sit under the schools on each conference tab and, by conference and for all schools, on `01 - All Schools`. The fiscal-year medians are array formulas.
+Financial line items (the MFRS columns) are summarized for each fiscal year present in the data and for all years; every other column is summarized across all years only. The summary rows sit under the schools on each conference tab and, by conference and for all schools, on `All Schools`. The fiscal-year medians are array formulas.
 
 ## Football attendance
 
