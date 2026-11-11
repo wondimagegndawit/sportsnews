@@ -29,13 +29,12 @@ python3 -I scripts/qa.py
 
 Financial line items (the MFRS columns) are summarized for each fiscal year present in the data and for all years; every other column is summarized across all years only. The summary rows sit under the schools on each conference tab and, by conference and for all schools, on `All Schools`. The fiscal-year medians are array formulas. Count rows give the number of schools with a value in each column for the same scopes. Below the summary rows, a Data breakdown table counts schools by fiscal year reported and by financial source basis (per conference on `All Schools`); EADA is zero by design because EADA-only schools are excluded.
 
-## Football attendance
+## Attendance
 
-`data/d1ticker/` holds the D1.ticker FBS Attendance Trends pages for 2023, 2024 and 2025, saved unmodified. `scripts/build_attendance.py` reads the Final Average column of each season's own page into `data/attendance_values.csv`.
+`scripts/build_attendance.py` writes every per-school attendance figure in the two sources to `data/attendance_values.csv`; the workbook shows them in the Attendance section.
 
-## Men's basketball attendance
-
-`data/ncaa_attendance/Attend.pdf` is the NCAA Men's Basketball Attendance Records book (through 2025-26), saved unmodified, with `Attend_layout.txt` as its `pdftotext -layout` extract. The same script reads the Average column of the Division I team-by-team table for 2025-26 and checks that the table ties to the PDF's Division I home totals. The PDF carries team figures for 2025-26 only.
+- Football: `data/d1ticker/` holds the D1.ticker FBS Attendance Trends pages for 2023, 2024 and 2025, saved unmodified. Average home attendance for each season is the Final Average column of that season's own page. The 2025 page also supplies the year-over-year change, the 5-year average (the page does not say which five seasons), the change against the 5-year average and the percent of capacity. The pages carry averages only: no totals and no game counts.
+- Men's basketball: `data/ncaa_attendance/Attend.pdf` is the NCAA Men's Basketball Attendance Records book (through 2025-26), saved unmodified, with `Attend_layout.txt` as its `pdftotext -layout` extract. The Division I team-by-team table gives home games, total home attendance and average home attendance for 2025-26 for every school; the script checks that the table ties to the PDF's Division I home totals. Three leader tables list only 30 teams each (rank by average, all-games attendance, largest increase with the 2024-25 average); those columns are marked top 30, show "--" for other schools and carry no average or median.
 
 ## Percent of capacity
 
