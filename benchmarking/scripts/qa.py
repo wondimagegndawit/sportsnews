@@ -13,7 +13,7 @@ print('3 USA Today hits',hits)
 bad=[]; blanks=[]; fontbad=[]; trip=[]
 for c in confs:
     ws=wbf[c]; wsv=wbv[c]; lc=lay['conf_layout'][c]
-    for r in range(lc['first'],lc['med']+1):
+    for r in range(lc['first'],lc['sum_last']+1):
         for i,m in enumerate(S,1):
             cell=ws.cell(row=r,column=i+OFF); cv=wsv.cell(row=r,column=i+OFF).value
             if cv is None or cv=='': blanks.append((c,cell.coordinate))
@@ -59,10 +59,12 @@ for c in confs:
 def check(sheet,rr,st,fy,rows):
     global nsum
     for i,m in enumerate(S,1):
-        if i<=2 or i==FYC: continue
+        if i==1 or i==FYC or (i==2 and sheet=='All Schools'): continue
         got=wbv[sheet].cell(row=rr,column=i+OFF).value
-        if not m['agg'] or (fy!='All' and not m['byfy']): exp='--'
-        else: exp=expect([row[i-1] for row in rows if fy=='All' or str(row[FYC-1])==fy],st)
+        scope=[row[i-1] for row in rows if fy=='All' or str(row[FYC-1])==fy]
+        if st=='Count': exp=sum(1 for v in scope if v!='--') if (fy=='All' or m['sec']=='Financial') else '--'
+        elif not m['agg'] or (fy!='All' and not m['byfy']): exp='--'
+        else: exp=expect(scope,st)
         nsum+=1
         if not same(got,exp): sbad.append((sheet,rr,m['hdr'],got,exp))
 for c in confs:
@@ -72,6 +74,25 @@ for c in confs:
 for b in lay['all_blocks']:
     for rr,st,conf in b['rows']: check('All Schools',rr,st,b['scope'],[x for k,v in school.items() for x in v] if conf=='All schools' else school[conf])
 print('  summary cells recomputed',nsum,'| mismatches',len(sbad),sbad[:5])
+# 8: data-breakdown tables (schools by fiscal year reported and by financial source basis)
+BASC=[i for i,m in enumerate(S,1) if m['key']=='fin_basis'][0]; bbad=[]; nb=0
+def bcheck(sheet,bd,groups):
+    global nb
+    for kind,col in (('fy',FYC),('basis',BASC)):
+        tot=[0]*len(groups)
+        for lab,rr in bd[kind].items():
+            for j,rows in enumerate(groups):
+                exp=sum(1 for row in rows if str(row[col-1])==lab); tot[j]+=exp; got=wbv[sheet].cell(row=rr,column=2+OFF+j).value; nb+=1
+                if got!=exp: bbad.append((sheet,rr,lab,j,got,exp))
+        for j,rows in enumerate(groups):
+            got=wbv[sheet].cell(row=bd[kind+'_total'],column=2+OFF+j).value; nb+=1
+            if got!=tot[j] or got!=len(rows): bbad.append((sheet,bd[kind+'_total'],'total',j,got,tot[j],len(rows)))
+for c in confs: bcheck(c,lay['conf_layout'][c]['breakdown'],[school[c]])
+bcheck('All Schools',lay['all_breakdown'],[school[c] for c in confs]+[[x for c in confs for x in school[c]]])
+print('8 breakdown cells recomputed',nb,'| mismatches',len(bbad),bbad[:5])
+bd=lay['all_breakdown']; print('  All Schools breakdown:',bd['cols'])
+for kind in ('fy','basis'):
+    for lab,rr in list(bd[kind].items())+[('Total',bd[kind+'_total'])]: print(f'   {lab:30s}',[wbv['All Schools'].cell(row=rr,column=2+OFF+j).value for j in range(len(bd['cols']))])
 cov=[]
 for i,m in enumerate(S,1):
     n=sum(1 for c in confs for r in range(lay['conf_layout'][c]['first'],lay['conf_layout'][c]['last']+1) if wbv[c].cell(row=r,column=i+OFF).value!='--')

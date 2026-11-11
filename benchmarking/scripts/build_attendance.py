@@ -41,6 +41,10 @@ for s in master:
         if d['_star']:
             note+=(" The page marks this school with an asterisk: stadium under renovation and capacity not the same as 2023." if y==2024 else " The page marks this school with an asterisk and gives no footnote text.")
         out.append([name,metric,v,'fans per game',f'{y} season',src,URL.format(y=y),DATE,note])
+        if y==2025:   # percent of capacity as reported on the same row of the 2025 page
+            pc=d['Capacity %']; assert re.fullmatch(r'\d+\.\d\d%',pc),(name,pc)
+            out.append([name,'fb_attendance_pct_capacity_2025',f'{float(pc[:-1])/100:.4f}','share of capacity','2025 season',src,URL.format(y=y),DATE,
+                        f"Column 'Capacity %' as displayed ({pc}), row '{d['School']}', stored as a decimal; D1.ticker does not publish the stadium capacity it divides by, so it can differ from the Stadium capacity column in this workbook."+(" The page marks this school with an asterisk and gives no footnote text." if d['_star'] else '')])
 # ---- men's basketball: NCAA attendance records book, 2026 Attendance Summary, Division I Team-by-Team Attendance ----
 MBB_URL='http://fs.ncaa.org.s3.amazonaws.com/Docs/stats/m_basketball_RB/Attend.pdf'
 MBB_SRC="NCAA Men's Basketball Attendance Records through 2025-26 (2026 Attendance Summary, Division I Team-by-Team Attendance)"

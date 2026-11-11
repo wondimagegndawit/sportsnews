@@ -46,7 +46,8 @@ M('Coaching','Head football coach','fb_hc_name','text'); M('Coaching','FB HC ann
 M('Coaching','Head men\'s basketball coach','mbb_hc_name','text'); M('Coaching','MBB HC annual guaranteed compensation','mbb_hc_annual_comp','num','usd',True); M('Coaching','MBB HC contract end year','mbb_hc_contract_end','num','yr'); M('Coaching','MBB HC pay source type','mbb_hc_pay_source_type','text')
 M('Venues','Football stadium','stadium_name','text'); M('Venues','Stadium capacity','stadium_capacity','num','cnt',True); M('Venues','Stadium year opened','stadium_year_opened','num','yr',True); M('Venues','Stadium last major renovation year','stadium_last_renovation_year','num','yr',True)
 for _y in (2023,2024,2025): M('Venues',f'FB average home attendance {_y}',f'fb_avg_attendance_{_y}','num','cnt',True)
-M('Venues','Men\'s basketball arena','arena_name','text'); M('Venues','Arena capacity','arena_capacity','num','cnt',True); M('Venues','Arena year opened','arena_year_opened','num','yr',True); M('Venues','MBB average home attendance 2025-26','mbb_avg_attendance_2526','num','cnt',True)
+M('Venues','FB attendance % of capacity 2025','fb_attendance_pct_capacity_2025','num','pct',True)
+M('Venues','Men\'s basketball arena','arena_name','text'); M('Venues','Arena capacity','arena_capacity','num','cnt',True); M('Venues','Arena year opened','arena_year_opened','num','yr',True); M('Venues','MBB average home attendance 2025-26','mbb_avg_attendance_2526','num','cnt',True); M('Venues','MBB attendance % of capacity 2025-26','f_mbb_attendance_pct_capacity','formula','pct',True)
 for pre,lab in [('stadium_nr','Stadium naming rights'),('arena_nr','Arena naming rights')]:
     M(lab,f'{lab} partner',f'{pre}_partner','text'); M(lab,f'{lab} industry',f'{pre}_industry','text'); M(lab,f'{lab} deal type',f'{pre}_deal_type','text')
     M(lab,f'{lab} start year',f'{pre}_start_year','num','yr'); M(lab,f'{lab} term (years)',f'{pre}_term_years','num','cnt',True); M(lab,f'{lab} annual value',f'{pre}_annual_value','num','usd',True); M(lab,f'{lab} total value',f'{pre}_total_value','num','usd',True); M(lab,f'{lab} expires',f'f_{pre}_expires','formula','yr')
@@ -212,7 +213,34 @@ def put_cell(cell,val,font,fmt=None,fill=None,border=None,align=None):
 # ---- summary scopes: each fiscal year present in the data (newest first), then all years ----
 FYS=sorted({resolved[s['name']]['fin_fiscal_year'][0] for s in order},reverse=True)
 SCOPES=[(fy,f'FY{fy}') for fy in FYS]+[('All','All years')]
-STATS=(('Average','AVERAGE'),('Median','MEDIAN'))
+STATS=(('Average','AVERAGE'),('Median','MEDIAN'),('Count','COUNT'))   # Count = schools with a value in the column
+BASES=('Sportico (MFRS compilation)','MFRS own posting','EADA')
+BASC=COL['fin_basis']
+def counts_for(m,fy): return m['key']!='school' and (fy=='All' or m['sec']=='Financial')   # fiscal-year counts cover the financial columns only
+def breakdown(ws,top,cols,count_formula):
+    """Small table of school counts by fiscal year reported and by financial source basis. cols: header labels for the
+    count columns; count_formula(kind, label_cell, header_cell, j) returns the formula for one count cell."""
+    out=dict(header=top,cols=cols,fy={},basis={})
+    for j,h in enumerate(['Data breakdown']+cols):
+        c=ws.cell(row=top,column=1+OFF+j,value=h); c.font=F_HDR; c.fill=FILL_BLACK; c.border=B_TB; c.alignment=CENTER
+    r=top+1
+    for kind,title,items in (('fy','Schools by fiscal year reported',FYS),('basis','Schools by financial source basis',BASES)):
+        for j in range(len(cols)+1):
+            c=ws.cell(row=r,column=1+OFF+j); c.fill=FILL_SEC; c.font=F_B; c.border=B_TB
+        ws.cell(row=r,column=1+OFF).value=title; r+=1; first=r
+        for it in items:
+            lab=ws.cell(row=r,column=1+OFF,value=it); lab.font=F_BASE; lab.alignment=IND1
+            if kind=='fy': lab.number_format='"FY"0'
+            for j in range(len(cols)):
+                c=ws.cell(row=r,column=2+OFF+j,value=count_formula(kind,f'${CL(1)}{r}',f'{CL(2+j)}${top}',j,r)); c.font=F_BASE; c.number_format=FMT['cnt']
+            out[kind][str(it)]=r; r+=1
+        for j in range(len(cols)+1):
+            c=ws.cell(row=r,column=1+OFF+j); c.font=F_B; c.border=B_T
+            if j==0: c.value='Total'; c.alignment=IND1
+            else: c.value=f'=SUM({CL(1+j)}{first}:{CL(1+j)}{r-1})'; c.number_format=FMT['cnt']
+        out[kind+'_total']=r; r+=1
+    out['last']=r-1
+    return out
 FYC=COL['fin_fiscal_year']
 F_BG=Font(name=FN,size=FS,bold=True,color='008000')
 def summary_style(cell,top=False,bottom=False):
@@ -242,6 +270,7 @@ for conf,sname in CONFS:
                 elif key=='f_subsidy': f=f'=IF(AND(ISNUMBER({A("direct_institutional_support")}),ISNUMBER({A("student_fees")})),{A("direct_institutional_support")}+{A("student_fees")}+IF(ISNUMBER({A("indirect_institutional_support")}),{A("indirect_institutional_support")},0),"--")'
                 elif key=='f_other_sports_revenue': f=f'=IF(AND(ISNUMBER({A("total_operating_revenue")}),ISNUMBER({A("fb_revenue")}),ISNUMBER({A("mbb_revenue")}),ISNUMBER({A("nonprogram_revenue")})),{A("total_operating_revenue")}-{A("fb_revenue")}-{A("mbb_revenue")}-{A("nonprogram_revenue")},"--")'
                 elif key=='f_subsidy_pct': f=f'=IF(AND(ISNUMBER({A("f_subsidy")}),ISNUMBER({A("total_operating_revenue")}),{A("total_operating_revenue")}>0),{A("f_subsidy")}/{A("total_operating_revenue")},"--")'
+                elif key=='f_mbb_attendance_pct_capacity': f=f'=IF(AND(ISNUMBER({A("mbb_avg_attendance_2526")}),ISNUMBER({A("arena_capacity")}),{A("arena_capacity")}>0),{A("mbb_avg_attendance_2526")}/{A("arena_capacity")},"--")'
                 elif key=='f_fb_winpct': f=f'=IF(AND(ISNUMBER({A("fb_wins_2021_25")}),ISNUMBER({A("fb_losses_2021_25")})),{A("fb_wins_2021_25")}/({A("fb_wins_2021_25")}+{A("fb_losses_2021_25")}),"--")'
                 elif key=='f_mbb_winpct': f=f'=IF(AND(ISNUMBER({A("mbb_wins_2122_2526")}),ISNUMBER({A("mbb_losses_2122_2526")})),{A("mbb_wins_2122_2526")}/({A("mbb_wins_2122_2526")}+{A("mbb_losses_2122_2526")}),"--")'
                 elif key.endswith('_expires'):
@@ -271,17 +300,24 @@ for conf,sname in CONFS:
         for k,(fy,slab) in enumerate(SCOPES):
             rr=summary[st][str(fy)]
             for i,m in enumerate(S,1):
-                cell=ws.cell(row=rr,column=i+OFF); summary_style(cell,top=(k==0),bottom=(st=='Median' and k==len(SCOPES)-1))
+                cell=ws.cell(row=rr,column=i+OFF); summary_style(cell,top=(k==0),bottom=(st==STATS[-1][0] and k==len(SCOPES)-1))
                 rng=f'{CL(i)}{R0}:{CL(i)}{R0+n-1}'; crit=f'${CL(FYC)}{rr}'
                 if i==1: cell.value=f'{st}, {slab}'; continue
                 if i==FYC: cell.value=fy; cell.number_format=FMT['yr']; cell.alignment=Alignment(horizontal='right'); continue
+                if st=='Count':
+                    if not counts_for(m,fy): cell.value='--'; continue
+                    cell.number_format=FMT['cnt']
+                    cell.value=f'=SUMPRODUCT(--({rng}<>"--"))' if fy=='All' else f'=SUMPRODUCT(({fyr}={crit})*({rng}<>"--"))'
+                    continue
                 if not m['agg'] or (fy!='All' and not m['byfy']): cell.value='--'; continue
                 cell.number_format=FMT[m['fmt']]
                 if fy=='All': cell.value=f'=IFERROR({fn}({rng}),"--")'
                 elif st=='Average': cell.value=f'=IFERROR(AVERAGEIFS({rng},{fyr},{crit}),"--")'
                 else: cell.value=ArrayFormula(cell.coordinate,f'=IFERROR(MEDIAN(IF({fyr}={crit},{rng},"")),"--")')
     widths={i:max(len(m['hdr']),max((len(str(resolved[s['name']][m['key']][0] or '--')) for s in ss),default=0) if m['kind']!='formula' else 14)+2 for i,m in enumerate(S,1)}
-    widths[1]=max(widths[1],22); setw(ws,widths); ws.freeze_panes=f'{CL(2)}{R0}'
+    basr=f'${CL(BASC)}${R0}:${CL(BASC)}${R0+n-1}'
+    conf_layout[conf]['breakdown']=breakdown(ws,conf_layout[conf]['sum_last']+2,['Schools'],lambda kind,lab,hdr,j,r,fyr=fyr,basr=basr: f'=COUNTIF({fyr if kind=="fy" else basr},{lab})')
+    widths[1]=max(widths[1],30); setw(ws,widths); ws.freeze_panes=f'{CL(2)}{R0}'
 
 # ---- All Schools ----
 ws=wb.create_sheet('All Schools',0)
@@ -307,6 +343,13 @@ for fy,slab in SCOPES:
             if i==1: cell.value=f'{conf} {st.lower()}, {slab}'; continue
             if i==2: cell.value=conf; continue
             if i==FYC: cell.value=fy; cell.number_format=FMT['yr']; cell.alignment=Alignment(horizontal='right'); continue
+            if st=='Count':
+                if not counts_for(m,fy): cell.value='--'; continue
+                cell.number_format=FMT['cnt']; terms=[f'({rng}<>"--")']
+                if fy!='All': terms.insert(0,f'({fyr}={cf})')
+                if conf!='All schools': terms.insert(0,f'({confr}={cc})')
+                cell.value=f'=SUMPRODUCT(--{terms[0]})' if len(terms)==1 else f'=SUMPRODUCT({"*".join(terms)})'
+                continue
             if not m['agg'] or (fy!='All' and not m['byfy']): cell.value='--'; continue
             cell.number_format=FMT[m['fmt']]
             if conf!='All schools' and st=='Median':
@@ -316,6 +359,11 @@ for fy,slab in SCOPES:
             elif st=='Average': cell.value=f'=IFERROR(AVERAGEIFS({rng},{fyr},{cf}),"--")'
             else: cell.value=ArrayFormula(cell.coordinate,f'=IFERROR(MEDIAN(IF({fyr}={cf},{rng},"")),"--")')
     blk['last']=r+len(block)-1; all_blocks.append(blk); r+=len(block)+1
+basr=f'${CL(BASC)}${all_first}:${CL(BASC)}${all_last}'; NCF=len(CONFS)
+def all_count(kind,lab,hdr,j,r):
+    if j==NCF: return f'=SUM({CL(2)}{r}:{CL(1+NCF)}{r})'
+    return f'=COUNTIFS({confr},{hdr},{fyr if kind=="fy" else basr},{lab})'
+all_breakdown=breakdown(ws,r,[c for c,_ in CONFS]+['All schools'],all_count)
 setw(ws,{i:max(len(m['hdr']),14)+2 for i,m in enumerate(S,1)}); ws.column_dimensions[CL(1)].width=30; ws.freeze_panes=f'{CL(2)}{R0}'
 
 # ---- Read Me ----
@@ -329,7 +377,9 @@ lines=[
  "Other sources: NCAA APR and GSR search tools (2024-25 release), IPEDS fall 2024 headcount, ESPN standings (football 2021-25) and Sports-Reference (men's basketball 2021-22 to 2025-26), NACDA Directors' Cup final standings (2024-25 and 2025-26), school and partner releases and trade press for venues and commercial deals.",
  "Football average home attendance (2023, 2024, 2025) is the Final Average column of the D1.ticker FBS Attendance Trends page for each season, as displayed; the pages do not state their underlying data source or whether figures are announced or paid.",
  "Men's basketball average home attendance (2025-26) is the Average column of the Division I Team-by-Team Attendance table in the NCAA Men's Basketball Attendance Records book (through 2025-26).",
- f"Averages and medians: financial line items (the MFRS columns) are shown for {', '.join(l for _,l in SCOPES[:-1])} and for all years, using the Fiscal year column as the filter; every other column is summarized across all years only. Summary rows sit under the schools on each conference tab and, by conference and for all schools, on All Schools.",
+ "Percent of capacity covers the same year for both sports: football 2025 is the Capacity % column of the D1.ticker 2025 page, as reported (D1.ticker does not publish the capacity it divides by, so it can differ from the Stadium capacity column); men's basketball 2025-26 is a formula, average home attendance divided by Arena capacity, because the NCAA book reports no percentage.",
+ f"Averages, medians and counts: financial line items (the MFRS columns) are shown for {', '.join(l for _,l in SCOPES[:-1])} and for all years, using the Fiscal year column as the filter; every other column is summarized across all years only. Count rows give the number of schools with a value in each column. Summary rows sit under the schools on each conference tab and, by conference and for all schools, on All Schools.",
+ "Data breakdown: under the summary rows, each conference tab and All Schools carry a table counting schools by fiscal year reported and by financial source basis. EADA is zero by design: schools with only EADA data are excluded from the workbook.",
  "Revenue breakout: Football, Men's basketball and Non-program-specific revenue are the sport columns of the MFRS Total Operating Revenues line; Other sports revenue is the remainder by formula.",
  'Conventions: blue cells are hardcoded figures (many carry a source hyperlink), black cells are formulas and identity text, green cells are links to another tab, gray rows are averages and medians, yellow is the input cell on School Lookup; financial cells are sourced through the hyperlink on Financial source basis; "--" means not publicly sourced, with the reason in Source Log.',
  'No newspaper-compiled finance or coaching-salary databases are used anywhere in this workbook. Date accessed for all sources: 2026-11-09 and 2026-11-10.',
@@ -386,4 +436,4 @@ names=['Read Me','All Schools']+[sn for _,sn in CONFS]+['Source Log','School Loo
 wb._sheets=[wb[n] for n in names]
 for ws in wb: ws.sheet_view.showGridLines=False
 wb.save(OUT); print('saved',OUT,'sheets',len(wb.sheetnames),'sourcelog rows',len(sourcelog))
-json.dump(dict(S=S,conf_layout=conf_layout,all_first=all_first,all_last=all_last,all_blocks=all_blocks,fiscal_years=FYS,n_schools=NS,excluded=EXCLUDED,col_offset=OFF,header_row=R_HDR),open('data/workbook_layout.json','w'))
+json.dump(dict(S=S,conf_layout=conf_layout,all_first=all_first,all_last=all_last,all_blocks=all_blocks,all_breakdown=all_breakdown,bases=list(BASES),fiscal_years=FYS,n_schools=NS,excluded=EXCLUDED,col_offset=OFF,header_row=R_HDR),open('data/workbook_layout.json','w'))

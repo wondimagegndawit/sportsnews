@@ -27,7 +27,7 @@ python3 -I scripts/qa.py
 
 ## Averages and medians
 
-Financial line items (the MFRS columns) are summarized for each fiscal year present in the data and for all years; every other column is summarized across all years only. The summary rows sit under the schools on each conference tab and, by conference and for all schools, on `All Schools`. The fiscal-year medians are array formulas.
+Financial line items (the MFRS columns) are summarized for each fiscal year present in the data and for all years; every other column is summarized across all years only. The summary rows sit under the schools on each conference tab and, by conference and for all schools, on `All Schools`. The fiscal-year medians are array formulas. Count rows give the number of schools with a value in each column for the same scopes. Below the summary rows, a Data breakdown table counts schools by fiscal year reported and by financial source basis (per conference on `All Schools`); EADA is zero by design because EADA-only schools are excluded.
 
 ## Football attendance
 
@@ -36,3 +36,7 @@ Financial line items (the MFRS columns) are summarized for each fiscal year pres
 ## Men's basketball attendance
 
 `data/ncaa_attendance/Attend.pdf` is the NCAA Men's Basketball Attendance Records book (through 2025-26), saved unmodified, with `Attend_layout.txt` as its `pdftotext -layout` extract. The same script reads the Average column of the Division I team-by-team table for 2025-26 and checks that the table ties to the PDF's Division I home totals. The PDF carries team figures for 2025-26 only.
+
+## Percent of capacity
+
+Both sports use the same year. Football 2025 is the Capacity % column of the D1.ticker 2025 page, as reported; D1.ticker does not publish the capacity it divides by, so the figure can differ from attendance divided by the workbook's Stadium capacity column. Men's basketball 2025-26 is a workbook formula, average home attendance divided by Arena capacity, because the NCAA book reports no percentage.
