@@ -233,6 +233,7 @@ STATS=(('Average','AVERAGE'),('Median','MEDIAN'),('Count','COUNT'))   # Count = 
 BASES=('Sportico (MFRS compilation)','MFRS own posting','EADA')
 BASC=COL['fin_basis']; FYC=COL['fin_fiscal_year']; DTC=COL['f_fin_data_type']
 F_BG=Font(name=FN,size=FS,bold=True,color='008000')
+NOT_DASH='"<>--"'   # COUNTIFS criterion: the cell holds a value, not the -- placeholder
 def counts_for(m,key): return m['key']!='school' and (key=='All' or m['sec']=='Financial')   # scoped counts cover the financial columns only
 def breakdown(ws,top,cols,count_formula):
     """Table of school counts: by financial data type and fiscal year, then by financial source basis.
@@ -335,7 +336,7 @@ for conf,sname in CONFS:
                 if st=='Count':
                     if not counts_for(m,key): cell.value='--'; continue
                     cell.number_format=FMT['cnt']
-                    cell.value=f'=SUMPRODUCT(--({rng}<>"--"))' if not terms else f'=SUMPRODUCT({"*".join(terms)}*({rng}<>"--"))'
+                    cell.value=f'=COUNTIFS({",".join(crit+[rng,NOT_DASH])})'
                     continue
                 if not m['agg'] or (key!='All' and not m['byfy']): cell.value='--'; continue
                 cell.number_format=FMT[m['fmt']]
@@ -344,7 +345,7 @@ for conf,sname in CONFS:
                 else: cell.value=ArrayFormula(cell.coordinate,f'=IFERROR(MEDIAN(IF({"*".join(terms)},{rng},"")),"--")')
     widths={i:max(len(m['hdr']),max((len(str(resolved[s['name']][m['key']][0] or '--')) for s in ss),default=0) if m['kind']!='formula' else 14)+2 for i,m in enumerate(S,1)}
     basr=f'${CL(BASC)}${R0}:${CL(BASC)}${R0+n-1}'
-    conf_layout[conf]['breakdown']=breakdown(ws,conf_layout[conf]['sum_last']+2,['Schools'],lambda kind,bandc,lab,hdr,j,r,fyr=fyr,basr=basr,typer=typer: (f'=COUNTIFS({typer},{bandc},{fyr},{lab})' if kind=='fy' else f'=COUNTIF({basr},{lab})'))
+    conf_layout[conf]['breakdown']=breakdown(ws,conf_layout[conf]['sum_last']+2,['Schools'],lambda kind,bandc,lab,hdr,j,r,fyr=fyr,basr=basr,typer=typer: (f'=COUNTIFS({typer},{bandc},{fyr},{lab})' if kind=='fy' else f'=COUNTIFS({basr},{lab})'))
     widths[1]=max(widths[1],30); setw(ws,widths); ws.freeze_panes=f'{CL(2)}{R0}'
 
 # ---- All Schools ----
@@ -375,8 +376,9 @@ for key,ty,fy,slab in SCOPES:
             terms=([f'({confr}={cc})'] if conf!='All schools' else [])+([f'({typer}={ct})'] if ty!='All' else [])+([f'({fyr}={cf})'] if fy!='All' else [])
             if st=='Count':
                 if not counts_for(m,key): cell.value='--'; continue
-                cell.number_format=FMT['cnt']; terms=terms+[f'({rng}<>"--")']
-                cell.value=f'=SUMPRODUCT(--{terms[0]})' if len(terms)==1 else f'=SUMPRODUCT({"*".join(terms)})'
+                cell.number_format=FMT['cnt']
+                crit=([confr,cc] if conf!='All schools' else [])+([typer,ct] if ty!='All' else [])+([fyr,cf] if fy!='All' else [])
+                cell.value=f'=COUNTIFS({",".join(crit+[rng,NOT_DASH])})'
                 continue
             if not m['agg'] or (key!='All' and not m['byfy']): cell.value='--'; continue
             cell.number_format=FMT[m['fmt']]
