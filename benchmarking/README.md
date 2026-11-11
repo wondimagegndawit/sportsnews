@@ -27,7 +27,7 @@ python3 -I scripts/qa.py
 
 ## Averages, medians and counts
 
-Financial line items are summarized separately for each (financial data type, fiscal year) scope in the data (MFRS FY2025, MFRS FY2024, EADA FY2025), so MFRS and EADA figures are never averaged together in those rows; an overall row covers every school, and every non-financial column is summarized overall only. Count rows give the number of schools with a value in each column. The summary rows sit under the schools on each conference tab and, by conference and for all schools, on `All Schools`. The scoped medians are array formulas. Below the summary rows, a Data breakdown table counts schools by data type and fiscal year, and by financial source basis.
+Financial line items are summarized across a grid of fiscal year (each year, then all years) by data source (MFRS, EADA, then all sources); combinations with no schools are left out. Rows marked MFRS or EADA never mix the two; rows marked all sources do. An overall row covers every school, and every non-financial column is summarized overall only. Count rows give the number of schools with a value in each column. The summary rows sit under the schools on each conference tab and, by conference and for all schools, on `All Schools`. The scoped medians are array formulas. Below the summary rows, a Data breakdown table counts schools by data type and fiscal year, and by financial source basis.
 
 There are no per-school tabs; `School Lookup` covers every school.
 

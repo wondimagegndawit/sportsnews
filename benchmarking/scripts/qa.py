@@ -67,7 +67,7 @@ def check(sheet,rr,st,key,rows):
     for i,m in enumerate(S,1):
         if i in (1,FYC,DTC) or (i==2 and sheet=='All Schools'): continue
         got=wbv[sheet].cell(row=rr,column=i+OFF).value
-        scope=[row[i-1] for row in rows if key=='All' or (row[DTC-1]==ty and row[FYC-1]==fy)]
+        scope=[row[i-1] for row in rows if (ty=='All' or row[DTC-1]==ty) and (fy=='All' or row[FYC-1]==fy)]
         if st=='Count': exp=sum(1 for v in scope if v!='--') if (key=='All' or m['sec']=='Financial') else '--'
         elif not m['agg'] or (key!='All' and not m['byfy']): exp='--'
         else: exp=expect(scope,st)
