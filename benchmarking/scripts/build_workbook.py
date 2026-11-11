@@ -189,7 +189,7 @@ NS=len(order); print('schools kept',NS,'excluded',EXCLUDED)
 BRAND=CellRichText(TextBlock(InlineFont(rFont='Montserrat',sz=11,b=True,color='000000'),'SMASH'),TextBlock(InlineFont(rFont='Montserrat',sz=11,b=False,color='000000'),'SPORTS')); ENTITY='Power 4 Athletic Department Benchmarking'
 FN='Aptos Narrow'; FS=9
 F_BASE=Font(name=FN,size=FS); F_B=Font(name=FN,size=FS,bold=True); F_I=Font(name=FN,size=FS,color='008000'); F_HC=Font(name=FN,size=FS,color='0000FF')
-F_HDR=Font(name=FN,size=FS,color='FFFFFF'); F_BRAND=Font(name='Montserrat',size=11,color='000000'); F_LINKED=Font(name=FN,size=FS,color='0000FF')   # hardcode with a source hyperlink attached: blue, no underline
+F_HDR=Font(name=FN,size=FS,color='FFFFFF'); F_BRAND=Font(name='Montserrat',size=11,color='000000'); F_LINKED=Font(name=FN,size=FS,color='0000FF',underline='single')   # hardcode with a source hyperlink attached: blue, underlined
 FILL_BLACK=PatternFill('solid',fgColor='000000'); FILL_SEC=PatternFill('solid',fgColor='E8E8E8'); FILL_IN=PatternFill('solid',fgColor='FFFFCC'); FILL_SUB=PatternFill('solid',fgColor='D9D9D9')
 THIN=Side(style='thin',color='000000'); DBL=Side(style='double',color='000000')
 B_TB=Border(top=THIN,bottom=THIN); B_T=Border(top=THIN); B_TOT=Border(top=THIN,bottom=DBL)
@@ -389,7 +389,7 @@ lines=[
  f"Averages, medians and counts: financial line items (the MFRS columns) are shown for {', '.join(l for _,l in SCOPES[:-1])} and for all years, using the Fiscal year column as the filter; every other column is summarized across all years only. Count rows give the number of schools with a value in each column. Summary rows sit under the schools on each conference tab and, by conference and for all schools, on All Schools.",
  "Data breakdown: under the summary rows, each conference tab and All Schools carry a table counting schools by fiscal year reported and by financial source basis. EADA is zero by design: schools with only EADA data are excluded from the workbook.",
  "Revenue breakout: Football, Men's basketball and Non-program-specific revenue are the sport columns of the MFRS Total Operating Revenues line; Other sports revenue is the remainder by formula.",
- 'Conventions: blue cells are hardcoded figures (many carry a source hyperlink), black cells are formulas and identity text, green cells are links to another tab, gray rows are averages and medians, yellow is the input cell on School Lookup; financial cells are sourced through the hyperlink on Financial source basis; "--" means not publicly sourced, with the reason in Source Log.',
+ 'Conventions: blue cells are hardcoded figures (underlined where a source hyperlink is attached), black cells are formulas and identity text, green cells are links to another tab, gray rows are averages and medians, yellow is the input cell on School Lookup; financial cells are sourced through the hyperlink on Financial source basis; "--" means not publicly sourced, with the reason in Source Log.',
  'No newspaper-compiled finance or coaching-salary databases are used anywhere in this workbook. Date accessed for all sources: 2026-11-09 and 2026-11-10.',
 ]
 for k,t in enumerate(lines): ws.cell(row=R0+k,column=1+OFF,value=t).font=F_BASE

@@ -36,7 +36,8 @@ for ws in wbf:
             f=cell.font
             if (f.name not in ('Aptos Narrow','Montserrat')) or (f.name=='Aptos Narrow' and f.size and float(f.size)!=9) or (cell.alignment and cell.alignment.wrap_text): fontbad.append((ws.title,cell.coordinate))
 print('  font/wrap issues',len(fontbad))
-print('  underlined cells',sum(1 for ws in wbf for row in ws.iter_rows() for cell in row if cell.value is not None and cell.font.u))
+_cells=[cell for ws in wbf for row in ws.iter_rows() for cell in row if cell.value is not None]
+print('  hyperlinked cells',sum(1 for c in _cells if c.hyperlink),'| underlined cells',sum(1 for c in _cells if c.font.u),'| underline without hyperlink',sum(1 for c in _cells if c.font.u and not c.hyperlink),'| hyperlink without underline',sum(1 for c in _cells if c.hyperlink and not c.font.u))
 empt=0
 for ws in wbv:
     if ws.title in confs or ws.title in ('Read Me','Source Log'): continue
