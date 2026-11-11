@@ -1,0 +1,68 @@
+school,conference,in_workbook,d1ticker_2025_final_average,ncaa_2025_average,difference,ncaa_home_games,ncaa_total_home_attendance,result
+Boston College,ACC,no,41090,41090,0,7,287627,ties
+California,ACC,yes,34991,34991,0,6,209944,ties
+Clemson,ACC,yes,79142,79142,0,7,553996,ties
+Duke,ACC,no,24283,24283,0,6,145698,ties
+Florida State,ACC,yes,65876,65876,0,7,461131,ties
+Georgia Tech,ACC,yes,47694,51413,-3719,7,359889,differs
+Louisville,ACC,yes,50292,50292,0,8,402336,ties
+Miami (FL),ACC,no,63834,63834,0,8,510673,ties
+North Carolina,ACC,yes,50500,50500,0,6,303000,ties
+NC State,ACC,yes,56919,56919,0,7,398433,ties
+Pittsburgh,ACC,no,51845,51845,0,7,362917,ties
+SMU,ACC,no,33530,33532,-2,6,201194,differs
+Stanford,ACC,no,28171,28171,0,6,169024,ties
+Syracuse,ACC,no,38605,38605,0,6,231627,ties
+Virginia,ACC,yes,48776,48776,0,7,341433,ties
+Virginia Tech,ACC,yes,59946,59946,0,7,419620,ties
+Wake Forest,ACC,no,29433,29433,0,7,206033,ties
+Illinois,Big Ten,yes,58350,58350,0,7,408453,ties
+Indiana,Big Ten,yes,51184,51184,0,7,358291,ties
+Iowa,Big Ten,yes,69250,69250,0,7,484751,ties
+Maryland,Big Ten,yes,40765,40765,0,7,285356,ties
+Michigan,Big Ten,yes,110842,110842,0,6,665049,ties
+Michigan State,Big Ten,yes,70389,64664,5725,7,452650,differs
+Minnesota,Big Ten,yes,46519,46519,0,7,325635,ties
+Nebraska,Big Ten,yes,86549,86549,0,7,605845,ties
+Northwestern,Big Ten,no,11548,15898,-4350,7,111285,differs
+Ohio State,Big Ten,yes,104105,104105,0,7,728735,ties
+Oregon,Big Ten,yes,58582,58150,432,8,465201,differs
+Penn State,Big Ten,yes,107093,107093,0,7,749654,ties
+Purdue,Big Ten,yes,56581,56581,0,7,396070,ties
+Rutgers,Big Ten,yes,48459,48459,0,7,339212,ties
+UCLA,Big Ten,yes,37282,37282,0,6,223694,ties
+USC,Big Ten,no,67783,67782,1,7,474477,differs
+Washington,Big Ten,yes,68238,68238,0,7,477663,ties
+Wisconsin,Big Ten,yes,70403,70403,0,7,492819,ties
+Arizona,Big 12,yes,41782,41782,0,7,292471,ties
+Arizona State,Big 12,yes,54444,54444,0,7,381109,ties
+Baylor,Big 12,no,39447,39778,-331,7,278444,differs
+BYU,Big 12,no,63789,63789,0,6,382733,ties
+Cincinnati,Big 12,yes,36052,36052,0,7,252364,ties
+Colorado,Big 12,yes,50469,50469,0,7,353284,ties
+Houston,Big 12,yes,32215,32215,0,6,193291,ties
+Iowa State,Big 12,yes,60862,60862,0,6,365174,ties
+Kansas,Big 12,yes,39478,39478,0,7,276346,ties
+Kansas State,Big 12,yes,51773,51773,0,6,310639,ties
+Oklahoma State,Big 12,yes,44664,44664,0,7,312649,ties
+TCU,Big 12,no,43319,43319,0,6,259911,ties
+Texas Tech,Big 12,yes,60143,60143,0,7,420999,ties
+UCF,Big 12,yes,43409,43409,0,7,303861,ties
+Utah,Big 12,yes,51701,51701,0,6,310208,ties
+West Virginia,Big 12,yes,54506,54506,0,6,327036,ties
+Alabama,SEC,yes,100077,100077,0,7,700539,ties
+Arkansas,SEC,yes,69762,67542,2220,7,472795,differs
+Auburn,SEC,yes,88043,88043,0,7,616301,ties
+Florida,SEC,yes,90125,90125,0,6,540749,ties
+Georgia,SEC,yes,93033,93033,0,7,651231,ties
+Kentucky,SEC,yes,57779,57779,0,7,404456,ties
+LSU,SEC,yes,101575,101575,0,7,711024,ties
+Mississippi State,SEC,yes,53186,53186,0,7,372300,ties
+Missouri,SEC,yes,57321,57321,0,8,458568,ties
+Oklahoma,SEC,yes,83532,83534,-2,8,668273,differs
+Ole Miss,SEC,yes,66772,66936,-164,9,602425,differs
+South Carolina,SEC,yes,79334,79334,0,7,555340,ties
+Tennessee,SEC,yes,101915,101915,0,7,713405,ties
+Texas,SEC,yes,102367,102367,0,6,614200,ties
+Texas A&M,SEC,yes,106159,105904,255,8,847235,differs
+Vanderbilt,SEC,no,34813,34813,0,7,243688,ties
