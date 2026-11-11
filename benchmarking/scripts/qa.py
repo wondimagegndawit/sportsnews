@@ -65,7 +65,7 @@ def check(sheet,rr,st,key,rows):
     global nsum
     _,ty,fy,_lab=SC[key]
     for i,m in enumerate(S,1):
-        if i in (1,FYC,DTC) or (i==2 and sheet=='All Schools'): continue
+        if i in (1,FYC,DTC): continue
         got=wbv[sheet].cell(row=rr,column=i+OFF).value
         scope=[row[i-1] for row in rows if (ty=='All' or row[DTC-1]==ty) and (fy=='All' or row[FYC-1]==fy)]
         if st=='Count': exp=sum(1 for v in scope if v!='--') if (key=='All' or m['sec']=='Financial') else '--'
@@ -77,8 +77,10 @@ def check(sheet,rr,st,key,rows):
 for c in confs:
     for st,d in lay['conf_layout'][c]['summary'].items():
         for key,rr in d.items(): check(c,rr,st,key,school[c])
-for b in lay['all_blocks']:
-    for rr,st,conf in b['rows']: check('All Schools',rr,st,b['scope'],[x for k,v in school.items() for x in v] if conf=='All schools' else school[conf])
+allrows=[x for c in confs for x in school[c]]
+for st,d in lay['all_layout']['summary'].items():
+    for key,rr in d.items(): check('All Schools',rr,st,key,allrows)
+print('  conference names left in the All Schools summary rows',sum(1 for r in range(lay['all_layout']['sum_first'],lay['all_layout']['breakdown']['last']+1) for c in range(1,8) if wbv['All Schools'].cell(row=r,column=c+OFF).value in confs))
 print('  summary cells recomputed',nsum,'| mismatches',len(sbad),sbad[:5])
 # 8: data-breakdown tables (schools by data type and fiscal year, and by financial source basis)
 BASC=[i for i,m in enumerate(S,1) if m['key']=='fin_basis'][0]; bbad=[]; nb=0
@@ -100,7 +102,7 @@ def bcheck(sheet,bd,groups):
         nb+=1
         if cellv(bd['basis_total'],j)!=tot or tot!=len(rows): bbad.append((sheet,bd['basis_total'],'basis total',j,cellv(bd['basis_total'],j),tot,len(rows)))
 for c in confs: bcheck(c,lay['conf_layout'][c]['breakdown'],[school[c]])
-bd=lay['all_breakdown']; bcheck('All Schools',bd,[school[c] for c in confs]+[[x for c in confs for x in school[c]]])
+bd=lay['all_layout']['breakdown']; bcheck('All Schools',bd,[allrows])
 print('8 breakdown cells recomputed',nb,'| mismatches',len(bbad),bbad[:5])
 print('  All Schools breakdown:',bd['cols'])
 for ty,d in bd['types'].items():
