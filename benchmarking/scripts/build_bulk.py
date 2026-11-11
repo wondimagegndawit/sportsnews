@@ -1,5 +1,5 @@
 """Build bulk-derived values (identity, EADA financial fallback, enrollment, academics, records, Directors' Cup)
-for the 67 Power 4 schools from the raw downloads in data/. Writes data/bulk_values.csv in the common research schema:
+for the 67 Power 4 schools and Notre Dame from the raw downloads in data/. Writes data/bulk_values.csv in the common research schema:
 school,metric,value,unit,fiscal_year_or_season,source_name,source_url,date_accessed,notes
 """
 import csv, json, re, os, sys
@@ -8,7 +8,9 @@ DATE='2026-11-09'
 master=json.load(open('data/schools_master.json'))
 out=[]
 def add(school, metric, value, unit, fy, sname, url, notes=''):
-    out.append(dict(school=school,metric=metric,value=value,unit=unit,fiscal_year_or_season=fy,source_name=sname,source_url=url,date_accessed=DATE,notes=notes))
+    # Notre Dame was added on 2026-11-11: its NCAA academic records and Sports-Reference page were fetched that day
+    d='2026-11-11' if school=='Notre Dame' and ('NCAA' in sname or 'Sports-Reference' in sname) else DATE
+    out.append(dict(school=school,metric=metric,value=value,unit=unit,fiscal_year_or_season=fy,source_name=sname,source_url=url,date_accessed=d,notes=notes))
 
 # ---------- Identity (IPEDS HD2024) ----------
 HD_URL='https://nces.ed.gov/ipeds/complete-data-files/HD2024.zip'

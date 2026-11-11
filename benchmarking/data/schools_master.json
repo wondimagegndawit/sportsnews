@@ -936,5 +936,19 @@
   "nacda": "Vanderbilt",
   "unitid": "221999",
   "apr_org": "736"
+ },
+ {
+  "name": "Notre Dame",
+  "conf": "Independent",
+  "control": "Private",
+  "state": "IN",
+  "flagship": "N",
+  "ipeds_name": "University of Notre Dame",
+  "apr_name": "University of Notre Dame",
+  "sr_cbb": "notre-dame",
+  "espn": "Notre Dame Fighting Irish",
+  "nacda": "Notre Dame",
+  "unitid": "152080",
+  "apr_org": "513"
  }
 ]

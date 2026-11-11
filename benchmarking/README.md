@@ -1,6 +1,6 @@
 # Power 4 athletic department benchmarking
 
-`Power4_Athletic_Department_Benchmarking.xlsx` benchmarks the 53 Power 4 athletic departments with public NCAA MFRS financial data (the 13 private universities and Pittsburgh are excluded). It was built from scratch with openpyxl (`scripts/`) and recalculated with LibreOffice; every hardcoded value on the conference tabs is hyperlinked to its source and logged on `Source Log`.
+`Power4_Athletic_Department_Benchmarking.xlsx` benchmarks 68 athletic departments: the 67 Power 4 schools and Notre Dame (a football independent, on its own `Independent` tab). 53 have public NCAA MFRS financial data; the other 15 (the private universities and Pittsburgh) carry the federal EADA 2024-25 figures instead, flagged in the Financial source basis and Financial data type columns. It was built from scratch with openpyxl (`scripts/`) and recalculated with LibreOffice; every hardcoded value on the conference tabs is hyperlinked to its source and logged on `Source Log`.
 
 ## Folders
 
@@ -25,9 +25,11 @@ python3 -I scripts/qa.py
 
 `merge_research.py` reads every CSV in `data/research/` and stops if it finds none. `qa.py` recomputes every average and median from the school rows and compares them with the recalculated workbook.
 
-## Averages and medians
+## Averages, medians and counts
 
-Financial line items (the MFRS columns) are summarized for each fiscal year present in the data and for all years; every other column is summarized across all years only. The summary rows sit under the schools on each conference tab and, by conference and for all schools, on `All Schools`. The fiscal-year medians are array formulas. Count rows give the number of schools with a value in each column for the same scopes. Below the summary rows, a Data breakdown table counts schools by fiscal year reported and by financial source basis (per conference on `All Schools`); EADA is zero by design because EADA-only schools are excluded.
+Financial line items are summarized separately for each (financial data type, fiscal year) scope in the data (MFRS FY2025, MFRS FY2024, EADA FY2025), so MFRS and EADA figures are never averaged together in those rows; an overall row covers every school, and every non-financial column is summarized overall only. Count rows give the number of schools with a value in each column. The summary rows sit under the schools on each conference tab and, by conference and for all schools, on `All Schools`. The scoped medians are array formulas. Below the summary rows, a Data breakdown table counts schools by data type and fiscal year, and by financial source basis.
+
+There are no per-school tabs; `School Lookup` covers every school.
 
 ## Attendance
 

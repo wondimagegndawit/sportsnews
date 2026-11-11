@@ -1,4 +1,4 @@
-# Master list of the 67 Power 4 schools with identifiers for each bulk dataset.
+# Master list of the 67 Power 4 schools plus Notre Dame, with identifiers for each bulk dataset.
 # fields: name, conf, control (Public/Private), state, flagship (Y/N), ipeds_name (IPEDS INSTNM), apr_name (NCAA org name), sr_cbb (sports-reference cbb slug), espn (ESPN displayName), nacda (NACDA institution text)
 SCHOOLS = [
  # ACC
@@ -72,6 +72,8 @@ SCHOOLS = [
  dict(name="Texas", conf="SEC", control="Public", state="TX", flagship="Y", ipeds_name="The University of Texas at Austin", apr_name="University of Texas at Austin", sr_cbb="texas", espn="Texas Longhorns", nacda="Texas"),
  dict(name="Texas A&M", conf="SEC", control="Public", state="TX", flagship="Y", ipeds_name="Texas A&M University-College Station", apr_name="Texas A&M University, College Station", sr_cbb="texas-am", espn="Texas A&M Aggies", nacda="Texas A&M"),
  dict(name="Vanderbilt", conf="SEC", control="Private", state="TN", flagship="N", ipeds_name="Vanderbilt University", apr_name="Vanderbilt University", sr_cbb="vanderbilt", espn="Vanderbilt Commodores", nacda="Vanderbilt"),
+ # Independent (football); an ACC member in most other sports
+ dict(name="Notre Dame", conf="Independent", control="Private", state="IN", flagship="N", ipeds_name="University of Notre Dame", apr_name="University of Notre Dame", sr_cbb="notre-dame", espn="Notre Dame Fighting Irish", nacda="Notre Dame"),   # IPEDS unitid 152080, NCAA org 513
 ]
-assert len(SCHOOLS)==67
-CONF_ORDER=["ACC","Big Ten","Big 12","SEC"]
+assert len(SCHOOLS)==68
+CONF_ORDER=["ACC","Big Ten","Big 12","SEC","Independent"]
