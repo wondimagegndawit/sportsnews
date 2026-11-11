@@ -72,7 +72,8 @@ for l in txt[a:b]:
 # tie-out: Division I home totals plus the four reclassifying teams, as printed on the summary page
 d1=next(l for l in txt if l.startswith('NCAA Division I Home Attendance')).split(); rc=[teams[x] for x in ('West Ga.','New Haven','Le Moyne','Mercyhurst')]
 assert len(teams)==n(d1[5])+4 and sum(v[0] for v in teams.values())==n(d1[6])+sum(v[0] for v in rc) and sum(v[1] for v in teams.values())==n(d1[7])+sum(v[1] for v in rc), 'team table does not tie to the Division I home totals'
-# leader tables in the same summary (each lists 30 teams): rank by average home attendance, all-games attendance
+# leader tables in the same summary (each lists 30 teams): rank by average home attendance (parsed only as a check on
+# the team table; the rank is not recorded), all-games attendance
 # (home, road, neutral), and largest increase in average from the previous year (which carries the 2024-25 average)
 NAME=r"([A-Z][A-Za-z.&'()\- ]*?[A-Za-z.)])"
 i_rank=next(i for i,l in enumerate(txt) if l.startswith('Rank School') and 'Average' in l and i>a); i_tbt=next(i for i,l in enumerate(txt) if l.startswith('Division I Team-by-Team Attendance'))
@@ -107,8 +108,6 @@ for s in master:
     add('mbb_home_games_2526',g,'games',SEA,MBB_SRC,f"G column as printed, row '{key}'; {tie}")
     add('mbb_total_home_attendance_2526',att,'fans',SEA,MBB_SRC,f"Attendance column as printed, row '{key}'; {tie}")
     add('mbb_avg_attendance_2526',avg,'fans per game',SEA,MBB_SRC,f"Average column as printed, row '{key}': {g} home games, total home attendance {att:,}; {tie}")
-    if key in leaders: add('mbb_avg_attendance_rank_2526',leaders[key],'rank',SEA,S_LEAD,f"Rank column as printed, row '{key}', in the table of the 30 Division I teams with the highest average home attendance.")
-    else: add('mbb_avg_attendance_rank_2526','--','rank',SEA,S_LEAD,'Not ranked in the source: '+TOP30+'.')
     if key in allgames:
         rk,tg,ta=allgames[key]
         add('mbb_all_games_2526',tg,'games',SEA,S_ALLG,f"Total Games column as printed, row '{key}' (rank {rk}); home, road and neutral-site games.")
