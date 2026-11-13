@@ -66,7 +66,7 @@ M('Institutional','Undergraduate enrollment','undergrad_enrollment','num','cnt',
 M('Performance','FB wins 2021-25','fb_wins_2021_25','num','cnt',True); M('Performance','FB losses 2021-25','fb_losses_2021_25','num','cnt',True); M('Performance','FB win % 2021-25','f_fb_winpct','formula','wp',True)
 M('Performance','MBB wins 2021-22 to 2025-26','mbb_wins_2122_2526','num','cnt',True); M('Performance','MBB losses 2021-22 to 2025-26','mbb_losses_2122_2526','num','cnt',True); M('Performance','MBB win % 2021-22 to 2025-26','f_mbb_winpct','formula','wp',True)
 M('Performance','Directors\' Cup rank 2024-25','dcup_rank_2425','num','cnt',True); M('Performance','Directors\' Cup points 2024-25','dcup_points_2425','num','pts',True); M('Performance','Directors\' Cup rank 2025-26','dcup_rank_2526','num','cnt',True); M('Performance','Directors\' Cup points 2025-26','dcup_points_2526','num','pts',True)
-M('Academic','FB multi-year APR','fb_apr_multiyear','num','idx',True); M('Academic','Department GSR (%)','dept_gsr','num','idx',True); M('Academic','FB GSR (%)','fb_gsr','num','idx',True); M('Academic','Academic data year','academic_data_year','text')
+M('Academic','FB multi-year APR, 2024-25','fb_apr_multiyear','num','idx',True); M('Academic','Department GSR (%), 2025 release','dept_gsr','num','idx',True); M('Academic','FB GSR (%), 2025 release','fb_gsr','num','idx',True); M('Academic','Academic data year','academic_data_year','text')
 for m in S: m['byfy']=bool(m['sec']=='Financial' and m['agg'])   # MFRS line items: averages and medians also broken out by fiscal year
 COL={m['key']:i+1 for i,m in enumerate(S)}; NC=len(S); LAST=L(NC)
 assert len({m['hdr'] for m in S})==NC
@@ -307,6 +307,7 @@ def summary_and_breakdown(ws,first,last):
                 else: cell.value=ArrayFormula(cell.coordinate,f'=IFERROR(MEDIAN(IF({"*".join(terms)},{rng},"")),"--")')
     bd=breakdown(ws,sum_last+2,['Schools'],lambda kind,bandc,lab,hdr,j,r: (f'=COUNTIFS({typer},{bandc},{fyr},{lab})' if kind=='fy' else f'=COUNTIFS({basr},{lab})'))
     return dict(first=first,last=last,avg=summary['Average']['All'],med=summary['Median']['All'],sum_first=last+1,sum_last=sum_last,summary=summary,breakdown=bd)
+NO_DERIVE={(r['school'],r['deal_prefix']) for r in csv.DictReader(open('data/no_derive.csv',encoding='utf-8'))} if os.path.exists('data/no_derive.csv') else set()
 # ---- conference tabs ----
 conf_rows={}; conf_layout={}
 for conf,sname in CONFS:
@@ -342,7 +343,8 @@ for conf,sname in CONFS:
             ca,ct,ctot=ws[A(pre+'_annual_value')],ws[A(pre+'_term_years')],ws[A(pre+'_total_value')]
             def formula_cell(c,f,fmt):
                 c.hyperlink=None; put_cell(c,f,F_BASE,fmt)
-            if a is not None and t is not None and tot is not None:
+            if (s['name'],pre) in NO_DERIVE: pass   # the reported figures do not describe the same period; show them as reported
+            elif a is not None and t is not None and tot is not None:
                 formula_cell(ctot,f'=IF(AND(ISNUMBER({A(pre+"_annual_value")}),ISNUMBER({A(pre+"_term_years")})),{A(pre+"_annual_value")}*{A(pre+"_term_years")},"--")','usd')
                 for row in sourcelog:
                     if row[0]==s['name'] and row[2]==next(mm['hdr'] for mm in S if mm['key']==pre+'_total_value'): row[10]=f'Reported total {tot:,}; cell shows Annual x Term per the deal-value rule. '+row[10]
@@ -385,6 +387,7 @@ lines=[
  "Financials for public schools come from the Sportico College Sports Finances Database, which compiles each school's NCAA MFRS report (FY2025, FY2024 where that is the latest posted); where the school also posts its own MFRS report, the Source Log records that figure as a cross-check.",
  'Deal dates: the expires column is the stated end year where a source gives one (blue), otherwise start year plus term (black formula). A start year is the stated effective year or, where the source gives only the announcement, the year the agreement was announced, as noted in Source Log. Coach contract end year is the year of the stated expiry date or final season.',
  'The Financial source basis column states Sportico, MFRS own posting or EADA for each school, Financial data type states MFRS or EADA, and the fiscal year column states the report year.',
+ "Graduation rates are the NCAA's most recent Graduation Success Rate release (published November 2025). It covers student-athletes who entered in 2015-16 through 2018-19, because the NCAA allows six years to graduate; no newer figure exists. APR is the 2024-25 multi-year rate.",
  "Other sources: NCAA APR and GSR search tools (2024-25 release), IPEDS fall 2024 headcount, ESPN standings (football 2021-25) and Sports-Reference (men's basketball 2021-22 to 2025-26), NACDA Directors' Cup final standings (2024-25 and 2025-26), school and partner releases and trade press for venues and commercial deals.",
  "Football attendance comes from the D1.ticker FBS Attendance Trends pages, as displayed: average home attendance for 2023, 2024 and 2025 (the Final Average column of each season's own page), and from the 2025 page the year-over-year change, the 5-year average (the page does not say which five seasons), the change against that 5-year average and the percent of capacity. The pages give averages only, with no totals or game counts, and do not state their underlying data source or whether figures are announced or paid.",
  "Men's basketball attendance comes from the 2026 Attendance Summary in the NCAA Men's Basketball Attendance Records book (through 2025-26): home games, total home attendance and average home attendance for every school. Columns marked top 30 come from NCAA leader tables that list only 30 teams (all-games attendance, and the prior-year average for the 30 largest increases); they show -- for other schools and carry no average or median.",
@@ -408,7 +411,7 @@ header(ws,hdr)
 VER={}
 if os.path.exists('data/verification.csv'):
     for v in csv.DictReader(open('data/verification.csv',encoding='utf-8')): VER[(v['school'],v['metric'])]=v
-BULK_HOSTS=('nces.ed.gov','ope.ed.gov','espn.com','sports-reference','nacda.com','d1ticker','fs.ncaa.org','sportico.com','web3.ncaa.org')
+BULK_HOSTS=('nces.ed.gov','ope.ed.gov','espn.com/college-football/standings','sports-reference.com/cbb/schools','nacda.com/documents','d1ticker.com','fs.ncaa.org','sportico.com','web3.ncaa.org')
 def same_value(a,b):
     try: return abs(float(str(a).replace(',',''))-float(str(b).replace(',','')))<1e-9
     except ValueError: return str(a).strip().lower()==str(b).strip().lower()
@@ -421,6 +424,10 @@ def verification(row):
     if re.search(r'deal type|pay source type|industry$|Financial source basis',metric) or str(value).lower() in ('none','in-house','other'): return 'Analyst classification'
     return 'Not re-verified'
 SNIP=r"search[- ](?:snippet|summary|excerpt|result)s?(?: excerpt| summary)?"
+PROC=re.compile(r"fetch tool|the brief|work[- ]list|allowed (?:source )?list|research note|search cap|cached copy|checker|verify/pages|permission system|"
+                r"(?:the |The )?[Ww]orkbook(?:\u2019s|'s| figure| \d| has| value| had| term| start| listed| shows| may| cell| lacks| carries| wants| convention)|\bHTTP \d{3}\b|returned (?:HTTP )?\d{3}|"
+                r"\b40[34]\b|\b410\b|did not render|would not render|rendered (?:only )?its title|returned only (?:its|the page) title|only (?:its|a) (?:page )?title|could not be opened|not fetchable|"
+                r"searches? (?:found|returned|used|turned)|one search|two searches|three searches|(?-i:\bFLAG\b)|judg(?:e)?ment call|your call|(?-i:\bI (?:could|found|read|did|recorded|took|confirmed|used|went|left|checked|saw)\b)|for you\b",re.I)
 def clean_note(text,confirmed):
     """Neutral wording for the audit trail: describe the state of the evidence, not how the research was run."""
     s=str(text)
@@ -438,9 +445,15 @@ def clean_note(text,confirmed):
                 (r'Partner name carried from earlier rounds','Partner name as previously sourced'),
                 (r'URL slug reconstructed from search result title - verify','Link built from the article title; open it to confirm it resolves')):
         s=re.sub(a,b,s,flags=re.I)
+    s=re.sub(r';?\s*not guessed','',s,flags=re.I)
+    # drop sentences that describe how a page was retrieved or refer to the research process; the audit trail keeps the
+    # statement of what the source says
+    parts=[x for x in re.split(r'(?<=[.;])\s+',s) if x and not PROC.search(x)]
+    s=' '.join(parts)
     if confirmed:   # the figure has since been found on the page itself, so the excerpt caveat no longer applies
         s=re.sub(r"[;,.]?\s*(?:value|values|terms|figure|name)?\s*(?:taken |read )?from (?:the )?(?:official page's |a )?"+SNIP+r"(?:/summary)?",'',s,flags=re.I)
         s=re.sub(r'\s*\(\s*(?:via |from )?'+SNIP+r'[^)]*\)','',s,flags=re.I); s=re.sub(r'[;,]?\s*'+SNIP+r' only','',s,flags=re.I)
+        s=re.sub(r'\s*\(per '+SNIP+r'[^)]*\)','',s,flags=re.I); s=re.sub(r'\s*per '+SNIP,'',s,flags=re.I)
     else:
         s=re.sub(SNIP,'search-result excerpt',s,flags=re.I)
     s=re.sub(r'\s{2,}',' ',s).strip(' ;,'); s=re.sub(r'^[a-z]',lambda m:m.group(0).upper(),s)
@@ -487,4 +500,4 @@ names=['Read Me','All Schools']+[sn for _,sn in CONFS]+['Source Log','School Loo
 wb._sheets=[wb[n] for n in names]
 for ws in wb: ws.sheet_view.showGridLines=False
 wb.save(OUT); print('saved',OUT,'sheets',len(wb.sheetnames),'sourcelog rows',len(sourcelog))
-json.dump(dict(S=S,conf_layout=conf_layout,all_first=all_first,all_last=all_last,all_layout=all_layout,bases=list(BASES),types=list(TYPES),scopes=[list(x) for x in SCOPES],fiscal_years=FYS,n_schools=NS,excluded=EXCLUDED,col_offset=OFF,header_row=R_HDR),open('data/workbook_layout.json','w'))
+json.dump(dict(S=S,conf_layout=conf_layout,all_first=all_first,all_last=all_last,all_layout=all_layout,no_derive=[list(x) for x in sorted(NO_DERIVE)],bases=list(BASES),types=list(TYPES),scopes=[list(x) for x in SCOPES],fiscal_years=FYS,n_schools=NS,excluded=EXCLUDED,col_offset=OFF,header_row=R_HDR),open('data/workbook_layout.json','w'))

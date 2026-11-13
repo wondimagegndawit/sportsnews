@@ -1,0 +1,36 @@
+school,metric,decision,reason
+Louisville,apparel_start_year,keep,Kept as the year the agreement was announced; the source gives no separate effective date.
+Syracuse,stadium_nr_start_year,keep,Kept as the year the agreement was announced; the source gives no separate effective date.
+Syracuse,arena_nr_start_year,keep,Kept as the year the agreement was announced; the source gives no separate effective date.
+Syracuse,apparel_start_year,keep,Kept as the year the agreement was announced; the source gives no separate effective date.
+California,mmr_start_year,keep,Kept: the release of 12 September 2016 says the agreement begins that fall.
+Duke,mmr_start_year,keep,Kept as the year the agreement was announced; the source gives no separate effective date.
+Arizona,arena_nr_start_year,keep,Kept as the year the agreement was announced; the source gives no separate effective date.
+Arizona,mmr_start_year,keep,Kept as the year the agreement was announced; the source gives no separate effective date.
+Texas Tech,arena_nr_start_year,keep,Kept as the year the extension was announced; the source gives no separate effective date.
+Illinois,stadium_nr_start_year,keep,Kept as the year the agreement was announced; the source gives no separate effective date.
+Rutgers,arena_nr_start_year,keep,Kept as the year the agreement was announced; the source gives no separate effective date.
+UCLA,arena_nr_start_year,keep,Kept as the year the agreement was announced; the source gives no separate effective date.
+Miami (FL),apparel_total_value,keep,Kept as a floor: the report says the deal 'will exceed $200 million in total value'.
+Tennessee,arena_nr_total_value,keep,Kept as a floor: the university's release says the partner will 'invest in excess of $20 million over the next 10 years'.
+Nebraska,mmr_total_value,keep,Kept as an approximate figure: the report says the deal is 'worth around $300 million'; the official release gives no value.
+Arizona,fb_hc_annual_comp,withdraw,"The page gives the figure only as 'reportedly', sourced to a social media post."
+Stanford,mmr_partner,skip,"The in-house classification was the researcher's reading of two pages, not a statement by the school; left as previously sourced."
+North Carolina,stadium_nr_partner,classify,Kept as a descriptive label: the name comes from the venue's own name; the page read does not describe the naming.
+Florida,stadium_nr_partner,classify,Kept as a descriptive label: the name comes from the venue's own name; the page read does not describe the naming.
+USC,arena_nr_partner,classify,Kept as a descriptive label: the name comes from the venue's own name; the page read does not describe the naming.
+Maryland,arena_nr_partner,classify,Kept as a descriptive label: the name comes from the venue's own name; the page read does not describe the naming.
+Ohio State,arena_nr_partner,classify,Kept as a descriptive label: the name comes from the venue's own name; the page read does not describe the naming.
+Wisconsin,fb_hc_annual_comp,withdraw,"The only page stating this figure attributes it to a newspaper-compiled coaching salary database, which this workbook does not use."
+Wisconsin,fb_hc_contract_end,withdraw,"The only page stating this year attributes it to a newspaper-compiled coaching salary database, which this workbook does not use."
+Arkansas,mbb_hc_contract_end,withdraw,The only page stating this year attributes it to a contract obtained by a national newspaper whose reporting this workbook does not use.
+BYU,mmr_partner,skip,"The in-house classification was the researcher's reading of a staff page, not a statement by the school."
+Texas Tech,arena_capacity,skip,"Two official figures conflict (15,098 in the record book, 15,050 on a university page); the existing figure is kept."
+Nebraska,arena_capacity,skip,The only figure found is footnoted as an estimate.
+Illinois,stadium_capacity,skip,"The figure found is an announced crowd, not a stated capacity; the existing source is kept."
+West Virginia,apparel_partner,keep_stale,No newer report of this partner was found either way; the last source is old.
+Virginia,apparel_partner,keep_stale,No newer report of this partner was found either way; the last source is old.
+Florida State,apparel_partner,keep_stale,No newer report of this partner was found either way; the last source is old.
+Texas,apparel_annual_value,withdraw,"The 6,500,000 on the page is the annual cash payment only, not the annual value of the 15-year, 250,000,000 agreement; the annual cell now divides the reported total by the term."
+Louisville,apparel_annual_value,withdraw,"The 10,960,000 was a magazine's average annual value, a different measure from the announced 10-year, 160,000,000 agreement; the annual cell now divides that total by the term."
+Wisconsin,apparel_annual_value,withdraw,"The 3,800,000 is the annual cash payment only; the regents' summary puts the total minimum value of the agreement at 104,500,000."

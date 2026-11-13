@@ -27,7 +27,8 @@ for c in confs:
             for pre in ('stadium_nr','arena_nr','patch','mmr','apparel'):
                 cols=[i for i,m in enumerate(S,1) if m['key'] in (pre+'_annual_value',pre+'_term_years',pre+'_total_value')]
                 kinds=['formula' if isinstance(ws.cell(row=r,column=i+OFF).value,str) and str(ws.cell(row=r,column=i+OFF).value).startswith('=') else ('dash' if ws.cell(row=r,column=i+OFF).value=='--' else 'hard') for i in cols]
-                if kinds.count('formula')>1 or kinds.count('hard')==3 or (kinds.count('hard')==2 and kinds.count('formula')!=1): trip.append((c,r,pre,kinds))
+                nd=[ws.cell(row=r,column=1+OFF).value,pre] in lay.get('no_derive',[])   # reported figures cover different periods: shown as reported, nothing derived
+                if kinds.count('formula')>1 or kinds.count('hard')==3 or (kinds.count('hard')==2 and kinds.count('formula')!=1 and not nd): trip.append((c,r,pre,kinds))
 print('4 text-stored numerics / bad formula results',len(bad),bad[:5]); print('  empty results on conference tabs',len(blanks))
 print('5 triplet violations',trip)
 for ws in wbf:
@@ -105,6 +106,17 @@ def bcheck(sheet,bd,groups):
 for c in confs: bcheck(c,lay['conf_layout'][c]['breakdown'],[school[c]])
 bd=lay['all_layout']['breakdown']; bcheck('All Schools',bd,[allrows])
 print('8 breakdown cells recomputed',nb,'| mismatches',len(bbad),bbad[:5])
+# 9: relevance and audit trail
+H0={m['hdr']:i for i,m in enumerate(S,1)}; lapsed=[]
+for c in confs:
+    lc=lay['conf_layout'][c]
+    for r in range(lc['first'],lc['last']+1):
+        for pre in ('Stadium naming rights','Arena naming rights','Jersey patch','MMR','Apparel'):
+            e=wbv[c].cell(row=r,column=H0[pre+' expires']+OFF).value
+            if isinstance(e,(int,float)) and e<2026: lapsed.append((wbv[c].cell(row=r,column=1+OFF).value,pre,e))
+print('9 deals whose recorded term ended before 2026',lapsed)
+slq=wbv['Source Log']; SH={slq.cell(row=HR,column=c).value:c for c in range(1,slq.max_column+1)}
+print('  verification status',dict(Counter(slq.cell(row=r,column=SH['Verification']).value for r in range(HR+1,slq.max_row+1))))
 print('  All Schools breakdown:',bd['cols'])
 for ty,d in bd['types'].items():
     for fy,rr in list(d['fy'].items())+[('total',d['total'])]: print(f'   {ty+" FY"+fy if fy!="total" else "Total "+ty:30s}',[wbv['All Schools'].cell(row=rr,column=2+OFF+j).value for j in range(len(bd['cols']))])

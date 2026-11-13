@@ -38,6 +38,18 @@ There are no per-school tabs; `School Lookup` covers every school.
 - Football: `data/d1ticker/` holds the D1.ticker FBS Attendance Trends pages for 2023, 2024 and 2025, saved unmodified. Average home attendance for each season is the Final Average column of that season's own page. The 2025 page also supplies the year-over-year change, the 5-year average (the page does not say which five seasons), the change against the 5-year average and the percent of capacity. The pages carry averages only: no totals and no game counts.
 - Men's basketball: `data/ncaa_attendance/Attend.pdf` is the NCAA Men's Basketball Attendance Records book (through 2025-26), saved unmodified, with `Attend_layout.txt` as its `pdftotext -layout` extract. The Division I team-by-team table gives home games, total home attendance and average home attendance for 2025-26 for every school; the script checks that the table ties to the PDF's Division I home totals. Three leader tables list only 30 teams each (all-games attendance, and largest increase with the 2024-25 average); those columns are marked top 30, show "--" for other schools and carry no average or median.
 
+## Verification
+
+Every researched value is checked against its cited source, and the result is shown in the Source Log's Verification column.
+
+1. `scripts/verify_sources.py <cache_dir>` fetches each cited page once (cache kept outside the repo) and looks for the value in the page text. Output: `data/verification/auto_check.csv`.
+2. Values that are not found, sit on pages that block automated fetching, or carry a soft research note go to a re-read: a researcher opens the page (or a substitute high-quality source) and records a verdict with a verbatim quote. The verdict files live in `data/verification/` (`reread_*.csv`, `coach_fb.csv`, `coach_mbb.csv`, `currency_*.csv`), with analyst overrides in `decisions.csv` and hand checks in `manual_checks.csv`.
+3. `scripts/apply_verification.py` turns the verdicts into `data/research/verification_r6.csv` (corrections and confirmed values with their quotes), `data/research/verification_z_currency.csv` (refreshed stale items, new deals and stated end years) and `data/research_withdrawals.csv` (figures no source states, which `merge_research.py` blanks with the reason kept in the Source Log).
+4. `scripts/build_verification.py` writes `data/verification.csv`, which `build_workbook.py` reads for the Verification column.
+5. `scripts/build_checklist.py` writes `P4_Benchmarking_Double_Check_List.xlsx`: the cells still worth a manual look, the outcome for each figure first read from a search excerpt, and every changed cell.
+
+Rules applied in the re-read: a figure is kept only if a page states it (no sums of components, no averages presented as a year, no end year derived from a term, nothing attributed to a newspaper-compiled salary database); a start year may be the announcement year where the source gives no effective date, and is noted as such; the expires column takes a stated end year where one exists; coach contract end is the stated expiry year; where two reported figures describe different periods nothing is derived (`data/no_derive.csv`). `qa.py` lists any deal whose recorded term ended before 2026.
+
 ## Percent of capacity
 
 Both sports use the same year. Football 2025 is the Capacity % column of the D1.ticker 2025 page, as reported; D1.ticker does not publish the capacity it divides by, so the figure can differ from attendance divided by the workbook's Stadium capacity column. Men's basketball 2025-26 is a workbook formula, average home attendance divided by Arena capacity, because the NCAA book reports no percentage.

@@ -41,11 +41,14 @@ for f in sorted(glob.glob('data/verification/reread_*.csv')):
         b=orig.get((school,key)) or base.get((school,key)) or {}
         d=dec.get((school,key),{}).get('decision')
         quote=q(r.get('quote')); note=q(r.get('notes')); url=(r.get('source_url') or '').strip() or b.get('source_url',''); src=q(r.get('source_name')) or b.get('source_name','')
+        if d=='classify':   # a descriptive label the analyst assigns (for example who a venue is named for), not a sourced figure
+            status.append(dict(school=school,metric=hdr,value=cur,status='Analyst classification',quote='',url=b.get('source_url',''))); bump('kept as classification'); continue
         if d=='withdraw' or (v=='not_stated' and d!='keep'):
             reason=dec.get((school,key),{}).get('reason') or (note or 'No source read states this figure itself.')
             wd.append(dict(school=school,metric=key,withdrawn_value=clean(cur),reason=q(reason).rstrip('.')+'.',date=DATE)); bump('withdrawn'); continue
         if v=='corrected' and clean(r.get('new_value')) not in ('','--'):
             nv=clean(r['new_value']) if re.fullmatch(r'-?[\d,.$]+',r['new_value'].strip()) else r['new_value'].strip()
+            if key=='mmr_partner' and 'in-house' in nv.lower(): note=f'In-house entity: {nv}. '+note; nv='in-house'   # the column uses a fixed set of labels
             research_row(school,key,nv,src,url,f"Source states: ‘{quote}’. Corrected on re-read from {cur}."+(' '+note if note else ''))
             status.append(dict(school=school,metric=hdr,value=nv,status='Re-read and confirmed',quote=quote,url=url)); bump('corrected'); continue
         if v=='confirmed' or d=='keep':
@@ -54,6 +57,12 @@ for f in sorted(glob.glob('data/verification/reread_*.csv')):
             research_row(school,key,clean(cur) if re.fullmatch(r'-?[\d,.]+',str(cur).strip()) else cur,src,url,n.strip())
             status.append(dict(school=school,metric=hdr,value=cur,status='Re-read and confirmed',quote=quote,url=url)); bump('confirmed' if v=='confirmed' else 'kept by decision'); continue
         status.append(dict(school=school,metric=hdr,value=cur,status='Not re-verified',quote='',url=b.get('source_url',''))); bump('unreadable')
+# analyst withdrawals for values that were not on a re-read list
+seen={(w['school'],w['metric']) for w in wd}
+for (school,key),r in dec.items():
+    if r['decision']=='withdraw' and (school,key) not in seen:
+        b=orig.get((school,key)) or base.get((school,key))
+        if b and b['value']!='--': wd.append(dict(school=school,metric=key,withdrawn_value=clean(b['value']),reason=q(r['reason']).rstrip('.')+'.',date=DATE)); bump('withdrawn by decision')
 # head coaches
 DEP={'football':('fb_hc_name','Head football coach',('fb_hc_annual_comp','fb_hc_contract_end','fb_hc_pay_source_type')),'mens basketball':('mbb_hc_name',"Head men's basketball coach",('mbb_hc_annual_comp','mbb_hc_contract_end','mbb_hc_pay_source_type'))}
 for f in ('data/verification/coach_fb.csv','data/verification/coach_mbb.csv'):
@@ -71,11 +80,43 @@ for f in ('data/verification/coach_fb.csv','data/verification/coach_mbb.csv'):
                 b=orig.get((school,dk)) or base.get((school,dk))
                 if b and b['value']!='--' and dec.get((school,dk),{}).get('decision')!='keep':
                     wd.append(dict(school=school,metric=dk,withdrawn_value=clean(b['value']),reason=f"This figure described the previous head coach ({r['name_in_file']}); {name} is now the coach and no figure for the current contract has been sourced.",date=DATE)); bump('withdrawn (previous coach)')
+# ---- refresh of stale items and newly found deals (research-schema rows from the currency pass) ----
+# valued rows go in as research rows (written to a file that sorts last, so they win); a blank row means the field could
+# not be sourced for the agreement now in force, so any older value still in the workbook is withdrawn
+cur_rows=[]; NORM={'financial institution (credit union)':'credit union'}
+for f in sorted(glob.glob('data/verification/currency_*.csv'))+['data/verification/end_years.csv']:
+    if not os.path.exists(f): continue
+    for r in csv.DictReader(open(f,encoding='utf-8',errors='replace')):
+        school=r['school'].strip(); key=r['metric'].strip(); val=r['value'].strip(); d=dec.get((school,key),{})
+        if d.get('decision')=='skip': bump('currency skipped by decision'); continue
+        if val in ('','--'):
+            b=orig.get((school,key)) or base.get((school,key))
+            if b and b['value']!='--' and d.get('decision')=='keep_stale':   # nothing newer found either way: keep, but show it as not re-verified
+                hdr=next((h for h,k in KEY.items() if k==key),None)
+                if hdr: status.append(dict(school=school,metric=hdr,value=b['value'],status='Not re-verified',quote='',url=b.get('source_url','')))
+                bump('kept, not re-verified'); continue
+            if b and b['value']!='--' and d.get('decision')!='keep':
+                wd.append(dict(school=school,metric=key,withdrawn_value=clean(b['value']),reason=('Not sourced for the agreement now in force. '+q(r['notes'])).strip()[:600].rstrip('.')+'.',date=DATE)); bump('withdrawn (stale)')
+            continue
+        if key.endswith('_industry') or key.endswith('_deal_type'): val=NORM.get(val.lower(),val.lower())
+        cur_rows.append(dict(school=school,metric=key,value=clean(val) if re.fullmatch(r'-?[\d,.$]+',val) else val,unit=r.get('unit',''),fiscal_year_or_season=r.get('fiscal_year_or_season',''),source_name=q(r['source_name']),source_url=r['source_url'].strip(),date_accessed=DATE,notes=q(r['notes'])))
+        hdr=next((h for h,k in KEY.items() if k==key),None)
+        if hdr and not (key.endswith('_industry') or key.endswith('_deal_type')): status.append(dict(school=school,metric=hdr,value=cur_rows[-1]['value'],status='Re-read and confirmed',quote='',url=r['source_url'].strip()))
+        elif key.endswith('_end_year'):
+            pre=key[:-9]; hdr=next(h for h,k in KEY.items() if k=='f_'+pre+'_expires'); status.append(dict(school=school,metric=hdr,value=cur_rows[-1]['value'],status='Re-read and confirmed',quote='',url=r['source_url'].strip()))
+        bump('currency rows')
+# a later withdrawal for the same cell replaces an earlier one; a current value from the currency pass cancels a withdrawal
+cur_keys={(r['school'],r['metric']):r['value'] for r in cur_rows}
+last={}
+for w_ in wd: last[(w_['school'],w_['metric'])]=w_
+wd=[w_ for k,w_ in last.items() if not (k in cur_keys and num_eq(cur_keys[k],w_['withdrawn_value']))]
 F=['school','metric','value','unit','fiscal_year_or_season','source_name','source_url','date_accessed','notes']
 with open('data/research/verification_r6.csv','w',newline='',encoding='utf-8') as f:
     w=csv.DictWriter(f,fieldnames=F); w.writeheader(); w.writerows(rows)
+with open('data/research/verification_z_currency.csv','w',newline='',encoding='utf-8') as f:
+    w=csv.DictWriter(f,fieldnames=F); w.writeheader(); w.writerows(cur_rows)
 with open('data/research_withdrawals.csv','w',newline='',encoding='utf-8') as f:
     w=csv.DictWriter(f,fieldnames=['school','metric','withdrawn_value','reason','date']); w.writeheader(); w.writerows(wd)
 with open('data/verification/status_reread.csv','w',newline='',encoding='utf-8') as f:
     w=csv.DictWriter(f,fieldnames=['school','metric','value','status','quote','url']); w.writeheader(); w.writerows(status)
-print('research rows',len(rows),'| withdrawals',len(wd),'| statuses',len(status)); print(dict(sorted(stats.items())))
+print('research rows',len(rows),'| currency rows',len(cur_rows),'| withdrawals',len(wd),'| statuses',len(status)); print(dict(sorted(stats.items())))

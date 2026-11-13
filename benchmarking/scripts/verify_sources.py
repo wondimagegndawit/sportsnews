@@ -20,7 +20,7 @@ for t,lc in lay['conf_layout'].items():
     ws=wb[t]; H={ws.cell(6,c).value:c for c in range(3,ws.max_column+1)}
     for r in range(lc['first'],lc['last']+1):
         for h,c in H.items(): cell[(ws.cell(r,3).value,h)]=(t,f'{L(c)}{r}',ws.cell(r,c).value,bv[t].cell(r,c).value)
-BULK=('nces.ed.gov','ope.ed.gov','espn.com','sports-reference','nacda.com','d1ticker','fs.ncaa.org','sportico.com','web3.ncaa.org')
+BULK=('nces.ed.gov','ope.ed.gov','espn.com/college-football/standings','sports-reference.com/cbb/schools','nacda.com/documents','d1ticker.com','fs.ncaa.org','sportico.com','web3.ncaa.org')
 sl=bv['Source Log']; rows=[]
 for r in range(7,sl.max_row+1):
     v=sl.cell(r,6).value; url=str(sl.cell(r,11).value or ''); school=sl.cell(r,3).value; metric=sl.cell(r,5).value
