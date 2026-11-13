@@ -381,7 +381,7 @@ lines=[
  f"Averages, medians and counts: financial line items are summarized by fiscal year and data source ({', '.join(x[3] for x in SCOPES[:-1])}), using the Financial data type and Fiscal year columns as the filters. Rows marked MFRS or EADA never mix the two; rows marked all sources do, and for EADA schools only the five lines EADA reports contribute. The overall rows cover every school, and every non-financial column is summarized overall only. Count rows give the number of schools with a value in each column. Summary rows sit under the schools on each conference tab (for that conference) and on All Schools (for all schools).",
  "Data breakdown: under the summary rows, each conference tab and All Schools carry a table counting schools by financial data type and fiscal year, and by financial source basis.",
  'Conventions: blue cells are hardcoded figures (underlined where a source hyperlink is attached), black cells are formulas and identity text, green cells are links to another tab, gray rows are averages and medians, yellow is the input cell on School Lookup; financial cells are sourced through the hyperlink on Financial source basis; "--" means not publicly sourced, with the reason in Source Log.',
- 'No newspaper-compiled finance or coaching-salary databases are used anywhere in this workbook. Date accessed for all sources: 2026-11-09 and 2026-11-10.',
+ 'No newspaper-compiled finance or coaching-salary databases are used anywhere in this workbook. The date each source was accessed is recorded on its row in Source Log.',
 ]
 for k,t in enumerate(lines): ws.cell(row=R0+k,column=1+OFF,value=t).font=F_BASE
 ws.column_dimensions[CL(1)].width=220
