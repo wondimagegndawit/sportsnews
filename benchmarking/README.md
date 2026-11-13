@@ -40,7 +40,7 @@ There are no per-school tabs; `School Lookup` covers every school.
 
 ## Head coach pay
 
-Each sport has three columns: base pay, supplemental pay and bonuses, and the annual figure, which is a formula adding the two. Where a source states the parts for the current season, they are entered separately (`data/research/verification_zzz_coach_pay.csv`, metrics `fb_hc_base_pay`, `fb_hc_other_pay`, `mbb_hc_base_pay`, `mbb_hc_other_pay`). Supplemental pay and bonuses covers supplemental compensation, rights or media fees, retention payments and other scheduled amounts; performance incentives are excluded. Where a source reports only one annual figure, or only a contract average, that figure is shown as base pay (the build takes it from `fb_hc_annual_comp` or `mbb_hc_annual_comp`). Figures that would need a stated escalator applied are left blank.
+Each sport has one pay column: total guaranteed annual pay for the current season, meaning base salary plus supplemental compensation (the guaranteed amounts contracts label as talent, rights, media or outside-income fees). Where a source states the two parts but no total, they are added; where it gives only a contract total and length or an average, the average is shown. Retention payments, signing bonuses and performance bonuses are excluded and described in the Source Log note where known. The re-read totals, with the parts quoted, are in `data/research/verification_zzz_coach_pay.csv` (metrics `fb_hc_annual_comp`, `mbb_hc_annual_comp`). Figures that would need a stated escalator applied are left blank. A three-column layout (base, supplemental, total) was tried and dropped on 13 November 2026 because most sources state only a total.
 
 ## Verification
 

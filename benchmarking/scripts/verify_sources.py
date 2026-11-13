@@ -77,7 +77,7 @@ def check(x,t):
     if re.search(r'deal type|pay source type|industry$',m) or str(v).lower() in ('none','in-house','other'): return 'classification',None,'n/a'
     if isinstance(v,(int,float)) and not isinstance(v,bool):
         n=int(v) if float(v).is_integer() else v
-        if re.search(r'value|compensation|base pay|pay and bonuses',m):
+        if re.search(r'value|compensation',m):
             for f in sorted(money_forms(int(n)),key=len,reverse=True):
                 if re.search(r'(?<![\d,.$])'+re.escape(f)+r'(?![\d,]|\.\d)',t,re.I) or re.search(r'(?<![\d,.])'+re.escape(f)+r'(?![\d,]|\.\d)',t,re.I): return 'found',f,'strong'
             return 'not found',None,'strong'
@@ -116,7 +116,7 @@ with open('data/verification/auto_check.csv','w',newline='',encoding='utf-8') as
     for o in res: w.writerow([o['log_row'],o['school'],o['tab'],o['cell'],o['metric'],o['value'],o['status'],o['hit'] or '',o['strength'],o['http'],o['source'],o['url']])
 c=collections.Counter((o['status']) for o in res); print('all researched hardcodes:',dict(c))
 def grp(m):
-    if re.search(r'compensation|base pay|pay and bonuses',m): return 'coach pay'
+    if re.search(r'compensation',m): return 'coach pay'
     if re.search(r'annual value|total value',m): return 'deal dollars'
     if re.search(r'term|start year',m): return 'deal term/start'
     if re.search(r'contract end',m): return 'coach contract end'

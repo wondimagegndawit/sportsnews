@@ -9,13 +9,13 @@ I've attached an Excel file, P4_Benchmarking_Double_Check_List.xlsx. It supports
 Say at the top of your answer what today's date is, and use web browsing for every factual check.
 
 THE FILE HAS THREE TABS
-- "Double-check": about 18 cells that still need a look. Columns: #, Why it is here, School, Tab, Cell, Column, Shown now, What to look at, Source.
+- "Double-check": 17 cells that still need a look. Columns: #, Why it is here, School, Tab, Cell, Column, Shown now, What to look at, Source.
 - "31 dollar figures": dollar values that were first read from a search-result excerpt, with the outcome after the source page was re-read. Columns: School, Tab, Cell, Column, Value before, Shown now, Outcome, Source it came from, Source link.
 - "Changes": every cell changed in the last verification pass. Columns: School, Tab, Cell, Column, Before, After, Type (Changed, Blanked or Filled), Reason or source statement, Source.
 
 CONVENTIONS THE WORKBOOK USES ON PURPOSE (do not report these as errors)
 - "--" means no value could be sourced. A blank is deliberate.
-- Head coach pay has three columns: base pay, supplemental pay and bonuses (supplemental compensation, rights or media fees, retention and other scheduled payments, but not performance incentives), and an annual figure that adds the two. Where a source gives only one annual figure, or only a contract average, that figure is shown as base pay.
+- Head coach pay is one figure per coach: total guaranteed annual pay for the current season, meaning base salary plus supplemental compensation (the guaranteed amounts contracts label as talent, rights, media or outside-income fees). Where a page states the base and the supplemental amount but no total, the workbook adds the two. Where a page gives only a contract total and length, or an average, the average is shown. Retention payments, signing bonuses and performance bonuses are deliberately left out of the figure.
 - A deal's start year may be the year the agreement was announced when the source gives no effective date.
 - A coach's contract end year is the year of the stated expiry date. "Through January 31, 2031" is shown as 2031.
 - A deal's annual value may be the reported total divided by the term, and a total may be the annual value times the term.
@@ -30,11 +30,11 @@ PART B. Audit a sample of the changes
 From the "Changes" tab, take every 8th row (rows 1, 9, 17 and so on, about 22 rows). For each one, open the Source link and tell me whether the "After" value and the stated reason are supported by the page. For rows of type "Blanked", tell me whether you agree that no acceptable page states the old figure; if you find one that does, give me the URL and quote.
 
 PART C. Audit the dollar figures
-From the "31 dollar figures" tab, check every row whose Outcome starts with "Confirmed" or "Now shown as". Open the source link and tell me whether the page states the figure (or, for "Now shown as", both parts).
+From the "31 dollar figures" tab, check every row whose Outcome starts with "Confirmed". Open the source link and tell me whether the page states the figure. For head coach pay, the page may state it as a total or as a base salary and a supplemental amount that add up to it; say which.
 
 RULES FOR ALL PARTS
 - Open the page yourself. Never answer from memory, a search-result snippet or an AI summary.
-- Report what the page states. Do not compute, add up, average, round or infer a figure yourself, apart from recognising the conventions listed above. Quote "about" and "more than" wording exactly.
+- Report what the page states. Do not compute, add up, average, round or infer a figure yourself, apart from recognising the conventions listed above. For head coach pay, if a retention payment, signing bonus or performance bonus has been folded into the figure shown, report that as DIFFERENT. Quote "about" and "more than" wording exactly.
 - Acceptable sources: the school's, university's, conference's or NCAA's own pages and PDFs; partner or agency press releases; executed contracts and board documents; state salary databases; Associated Press, ESPN, Sports Business Journal, Sportico, The Athletic, Front Office Sports, CBS Sports, Yahoo Sports, Sports Illustrated, NBC and Fox Sports; established newspapers and local TV news.
 - Not acceptable: Wikipedia or wiki mirrors; USA Today's coaching salary or athletics finance databases, or any article that attributes its figure to them; fan blogs, team fan networks and message boards; stadium-guide sites.
 - For every row give a short exact quote (under 40 words) containing the figure or name, the full URL you read, and the page's date if shown.

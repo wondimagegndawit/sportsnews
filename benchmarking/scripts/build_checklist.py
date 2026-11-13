@@ -31,12 +31,11 @@ ITEMS=[  # (group, school, column, what to check). Rows settled by the browser c
  ('Your call','Miami (FL)','Apparel partner','Shows Nike, which starts in July 2027; adidas is the outfitter through June 2027. Ole Miss is the reverse: adidas starts on 1 July 2027. Decide whether to show the current or the incoming partner.'),
  ('Your call','Arkansas','Stadium naming rights total value','The newspaper reports 70,000,000 over the 14-year agreement, of which 13 years carry the stadium name. The cell shows the 70,000,000 total and the 13 naming years, and no annual value is derived from them. The stadium name is shown ahead of its 2027 start, as with Washington.'),
  ('Your call','North Carolina','MMR annual value','12,600,000 is the stated average. It matches the 2018 contract: royalty fees of 144,750,000 over 12 years, plus a 3,000,000 signing bonus and 4,000,000 of capital subsidies, come to 151,750,000, or 12.65 million a year. The royalty fees alone average 12.06 million, and the June 2023 amendment lists 13,500,000 for 2026-27. Decide whether this column should hold the contract average or the current-year fee.'),
- ('Worth a glance','West Virginia','FB HC base pay','Blank. AP gives 3.5 million for the first season rising 100,000 a season, which would make 2026 3.6 million, but no page states the 2026 figure. Kentucky men\'s basketball (5 million rising 250,000 a year) and Oklahoma State men\'s basketball are blank for the same reason. Say if you want stated schedules like these applied.'),
+ ('Your call','West Virginia','FB HC annual guaranteed compensation','Blank. AP gives 3.5 million for the first season rising 100,000 a season, which would make 2026 3.6 million, but no page states the 2026 figure. Kentucky men\'s basketball (5 million rising 250,000 a year) and Oklahoma State men\'s basketball are blank for the same reason. Say if you want stated schedules like these applied.'),
  ('Your call','Louisville','Arena capacity','The official page says only "22,000-seat"; the earlier 22,090 is not stated on any page that could be read.'),
  ('Your call','Ohio State','Arena naming rights partner','Value City is still on the building, but Ohio State plans to phase the name out with no timetable. The 12,500,000 total is a contribution for the name, not an annual fee.'),
  ('Your call','Kentucky','Arena naming rights annual value','The release says the naming-rights portion will be 1.5 million "upon completion of the renovation", within a wider investment averaging 4.1 million a year, so it may not have applied from the first year.'),
  ('Your call','Georgia','Varsity sports sponsored','21 is from a 2023 article ("21 sports teams"); a September 2026 article refers to 20 NCAA-sponsored teams, which is a narrower count.'),
- ('Worth a glance','North Carolina','FB HC supplemental pay and bonuses','The 1,000,000 base and 9,000,000 supplemental split was reported from the term sheet the university released, but the cited page no longer shows the breakdown in its text. The 10,000,000 total is widely reported.'),
  ('Worth a glance','Kansas','MMR term (years)','The school\'s release confirms a 10-year extension, but the page displays the date 21 July 2022 while its address carries 22 May 2024. Confirm which extension is current.'),
  ('Worth a glance','Alabama','Arena capacity','The official page text and the 2026 game notes say 13,474, but a capacities table on the same page shows a main-floor total of 14,474.'),
 ]
@@ -64,10 +63,6 @@ for r in range(7,so.max_row+1):
     sch,m,v=so.cell(r,3).value,so.cell(r,5).value,so.cell(r,6).value; note=str(so.cell(r,13).value or '')+' '+str(so.cell(r,10).value or '')
     if v in (None,'--') or not re.search(r'search (snippet|summary|excerpt)',note,re.I) or not re.search(r'annual value|total value|compensation',str(m)): continue
     t,addr,_=OLD[(sch,m)]; nt,naddr,now=NEW[(sch,m)]; lg=LOG.get((sch,m),{})
-    if 'annual guaranteed compensation' in m:   # the annual figure is now base pay plus supplemental pay and bonuses
-        bm=m.replace('annual guaranteed compensation','base pay'); om=m.replace('annual guaranteed compensation','supplemental pay and bonuses'); lg=LOG.get((sch,bm),{}); ov=LOG.get((sch,om),{}).get('Value')
-        if isinstance(lg.get('Value'),(int,float)) and isinstance(ov,(int,float)):
-            rows.append([sch,nt,naddr,m,fmt(v),fmt(now),f"Now shown as base pay {fmt(lg['Value'])} plus supplemental pay and bonuses {fmt(ov)}, each stated on the source page",so.cell(r,10).value,lg.get('URL') or so.cell(r,11).value]); continue
     same=isinstance(lg.get('Value'),(int,float)) and abs(float(lg['Value'])-float(v))<1e-9
     if lg.get('Value') in (None,'--') and now!='--': outcome='Reported figure withdrawn; the cell now shows a formula from the other two terms. '+str(lg.get('Note'))[:220]
     elif lg.get('Value') in (None,'--'): outcome='Blanked: '+str(lg.get('Note'))[:260]
