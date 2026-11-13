@@ -14,6 +14,8 @@ for f in files:
     for r in csv.DictReader(open(f,encoding='utf-8')):
         r={k:(v or '').strip() for k,v in r.items()}
         r['_file']=os.path.basename(f); rows.append(r)
+# data/source_exceptions.csv: the only rows allowed to cite Wikipedia, each at the analyst's written direction
+EXC={(x['school'],x['metric']) for x in csv.DictReader(open('data/source_exceptions.csv',encoding='utf-8'))} if os.path.exists('data/source_exceptions.csv') else set()
 def reject(r,why):
     rej.append(dict(r,reason=why)); r['value']='--'; r['notes']=f'rejected in review ({why}); '+r['notes']; r['source_url']=''
 for r in rows:
@@ -22,8 +24,9 @@ for r in rows:
     if m in ('fin_report_url',): continue
     url=r['source_url'].lower()
     if not url: reject(r,'no source URL'); continue
-    if 'wikipedia' in url or 'wikiwand' in url: reject(r,'prohibited source'); continue
-    if 'stadiumjourney' in url or 'wiki' in url: reject(r,'fan site or wiki mirror not accepted as a source'); continue
+    if (r['school'],m) not in EXC:
+        if 'wikipedia' in url or 'wikiwand' in url: reject(r,'prohibited source'); continue
+        if 'stadiumjourney' in url or 'wiki' in url: reject(r,'fan site or wiki mirror not accepted as a source'); continue
     if not r['_file'].startswith('verification_') and re.search(r'(projection|expected to generate|conservative estimated)',r['notes'],re.I) and re.search(r'(annual_value|total_value)',m): reject(r,'projected value, not a contract figure'); continue
     # rows written after a verification re-read carry verbatim quotes, which may contain these words; they were
     # screened by the re-read itself
@@ -41,7 +44,8 @@ for r in rows:
         r['value']=vv
     if m.endswith('_pay_source_type'):
         vv=v.lower()
-        if 'contract' in vv: r['value']='contract'
+        if 'usa today' in vv: r['value']='USA Today'
+        elif 'contract' in vv: r['value']='contract'
         elif 'announce' in vv or 'release' in vv: r['value']='school announcement'
         elif 'salary' in vv or 'database' in vv: r['value']='state salary database'
         elif 'press' in vv or 'report' in vv or 'news' in vv: r['value']='press report'

@@ -1,0 +1,1498 @@
+{
+"Boston College": [
+{
+"season": 2025,
+"firstName": "Earl",
+"lastName": "Grant",
+"totalPay": 2480428,
+"schoolPay": 2480428,
+"otherPay": -1,
+"note": "",
+"teamID": "1317"
+},
+{
+"season": 2024,
+"firstName": "Earl",
+"lastName": "Grant",
+"totalPay": 2169331,
+"schoolPay": 2169331,
+"otherPay": -1,
+"note": "",
+"teamID": "1317"
+}
+],
+"California": [
+{
+"season": 2025,
+"firstName": "Mark",
+"lastName": "Madsen",
+"totalPay": 2800000,
+"schoolPay": 2800000,
+"otherPay": -1,
+"note": "",
+"teamID": "1338"
+},
+{
+"season": 2024,
+"firstName": "Mark",
+"lastName": "Madsen",
+"totalPay": 2800000,
+"schoolPay": 2800000,
+"otherPay": -1,
+"note": "",
+"teamID": "1338"
+}
+],
+"Clemson": [
+{
+"season": 2025,
+"firstName": "Brad",
+"lastName": "Brownell",
+"totalPay": 4005200,
+"schoolPay": 4000000,
+"otherPay": 5200,
+"note": "",
+"teamID": "1355"
+},
+{
+"season": 2024,
+"firstName": "Brad",
+"lastName": "Brownell",
+"totalPay": 3505200,
+"schoolPay": 3500000,
+"otherPay": 5200,
+"note": "",
+"teamID": "1355"
+}
+],
+"Duke": [
+{
+"season": 2025,
+"firstName": "Jon",
+"lastName": "Scheyer",
+"totalPay": 2383769,
+"schoolPay": 2383769,
+"otherPay": -1,
+"note": "",
+"teamID": "1388"
+},
+{
+"season": 2024,
+"firstName": "Jon",
+"lastName": "Scheyer",
+"totalPay": 1711114,
+"schoolPay": 1711114,
+"otherPay": -1,
+"note": "Total represents partial-year pay to Scheyer in his capacity as head coach in 2022. ((Figures for private schools based on federal tax records showing pay for 2022 calendar year.) He was an assistant for Duke prior to becoming head coach in April 2022, following Mike Krzyzewski's retirement.",
+"teamID": "1388"
+}
+],
+"Florida State": [
+{
+"season": 2025,
+"firstName": "Luke",
+"lastName": "Loucks",
+"totalPay": 2050000,
+"schoolPay": 2050000,
+"otherPay": -1,
+"note": "",
+"teamID": "1410"
+},
+{
+"season": 2024,
+"firstName": "Leonard",
+"lastName": "Hamilton",
+"totalPay": 2250000,
+"schoolPay": 2250000,
+"otherPay": -1,
+"note": "Hamilton announced Feb. 3, 2025, that he is resigning, effective at the end of the 2024-25 season",
+"teamID": "1410"
+}
+],
+"Georgia Tech": [
+{
+"season": 2025,
+"firstName": "Damon",
+"lastName": "Stoudamire",
+"totalPay": 2300000,
+"schoolPay": 2300000,
+"otherPay": -1,
+"note": "",
+"teamID": "1422"
+},
+{
+"season": 2024,
+"firstName": "Damon",
+"lastName": "Stoudamire",
+"totalPay": 2200000,
+"schoolPay": 2200000,
+"otherPay": -1,
+"note": "",
+"teamID": "1422"
+}
+],
+"Louisville": [
+{
+"season": 2025,
+"firstName": "Pat",
+"lastName": "Kelsey",
+"totalPay": 3350000,
+"schoolPay": 3350000,
+"otherPay": -1,
+"note": "School Pay includes a $50,000 one-time signing bonus for new contract approved after the 2024-25 season.",
+"teamID": "1472"
+},
+{
+"season": 2024,
+"firstName": "Pat",
+"lastName": "Kelsey",
+"totalPay": 2367418,
+"schoolPay": 2367418,
+"otherPay": -1,
+"note": "School Pay includes $50,000 signing bonus. In addition to School Pay, university paid $1.1 million to the College of Charleston under an assignment-and-assumption agreement to acquire Kelsey's contract from that school for an amount equal to the buyout that Kelsey owed that school. Louisville also agreed to cover any possible taxes, penalties and interest that Kelsey may face in connection with this payment.",
+"teamID": "1472"
+}
+],
+"Miami (FL)": [
+{
+"season": 2025,
+"firstName": "Jai",
+"lastName": "Lucas",
+"totalPay": -1,
+"schoolPay": -1,
+"otherPay": -1,
+"note": "",
+"teamID": "1496"
+},
+{
+"season": 2024,
+"firstName": "Jim",
+"lastName": "Larranaga",
+"totalPay": 2904041,
+"schoolPay": 2904041,
+"otherPay": -1,
+"note": "Larranaga announced his retirement on Dec. 26, 2024.",
+"teamID": "1496"
+}
+],
+"NC State": [
+{
+"season": 2025,
+"firstName": "Will",
+"lastName": "Wade",
+"totalPay": 2540000,
+"schoolPay": 2540000,
+"otherPay": -1,
+"note": "",
+"teamID": "1538"
+},
+{
+"season": 2024,
+"firstName": "Kevin",
+"lastName": "Keatts",
+"totalPay": 3668265,
+"schoolPay": 3484152,
+"otherPay": 184113,
+"note": "Keatts was fired on March 9, 2025.",
+"teamID": "1538"
+}
+],
+"North Carolina": [
+{
+"season": 2025,
+"firstName": "Hubert",
+"lastName": "Davis",
+"totalPay": 3850000,
+"schoolPay": 3100000,
+"otherPay": 750000,
+"note": "",
+"teamID": "1540"
+},
+{
+"season": 2024,
+"firstName": "Hubert",
+"lastName": "Davis",
+"totalPay": 3750000,
+"schoolPay": 3000000,
+"otherPay": 750000,
+"note": "",
+"teamID": "1540"
+}
+],
+"Pittsburgh": [
+{
+"season": 2025,
+"firstName": "Jeff",
+"lastName": "Capel",
+"totalPay": 3947729,
+"schoolPay": 3947729,
+"otherPay": -1,
+"note": "",
+"teamID": "1570"
+},
+{
+"season": 2024,
+"firstName": "Jeff",
+"lastName": "Capel",
+"totalPay": 3590613,
+"schoolPay": 3590613,
+"otherPay": -1,
+"note": "",
+"teamID": "1570"
+}
+],
+"SMU": [
+{
+"season": 2025,
+"firstName": "Andy",
+"lastName": "Enfield",
+"totalPay": 0,
+"schoolPay": 0,
+"otherPay": -1,
+"note": "",
+"teamID": "1605"
+},
+{
+"season": 2024,
+"firstName": "Andy",
+"lastName": "Enfield",
+"totalPay": -1,
+"schoolPay": -1,
+"otherPay": -1,
+"note": "",
+"teamID": "1605"
+}
+],
+"Stanford": [
+{
+"season": 2025,
+"firstName": "Kyle",
+"lastName": "Smith",
+"totalPay": 0,
+"schoolPay": 0,
+"otherPay": -1,
+"note": "",
+"teamID": "1627"
+},
+{
+"season": 2024,
+"firstName": "Kyle",
+"lastName": "Smith",
+"totalPay": -1,
+"schoolPay": -1,
+"otherPay": -1,
+"note": "",
+"teamID": "1627"
+}
+],
+"Syracuse": [
+{
+"season": 2025,
+"firstName": "Adrian",
+"lastName": "Autry",
+"totalPay": 1846523,
+"schoolPay": 1846523,
+"otherPay": -1,
+"note": "",
+"teamID": "1633"
+},
+{
+"season": 2024,
+"firstName": "Adrian",
+"lastName": "Autry",
+"totalPay": -1,
+"schoolPay": -1,
+"otherPay": -1,
+"note": "",
+"teamID": "1633"
+}
+],
+"Virginia": [
+{
+"season": 2025,
+"firstName": "Ryan",
+"lastName": "Odom",
+"totalPay": 3275000,
+"schoolPay": 3275000,
+"otherPay": -1,
+"note": "",
+"teamID": "1677"
+},
+{
+"season": 2024,
+"firstName": "Ron",
+"lastName": "Sanchez",
+"totalPay": 1350000,
+"schoolPay": 1350000,
+"otherPay": -1,
+"note": "Sanchez worked as interim head coach, beginning Oct. 29, 2024, after being promoted to replace Tony Bennett, who retired. School announced on March 12, 2025, that Sanchez will not be retained as head coach. (According to document from university, Bennett had School Pay of $2,125,528 in his capacity as head coach from May 1, 2024 through Oct. 31, 2024.) Sanchez's School Pay is based on 6 months at Sanchez's total annualized pay rate as assistant ($450,000) and 6 months at his total annualized pay rate as interim head coach ($2,250,000). Pay rate as interim head coach is according to what school termed an 'Offer Sheet,' rather than a full-form contract.",
+"teamID": "1677"
+}
+],
+"Virginia Tech": [
+{
+"season": 2025,
+"firstName": "Mike",
+"lastName": "Young",
+"totalPay": 3000000,
+"schoolPay": 3000000,
+"otherPay": 0,
+"note": "",
+"teamID": "1678"
+},
+{
+"season": 2024,
+"firstName": "Mike",
+"lastName": "Young",
+"totalPay": 2750000,
+"schoolPay": 2750000,
+"otherPay": 0,
+"note": "",
+"teamID": "1678"
+}
+],
+"Wake Forest": [
+{
+"season": 2025,
+"firstName": "Steve",
+"lastName": "Forbes",
+"totalPay": 2344243,
+"schoolPay": 2344243,
+"otherPay": -1,
+"note": "",
+"teamID": "1683"
+},
+{
+"season": 2024,
+"firstName": "Steve",
+"lastName": "Forbes",
+"totalPay": 3113433,
+"schoolPay": 3113433,
+"otherPay": -1,
+"note": "",
+"teamID": "1683"
+}
+],
+"Illinois": [
+{
+"season": 2025,
+"firstName": "Brad",
+"lastName": "Underwood",
+"totalPay": 5400000,
+"schoolPay": 5400000,
+"otherPay": 0,
+"note": "School Pay includes a $1,000,000 one-time signing bonus for extension signed in June 2025.",
+"teamID": "1443"
+},
+{
+"season": 2024,
+"firstName": "Brad",
+"lastName": "Underwood",
+"totalPay": 4800000,
+"schoolPay": 4800000,
+"otherPay": 0,
+"note": "School Pay includes $500,000 retention payment Underwood will receive if he remains Illinois' head coach through April 30, 2025.",
+"teamID": "1443"
+}
+],
+"Indiana": [
+{
+"season": 2025,
+"firstName": "Darian",
+"lastName": "DeVries",
+"totalPay": 4325000,
+"schoolPay": 4325000,
+"otherPay": -1,
+"note": "School Pay includes a $50,000 one-time signing bonus.",
+"teamID": "1446"
+},
+{
+"season": 2024,
+"firstName": "Mike",
+"lastName": "Woodson",
+"totalPay": 4200000,
+"schoolPay": 4200000,
+"otherPay": -1,
+"note": "Indiana announced on Feb. 7, 2025, that Woodson will be resigning at the end of the 2024-25 season",
+"teamID": "1446"
+}
+],
+"Iowa": [
+{
+"season": 2025,
+"firstName": "Ben",
+"lastName": "McCollum",
+"totalPay": 3350000,
+"schoolPay": 3400000,
+"otherPay": -1,
+"note": "",
+"teamID": "1449"
+},
+{
+"season": 2024,
+"firstName": "Fran",
+"lastName": "McCaffery",
+"totalPay": 3402000,
+"schoolPay": 3400000,
+"otherPay": 2000,
+"note": "",
+"teamID": "1449"
+}
+],
+"Maryland": [
+{
+"season": 2025,
+"firstName": "Buzz",
+"lastName": "Williams",
+"totalPay": 4875000,
+"schoolPay": 4875000,
+"otherPay": -1,
+"note": "",
+"teamID": "1488"
+},
+{
+"season": 2024,
+"firstName": "Kevin",
+"lastName": "Willard",
+"totalPay": 4100000,
+"schoolPay": 4100000,
+"otherPay": 0,
+"note": "",
+"teamID": "1488"
+}
+],
+"Michigan": [
+{
+"season": 2025,
+"firstName": "Dusty",
+"lastName": "May",
+"totalPay": 3725000,
+"schoolPay": 3725000,
+"otherPay": -1,
+"note": "",
+"teamID": "1498"
+},
+{
+"season": 2024,
+"firstName": "Dusty",
+"lastName": "May",
+"totalPay": 3625000,
+"schoolPay": 3625000,
+"otherPay": -1,
+"note": "In addition to School Pay, Michigan paid May a $1,513,000 signing bonus that he must repay if he resigns as head coach on or before April 1, 2025. The bonus likely was connected to the $1,000,000 buyout that May owed Florida Atlantic University, as well as the taxes owed on that portion of the signing bonus. School Buyout as of April 1, 2025, not available because school announced Feb. 21, 2025, that it had agreed with May on a new multi-year contract, but, as of March 10, 2025, it had not released a document describing the new terms.",
+"teamID": "1498"
+}
+],
+"Michigan State": [
+{
+"season": 2025,
+"firstName": "Tom",
+"lastName": "Izzo",
+"totalPay": 7196879,
+"schoolPay": 6771879,
+"otherPay": 425000,
+"note": "",
+"teamID": "1499"
+},
+{
+"season": 2024,
+"firstName": "Tom",
+"lastName": "Izzo",
+"totalPay": 6196879,
+"schoolPay": 5771879,
+"otherPay": 425000,
+"note": "Maximum Bonus does not include amounts Izzo receives from Nike if the team appears in the Final Four ($25,000) and if the team wins the national championship ($50,000).",
+"teamID": "1499"
+}
+],
+"Minnesota": [
+{
+"season": 2025,
+"firstName": "Niko",
+"lastName": "Medved",
+"totalPay": 3050000,
+"schoolPay": 3050000,
+"otherPay": -1,
+"note": "",
+"teamID": "1503"
+},
+{
+"season": 2024,
+"firstName": "Ben",
+"lastName": "Johnson",
+"totalPay": 2079315,
+"schoolPay": 2079315,
+"otherPay": -1,
+"note": "Johnson was fired on March 13, 2025.",
+"teamID": "1503"
+}
+],
+"Nebraska": [
+{
+"season": 2025,
+"firstName": "Fred",
+"lastName": "Hoiberg",
+"totalPay": 4350000,
+"schoolPay": 4350000,
+"otherPay": -1,
+"note": "School pay not impacted by contract extension for Hoiberg announced March 9, 2026 that went into effect April 1, 2026. ",
+"teamID": "1527"
+},
+{
+"season": 2024,
+"firstName": "Fred",
+"lastName": "Hoiberg",
+"totalPay": 4750000,
+"schoolPay": 4750000,
+"otherPay": -1,
+"note": "School Pay includes a $500,000 retention payment that Hoiberg received during his current contract year under a new Retention Pay Agreement that became effective in the final weeks of his previous contract year. The new agreement became effective March 18, 2024, and guaranteed this amount if Hoiberg remained employed until March 31, 2024, which was the final day of his previous contract year. According to the university, Hoiberg received the payment in April 2024. Under the prior Retention Pay Agreement, this payment had been deleted by an amendment in April 2022 that had remained in effect through March 17, 2024.",
+"teamID": "1527"
+}
+],
+"Northwestern": [
+{
+"season": 2025,
+"firstName": "Chris",
+"lastName": "Collins",
+"totalPay": 3831525,
+"schoolPay": 3831525,
+"otherPay": -1,
+"note": "",
+"teamID": "1547"
+},
+{
+"season": 2024,
+"firstName": "Chris",
+"lastName": "Collins",
+"totalPay": 3283348,
+"schoolPay": 3283348,
+"otherPay": -1,
+"note": "",
+"teamID": "1547"
+}
+],
+"Ohio State": [
+{
+"season": 2025,
+"firstName": "Jake",
+"lastName": "Diebler",
+"totalPay": 2500000,
+"schoolPay": 2500000,
+"otherPay": 0,
+"note": "",
+"teamID": "1557"
+},
+{
+"season": 2024,
+"firstName": "Jake",
+"lastName": "Diebler",
+"totalPay": 2500000,
+"schoolPay": 2500000,
+"otherPay": -1,
+"note": "",
+"teamID": "1557"
+}
+],
+"Oregon": [
+{
+"season": 2025,
+"firstName": "Dana",
+"lastName": "Altman",
+"totalPay": 4000000,
+"schoolPay": 4000000,
+"otherPay": 0,
+"note": "School Pay includes a $225,000 retention payment Altman was due because he remained Oregon's head coach through April 25, 2025.",
+"teamID": "1562"
+},
+{
+"season": 2024,
+"firstName": "Dana",
+"lastName": "Altman",
+"totalPay": 4007000,
+"schoolPay": 4000000,
+"otherPay": 7000,
+"note": "School Pay includes $225,000 retention payment Altman will receive if he remains Oregon's head coach through April 25, 2025.",
+"teamID": "1562"
+}
+],
+"Penn State": [
+{
+"season": 2025,
+"firstName": "Mike",
+"lastName": "Rhoades",
+"totalPay": 4229999,
+"schoolPay": 4229999,
+"otherPay": -1,
+"note": "",
+"teamID": "1567"
+},
+{
+"season": 2024,
+"firstName": "Mike",
+"lastName": "Rhoades",
+"totalPay": 3500000,
+"schoolPay": 3500000,
+"otherPay": -1,
+"note": "Figures based on financial term sheet distributed by the university, which has declined to release Rhoades' contract.",
+"teamID": "1567"
+}
+],
+"Purdue": [
+{
+"season": 2025,
+"firstName": "Matt",
+"lastName": "Painter",
+"totalPay": 4975000,
+"schoolPay": 4975000,
+"otherPay": -1,
+"note": "School Pay includes a $250,000 retention payment made to Painter for being school's head coach as of Sept. 1, 2025. School Pay also includes monthly supplemental retirement contributions that total $300,000. In addition, School Pay includes $300,000 annual loan to Painter to be used exclusively for the payment of premiums on a life insurance policy. University is entitled to reimbursement of the payment, plus interest, from the policy?s death benefits. If the team advances to the NCAA tournament round of eight, Painter can get bonus money above the listed maximum, as determined by the university president, in consultation with the athletics director.",
+"teamID": "1577"
+},
+{
+"season": 2024,
+"firstName": "Matt",
+"lastName": "Painter",
+"totalPay": 4850000,
+"schoolPay": 4850000,
+"otherPay": -1,
+"note": "School Pay, Maximum Bonus and School Buyout amounts based on summary of contract amendment terms approved by university's governing board on June 7, 2024, not a full-form contract. School Pay includes $450,000 retention payment made to Painter for being school's head coach as of Sept. 1, 2024; in future years, this amount is scheduled to be $250,000 annually. School Pay also includes monthly supplemental retirement contributions that will total $300,000 if Painter remains coach through June 30, 2025. In addition, School Pay includes $300,000 annual loan to Painter to be used exclusively for the payment of premiums on a life insurance policy. University is entitled to reimbursement of the payment, plus interest, from the policy's death benefits. If the team advances to the NCAA tournament round of eight, Painter can get bonus money above the listed maximum, as determined by the university president, in consultation with the athletics director.",
+"teamID": "1577"
+}
+],
+"Rutgers": [
+{
+"season": 2025,
+"firstName": "Steve",
+"lastName": "Pikiell",
+"totalPay": 4050000,
+"schoolPay": 4050000,
+"otherPay": -1,
+"note": "",
+"teamID": "1586"
+},
+{
+"season": 2024,
+"firstName": "Steve",
+"lastName": "Pikiell",
+"totalPay": 3800000,
+"schoolPay": 3800000,
+"otherPay": -1,
+"note": "",
+"teamID": "1586"
+}
+],
+"UCLA": [
+{
+"season": 2025,
+"firstName": "Mick",
+"lastName": "Cronin",
+"totalPay": 4500000,
+"schoolPay": 4500000,
+"otherPay": 0,
+"note": "",
+"teamID": "1668"
+},
+{
+"season": 2024,
+"firstName": "Mick",
+"lastName": "Cronin",
+"totalPay": 6100000,
+"schoolPay": 6100000,
+"otherPay": 0,
+"note": "School Pay includes $2 million retention payment Cronin will receive if he remains UCLA's head coach on April 15, 2025. This payment would cover Cronin's completion of a time period that began April 1, 2022. While the payment-trigger date is after the completion of Cronin's 2024-25 contract year, March 31, 2025, the university's athletics department said the parties' intent was for Cronin to receive a retention payment every three years of a six-year contract that is set to expire March 31, 2028, when Cronin would receive another $2 million. So, the university considers this payment to be for completing the 2024-25 season.",
+"teamID": "1668"
+}
+],
+"USC": [
+{
+"season": 2025,
+"firstName": "Eric",
+"lastName": "Musselman",
+"totalPay": 0,
+"schoolPay": 0,
+"otherPay": -1,
+"note": "",
+"teamID": "1669"
+},
+{
+"season": 2024,
+"firstName": "Eric",
+"lastName": "Musselman",
+"totalPay": -1,
+"schoolPay": -1,
+"otherPay": -1,
+"note": "",
+"teamID": "1669"
+}
+],
+"Washington": [
+{
+"season": 2025,
+"firstName": "Danny",
+"lastName": "Sprinkle",
+"totalPay": 3300024,
+"schoolPay": 3300024,
+"otherPay": 0,
+"note": "",
+"teamID": "1685"
+},
+{
+"season": 2024,
+"firstName": "Danny",
+"lastName": "Sprinkle",
+"totalPay": 3650029,
+"schoolPay": 3650029,
+"otherPay": -1,
+"note": "School Pay includes $400,000 one-time lump sum \"relocation allowance\" that Sprinkle must repay if he terminates the contract without cause or is fired for cause before March 25, 2025. In addition to School Pay, Washington agreed to pay Utah State $2,898,781 on Sprinkle's behalf to cover the buyout he owed for leaving that school. Washington agreed to pay this amount in monthly installments through March 31, 2028, or pursuant to such other terms to which the university and Utah State may agree. School said it paid Sprinkle $100,000 bonus based on team's NCAA Academic Progress Rate figure for 2023-24 academic year. ",
+"teamID": "1685"
+}
+],
+"Wisconsin": [
+{
+"season": 2025,
+"firstName": "Greg",
+"lastName": "Gard",
+"totalPay": 3850000,
+"schoolPay": 3850000,
+"otherPay": 0,
+"note": "",
+"teamID": "1703"
+},
+{
+"season": 2024,
+"firstName": "Greg",
+"lastName": "Gard",
+"totalPay": 3875375,
+"schoolPay": 3750000,
+"otherPay": 125375,
+"note": "",
+"teamID": "1703"
+}
+],
+"Arizona": [
+{
+"season": 2025,
+"firstName": "Tommy",
+"lastName": "Lloyd",
+"totalPay": 5500000,
+"schoolPay": 5100000,
+"otherPay": 400000,
+"note": "",
+"teamID": "1291"
+},
+{
+"season": 2024,
+"firstName": "Tommy",
+"lastName": "Lloyd",
+"totalPay": 5250000,
+"schoolPay": 4850000,
+"otherPay": 400000,
+"note": "",
+"teamID": "1291"
+}
+],
+"Arizona State": [
+{
+"season": 2025,
+"firstName": "Bobby",
+"lastName": "Hurley",
+"totalPay": 3600000,
+"schoolPay": 3600000,
+"otherPay": 0,
+"note": "",
+"teamID": "1292"
+},
+{
+"season": 2024,
+"firstName": "Bobby",
+"lastName": "Hurley",
+"totalPay": 3536000,
+"schoolPay": 3500000,
+"otherPay": 36000,
+"note": "School Pay includes $600,000 retention payment that vested to Hurley on Jan. 2, 2025, but will not actually be paid to him unless he remains Arizona State's head coach through Jan. 1, 2026, or he is fired without cause before that date.",
+"teamID": "1292"
+}
+],
+"Baylor": [
+{
+"season": 2025,
+"firstName": "Scott",
+"lastName": "Drew",
+"totalPay": 5474290,
+"schoolPay": 5474290,
+"otherPay": -1,
+"note": "",
+"teamID": "1313"
+},
+{
+"season": 2024,
+"firstName": "Scott",
+"lastName": "Drew",
+"totalPay": 5410061,
+"schoolPay": 5410061,
+"otherPay": -1,
+"note": "",
+"teamID": "1313"
+}
+],
+"BYU": [
+{
+"season": 2025,
+"firstName": "Kevin",
+"lastName": "Young",
+"totalPay": -1,
+"schoolPay": -1,
+"otherPay": -1,
+"note": "",
+"teamID": "1325"
+},
+{
+"season": 2024,
+"firstName": "Kevin",
+"lastName": "Young",
+"totalPay": -1,
+"schoolPay": -1,
+"otherPay": -1,
+"note": "",
+"teamID": "1325"
+}
+],
+"Cincinnati": [
+{
+"season": 2025,
+"firstName": "Wes",
+"lastName": "Miller",
+"totalPay": 3100000,
+"schoolPay": 3100000,
+"otherPay": 0,
+"note": "",
+"teamID": "1353"
+},
+{
+"season": 2024,
+"firstName": "Wes",
+"lastName": "Miller",
+"totalPay": 2600000,
+"schoolPay": 2600000,
+"otherPay": -1,
+"note": "",
+"teamID": "1353"
+}
+],
+"Colorado": [
+{
+"season": 2025,
+"firstName": "Tad",
+"lastName": "Boyle",
+"totalPay": 2700000,
+"schoolPay": 2700000,
+"otherPay": 0,
+"note": "",
+"teamID": "1360"
+},
+{
+"season": 2024,
+"firstName": "Tad",
+"lastName": "Boyle",
+"totalPay": 2503500,
+"schoolPay": 2500000,
+"otherPay": 3500,
+"note": "",
+"teamID": "1360"
+}
+],
+"Houston": [
+{
+"season": 2025,
+"firstName": "Kelvin",
+"lastName": "Sampson",
+"totalPay": 5500000,
+"schoolPay": 5500000,
+"otherPay": 0,
+"note": "",
+"teamID": "1436"
+},
+{
+"season": 2024,
+"firstName": "Kelvin",
+"lastName": "Sampson",
+"totalPay": 4604000,
+"schoolPay": 4600000,
+"otherPay": 4000,
+"note": "",
+"teamID": "1436"
+}
+],
+"Iowa State": [
+{
+"season": 2025,
+"firstName": "T.J.",
+"lastName": "Otzelberger",
+"totalPay": 4300000,
+"schoolPay": 4300000,
+"otherPay": 0,
+"note": "",
+"teamID": "1450"
+},
+{
+"season": 2024,
+"firstName": "T.J.",
+"lastName": "Otzelberger",
+"totalPay": 3500000,
+"schoolPay": 3500000,
+"otherPay": 0,
+"note": "School Pay based on $200,000 in life insurance premium payments and $300,000 in supplemental-retirement-plan payments having been made by the university in their entirety, rather than on a pro-rated basis, before new contract terms and a $4 million annual pay rate took effect Jan. 1, 2025 -- halfway through Otzelberger's contract year. School is entitled to reimbursement of the $200,000 insurance premium payments from the policy's death benefits. School says it is adjusting its first six months of payments to Otzelberger under the new contract to make up for the insurance-premium and supplemental-retirement-plan amounts having already been paid in full.",
+"teamID": "1450"
+}
+],
+"Kansas": [
+{
+"season": 2025,
+"firstName": "Bill",
+"lastName": "Self",
+"totalPay": 8853800,
+"schoolPay": 8853800,
+"otherPay": 0,
+"note": "School Pay includes $1 million of a $5 million retention payment that started being credited to Self on a daily pro-rata basis on April 1, 2023 and would continue being credited to him over a five-year period running through March 31, 2028. The payment would not actually be made to Self unless he is no longer serving as Kansas' head coach for any reason prior to March 31, 2028, or he remains Kansas' head coach through March 31, 2028.",
+"teamID": "1456"
+},
+{
+"season": 2024,
+"firstName": "Bill",
+"lastName": "Self",
+"totalPay": 8803800,
+"schoolPay": 8653800,
+"otherPay": 150000,
+"note": "School Pay includes $1 million of a $5 million retention payment that started being credited to Self on a daily pro-rata basis on April 1, 2023 and would continue being credited to him over a five-year period running through March 31, 2028. The payment would not actually be made to Self unless he is no longer serving as Kansas' head coach for any reason prior to March 31, 2028, or he remains Kansas' head coach through March 31, 2028.",
+"teamID": "1456"
+}
+],
+"Kansas State": [
+{
+"season": 2025,
+"firstName": "Jerome",
+"lastName": "Tang",
+"totalPay": 3800000,
+"schoolPay": 3800000,
+"otherPay": -1,
+"note": "",
+"teamID": "1457"
+},
+{
+"season": 2024,
+"firstName": "Jerome",
+"lastName": "Tang",
+"totalPay": 3700000,
+"schoolPay": 3700000,
+"otherPay": -1,
+"note": "School Pay includes $200,000 retention payment that Tang will receive if he remains head coach through April 30, 2025.",
+"teamID": "1457"
+}
+],
+"Oklahoma State": [
+{
+"season": 2025,
+"firstName": "Steve",
+"lastName": "Lutz",
+"totalPay": 2550000,
+"schoolPay": 2550000,
+"otherPay": -1,
+"note": "",
+"teamID": "1559"
+},
+{
+"season": 2024,
+"firstName": "Steve",
+"lastName": "Lutz",
+"totalPay": 2400000,
+"schoolPay": 2400000,
+"otherPay": -1,
+"note": "In addition to School Pay, Oklahoma State paid $2,000,000 to cover the buyout that Lutz owed Western Kentucky. Oklahoma State also agreed to pay any taxes Lutz may incur as a consequence of this payment.",
+"teamID": "1559"
+}
+],
+"TCU": [
+{
+"season": 2025,
+"firstName": "Jamie",
+"lastName": "Dixon",
+"totalPay": 4365321,
+"schoolPay": 4365321,
+"otherPay": -1,
+"note": "",
+"teamID": "1643"
+},
+{
+"season": 2024,
+"firstName": "Jamie",
+"lastName": "Dixon",
+"totalPay": 4106441,
+"schoolPay": 4106441,
+"otherPay": -1,
+"note": "",
+"teamID": "1643"
+}
+],
+"Texas Tech": [
+{
+"season": 2025,
+"firstName": "Grant",
+"lastName": "McCasland",
+"totalPay": 5000000,
+"schoolPay": 5000000,
+"otherPay": 0,
+"note": "",
+"teamID": "1656"
+},
+{
+"season": 2024,
+"firstName": "Grant",
+"lastName": "McCasland",
+"totalPay": 3900000,
+"schoolPay": 3900000,
+"otherPay": 0,
+"note": "",
+"teamID": "1656"
+}
+],
+"UCF": [
+{
+"season": 2025,
+"firstName": "Johnny",
+"lastName": "Dawkins",
+"totalPay": 2100000,
+"schoolPay": 2100000,
+"otherPay": -1,
+"note": "",
+"teamID": "1344"
+},
+{
+"season": 2024,
+"firstName": "Johnny",
+"lastName": "Dawkins",
+"totalPay": 2000000,
+"schoolPay": 2000000,
+"otherPay": -1,
+"note": "School Pay, Total Pay, Maximum Bonus and School Buyout amounts based on \"Executive Summary\" provided by university, rather than full-form contract",
+"teamID": "1344"
+}
+],
+"Utah": [
+{
+"season": 2025,
+"firstName": "Alex",
+"lastName": "Jensen",
+"totalPay": 3600000,
+"schoolPay": 2800000,
+"otherPay": 800000,
+"note": "",
+"teamID": "1670"
+},
+{
+"season": 2024,
+"firstName": "Craig",
+"lastName": "Smith",
+"totalPay": 2300000,
+"schoolPay": 1500000,
+"otherPay": 800000,
+"note": "Smith was fired on Feb. 24, 2025. School Pay includes $150,000 one-time retention payment for being the team's head coach on Jan. 15, 2025. Smith was hired by Utah in March 2021.",
+"teamID": "1670"
+}
+],
+"West Virginia": [
+{
+"season": 2025,
+"firstName": "Ross",
+"lastName": "Hodge",
+"totalPay": 2900000,
+"schoolPay": 2900000,
+"otherPay": -1,
+"note": "",
+"teamID": "1689"
+},
+{
+"season": 2024,
+"firstName": "Darian",
+"lastName": "DeVries",
+"totalPay": 2900000,
+"schoolPay": 2900000,
+"otherPay": -1,
+"note": "School Pay includes $100,000 relocation stipend. In addition to School Pay, West Virginia paid $1,300,000 to Drake University to cover the buyout that DeVries owed that school. West Virginia also agreed to pay taxes connected to the buyout in an amount \"that is reasonably determined by the University to put Coach in the same financial position he would have been had the University's payment ... been nontaxable to Coach\". As of March 11, 2025, West Virginia said it had not determined the amount of this payment for taxes.",
+"teamID": "1689"
+}
+],
+"Alabama": [
+{
+"season": 2025,
+"firstName": "Nate",
+"lastName": "Oats",
+"totalPay": 5510000,
+"schoolPay": 5510000,
+"otherPay": 0,
+"note": "",
+"teamID": "1284"
+},
+{
+"season": 2024,
+"firstName": "Nate",
+"lastName": "Oats",
+"totalPay": 5018045,
+"schoolPay": 5000000,
+"otherPay": 18045,
+"note": "",
+"teamID": "1284"
+}
+],
+"Arkansas": [
+{
+"season": 2025,
+"firstName": "John",
+"lastName": "Calipari",
+"totalPay": 7750000,
+"schoolPay": 7750000,
+"otherPay": -1,
+"note": "",
+"teamID": "1293"
+},
+{
+"season": 2024,
+"firstName": "John",
+"lastName": "Calipari",
+"totalPay": 8000000,
+"schoolPay": 8000000,
+"otherPay": -1,
+"note": "School Pay includes $1,000,000 one-time signing bonus.",
+"teamID": "1293"
+}
+],
+"Auburn": [
+{
+"season": 2025,
+"firstName": "Steven",
+"lastName": "Pearl",
+"totalPay": 3000000,
+"schoolPay": 3000000,
+"otherPay": -1,
+"note": "",
+"teamID": "1299"
+},
+{
+"season": 2024,
+"firstName": "Bruce",
+"lastName": "Pearl",
+"totalPay": 5958852,
+"schoolPay": 5933852,
+"otherPay": 25000,
+"note": "",
+"teamID": "1299"
+}
+],
+"Florida": [
+{
+"season": 2025,
+"firstName": "Todd",
+"lastName": "Golden",
+"totalPay": 6000000,
+"schoolPay": 5750000,
+"otherPay": 250000,
+"note": "School Pay includes a $500,000 one-time signing bonus for new contract signed in May 2025.",
+"teamID": "1407"
+},
+{
+"season": 2024,
+"firstName": "Todd",
+"lastName": "Golden",
+"totalPay": 3600000,
+"schoolPay": 3350000,
+"otherPay": 250000,
+"note": "School Pay includes $500,000 retention payment Golden will receive if he remains head coach on April 15, 2025.",
+"teamID": "1407"
+}
+],
+"Georgia": [
+{
+"season": 2025,
+"firstName": "Michael",
+"lastName": "White",
+"totalPay": 3910000,
+"schoolPay": 3910000,
+"otherPay": -1,
+"note": "",
+"teamID": "1420"
+},
+{
+"season": 2024,
+"firstName": "Mike",
+"lastName": "White",
+"totalPay": 3610000,
+"schoolPay": 3610000,
+"otherPay": -1,
+"note": "",
+"teamID": "1420"
+}
+],
+"Kentucky": [
+{
+"season": 2025,
+"firstName": "Mark",
+"lastName": "Pope",
+"totalPay": 5250000,
+"schoolPay": 5250000,
+"otherPay": -1,
+"note": "",
+"teamID": "1459"
+},
+{
+"season": 2024,
+"firstName": "Mark",
+"lastName": "Pope",
+"totalPay": 5000000,
+"schoolPay": 5000000,
+"otherPay": -1,
+"note": "In addition to School Pay, Kentucky paid $6,000,000 to Brigham Young University to cover the buyout that Pope owed that school.",
+"teamID": "1459"
+}
+],
+"LSU": [
+{
+"season": 2025,
+"firstName": "Matt",
+"lastName": "McMahon",
+"totalPay": 2905000,
+"schoolPay": 2900000,
+"otherPay": 5000,
+"note": "",
+"teamID": "1476"
+},
+{
+"season": 2024,
+"firstName": "Matt",
+"lastName": "McMahon",
+"totalPay": 2805000,
+"schoolPay": 2800000,
+"otherPay": 5000,
+"note": "",
+"teamID": "1476"
+}
+],
+"Mississippi State": [
+{
+"season": 2025,
+"firstName": "Chris",
+"lastName": "Jans",
+"totalPay": 4400000,
+"schoolPay": 4400000,
+"otherPay": 0,
+"note": "Jans buyout number is based on expectation that his salary in the 2029-30 will have an increase of $100,000 but the school has not responded to requests regarding his payment for that year?s extension. ",
+"teamID": "1506"
+},
+{
+"season": 2024,
+"firstName": "Chris",
+"lastName": "Jans",
+"totalPay": 4200000,
+"schoolPay": 4200000,
+"otherPay": -1,
+"note": "School Pay includes $3,450,000 from the Bulldog Club, Inc., a private non-profit organization that has its own contract with Jans. That contract is set to expire on March 31, 2029, one year after the scheduled end of Jans' contract with the university. School Buyout amount reflects combination of terms in university and Bulldog Club contracts.",
+"teamID": "1506"
+}
+],
+"Missouri": [
+{
+"season": 2025,
+"firstName": "Dennis",
+"lastName": "Gates",
+"totalPay": 4200000,
+"schoolPay": 4200000,
+"otherPay": 0,
+"note": "",
+"teamID": "1507"
+},
+{
+"season": 2024,
+"firstName": "Dennis",
+"lastName": "Gates",
+"totalPay": 4100000,
+"schoolPay": 4100000,
+"otherPay": 0,
+"note": "",
+"teamID": "1507"
+}
+],
+"Oklahoma": [
+{
+"season": 2025,
+"firstName": "Porter",
+"lastName": "Moser",
+"totalPay": 3300000,
+"schoolPay": 3400000,
+"otherPay": 0,
+"note": "School Pay includes $200,000 \"Stay Benefit\" that Moser will receive if he remains Oklahoma's head coach on May 1, 2026.",
+"teamID": "1558"
+},
+{
+"season": 2024,
+"firstName": "Porter",
+"lastName": "Moser",
+"totalPay": 3200000,
+"schoolPay": 3200000,
+"otherPay": 0,
+"note": "School Pay includes $200,000 \"Stay Benefit\" that Moser will receive if he remains Oklahoma's head coach on May 1, 2025.",
+"teamID": "1558"
+}
+],
+"Ole Miss": [
+{
+"season": 2025,
+"firstName": "Chris",
+"lastName": "Beard",
+"totalPay": 6000000,
+"schoolPay": 1150000,
+"otherPay": 4850000,
+"note": "School Pay includes $4,850,000 from the Ole Miss Athletics Foundation, a private non-profit organization that has two of its own contracts with Beard. Those contracts are set to expire on March 31, 2031, two years after the scheduled end of Beard's contract with the university. School Buyout amount reflects combination of terms in university and Foundation contracts.",
+"teamID": "1505"
+},
+{
+"season": 2024,
+"firstName": "Chris",
+"lastName": "Beard",
+"totalPay": 5000000,
+"schoolPay": 5000000,
+"otherPay": -1,
+"note": "School Pay includes $3,850,000 from the Ole Miss Athletics Foundation, a private non-profit organization that has two of its own contracts with Beard. Those contracts are set to expire on March 31, 2030, two years after the scheduled end of Beard's contract with the university. School Buyout amount reflects combination of terms in university and Foundation contracts.",
+"teamID": "1505"
+}
+],
+"South Carolina": [
+{
+"season": 2025,
+"firstName": "Lamont",
+"lastName": "Paris",
+"totalPay": 4000000,
+"schoolPay": 4000000,
+"otherPay": 0,
+"note": "",
+"teamID": "1611"
+},
+{
+"season": 2024,
+"firstName": "Lamont",
+"lastName": "Paris",
+"totalPay": 3750000,
+"schoolPay": 3750000,
+"otherPay": -1,
+"note": "",
+"teamID": "1611"
+}
+],
+"Tennessee": [
+{
+"season": 2025,
+"firstName": "Rick",
+"lastName": "Barnes",
+"totalPay": 6200000,
+"schoolPay": 6200000,
+"otherPay": -1,
+"note": "School Pay includes a $200,000 one-time signing bonus for new contract signed in August 2025.",
+"teamID": "1646"
+},
+{
+"season": 2024,
+"firstName": "Rick",
+"lastName": "Barnes",
+"totalPay": 5800000,
+"schoolPay": 5800000,
+"otherPay": -1,
+"note": "",
+"teamID": "1646"
+}
+],
+"Texas": [
+{
+"season": 2025,
+"firstName": "Sean",
+"lastName": "Miller",
+"totalPay": 5055000,
+"schoolPay": 5055000,
+"otherPay": -1,
+"note": "School Pay includes one-time payment of $250,000 for expenses related to Miller's transition to Texas after his hiring in March 2025.",
+"teamID": "1651"
+},
+{
+"season": 2024,
+"firstName": "Rodney",
+"lastName": "Terry",
+"totalPay": 3001500,
+"schoolPay": 3000000,
+"otherPay": 1500,
+"note": "",
+"teamID": "1651"
+}
+],
+"Texas A&M": [
+{
+"season": 2025,
+"firstName": "Henry Ward \"Bucky\"",
+"lastName": "McMillan III",
+"totalPay": 3075000,
+"schoolPay": 3075000,
+"otherPay": -1,
+"note": "",
+"teamID": "1652"
+},
+{
+"season": 2024,
+"firstName": "Buzz",
+"lastName": "Williams",
+"totalPay": 4600000,
+"schoolPay": 4600000,
+"otherPay": -1,
+"note": "",
+"teamID": "1652"
+}
+],
+"Vanderbilt": [
+{
+"season": 2025,
+"firstName": "Mark",
+"lastName": "Byington",
+"totalPay": -1,
+"schoolPay": -1,
+"otherPay": -1,
+"note": "",
+"teamID": "1674"
+},
+{
+"season": 2024,
+"firstName": "Mark",
+"lastName": "Byington",
+"totalPay": -1,
+"schoolPay": -1,
+"otherPay": -1,
+"note": "",
+"teamID": "1674"
+}
+],
+"Notre Dame": [
+{
+"season": 2025,
+"firstName": "Micah",
+"lastName": "Shrewsberry",
+"totalPay": 3261020,
+"schoolPay": 3261020,
+"otherPay": -1,
+"note": "",
+"teamID": "1549"
+},
+{
+"season": 2024,
+"firstName": "Micah",
+"lastName": "Shrewsberry",
+"totalPay": -1,
+"schoolPay": -1,
+"otherPay": -1,
+"note": "",
+"teamID": "1549"
+}
+]
+}

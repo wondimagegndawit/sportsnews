@@ -15,7 +15,7 @@ THE FILE HAS THREE TABS
 
 CONVENTIONS THE WORKBOOK USES ON PURPOSE (do not report these as errors)
 - "--" means no value could be sourced. A blank is deliberate.
-- Head coach pay is one figure per coach: total guaranteed annual pay for the current season, meaning base salary plus supplemental compensation (the guaranteed amounts contracts label as talent, rights, media or outside-income fees). Where a page states the base and the supplemental amount but no total, the workbook adds the two. Where a page gives only a contract total and length, or an average, the average is shown. Retention payments, signing bonuses and performance bonuses are deliberately left out of the figure.
+- Head coach pay is USA Today's Total Pay figure (football 2025 table; men's basketball table years 2026 and 2025). Where USA Today has no figure for the current head coach, the coach's current pay from a contract, school release or press report is shown instead.
 - A deal's start year may be the year the agreement was announced when the source gives no effective date.
 - A coach's contract end year is the year of the stated expiry date. "Through January 31, 2031" is shown as 2031.
 - A deal's annual value may be the reported total divided by the term, and a total may be the annual value times the term.
