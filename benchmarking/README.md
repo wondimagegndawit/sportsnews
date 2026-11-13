@@ -42,6 +42,10 @@ There are no per-school tabs; `School Lookup` covers every school.
 
 Each sport has one pay column: total guaranteed annual pay for the current season, meaning base salary plus supplemental compensation (the guaranteed amounts contracts label as talent, rights, media or outside-income fees). Where a source states the two parts but no total, they are added; where it gives only a contract total and length or an average, the average is shown. Retention payments, signing bonuses and performance bonuses are excluded and described in the Source Log note where known. The re-read totals, with the parts quoted, are in `data/research/verification_zzz_coach_pay.csv` (metrics `fb_hc_annual_comp`, `mbb_hc_annual_comp`). Figures that would need a stated escalator applied are left blank. A three-column layout (base, supplemental, total) was tried and dropped on 13 November 2026 because most sources state only a total.
 
+## Source exceptions
+
+USA Today's databases are not used, with one exception made at the analyst's direction on 13 November 2026: Kentucky men's basketball head coach pay (5,250,000, the database's 2025-26 figure). `data/source_exceptions.csv` lists the exception; `merge_research.py` lets only those rows past the source screen and `qa.py` reports them separately from any other hit.
+
 ## Verification
 
 A second, independent review of the double-check list (run in another AI tool on 13 November 2026) proposed seven value changes. Each was applied only after the page was read here: six are in `data/research/verification_zzzz_second_review.csv`; the seventh (Kentucky men's basketball pay) stays blank because the cited page could not be opened. Rows in files named `verification_zzz*` are entered after the re-read pass and are never blanked by `data/research_withdrawals.csv`.

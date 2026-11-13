@@ -1332,6 +1332,7 @@ log_row,school,tab,cell,metric,value,status,matched_text,strength,http,source_na
 5418,Kentucky,SEC,AE12,FB HC contract end year,2031,found,2031,weak,200,LEX18 (Lexington local TV news),https://www.lex18.com/sports/uk-to-pay-football-head-coach-will-stein-5-year-28-5-minimum-contract
 5419,Kentucky,SEC,AF12,FB HC pay source type,contract,classification,,n/a,404,AP via WTOP (term sheet released by UK),https://wtop.com/ncaa-football/2025/12/kentuckys-stein-set-to-make-28-5m-in-5-year-deal-as-new-football-coach-stoops-owed-nearly-37-7m
 5420,Kentucky,SEC,AG12,Head men's basketball coach,Mark Pope,found,Mark Pope,strong,200,Men’s Basketball Roster 2026-27 – UK Athletics,https://ukathletics.com/sports/mbball/roster/
+5421,Kentucky,SEC,AH12,MBB HC annual guaranteed compensation,5250000,found,"5,250,000",strong,200,USA Today NCAA men's basketball coaches' pay database (page updated 8 April 2026),https://sportsdata.usatoday.com/ncaa/salaries/mens-basketball/coach/team/1459
 5422,Kentucky,SEC,AI12,MBB HC contract end year,2030,found,2030,weak,200,A Sea of Blue (press report),https://www.aseaofblue.com/2025/3/23/24392523/mark-pope-contract-extension-kentucky-basketball-ncaa-sweet-16-uk
 5423,Kentucky,SEC,AJ12,MBB HC pay source type,press report,classification,,n/a,200,A Sea of Blue,https://www.aseaofblue.com/2025/3/23/24392523/mark-pope-contract-extension-kentucky-basketball-ncaa-sweet-16-uk
 5424,Kentucky,SEC,AK12,Football stadium,Kroger Field,found,Kroger Field,strong,200,UK Athletics official facility page,https://ukathletics.com/facilities/kroger-field/

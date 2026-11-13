@@ -10,7 +10,17 @@ DTC=[i for i,m in enumerate(S,1) if m['key']=='f_fin_data_type'][0]
 tot=sum(lay['conf_layout'][c]['last']-lay['conf_layout'][c]['first']+1 for c in confs)
 print('1 rows: expected',lay.get('n_schools'),'| conference',tot,'| All Schools',lay['all_last']-lay['all_first']+1,'| tabs',wbf.sheetnames)
 hits=[(ws.title,c.coordinate) for ws in wbf for row in ws.iter_rows() for c in row if c.value is not None and ('usatoday' in (str(c.value)+(c.hyperlink.target if c.hyperlink else '')).lower() or 'usa today' in str(c.value).lower())]
-print('3 USA Today hits',hits)
+import csv as _csv, os as _os
+_exc=list(_csv.DictReader(open('data/source_exceptions.csv',encoding='utf-8'))) if _os.path.exists('data/source_exceptions.csv') else []
+def _allowed(title,coord):
+    ws=wbf[title]; c=ws[coord]
+    if c.hyperlink and any(c.hyperlink.target==e['url'] for e in _exc): return True
+    if title=='Source Log':
+        hd={ws.cell(6,k).value:k for k in range(3,ws.max_column+1)}
+        return any(ws.cell(c.row,hd['School']).value==e['school'] and ws.cell(c.row,hd['Metric']).value==e['header'] for e in _exc)
+    return False
+_ok=[h for h in hits if _allowed(*h)]; hits=[h for h in hits if h not in _ok]
+print('3 USA Today hits',hits,'| allowed by the analyst\'s direction (data/source_exceptions.csv)',_ok)
 bad=[]; blanks=[]; fontbad=[]; trip=[]
 for c in confs:
     ws=wbf[c]; wsv=wbv[c]; lc=lay['conf_layout'][c]

@@ -14,6 +14,8 @@ for f in files:
     for r in csv.DictReader(open(f,encoding='utf-8')):
         r={k:(v or '').strip() for k,v in r.items()}
         r['_file']=os.path.basename(f); rows.append(r)
+# data/source_exceptions.csv: the only rows allowed to cite an otherwise prohibited source, each at the analyst's written direction
+EXC={(x['school'],x['metric']) for x in csv.DictReader(open('data/source_exceptions.csv',encoding='utf-8'))} if os.path.exists('data/source_exceptions.csv') else set()
 def reject(r,why):
     rej.append(dict(r,reason=why)); r['value']='--'; r['notes']=f'rejected in review ({why}); '+r['notes']; r['source_url']=''
 for r in rows:
@@ -22,7 +24,7 @@ for r in rows:
     if m in ('fin_report_url',): continue
     url=r['source_url'].lower()
     if not url: reject(r,'no source URL'); continue
-    if 'usatoday' in url or 'wikipedia' in url or 'wikiwand' in url or 'usa today' in r['source_name'].lower(): reject(r,'prohibited source'); continue
+    if ('usatoday' in url or 'wikipedia' in url or 'wikiwand' in url or 'usa today' in r['source_name'].lower()) and (r['school'],m) not in EXC: reject(r,'prohibited source'); continue
     if 'stadiumjourney' in url or 'wiki' in url: reject(r,'fan site or wiki mirror not accepted as a source'); continue
     if not r['_file'].startswith('verification_') and re.search(r'(projection|expected to generate|conservative estimated)',r['notes'],re.I) and re.search(r'(annual_value|total_value)',m): reject(r,'projected value, not a contract figure'); continue
     # rows written after a verification re-read carry verbatim quotes, which may contain these words; they were
