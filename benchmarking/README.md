@@ -44,6 +44,8 @@ Each sport has one pay column: total guaranteed annual pay for the current seaso
 
 ## Verification
 
+A second, independent review of the double-check list (run in another AI tool on 13 November 2026) proposed seven value changes. Each was applied only after the page was read here: six are in `data/research/verification_zzzz_second_review.csv`; the seventh (Kentucky men's basketball pay) stays blank because the cited page could not be opened. Rows in files named `verification_zzz*` are entered after the re-read pass and are never blanked by `data/research_withdrawals.csv`.
+
 Every researched value is checked against its cited source, and the result is shown in the Source Log's Verification column.
 
 1. `scripts/verify_sources.py <cache_dir>` fetches each cited page once (cache kept outside the repo) and looks for the value in the page text. Output: `data/verification/auto_check.csv`.

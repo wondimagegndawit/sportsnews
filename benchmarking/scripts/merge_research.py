@@ -63,11 +63,13 @@ for r in rows:
     merged[k]=r
 # Withdrawals: values removed after a verification re-read because no source states the figure itself.
 # data/research_withdrawals.csv columns: school,metric,withdrawn_value,reason,date. A withdrawal applies only while the
-# merged value still equals withdrawn_value, so a later sourced correction is never blanked by an old withdrawal.
+# merged value still equals withdrawn_value, so a later sourced correction is never blanked by an old withdrawal, and
+# never to a row from a file named verification_zzz* (values entered after the re-read pass).
 if os.path.exists('data/research_withdrawals.csv'):
     nw=0
     for w in csv.DictReader(open('data/research_withdrawals.csv',encoding='utf-8')):
         k=(w['school'],w['metric']); cur=merged.get(k)
+        if cur and cur['_file']>='verification_zzz': continue   # entered after the re-read pass, from a page read since
         if cur and cur['value']!='--' and cur['value'].replace(',','')==w['withdrawn_value'].replace(',',''):
             merged[k]=dict(cur,value='--',source_url='',notes=f"Withdrawn on re-read ({w['date']}): {w['reason']} Previously shown: {cur['value']} from {cur['source_name']}."); nw+=1
     print('withdrawn after verification',nw)

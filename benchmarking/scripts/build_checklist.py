@@ -35,7 +35,10 @@ ITEMS=[  # (group, school, column, what to check). Rows settled by the browser c
  ('Your call','Louisville','Arena capacity','The official page says only "22,000-seat"; the earlier 22,090 is not stated on any page that could be read.'),
  ('Your call','Ohio State','Arena naming rights partner','Value City is still on the building, but Ohio State plans to phase the name out with no timetable. The 12,500,000 total is a contribution for the name, not an annual fee.'),
  ('Your call','Kentucky','Arena naming rights annual value','The release says the naming-rights portion will be 1.5 million "upon completion of the renovation", within a wider investment averaging 4.1 million a year, so it may not have applied from the first year.'),
- ('Your call','Georgia','Varsity sports sponsored','21 is from a 2023 article ("21 sports teams"); a September 2026 article refers to 20 NCAA-sponsored teams, which is a narrower count.'),
+ ('Your call','Georgia','Varsity sports sponsored','21 is from a 2023 article ("Georgia\'s 21 sports teams"). The same article refers to "20 NCAA-sanctioned sports" because equestrian is not an NCAA sport. Decide which count to show.'),
+ ('Your call','Kentucky','MBB HC annual guaranteed compensation','Blank. The second reviewer reports that the Herald-Leader states "$5.5 million for 2026-27" at kentucky.com/sports/college/kentucky-sports/article311606298.html, but that page could not be opened to check it. Open the link; if it says so, 5,500,000 can go in.'),
+ ('Your call','Maryland','Apparel total value','Blank. The second reviewer reports that the Washington Post (14 June 2024) calls it a "12-year, $98 million contract", while the board minutes say the deal is "projected to provide $98 million". The Post page could not be opened to check it. Decide whether a projected total is acceptable.'),
+ ('Your call','Illinois','FB HC contract end year','Shows 2030 from "a new six-year contract through the end of the 2030 season". The same release says the agreement runs "to June 30, 2031", and other coaches use the year of the stated expiry date, which would make this 2031.'),
  ('Worth a glance','Kansas','MMR term (years)','The school\'s release confirms a 10-year extension, but the page displays the date 21 July 2022 while its address carries 22 May 2024. Confirm which extension is current.'),
  ('Worth a glance','Alabama','Arena capacity','The official page text and the 2026 game notes say 13,474, but a capacities table on the same page shows a main-floor total of 14,474.'),
 ]
@@ -68,8 +71,8 @@ for r in range(7,so.max_row+1):
     elif lg.get('Value') in (None,'--'): outcome='Blanked: '+str(lg.get('Note'))[:260]
     elif same: outcome={'Re-read and confirmed':'Confirmed: the source page was re-read and states the figure','Found on source page':'Confirmed: the figure was found in the text of the source page'}.get(lg.get('Verification'),str(lg.get('Verification')))
     else: outcome='Corrected to '+fmt(lg['Value'])
-    rows.append([sch,nt,naddr,m,fmt(v),fmt(now),outcome,so.cell(r,10).value,so.cell(r,11).value])
-sheet(out,'31 dollar figures',['School','Tab','Cell','Column','Value before','Shown now','Outcome','Source it came from','Source link'],rows,[16,12,7,36,16,16,90,50,60])
+    rows.append([sch,nt,naddr,m,fmt(v),fmt(now),outcome,so.cell(r,10).value,so.cell(r,11).value,lg.get('Source name') or '--',lg.get('URL') or '--'])
+sheet(out,'31 dollar figures',['School','Tab','Cell','Column','Value before','Shown now','Outcome','Source it first came from','First source link','Source cited now','Link cited now'],rows,[16,12,7,36,16,16,90,50,60,50,60])
 n31=len(rows)
 # ---------- 3. every changed cell ----------
 rows=[]
