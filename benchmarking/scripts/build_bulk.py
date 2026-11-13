@@ -79,9 +79,9 @@ for s in master:
             rec=[x for x in j if x['sportCode']==code and x['cohortYear']==latest]
             if rec:
                 x=rec[0]; url=NCAA+x['gsrReportLink'].split('?')[0]
-                add(s['name'],metric,int(x['gsr']),'GSR %',f'{latest} cohort (2024-25 release)' if latest==2018 else f'{latest} cohort','NCAA GSR search (public report)',url,f"{label} Graduation Success Rate, four-class cohort ending {latest}; search tool https://web3.ncaa.org/aprsearch/gsrsearch")
+                add(s['name'],metric,int(x['gsr']),'GSR %',f'{latest} cohort (2024-25 release)' if latest==2018 else f'{latest} cohort','NCAA GSR search (public report)',url,f"{label} Graduation Success Rate from the NCAA's most recent release (published November 2025). It measures student-athletes who entered in the four years {latest-3}-{str(latest-2)[2:]} through {latest}-{str(latest+1)[2:]} and allows six years to graduate, which is why the entering years look old. Search tool https://web3.ncaa.org/aprsearch/gsrsearch")
             else: add(s['name'],metric,'--','GSR %','','NCAA GSR search','https://web3.ncaa.org/aprsearch/gsrsearch',f'no {label} GSR record')
-        add(s['name'],'academic_data_year','2024-25' if latest==2018 else f'cohort {latest}','text','2024-25','NCAA APR/GSR search','https://web3.ncaa.org/aprsearch/aprsearch','APR: 2024-25 multiyear release; GSR: 2018 entering cohort (2024-25 release)')
+        add(s['name'],'academic_data_year','2024-25' if latest==2018 else f'cohort {latest}','text','2024-25','NCAA APR/GSR search','https://web3.ncaa.org/aprsearch/aprsearch','Most recent NCAA releases as of November 2026. APR: 2024-25 multiyear rate. GSR: published November 2025, covering student-athletes who entered 2015-16 through 2018-19.')
     else:
         for metric in ('dept_gsr','fb_gsr'): add(s['name'],metric,'--','GSR %','','NCAA GSR search','https://web3.ncaa.org/aprsearch/gsrsearch','GSR search not retrieved')
         add(s['name'],'academic_data_year','--','text','','','', '')

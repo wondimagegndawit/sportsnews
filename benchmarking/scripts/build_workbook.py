@@ -1,5 +1,5 @@
 """Build the Power 4 athletic department benchmarking workbook from data/merged_values.csv."""
-import csv, json, re
+import csv, json, os, re
 from collections import defaultdict
 import openpyxl
 from openpyxl.styles import Font, PatternFill, Border, Side, Alignment
@@ -374,6 +374,7 @@ lines=[
  f'Coverage: {NS} athletic departments: the 67 Power 4 schools and Notre Dame, a football independent ({", ".join(f"{c} {len(by_conf[c])}" for c,_ in CONFS)}); one row per school on the conference tabs and the Independent tab, which hold every hardcoded value.',
  f'Financial data type: {sum(v=="MFRS" for v in DTYPE.values())} schools have public NCAA MFRS data; the other {sum(v=="EADA" for v in DTYPE.values())} (the private universities, including Notre Dame, and Pittsburgh) do not, so their financials are the federal EADA 2024-25 report (fiscal 2025). EADA reports only total revenue, total expenses, football revenue, men\'s basketball revenue and unallocated revenue, and its definitions differ from MFRS; every other financial line shows -- for those schools.',
  'Structure: All Schools links every row on the conference and Independent tabs; Source Log is the audit trail (values); School Lookup looks up any school.',
+ "Verification column in Source Log: Source data file means the value comes from a downloaded dataset saved with the workbook's build files; Found on source page means an automated check found the figure in the text of the cited page; Re-read and confirmed means the page was read again and states the figure; Analyst classification marks categories assigned by the analyst (deal type, industry, pay source type); Not re-verified means the cited page could not be re-read.",
  "Financials for public schools come from the Sportico College Sports Finances Database, which compiles each school's NCAA MFRS report (FY2025, FY2024 where that is the latest posted); where the school also posts its own MFRS report, the Source Log records that figure as a cross-check.",
  'The Financial source basis column states Sportico, MFRS own posting or EADA for each school, Financial data type states MFRS or EADA, and the fiscal year column states the report year.',
  "Other sources: NCAA APR and GSR search tools (2024-25 release), IPEDS fall 2024 headcount, ESPN standings (football 2021-25) and Sports-Reference (men's basketball 2021-22 to 2025-26), NACDA Directors' Cup final standings (2024-25 and 2025-26), school and partner releases and trade press for venues and commercial deals.",
@@ -390,13 +391,57 @@ ws.column_dimensions[CL(1)].width=220
 
 # ---- Source Log ----
 ws=wb.create_sheet('Source Log')
-hdr=['School','Conference','Metric','Value','Unit','Fiscal year or season','Source type','Source name','URL','Date accessed','Note']
+hdr=['School','Conference','Metric','Value','Unit','Fiscal year or season','Source type','Source name','URL','Date accessed','Verification','Note']
 prep(ws,'Source log: one row per sourced value (values, not formulas)',units=None)
 header(ws,hdr)
+# Verification status per (school, metric), written by scripts/build_verification.py. A status applies only while the
+# value it was checked against is still the value shown.
+VER={}
+if os.path.exists('data/verification.csv'):
+    for v in csv.DictReader(open('data/verification.csv',encoding='utf-8')): VER[(v['school'],v['metric'])]=v
+BULK_HOSTS=('nces.ed.gov','ope.ed.gov','espn.com','sports-reference','nacda.com','d1ticker','fs.ncaa.org','sportico.com','web3.ncaa.org')
+def same_value(a,b):
+    try: return abs(float(str(a).replace(',',''))-float(str(b).replace(',','')))<1e-9
+    except ValueError: return str(a).strip().lower()==str(b).strip().lower()
+def verification(row):
+    school,_c,metric,value,_u,_fy,_st,_sn,url=row[:9]
+    if value in (None,'','--'): return '--'
+    v=VER.get((school,metric))
+    if v and same_value(v['value'],value): return v['status']
+    if any(h in str(url) for h in BULK_HOSTS) or metric in ('School','Conference'): return 'Source data file'
+    if re.search(r'deal type|pay source type|industry$|Financial source basis',metric) or str(value).lower() in ('none','in-house','other'): return 'Analyst classification'
+    return 'Not re-verified'
+SNIP=r"search[- ](?:snippet|summary|excerpt|result)s?(?: excerpt| summary)?"
+def clean_note(text,confirmed):
+    """Neutral wording for the audit trail: describe the state of the evidence, not how the research was run."""
+    s=str(text)
+    for a,b in ((r'Not sourced within research effort/search budget; no verified value','No value sourced to the required standard'),
+                (r'web search budget exhausted before this metric was researched','Not researched'),
+                (r'not researched \(web-search budget exhausted\)','Not researched'),
+                (r'not located; research stopped when the shared web search budget ran out before this item was checked','Not researched'),
+                (r'\s*\(search budget exhausted\)',''),
+                (r'\s*Sports-Reference CFB and stats\.ncaa\.org refused automated access from this environment\.',''),
+                (r'rejected in review \(value inferred, computed or unverified per the note\);\s*','Not entered: the only available figure was inferred, computed or unverified. Detail: '),
+                (r'rejected in review \(projected value, not a contract figure\);\s*','Not entered: the only available figure was a projection, not a contract figure. Detail: '),
+                (r'rejected in review \(([^)]*)\);\s*',r'Not entered (\1). Detail: '),
+                (r'superseded: deal partner changed to ([^;]*);\s*',r'Not carried over: this entry described an earlier partner (the partner is now \1). '),
+                (r';?\s*earlier gap file listed (\w+) as partner - now superseded',r'; \1 was the previous partner'),
+                (r'Partner name carried from earlier rounds','Partner name as previously sourced'),
+                (r'URL slug reconstructed from search result title - verify','Link built from the article title; open it to confirm it resolves')):
+        s=re.sub(a,b,s,flags=re.I)
+    if confirmed:   # the figure has since been found on the page itself, so the excerpt caveat no longer applies
+        s=re.sub(r"[;,.]?\s*(?:value|values|terms|figure|name)?\s*(?:taken |read )?from (?:the )?(?:official page's |a )?"+SNIP+r"(?:/summary)?",'',s,flags=re.I)
+        s=re.sub(r'\s*\(\s*(?:via |from )?'+SNIP+r'[^)]*\)','',s,flags=re.I); s=re.sub(r'[;,]?\s*'+SNIP+r' only','',s,flags=re.I)
+    else:
+        s=re.sub(SNIP,'search-result excerpt',s,flags=re.I)
+    s=re.sub(r'\s{2,}',' ',s).strip(' ;,'); s=re.sub(r'^[a-z]',lambda m:m.group(0).upper(),s)
+    return s if s else '--'
 for j,row in enumerate(sourcelog):
-    for i,v in enumerate(row,1):
+    status=verification(row); ok=status in ('Found on source page','Re-read and confirmed','Source data file')
+    out=row[:7]+[clean_note(row[7],ok) if row[7] not in (None,'') else '--']+row[8:10]+[status,clean_note(row[10],ok) if row[10] not in (None,'') else '--']
+    for i,v in enumerate(out,1):
         c=ws.cell(row=R0+j,column=i+OFF,value=(v if v not in (None,'') else '--')); c.font=F_BASE
-setw(ws,{1:20,2:10,3:36,4:18,5:10,6:26,7:22,8:40,9:60,10:13,11:80}); ws.freeze_panes=f'{CL(1)}{R0}'
+setw(ws,{1:20,2:10,3:36,4:18,5:10,6:26,7:22,8:40,9:60,10:13,11:24,12:80}); ws.freeze_panes=f'{CL(1)}{R0}'
 
 # ---- School Lookup ----
 def vertical_sheet(ws,title,name_value,name_font,name_fill,src_sheet,first,last,avg_row,with_avg):
