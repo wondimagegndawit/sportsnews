@@ -15,36 +15,42 @@
     {
      "school": "Notre Dame",
      "short": "Notre Dame",
+     "abbr": "ND",
      "conference": "Independent",
      "logo": "notre_dame.png"
     },
     {
      "school": "Ohio State",
      "short": "Ohio State",
+     "abbr": "OSU",
      "conference": "Big Ten",
      "logo": "ohio_state.png"
     },
     {
      "school": "Tennessee",
      "short": "Tennessee",
+     "abbr": "TENN",
      "conference": "SEC",
      "logo": "tennessee.png"
     },
     {
      "school": "Illinois",
      "short": "Illinois",
+     "abbr": "ILL",
      "conference": "Big Ten",
      "logo": "illinois.png"
     },
     {
      "school": "Michigan State",
      "short": "Michigan St",
+     "abbr": "MSU",
      "conference": "Big Ten",
      "logo": "michigan_state.png"
     },
     {
      "school": "California",
      "short": "California",
+     "abbr": "CAL",
      "conference": "ACC",
      "logo": "california.png"
     }
@@ -74,9 +80,9 @@
    ],
    "avg": 10033333.333333334,
    "med": 9000000.0,
-   "source": "Source: Power 4 Athletic Department Benchmarking workbook (All Schools and Source Log tabs). Annual value is the reported figure or, where a source gives a total and a term, the total divided by the term. Notre Dame is shown at the low end of a reported range of $18 million to $20 million a year.",
+   "source": "Source: Power 4 Athletic Department Benchmarking workbook. Annual value is the reported figure or, where a source gives a total and a term, the total divided by the term. Notre Dame is shown at the low end of a reported range of $18 million to $20 million a year. All Power 4 schools with a value are shown because fewer than 10 Big 12 schools have one.",
    "title": "Jersey patch deals: 6 Power 4 schools have a reported annual value, averaging $10.0M with a median of $9.0M",
-   "subtitle": "Notre Dame is highest at $18.0M; no Big 12 school has a reported value. Chart shows all Power 4 schools with a reported value because fewer than 10 Big 12 schools have one."
+   "subtitle": "Notre Dame is highest at $18.0M; no Big 12 school has a reported value."
   },
   {
    "key": "stadium_naming",
@@ -92,84 +98,98 @@
     {
      "school": "Miami (FL)",
      "short": "Miami",
+     "abbr": "MIA",
      "conference": "ACC",
      "logo": "miami_fl.png"
     },
     {
      "school": "Washington",
      "short": "Washington",
+     "abbr": "WASH",
      "conference": "Big Ten",
      "logo": "washington.png"
     },
     {
      "school": "Texas Tech",
      "short": "Texas Tech",
+     "abbr": "TTU",
      "conference": "Big 12",
      "logo": "texas_tech.png"
     },
     {
      "school": "Arkansas",
      "short": "Arkansas",
+     "abbr": "ARK",
      "conference": "SEC",
      "logo": "arkansas.png"
     },
     {
      "school": "Penn State",
      "short": "Penn State",
+     "abbr": "PSU",
      "conference": "Big Ten",
      "logo": "penn_state.png"
     },
     {
      "school": "Arizona State",
      "short": "Arizona St",
+     "abbr": "ASU",
      "conference": "Big 12",
      "logo": "arizona_state.png"
     },
     {
      "school": "Arizona",
      "short": "Arizona",
+     "abbr": "ARIZ",
      "conference": "Big 12",
      "logo": "arizona.png"
     },
     {
      "school": "Georgia Tech",
      "short": "Georgia Tech",
+     "abbr": "GT",
      "conference": "ACC",
      "logo": "georgia_tech.png"
     },
     {
      "school": "Louisville",
      "short": "Louisville",
+     "abbr": "LOU",
      "conference": "ACC",
      "logo": "louisville.png"
     },
     {
      "school": "Houston",
      "short": "Houston",
+     "abbr": "HOU",
      "conference": "Big 12",
      "logo": "houston.png"
     },
     {
      "school": "UCF",
      "short": "UCF",
+     "abbr": "UCF",
      "conference": "Big 12",
      "logo": "ucf.png"
     },
     {
      "school": "Kentucky",
      "short": "Kentucky",
+     "abbr": "UK",
      "conference": "SEC",
      "logo": "kentucky.png"
     },
     {
      "school": "Minnesota",
      "short": "Minnesota",
+     "abbr": "MINN",
      "conference": "Big Ten",
      "logo": "minnesota.png"
     },
     {
      "school": "Maryland",
      "short": "Maryland",
+     "abbr": "MD",
      "conference": "Big Ten",
      "logo": "maryland.png"
     }
@@ -207,9 +227,9 @@
    ],
    "avg": 3829682.53968254,
    "med": 2875000.0,
-   "source": "Source: Power 4 Athletic Department Benchmarking workbook (All Schools and Source Log tabs). Annual value is the reported figure or, where a source gives a total and a term, the total divided by the term.",
+   "source": "Source: Power 4 Athletic Department Benchmarking workbook. Annual value is the reported figure or, where a source gives a total and a term, the total divided by the term. All Power 4 schools with a value are shown because fewer than 10 Big 12 schools have one.",
    "title": "Stadium naming rights: 14 Power 4 schools have a reported annual value, averaging $3.8M with a median of $2.9M",
-   "subtitle": "Miami is highest at $13.9M; 5 of the 14 are in the Big 12 (Arizona, Arizona St, Houston, Texas Tech and UCF). Chart shows all Power 4 schools with a reported value because fewer than 10 Big 12 schools have one."
+   "subtitle": "Miami is highest at $13.9M; 5 of the 14 are in the Big 12 (Arizona, Arizona St, Houston, Texas Tech and UCF)."
   },
   {
    "key": "arena_naming",
@@ -225,66 +245,77 @@
     {
      "school": "NC State",
      "short": "NC State",
+     "abbr": "NCSU",
      "conference": "ACC",
      "logo": "nc_state.png"
     },
     {
      "school": "UCLA",
      "short": "UCLA",
+     "abbr": "UCLA",
      "conference": "Big Ten",
      "logo": "ucla.png"
     },
     {
      "school": "Washington",
      "short": "Washington",
+     "abbr": "WASH",
      "conference": "Big Ten",
      "logo": "washington.png"
     },
     {
      "school": "Illinois",
      "short": "Illinois",
+     "abbr": "ILL",
      "conference": "Big Ten",
      "logo": "illinois.png"
     },
     {
      "school": "Tennessee",
      "short": "Tennessee",
+     "abbr": "TENN",
      "conference": "SEC",
      "logo": "tennessee.png"
     },
     {
      "school": "Arizona",
      "short": "Arizona",
+     "abbr": "ARIZ",
      "conference": "Big 12",
      "logo": "arizona.png"
     },
     {
      "school": "UCF",
      "short": "UCF",
+     "abbr": "UCF",
      "conference": "Big 12",
      "logo": "ucf.png"
     },
     {
      "school": "Kentucky",
      "short": "Kentucky",
+     "abbr": "UK",
      "conference": "SEC",
      "logo": "kentucky.png"
     },
     {
      "school": "Arizona State",
      "short": "Arizona St",
+     "abbr": "ASU",
      "conference": "Big 12",
      "logo": "arizona_state.png"
     },
     {
      "school": "Rutgers",
      "short": "Rutgers",
+     "abbr": "RUTG",
      "conference": "Big Ten",
      "logo": "rutgers.png"
     },
     {
      "school": "Nebraska",
      "short": "Nebraska",
+     "abbr": "NEB",
      "conference": "Big Ten",
      "logo": "nebraska.png"
     }
@@ -319,9 +350,9 @@
    ],
    "avg": 2270757.575757576,
    "med": 1846666.66666667,
-   "source": "Source: Power 4 Athletic Department Benchmarking workbook (All Schools and Source Log tabs). Annual value is the reported figure or, where a source gives a total and a term, the total divided by the term.",
+   "source": "Source: Power 4 Athletic Department Benchmarking workbook. Annual value is the reported figure or, where a source gives a total and a term, the total divided by the term. All Power 4 schools with a value are shown because fewer than 10 Big 12 schools have one.",
    "title": "Arena naming rights: 11 Power 4 schools have a reported annual value, averaging $2.3M with a median of $1.8M",
-   "subtitle": "NC State is highest at $6.0M; 3 of the 11 are in the Big 12 (Arizona, Arizona St and UCF). Chart shows all Power 4 schools with a reported value because fewer than 10 Big 12 schools have one."
+   "subtitle": "NC State is highest at $6.0M; 3 of the 11 are in the Big 12 (Arizona, Arizona St and UCF)."
   },
   {
    "key": "fb_attendance",
@@ -337,96 +368,112 @@
     {
      "school": "BYU",
      "short": "BYU",
+     "abbr": "BYU",
      "conference": "Big 12",
      "logo": "byu.png"
     },
     {
      "school": "Iowa State",
      "short": "Iowa State",
+     "abbr": "ISU",
      "conference": "Big 12",
      "logo": "iowa_state.png"
     },
     {
      "school": "Texas Tech",
      "short": "Texas Tech",
+     "abbr": "TTU",
      "conference": "Big 12",
      "logo": "texas_tech.png"
     },
     {
      "school": "West Virginia",
      "short": "West Virginia",
+     "abbr": "WVU",
      "conference": "Big 12",
      "logo": "west_virginia.png"
     },
     {
      "school": "Arizona State",
      "short": "Arizona St",
+     "abbr": "ASU",
      "conference": "Big 12",
      "logo": "arizona_state.png"
     },
     {
      "school": "Kansas State",
      "short": "Kansas St",
+     "abbr": "KSU",
      "conference": "Big 12",
      "logo": "kansas_state.png"
     },
     {
      "school": "Utah",
      "short": "Utah",
+     "abbr": "UTAH",
      "conference": "Big 12",
      "logo": "utah.png"
     },
     {
      "school": "Colorado",
      "short": "Colorado",
+     "abbr": "COLO",
      "conference": "Big 12",
      "logo": "colorado.png"
     },
     {
      "school": "Oklahoma State",
      "short": "Oklahoma St",
+     "abbr": "OKST",
      "conference": "Big 12",
      "logo": "oklahoma_state.png"
     },
     {
      "school": "UCF",
      "short": "UCF",
+     "abbr": "UCF",
      "conference": "Big 12",
      "logo": "ucf.png"
     },
     {
      "school": "TCU",
      "short": "TCU",
+     "abbr": "TCU",
      "conference": "Big 12",
      "logo": "tcu.png"
     },
     {
      "school": "Arizona",
      "short": "Arizona",
+     "abbr": "ARIZ",
      "conference": "Big 12",
      "logo": "arizona.png"
     },
     {
      "school": "Kansas",
      "short": "Kansas",
+     "abbr": "KU",
      "conference": "Big 12",
      "logo": "kansas.png"
     },
     {
      "school": "Baylor",
      "short": "Baylor",
+     "abbr": "BAY",
      "conference": "Big 12",
      "logo": "baylor.png"
     },
     {
      "school": "Cincinnati",
      "short": "Cincinnati",
+     "abbr": "CIN",
      "conference": "Big 12",
      "logo": "cincinnati.png"
     },
     {
      "school": "Houston",
      "short": "Houston",
+     "abbr": "HOU",
      "conference": "Big 12",
      "logo": "houston.png"
     }
@@ -505,96 +552,112 @@
     {
      "school": "Kansas State",
      "short": "Kansas St",
+     "abbr": "KSU",
      "conference": "Big 12",
      "logo": "kansas_state.png"
     },
     {
      "school": "BYU",
      "short": "BYU",
+     "abbr": "BYU",
      "conference": "Big 12",
      "logo": "byu.png"
     },
     {
      "school": "Arizona State",
      "short": "Arizona St",
+     "abbr": "ASU",
      "conference": "Big 12",
      "logo": "arizona_state.png"
     },
     {
      "school": "Colorado",
      "short": "Colorado",
+     "abbr": "COLO",
      "conference": "Big 12",
      "logo": "colorado.png"
     },
     {
      "school": "Utah",
      "short": "Utah",
+     "abbr": "UTAH",
      "conference": "Big 12",
      "logo": "utah.png"
     },
     {
      "school": "Texas Tech",
      "short": "Texas Tech",
+     "abbr": "TTU",
      "conference": "Big 12",
      "logo": "texas_tech.png"
     },
     {
      "school": "Iowa State",
      "short": "Iowa State",
+     "abbr": "ISU",
      "conference": "Big 12",
      "logo": "iowa_state.png"
     },
     {
      "school": "UCF",
      "short": "UCF",
+     "abbr": "UCF",
      "conference": "Big 12",
      "logo": "ucf.png"
     },
     {
      "school": "Kansas",
      "short": "Kansas",
+     "abbr": "KU",
      "conference": "Big 12",
      "logo": "kansas.png"
     },
     {
      "school": "Cincinnati",
      "short": "Cincinnati",
+     "abbr": "CIN",
      "conference": "Big 12",
      "logo": "cincinnati.png"
     },
     {
      "school": "TCU",
      "short": "TCU",
+     "abbr": "TCU",
      "conference": "Big 12",
      "logo": "tcu.png"
     },
     {
      "school": "West Virginia",
      "short": "West Virginia",
+     "abbr": "WVU",
      "conference": "Big 12",
      "logo": "west_virginia.png"
     },
     {
      "school": "Baylor",
      "short": "Baylor",
+     "abbr": "BAY",
      "conference": "Big 12",
      "logo": "baylor.png"
     },
     {
      "school": "Oklahoma State",
      "short": "Oklahoma St",
+     "abbr": "OKST",
      "conference": "Big 12",
      "logo": "oklahoma_state.png"
     },
     {
      "school": "Arizona",
      "short": "Arizona",
+     "abbr": "ARIZ",
      "conference": "Big 12",
      "logo": "arizona.png"
     },
     {
      "school": "Houston",
      "short": "Houston",
+     "abbr": "HOU",
      "conference": "Big 12",
      "logo": "houston.png"
     }
@@ -673,96 +736,112 @@
     {
      "school": "BYU",
      "short": "BYU",
+     "abbr": "BYU",
      "conference": "Big 12",
      "logo": "byu.png"
     },
     {
      "school": "Kansas",
      "short": "Kansas",
+     "abbr": "KU",
      "conference": "Big 12",
      "logo": "kansas.png"
     },
     {
      "school": "Arizona",
      "short": "Arizona",
+     "abbr": "ARIZ",
      "conference": "Big 12",
      "logo": "arizona.png"
     },
     {
      "school": "Iowa State",
      "short": "Iowa State",
+     "abbr": "ISU",
      "conference": "Big 12",
      "logo": "iowa_state.png"
     },
     {
      "school": "Texas Tech",
      "short": "Texas Tech",
+     "abbr": "TTU",
      "conference": "Big 12",
      "logo": "texas_tech.png"
     },
     {
      "school": "West Virginia",
      "short": "West Virginia",
+     "abbr": "WVU",
      "conference": "Big 12",
      "logo": "west_virginia.png"
     },
     {
      "school": "Cincinnati",
      "short": "Cincinnati",
+     "abbr": "CIN",
      "conference": "Big 12",
      "logo": "cincinnati.png"
     },
     {
      "school": "Arizona State",
      "short": "Arizona St",
+     "abbr": "ASU",
      "conference": "Big 12",
      "logo": "arizona_state.png"
     },
     {
      "school": "Kansas State",
      "short": "Kansas St",
+     "abbr": "KSU",
      "conference": "Big 12",
      "logo": "kansas_state.png"
     },
     {
      "school": "Utah",
      "short": "Utah",
+     "abbr": "UTAH",
      "conference": "Big 12",
      "logo": "utah.png"
     },
     {
      "school": "Houston",
      "short": "Houston",
+     "abbr": "HOU",
      "conference": "Big 12",
      "logo": "houston.png"
     },
     {
      "school": "Baylor",
      "short": "Baylor",
+     "abbr": "BAY",
      "conference": "Big 12",
      "logo": "baylor.png"
     },
     {
      "school": "UCF",
      "short": "UCF",
+     "abbr": "UCF",
      "conference": "Big 12",
      "logo": "ucf.png"
     },
     {
      "school": "Colorado",
      "short": "Colorado",
+     "abbr": "COLO",
      "conference": "Big 12",
      "logo": "colorado.png"
     },
     {
      "school": "Oklahoma State",
      "short": "Oklahoma St",
+     "abbr": "OKST",
      "conference": "Big 12",
      "logo": "oklahoma_state.png"
     },
     {
      "school": "TCU",
      "short": "TCU",
+     "abbr": "TCU",
      "conference": "Big 12",
      "logo": "tcu.png"
     }
@@ -820,72 +899,84 @@
     {
      "school": "BYU",
      "short": "BYU",
+     "abbr": "BYU",
      "conference": "Big 12",
      "logo": "byu.png"
     },
     {
      "school": "Kansas",
      "short": "Kansas",
+     "abbr": "KU",
      "conference": "Big 12",
      "logo": "kansas.png"
     },
     {
      "school": "Arizona",
      "short": "Arizona",
+     "abbr": "ARIZ",
      "conference": "Big 12",
      "logo": "arizona.png"
     },
     {
      "school": "Baylor",
      "short": "Baylor",
+     "abbr": "BAY",
      "conference": "Big 12",
      "logo": "baylor.png"
     },
     {
      "school": "Texas Tech",
      "short": "Texas Tech",
+     "abbr": "TTU",
      "conference": "Big 12",
      "logo": "texas_tech.png"
     },
     {
      "school": "Cincinnati",
      "short": "Cincinnati",
+     "abbr": "CIN",
      "conference": "Big 12",
      "logo": "cincinnati.png"
     },
     {
      "school": "West Virginia",
      "short": "West Virginia",
+     "abbr": "WVU",
      "conference": "Big 12",
      "logo": "west_virginia.png"
     },
     {
      "school": "TCU",
      "short": "TCU",
+     "abbr": "TCU",
      "conference": "Big 12",
      "logo": "tcu.png"
     },
     {
      "school": "UCF",
      "short": "UCF",
+     "abbr": "UCF",
      "conference": "Big 12",
      "logo": "ucf.png"
     },
     {
      "school": "Arizona State",
      "short": "Arizona St",
+     "abbr": "ASU",
      "conference": "Big 12",
      "logo": "arizona_state.png"
     },
     {
      "school": "Utah",
      "short": "Utah",
+     "abbr": "UTAH",
      "conference": "Big 12",
      "logo": "utah.png"
     },
     {
      "school": "Oklahoma State",
      "short": "Oklahoma St",
+     "abbr": "OKST",
      "conference": "Big 12",
      "logo": "oklahoma_state.png"
     }

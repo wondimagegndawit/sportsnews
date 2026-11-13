@@ -42,12 +42,12 @@ def build(key,metric,unit,label,getters,source,second=None):
     scope='conference' if len(inconf)>=MIN else 'all'
     rs=sorted(inconf if scope=='conference' else have,key=lambda r:-g0(r))
     p4=[g0(r) for r in have]; avg=statistics.mean(p4); med=statistics.median(p4); f=FMT[unit]
-    cats=[dict(school=school(r),short=LOGO[school(r)]['short'],conference=conf(r),logo=LOGO[school(r)]['file']) for r in rs]
+    cats=[dict(school=school(r),short=LOGO[school(r)]['short'],abbr=LOGO[school(r)]['abbr'],conference=conf(r),logo=LOGO[school(r)]['file']) for r in rs]
     series=[dict(name=nm,values=[g(r) for r in rs]) for nm,g in getters]
     return dict(key=key,metric=metric,unit=unit,label=label,scope=scope,conference=CONF,n_conf=len(inconf),n_conf_total=sum(1 for r in ROWS if conf(r)==CONF),n_p4=len(have),
                 categories=cats,series=series,lines=[dict(name=f'Power 4 average ({f(avg)})',value=avg),dict(name=f'Power 4 median ({f(med)})',value=med)],
                 avg=avg,med=med,source=source,rows=rs,inconf=inconf)
-SRC_WB='Source: Power 4 Athletic Department Benchmarking workbook (All Schools and Source Log tabs).'
+SRC_WB='Source: Power 4 Athletic Department Benchmarking workbook.'
 def deal(key,hdr,label):
     s=build(key,hdr,'usd',label,[(label,lambda r:val(r,hdr))],SRC_WB+' Annual value is the reported figure or, where a source gives a total and a term, the total divided by the term.')
     if key=='jersey_patch' and any(school(r)=='Notre Dame' for r in s['rows']): s['source']+=' Notre Dame is shown at the low end of a reported range of $18 million to $20 million a year.'
@@ -58,7 +58,8 @@ def deal(key,hdr,label):
     if s['scope']=='all':
         inn=s['inconf']
         tail=(f"{len(inn)} of the {s['n_p4']} are in the {CONF} ({names(inn)})" if inn else f"no {CONF} school has a reported value")
-        s['subtitle']=f"{LOGO[school(top)]['short']} is highest at {f(val(top,hdr))}; {tail}. Chart shows {who} because fewer than {MIN} {CONF} schools have one."
+        s['source']+=f" All Power 4 schools with a value are shown because fewer than {MIN} {CONF} schools have one."
+        s['subtitle']=f"{LOGO[school(top)]['short']} is highest at {f(val(top,hdr))}; {tail}."
     else:
         s['subtitle']=f"{LOGO[school(top)]['short']} is highest in the {CONF} at {f(val(top,hdr))}; {s['n_conf']} of {s['n_conf_total']} {CONF} schools have a reported value."
     return s
