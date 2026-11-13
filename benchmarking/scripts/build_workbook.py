@@ -349,6 +349,13 @@ for conf,sname in CONFS:
             elif a is not None and t is not None and tot is None: formula_cell(ctot,f'=IF(AND(ISNUMBER({A(pre+"_annual_value")}),ISNUMBER({A(pre+"_term_years")})),{A(pre+"_annual_value")}*{A(pre+"_term_years")},"--")','usd')
             elif tot is not None and t is not None and a is None: formula_cell(ca,f'=IF(AND(ISNUMBER({A(pre+"_total_value")}),ISNUMBER({A(pre+"_term_years")})),{A(pre+"_total_value")}/{A(pre+"_term_years")},"--")','usd')
             elif a is not None and tot is not None and t is None: formula_cell(ct,f'=IF(AND(ISNUMBER({A(pre+"_total_value")}),ISNUMBER({A(pre+"_annual_value")})),{A(pre+"_total_value")}/{A(pre+"_annual_value")},"--")','cnt')
+            # a stated end year takes the place of the start + term formula: sources often give when a deal runs to
+            # without giving an effective start, and the stated end is the more reliable figure for extensions
+            er=get(s['name'],pre+'_end_year')
+            if er and er['value'] not in ('--',''):
+                ce=ws[A('f_'+pre+'_expires')]; put_cell(ce,num(er['value']),F_LINKED if er['source_url'] else F_HC,'yr')
+                if er['source_url']: ce.hyperlink=er['source_url']
+                logrow(s,next(mm['hdr'] for mm in S if mm['key']=='f_'+pre+'_expires'),num(er['value']),'year',er['fiscal_year_or_season'],stype_of(er),er['source_name'],er['source_url'],er['notes'],er.get('date_accessed'))
     conf_layout[conf]=dict(sheet=sname,**summary_and_breakdown(ws,R0,R0+n-1))
     widths={i:max(len(m['hdr']),max((len(str(resolved[s['name']][m['key']][0] or '--')) for s in ss),default=0) if m['kind']!='formula' else 14)+2 for i,m in enumerate(S,1)}
     widths[1]=max(widths[1],30); setw(ws,widths); ws.freeze_panes=f'{CL(2)}{R0}'
@@ -376,6 +383,7 @@ lines=[
  'Structure: All Schools links every row on the conference and Independent tabs; Source Log is the audit trail (values); School Lookup looks up any school.',
  "Verification column in Source Log: Source data file means the value comes from a downloaded dataset saved with the workbook's build files; Found on source page means an automated check found the figure in the text of the cited page; Re-read and confirmed means the page was read again and states the figure; Analyst classification marks categories assigned by the analyst (deal type, industry, pay source type); Not re-verified means the cited page could not be re-read.",
  "Financials for public schools come from the Sportico College Sports Finances Database, which compiles each school's NCAA MFRS report (FY2025, FY2024 where that is the latest posted); where the school also posts its own MFRS report, the Source Log records that figure as a cross-check.",
+ 'Deal dates: the expires column is the stated end year where a source gives one (blue), otherwise start year plus term (black formula). A start year is the stated effective year or, where the source gives only the announcement, the year the agreement was announced, as noted in Source Log. Coach contract end year is the year of the stated expiry date or final season.',
  'The Financial source basis column states Sportico, MFRS own posting or EADA for each school, Financial data type states MFRS or EADA, and the fiscal year column states the report year.',
  "Other sources: NCAA APR and GSR search tools (2024-25 release), IPEDS fall 2024 headcount, ESPN standings (football 2021-25) and Sports-Reference (men's basketball 2021-22 to 2025-26), NACDA Directors' Cup final standings (2024-25 and 2025-26), school and partner releases and trade press for venues and commercial deals.",
  "Football attendance comes from the D1.ticker FBS Attendance Trends pages, as displayed: average home attendance for 2023, 2024 and 2025 (the Final Average column of each season's own page), and from the 2025 page the year-over-year change, the 5-year average (the page does not say which five seasons), the change against that 5-year average and the percent of capacity. The pages give averages only, with no totals or game counts, and do not state their underlying data source or whether figures are announced or paid.",
@@ -390,6 +398,7 @@ for k,t in enumerate(lines): ws.cell(row=R0+k,column=1+OFF,value=t).font=F_BASE
 ws.column_dimensions[CL(1)].width=220
 
 # ---- Source Log ----
+_oi={s['name']:i for i,s in enumerate(order)}; sourcelog.sort(key=lambda r:_oi[r[0]])   # stable: keeps each school's rows together
 ws=wb.create_sheet('Source Log')
 hdr=['School','Conference','Metric','Value','Unit','Fiscal year or season','Source type','Source name','URL','Date accessed','Verification','Note']
 prep(ws,'Source log: one row per sourced value (values, not formulas)',units=None)

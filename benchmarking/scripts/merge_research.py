@@ -7,7 +7,7 @@ import glob
 research=sorted(glob.glob(f"{R}/*.csv"))
 assert research, f'no research CSVs found in {R}; refusing to merge without them'
 files=["data/bulk_values.csv","data/sportico_values.csv","data/attendance_values.csv"]+research
-NUM=re.compile(r'(revenue|expense|distributions|support|fees|salaries|debt|_comp$|_end$|capacity|opened|renovation|start_year|term_years|annual_value|total_value|varsity|fiscal_year|enrollment$|_wins_|_losses_|apr|gsr$|dcup_|attendance)')
+NUM=re.compile(r'(revenue|expense|distributions|support|fees|salaries|debt|_comp$|_end$|capacity|opened|renovation|start_year|term_years|annual_value|total_value|varsity|fiscal_year|enrollment$|_wins_|_losses_|apr|gsr$|dcup_|attendance|end_year)')
 QUAL=re.compile(r'(approx|about|~|\best\b|up to|unknown|unverified|tbd|n/a|\?)',re.I)
 rows=[]; rej=[]
 for f in files:
@@ -24,8 +24,11 @@ for r in rows:
     if not url: reject(r,'no source URL'); continue
     if 'usatoday' in url or 'wikipedia' in url or 'wikiwand' in url or 'usa today' in r['source_name'].lower(): reject(r,'prohibited source'); continue
     if 'stadiumjourney' in url or 'wiki' in url: reject(r,'fan site or wiki mirror not accepted as a source'); continue
-    if re.search(r'(projection|expected to generate|conservative estimated)',r['notes'],re.I) and re.search(r'(annual_value|total_value)',m): reject(r,'projected value, not a contract figure'); continue
-    if re.search(r'(inferred|computed from|not stated directly|assum|estimat|derived from the term sheet|plus \$?\d|average of|not read directly|probably|unverified|not verified|wikipedia mirror)',r['notes'],re.I) and (m.endswith('_comp') or m.endswith('_contract_end') or re.search(r'(capacity|opened|renovation|start_year|term_years|annual_value|total_value)',m)):
+    if not r['_file'].startswith('verification_') and re.search(r'(projection|expected to generate|conservative estimated)',r['notes'],re.I) and re.search(r'(annual_value|total_value)',m): reject(r,'projected value, not a contract figure'); continue
+    # rows written after a verification re-read carry verbatim quotes, which may contain these words; they were
+    # screened by the re-read itself
+    screened=not r['_file'].startswith('verification_')
+    if screened and re.search(r'(inferred|computed from|not stated directly|assum|estimat|derived from the term sheet|plus \$?\d|average of|not read directly|probably|unverified|not verified|wikipedia mirror)',r['notes'],re.I) and (m.endswith('_comp') or m.endswith('_contract_end') or re.search(r'(capacity|opened|renovation|start_year|term_years|annual_value|total_value)',m)):
         reject(r,'value inferred, computed or unverified per the note'); continue
     if NUM.search(m) and m not in ('enrollment_year','academic_data_year'):
         if not re.fullmatch(r'-?\d+(\.\d+)?',v.replace(',','')): reject(r,'numeric metric with non-numeric value'); continue
