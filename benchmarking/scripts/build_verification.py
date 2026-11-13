@@ -4,7 +4,7 @@ Priority: re-read verdict, then manual check, then automated check; a manual che
 against; build_workbook.py ignores it if the value has since changed."""
 import csv, os
 out={}
-RENAME={'FB HC annual guaranteed compensation':'FB HC total pay','MBB HC annual guaranteed compensation':'MBB HC total pay 2026'}   # headers renamed 13 Nov 2026
+RENAME={'FB HC annual guaranteed compensation':'FB HC total pay','MBB HC annual guaranteed compensation':'MBB HC total pay 2026','FB HC contract end year':'FB HC contract end season (year season begins)','MBB HC contract end year':'MBB HC contract end season (year season ends)'}   # headers renamed 13 Nov 2026
 def same(a,b):
     try: return abs(float(str(a).replace(',',''))-float(str(b).replace(',','')))<1e-9
     except ValueError: return str(a).strip().lower()==str(b).strip().lower()
