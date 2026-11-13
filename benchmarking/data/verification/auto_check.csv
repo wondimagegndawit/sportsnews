@@ -180,7 +180,7 @@ log_row,school,tab,cell,metric,value,status,matched_text,strength,http,source_na
 759,Miami (FL),ACC,CK14,Apparel start year,2027,found,2027,weak,200,Nike press release (Sept. 18 2026),https://about.nike.com/en/newsroom/releases/nike-and-the-university-of-miami-reunite-in-a-new-multi-year-partnership
 762,Miami (FL),ACC,CN14,Apparel total value,200000000,found,$200 million,strong,200,Associated Press via TSN (Sept. 16 2026),https://www.tsn.ca/ncaa/football/article/report-miami-going-back-to-nike-in-deal-that-will-exceed-200m/
 766,Miami (FL),ACC,CS14,Varsity sports sponsored,18,found,18 sports,medium,200,Miami Hurricanes Athletics - History page,https://miamihurricanes.com/history/
-800,NC State,ACC,AC15,Head football coach,Todd Goebbel (interim),unreadable,,n/a,202,Associated Press game recap (ESPN.com),http://www.espn.com/ncf/recap?gameId=401858286
+800,NC State,ACC,AC15,Head football coach,Philip Rivers,found,Philip Rivers,strong,200,"WRAL News, 13 November 2026",https://www.wral.com/sports/ncstate-football-philip-rivers-hired-coach-wolfpack-contract-board-november-2026/
 804,NC State,ACC,AG15,Head men's basketball coach,Justin Gainey,found,Justin Gainey,strong,200,2026-27 Men’s Basketball Coaches - NC State University Athletics,https://gopack.com/sports/mbball/coaches/
 805,NC State,ACC,AH15,MBB HC annual guaranteed compensation,2350000,found,$2.35 million,strong,200,Sports Illustrated (contract released via open records),https://www.si.com/college/ncstate/analyzing-justin-gainey-s-nc-state-contract
 807,NC State,ACC,AJ15,MBB HC pay source type,contract,classification,,n/a,200,Sports Illustrated (contract released via open records),https://www.si.com/college/ncstate/analyzing-justin-gainey-s-nc-state-contract

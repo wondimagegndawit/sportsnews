@@ -21,7 +21,7 @@ for r in range(7,sl.max_row+1): LOG[(sl.cell(r,SH['School']).value,sl.cell(r,SH[
 def fmt(v): return f'{v:,.0f}' if isinstance(v,(int,float)) and not isinstance(v,bool) and abs(v)>=10000 else (f'{v:g}' if isinstance(v,float) else v)
 # ---------- 1. double-check list ----------
 ITEMS=[  # (group, school, column, what to check). Rows settled by the browser check of 2026-11-12 have been removed.
- ('Re-check on the day you send','NC State','Head football coach','ESPN and CBS reported on 12 November that Philip Rivers has agreed terms and that trustees were due to finalize it on 13 November. NC State\'s own site still listed Todd Goebbel as interim on 12 November.'),
+ ('Re-check on the day you send','NC State','Head football coach','Shown as Philip Rivers at your direction, with pay and contract end blank. WRAL reported on the morning of 13 November that NC State "will hire" him "pending approval of his contract by the university\'s Board of Trustees". No report of the vote was found that day, and the staff page (second link) still listed Todd Goebbel as interim head coach. Confirm the hire is official and add pay once terms are published.'),
  ('Re-check on the day you send','Maryland','Head football coach','Interim since 21 October; a national search is under way. Florida State and Baylor football and Oregon men\'s basketball also still show interim coaches on their official staff pages.'),
  ('Your call','Rutgers',"Head men's basketball coach",'The official staff page lists both: Steve Pikiell as head coach and Brandin Knight as acting head coach while Pikiell undergoes treatment. Decide which name to show.'),
  ('Your call','Syracuse','Stadium naming rights start year','Policy question, 13 deals show the year the agreement was announced as the start year because the source gives no effective date (as agreed for Washington\'s arena). Source Log notes mark each one. Say if you would rather blank them.'),
@@ -31,7 +31,7 @@ ITEMS=[  # (group, school, column, what to check). Rows settled by the browser c
  ('Your call','Miami (FL)','Apparel partner','Shows Nike, which starts in July 2027; adidas is the outfitter through June 2027. Ole Miss is the reverse: adidas starts on 1 July 2027. Decide whether to show the current or the incoming partner.'),
  ('Your call','Arkansas','Stadium naming rights total value','The newspaper reports 70,000,000 over the 14-year agreement, of which 13 years carry the stadium name. The cell shows the 70,000,000 total and the 13 naming years, and no annual value is derived from them. The stadium name is shown ahead of its 2027 start, as with Washington.'),
  ('Your call','North Carolina','MMR annual value','12,600,000 is the stated average. It matches the 2018 contract: royalty fees of 144,750,000 over 12 years, plus a 3,000,000 signing bonus and 4,000,000 of capital subsidies, come to 151,750,000, or 12.65 million a year. The royalty fees alone average 12.06 million, and the June 2023 amendment lists 13,500,000 for 2026-27. Decide whether this column should hold the contract average or the current-year fee.'),
- ('Your call','West Virginia','FB HC annual guaranteed compensation','Blank. AP gives 3.5 million for the first season rising 100,000 a season, which would make 2026 3.6 million, but no page states the 2026 figure. Oklahoma State men\'s basketball is blank for the same reason. Say if you want stated schedules like these applied.'),
+ ('Your call','West Virginia','FB HC annual guaranteed compensation','Blank. AP gives 3.5 million for the first season rising 100,000 a season, which would make 2026 3.6 million, but no page states the 2026 figure. Oklahoma State men\'s basketball is blank for the same reason. USA Today lists 3,600,000 for 2025, but its note says that includes a 100,000 relocation stipend, so it was not used. Say if you want stated schedules like these applied.'),
  ('Your call','Louisville','Arena capacity','The official page says only "22,000-seat"; the earlier 22,090 is not stated on any page that could be read.'),
  ('Your call','Ohio State','Arena naming rights partner','Value City is still on the building, but Ohio State plans to phase the name out with no timetable. The 12,500,000 total is a contribution for the name, not an annual fee.'),
  ('Your call','Kentucky','Arena naming rights annual value','The release says the naming-rights portion will be 1.5 million "upon completion of the renovation", within a wider investment averaging 4.1 million a year, so it may not have applied from the first year.'),
@@ -57,11 +57,24 @@ def sheet(wb,title,headers,rows,widths):
             if isinstance(v,str) and v.startswith('http'): c.hyperlink=v; c.font=Font(name=FN,size=9,color='0000FF',underline='single')
     ws.freeze_panes='C3'; return ws
 out=openpyxl.Workbook(); out.remove(out.active)
+# links for rows whose cell has no source of its own, and a second page to open where two pages matter
+LINK={('West Virginia','FB HC annual guaranteed compensation'):'https://sportsdata.usatoday.com/ncaa/salaries/football/coach/team/3423',
+      ('Maryland','Apparel total value'):'https://www.washingtonpost.com/sports/2024/06/14/under-armour-maryland-athletics-deal/'}
+SECOND={('NC State','Head football coach'):'https://gopack.com/sports/football/coaches',
+        ('Maryland','Head football coach'):'https://umterps.com/news/2026/10/21/football-maryland-athletics-michael-locksley-mutually-agree-to-part-ways',
+        ('California','Fiscal year'):'https://s3.us-east-2.amazonaws.com/sidearm.nextgen.sites/calberk.sidearmsports.com/documents/2026/2/23/FY25_UCB_NCAA_SRE_Final___POSTED_.pdf',
+        ('Stanford','MMR partner'):'https://www.learfield.com/partner/stanford-cardinal/',
+        ('Miami (FL)','Apparel partner'):'https://olemisssports.com/news/2026/10/7/athletics-adidas-ole-miss-announce-7-year-partnership-beginning-in-2027',
+        ('North Carolina','MMR annual value'):'https://s3.us-east-2.amazonaws.com/sidearm.nextgen.sites/unc.sidearmsports.com/documents/2025/1/27/UNC_Learfield_MMR_Amendment_June_2023_-_Executed60.pdf',
+        ('Kentucky','MBB HC annual guaranteed compensation'):'https://www.kentucky.com/sports/college/kentucky-sports/article311606298.html',
+        ('Maryland','Apparel total value'):'https://www.usmd.edu/content/regents/minutes/2024/20240529-FC-PublicClosedSession.pdf',
+        ('Kansas','MMR term (years)'):'https://www.sportsbusinessjournal.com/Daily/Closing-Bell/2022/07/21/KU-partnership-with-Learfield/',
+        ('Ohio State','Arena naming rights partner'):'https://ohiostatebuckeyes.com/news/2026/9/16/mens-basketball-complete-20-game-big-ten-schedule-announced'}
 rows=[]
 for n,(grp,sch,col,why) in enumerate(ITEMS,1):
     t,addr,val=NEW[(sch,col)]; lg=LOG.get((sch,col),{})
-    rows.append([n,grp,sch,t,addr,col,fmt(val),why,lg.get('URL') if str(lg.get('URL','')).startswith('http') else '--'])
-sheet(out,'Double-check',['#','Why it is here','School','Tab','Cell','Column','Shown now','What to look at','Source'],rows,[4,26,16,12,7,34,22,150,60])
+    rows.append([n,grp,sch,t,addr,col,fmt(val),why,lg.get('URL') if str(lg.get('URL','')).startswith('http') else LINK.get((sch,col),'--'),SECOND.get((sch,col),'--')])
+sheet(out,'Double-check',['#','Why it is here','School','Tab','Cell','Column','Shown now','What to look at','Link to open','Second link, where one helps'],rows,[4,26,16,12,7,34,22,150,60,60])
 # ---------- 2. dollar figures first read from a search-result excerpt ----------
 so=av['Source Log']; rows=[]
 for r in range(7,so.max_row+1):
