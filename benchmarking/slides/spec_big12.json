@@ -93,15 +93,8 @@
    "conference": "Big 12",
    "n_conf": 5,
    "n_conf_total": 16,
-   "n_p4": 14,
+   "n_p4": 13,
    "categories": [
-    {
-     "school": "Miami (FL)",
-     "short": "Miami",
-     "abbr": "MIA",
-     "conference": "ACC",
-     "logo": "miami_fl.png"
-    },
     {
      "school": "Washington",
      "short": "Washington",
@@ -198,7 +191,6 @@
     {
      "name": "Stadium naming rights annual value",
      "values": [
-      13888888.8888889,
       7000000,
       5000000,
       5000000,
@@ -217,19 +209,19 @@
    ],
    "lines": [
     {
-     "name": "Power 4 average ($3.8M)",
-     "value": 3829682.53968254
+     "name": "Power 4 average ($3.1M)",
+     "value": 3055897.4358974355
     },
     {
-     "name": "Power 4 median ($2.9M)",
-     "value": 2875000.0
+     "name": "Power 4 median ($2.8M)",
+     "value": 2750000
     }
    ],
-   "avg": 3829682.53968254,
-   "med": 2875000.0,
+   "avg": 3055897.4358974355,
+   "med": 2750000,
    "source": "Source: Power 4 Athletic Department Benchmarking workbook. Annual value is the reported figure or, where a source gives a total and a term, the total divided by the term. All Power 4 schools with a value are shown because fewer than 10 Big 12 schools have one.",
-   "title": "Stadium naming rights: 14 Power 4 schools have a reported annual value, averaging $3.8M with a median of $2.9M",
-   "subtitle": "Miami is highest at $13.9M; 5 of the 14 are in the Big 12 (Arizona, Arizona St, Houston, Texas Tech and UCF)."
+   "title": "Stadium naming rights: 13 Power 4 schools have a reported annual value, averaging $3.1M with a median of $2.8M",
+   "subtitle": "Washington is highest at $7.0M; 5 of the 13 are in the Big 12 (Arizona, Arizona St, Houston, Texas Tech and UCF)."
   },
   {
    "key": "arena_naming",
