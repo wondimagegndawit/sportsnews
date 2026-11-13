@@ -48,6 +48,7 @@ for ws in wbv:
         for cell in row:
             if (cell.value=='' or cell.value is None) and wbf[ws.title][cell.coordinate].value is not None: empt+=1
 print('  empty formula results on link tabs',empt)
+print('  cells whose number format has a fill character (long underline)',sum(1 for ws in wbf for row in ws.iter_rows() for cell in row if cell.value is not None and '*' in (cell.number_format or '')))
 # 7: recompute every average and median (by fiscal year and all years) in Python from the school rows and compare
 errv=[(ws.title,c.coordinate,c.value) for ws in wbv for row in ws.iter_rows() for c in row if isinstance(c.value,str) and c.value.startswith(('#','Err:'))]
 print('7 formula error values anywhere',len(errv),errv[:5])

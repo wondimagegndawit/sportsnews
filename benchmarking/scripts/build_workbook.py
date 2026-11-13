@@ -192,7 +192,9 @@ F_HDR=Font(name=FN,size=FS,color='FFFFFF'); F_BRAND=Font(name='Montserrat',size=
 FILL_BLACK=PatternFill('solid',fgColor='000000'); FILL_SEC=PatternFill('solid',fgColor='E8E8E8'); FILL_IN=PatternFill('solid',fgColor='FFFFCC'); FILL_SUB=PatternFill('solid',fgColor='D9D9D9')
 THIN=Side(style='thin',color='000000'); DBL=Side(style='double',color='000000')
 B_TB=Border(top=THIN,bottom=THIN); B_T=Border(top=THIN); B_TOT=Border(top=THIN,bottom=DBL)
-ACCT='_(* #,##0_);_(* \\(#,##0\\);_(* "-"??_);_(@_)'
+# accounting-style layout (thousands separators, negatives in parentheses, zero as a dash, right padding) but without
+# the "* " fill of the built-in accounting format: that fill is underlined on hyperlinked cells and draws a line across the cell
+ACCT='#,##0_);\\(#,##0\\);"-"??_);_(@_)'
 FMT={'usd':ACCT,'pct':'0.0%','cnt':ACCT,'wp':'0.000','yr':'0','pts':'#,##0.00','idx':'0'}
 OFF=2                      # data starts in column C; A is a 1-wide gutter, B carries the title block
 def CL(i): return L(i+OFF)
