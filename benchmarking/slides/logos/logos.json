@@ -1,0 +1,478 @@
+{
+"Boston College": {
+"espn_id": "103",
+"file": "boston_college.png",
+"abbr": "BC",
+"short": "Boston College",
+"size": 76783
+},
+"California": {
+"espn_id": "25",
+"file": "california.png",
+"abbr": "CAL",
+"short": "California",
+"size": 27781
+},
+"Clemson": {
+"espn_id": "228",
+"file": "clemson.png",
+"abbr": "CLEM",
+"short": "Clemson",
+"size": 32916
+},
+"Duke": {
+"espn_id": "150",
+"file": "duke.png",
+"abbr": "DUKE",
+"short": "Duke",
+"size": 9586
+},
+"Florida State": {
+"espn_id": "52",
+"file": "florida_state.png",
+"abbr": "FSU",
+"short": "Florida St",
+"size": 96920
+},
+"Georgia Tech": {
+"espn_id": "59",
+"file": "georgia_tech.png",
+"abbr": "GT",
+"short": "Georgia Tech",
+"size": 28310
+},
+"Louisville": {
+"espn_id": "97",
+"file": "louisville.png",
+"abbr": "LOU",
+"short": "Louisville",
+"size": 47737
+},
+"Miami (FL)": {
+"espn_id": "2390",
+"file": "miami_fl.png",
+"abbr": "MIA",
+"short": "Miami",
+"size": 13560
+},
+"North Carolina": {
+"espn_id": "153",
+"file": "north_carolina.png",
+"abbr": "UNC",
+"short": "North Carolina",
+"size": 50070
+},
+"NC State": {
+"espn_id": "152",
+"file": "nc_state.png",
+"abbr": "NCSU",
+"short": "NC State",
+"size": 55357
+},
+"Pittsburgh": {
+"espn_id": "221",
+"file": "pittsburgh.png",
+"abbr": "PITT",
+"short": "Pitt",
+"size": 46974
+},
+"SMU": {
+"espn_id": "2567",
+"file": "smu.png",
+"abbr": "SMU",
+"short": "SMU",
+"size": 15945
+},
+"Stanford": {
+"espn_id": "24",
+"file": "stanford.png",
+"abbr": "STAN",
+"short": "Stanford",
+"size": 39181
+},
+"Syracuse": {
+"espn_id": "183",
+"file": "syracuse.png",
+"abbr": "SYR",
+"short": "Syracuse",
+"size": 15062
+},
+"Virginia": {
+"espn_id": "258",
+"file": "virginia.png",
+"abbr": "UVA",
+"short": "Virginia",
+"size": 51802
+},
+"Virginia Tech": {
+"espn_id": "259",
+"file": "virginia_tech.png",
+"abbr": "VT",
+"short": "Virginia Tech",
+"size": 36764
+},
+"Wake Forest": {
+"espn_id": "154",
+"file": "wake_forest.png",
+"abbr": "WAKE",
+"short": "Wake Forest",
+"size": 9983
+},
+"Illinois": {
+"espn_id": "356",
+"file": "illinois.png",
+"abbr": "ILL",
+"short": "Illinois",
+"size": 5504
+},
+"Indiana": {
+"espn_id": "84",
+"file": "indiana.png",
+"abbr": "IU",
+"short": "Indiana",
+"size": 6318
+},
+"Iowa": {
+"espn_id": "2294",
+"file": "iowa.png",
+"abbr": "IOWA",
+"short": "Iowa",
+"size": 13210
+},
+"Maryland": {
+"espn_id": "120",
+"file": "maryland.png",
+"abbr": "MD",
+"short": "Maryland",
+"size": 41396
+},
+"Michigan": {
+"espn_id": "130",
+"file": "michigan.png",
+"abbr": "MICH",
+"short": "Michigan",
+"size": 20380
+},
+"Michigan State": {
+"espn_id": "127",
+"file": "michigan_state.png",
+"abbr": "MSU",
+"short": "Michigan St",
+"size": 28616
+},
+"Minnesota": {
+"espn_id": "135",
+"file": "minnesota.png",
+"abbr": "MINN",
+"short": "Minnesota",
+"size": 37596
+},
+"Nebraska": {
+"espn_id": "158",
+"file": "nebraska.png",
+"abbr": "NEB",
+"short": "Nebraska",
+"size": 23526
+},
+"Northwestern": {
+"espn_id": "77",
+"file": "northwestern.png",
+"abbr": "NU",
+"short": "Northwestern",
+"size": 20398
+},
+"Ohio State": {
+"espn_id": "194",
+"file": "ohio_state.png",
+"abbr": "OSU",
+"short": "Ohio State",
+"size": 43467
+},
+"Oregon": {
+"espn_id": "2483",
+"file": "oregon.png",
+"abbr": "ORE",
+"short": "Oregon",
+"size": 19816
+},
+"Penn State": {
+"espn_id": "213",
+"file": "penn_state.png",
+"abbr": "PSU",
+"short": "Penn State",
+"size": 21779
+},
+"Purdue": {
+"espn_id": "2509",
+"file": "purdue.png",
+"abbr": "PUR",
+"short": "Purdue",
+"size": 20617
+},
+"Rutgers": {
+"espn_id": "164",
+"file": "rutgers.png",
+"abbr": "RUTG",
+"short": "Rutgers",
+"size": 16356
+},
+"UCLA": {
+"espn_id": "26",
+"file": "ucla.png",
+"abbr": "UCLA",
+"short": "UCLA",
+"size": 20669
+},
+"USC": {
+"espn_id": "30",
+"file": "usc.png",
+"abbr": "USC",
+"short": "USC",
+"size": 16675
+},
+"Washington": {
+"espn_id": "264",
+"file": "washington.png",
+"abbr": "WASH",
+"short": "Washington",
+"size": 32900
+},
+"Wisconsin": {
+"espn_id": "275",
+"file": "wisconsin.png",
+"abbr": "WIS",
+"short": "Wisconsin",
+"size": 32636
+},
+"Arizona": {
+"espn_id": "12",
+"file": "arizona.png",
+"abbr": "ARIZ",
+"short": "Arizona",
+"size": 31305
+},
+"Arizona State": {
+"espn_id": "9",
+"file": "arizona_state.png",
+"abbr": "ASU",
+"short": "Arizona St",
+"size": 58753
+},
+"Baylor": {
+"espn_id": "239",
+"file": "baylor.png",
+"abbr": "BAY",
+"short": "Baylor",
+"size": 9621
+},
+"BYU": {
+"espn_id": "252",
+"file": "byu.png",
+"abbr": "BYU",
+"short": "BYU",
+"size": 23735
+},
+"Cincinnati": {
+"espn_id": "2132",
+"file": "cincinnati.png",
+"abbr": "CIN",
+"short": "Cincinnati",
+"size": 15035
+},
+"Colorado": {
+"espn_id": "38",
+"file": "colorado.png",
+"abbr": "COLO",
+"short": "Colorado",
+"size": 39640
+},
+"Houston": {
+"espn_id": "248",
+"file": "houston.png",
+"abbr": "HOU",
+"short": "Houston",
+"size": 12778
+},
+"Iowa State": {
+"espn_id": "66",
+"file": "iowa_state.png",
+"abbr": "ISU",
+"short": "Iowa State",
+"size": 68853
+},
+"Kansas": {
+"espn_id": "2305",
+"file": "kansas.png",
+"abbr": "KU",
+"short": "Kansas",
+"size": 103080
+},
+"Kansas State": {
+"espn_id": "2306",
+"file": "kansas_state.png",
+"abbr": "KSU",
+"short": "Kansas St",
+"size": 21002
+},
+"Oklahoma State": {
+"espn_id": "197",
+"file": "oklahoma_state.png",
+"abbr": "OKST",
+"short": "Oklahoma St",
+"size": 25524
+},
+"TCU": {
+"espn_id": "2628",
+"file": "tcu.png",
+"abbr": "TCU",
+"short": "TCU",
+"size": 13174
+},
+"Texas Tech": {
+"espn_id": "2641",
+"file": "texas_tech.png",
+"abbr": "TTU",
+"short": "Texas Tech",
+"size": 4918
+},
+"UCF": {
+"espn_id": "2116",
+"file": "ucf.png",
+"abbr": "UCF",
+"short": "UCF",
+"size": 41563
+},
+"Utah": {
+"espn_id": "254",
+"file": "utah.png",
+"abbr": "UTAH",
+"short": "Utah",
+"size": 6333
+},
+"West Virginia": {
+"espn_id": "277",
+"file": "west_virginia.png",
+"abbr": "WVU",
+"short": "West Virginia",
+"size": 19577
+},
+"Alabama": {
+"espn_id": "333",
+"file": "alabama.png",
+"abbr": "ALA",
+"short": "Alabama",
+"size": 29455
+},
+"Arkansas": {
+"espn_id": "8",
+"file": "arkansas.png",
+"abbr": "ARK",
+"short": "Arkansas",
+"size": 48398
+},
+"Auburn": {
+"espn_id": "2",
+"file": "auburn.png",
+"abbr": "AUB",
+"short": "Auburn",
+"size": 36407
+},
+"Florida": {
+"espn_id": "57",
+"file": "florida.png",
+"abbr": "FLA",
+"short": "Florida",
+"size": 99235
+},
+"Georgia": {
+"espn_id": "61",
+"file": "georgia.png",
+"abbr": "UGA",
+"short": "Georgia",
+"size": 31931
+},
+"Kentucky": {
+"espn_id": "96",
+"file": "kentucky.png",
+"abbr": "UK",
+"short": "Kentucky",
+"size": 15651
+},
+"LSU": {
+"espn_id": "99",
+"file": "lsu.png",
+"abbr": "LSU",
+"short": "LSU",
+"size": 9913
+},
+"Mississippi State": {
+"espn_id": "344",
+"file": "mississippi_state.png",
+"abbr": "MSST",
+"short": "Mississippi St",
+"size": 71584
+},
+"Missouri": {
+"espn_id": "142",
+"file": "missouri.png",
+"abbr": "MIZ",
+"short": "Missouri",
+"size": 63688
+},
+"Oklahoma": {
+"espn_id": "201",
+"file": "oklahoma.png",
+"abbr": "OU",
+"short": "Oklahoma",
+"size": 16066
+},
+"Ole Miss": {
+"espn_id": "145",
+"file": "ole_miss.png",
+"abbr": "MISS",
+"short": "Ole Miss",
+"size": 32145
+},
+"South Carolina": {
+"espn_id": "2579",
+"file": "south_carolina.png",
+"abbr": "SC",
+"short": "South Carolina",
+"size": 94680
+},
+"Tennessee": {
+"espn_id": "2633",
+"file": "tennessee.png",
+"abbr": "TENN",
+"short": "Tennessee",
+"size": 9159
+},
+"Texas": {
+"espn_id": "251",
+"file": "texas.png",
+"abbr": "TEX",
+"short": "Texas",
+"size": 16632
+},
+"Texas A&M": {
+"espn_id": "245",
+"file": "texas_a_m.png",
+"abbr": "TA&M",
+"short": "Texas A&M",
+"size": 10157
+},
+"Vanderbilt": {
+"espn_id": "238",
+"file": "vanderbilt.png",
+"abbr": "VAN",
+"short": "Vanderbilt",
+"size": 31283
+},
+"Notre Dame": {
+"espn_id": "87",
+"file": "notre_dame.png",
+"abbr": "ND",
+"short": "Notre Dame",
+"size": 19851
+}
+}

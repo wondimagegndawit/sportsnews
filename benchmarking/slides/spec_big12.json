@@ -1,0 +1,1264 @@
+{
+ "conference": "Big 12",
+ "slides": [
+  {
+   "key": "jersey_patch",
+   "metric": "Jersey patch annual value",
+   "unit": "usd",
+   "label": "Jersey patch annual value",
+   "scope": "all",
+   "conference": "Big 12",
+   "n_conf": 0,
+   "n_conf_total": 16,
+   "n_p4": 5,
+   "categories": [
+    {
+     "school": "Ohio State",
+     "short": "Ohio State",
+     "conference": "Big Ten",
+     "logo": "ohio_state.png"
+    },
+    {
+     "school": "Tennessee",
+     "short": "Tennessee",
+     "conference": "SEC",
+     "logo": "tennessee.png"
+    },
+    {
+     "school": "Illinois",
+     "short": "Illinois",
+     "conference": "Big Ten",
+     "logo": "illinois.png"
+    },
+    {
+     "school": "Michigan State",
+     "short": "Michigan St",
+     "conference": "Big Ten",
+     "logo": "michigan_state.png"
+    },
+    {
+     "school": "California",
+     "short": "California",
+     "conference": "ACC",
+     "logo": "california.png"
+    }
+   ],
+   "series": [
+    {
+     "name": "Jersey patch annual value",
+     "values": [
+      17000000,
+      12000000,
+      6000000,
+      4000000,
+      3200000
+     ]
+    }
+   ],
+   "lines": [
+    {
+     "name": "Power 4 average ($8.4M)",
+     "value": 8440000
+    },
+    {
+     "name": "Power 4 median ($6.0M)",
+     "value": 6000000
+    }
+   ],
+   "avg": 8440000,
+   "med": 6000000,
+   "source": "Source: Power 4 Athletic Department Benchmarking workbook (All Schools and Source Log tabs). Annual value is the reported figure or, where a source gives a total and a term, the total divided by the term.",
+   "title": "Jersey patch deals: 5 Power 4 schools have a reported annual value, averaging $8.4M with a median of $6.0M",
+   "subtitle": "Ohio State is highest at $17.0M; no Big 12 school has a reported value. Chart shows all Power 4 schools with a reported value because fewer than 10 Big 12 schools have one."
+  },
+  {
+   "key": "stadium_naming",
+   "metric": "Stadium naming rights annual value",
+   "unit": "usd",
+   "label": "Stadium naming rights annual value",
+   "scope": "all",
+   "conference": "Big 12",
+   "n_conf": 5,
+   "n_conf_total": 16,
+   "n_p4": 14,
+   "categories": [
+    {
+     "school": "Miami (FL)",
+     "short": "Miami",
+     "conference": "ACC",
+     "logo": "miami_fl.png"
+    },
+    {
+     "school": "Washington",
+     "short": "Washington",
+     "conference": "Big Ten",
+     "logo": "washington.png"
+    },
+    {
+     "school": "Texas Tech",
+     "short": "Texas Tech",
+     "conference": "Big 12",
+     "logo": "texas_tech.png"
+    },
+    {
+     "school": "Arkansas",
+     "short": "Arkansas",
+     "conference": "SEC",
+     "logo": "arkansas.png"
+    },
+    {
+     "school": "Penn State",
+     "short": "Penn State",
+     "conference": "Big Ten",
+     "logo": "penn_state.png"
+    },
+    {
+     "school": "Arizona State",
+     "short": "Arizona St",
+     "conference": "Big 12",
+     "logo": "arizona_state.png"
+    },
+    {
+     "school": "Arizona",
+     "short": "Arizona",
+     "conference": "Big 12",
+     "logo": "arizona.png"
+    },
+    {
+     "school": "Georgia Tech",
+     "short": "Georgia Tech",
+     "conference": "ACC",
+     "logo": "georgia_tech.png"
+    },
+    {
+     "school": "Louisville",
+     "short": "Louisville",
+     "conference": "ACC",
+     "logo": "louisville.png"
+    },
+    {
+     "school": "Houston",
+     "short": "Houston",
+     "conference": "Big 12",
+     "logo": "houston.png"
+    },
+    {
+     "school": "UCF",
+     "short": "UCF",
+     "conference": "Big 12",
+     "logo": "ucf.png"
+    },
+    {
+     "school": "Kentucky",
+     "short": "Kentucky",
+     "conference": "SEC",
+     "logo": "kentucky.png"
+    },
+    {
+     "school": "Minnesota",
+     "short": "Minnesota",
+     "conference": "Big Ten",
+     "logo": "minnesota.png"
+    },
+    {
+     "school": "Maryland",
+     "short": "Maryland",
+     "conference": "Big Ten",
+     "logo": "maryland.png"
+    }
+   ],
+   "series": [
+    {
+     "name": "Stadium naming rights annual value",
+     "values": [
+      13888888.8888889,
+      7000000,
+      5000000,
+      5000000,
+      3333333.33333333,
+      3333333.33333333,
+      3000000,
+      2750000,
+      2050000,
+      2000000,
+      1950000,
+      1850000,
+      1360000,
+      1100000
+     ]
+    }
+   ],
+   "lines": [
+    {
+     "name": "Power 4 average ($3.8M)",
+     "value": 3829682.53968254
+    },
+    {
+     "name": "Power 4 median ($2.9M)",
+     "value": 2875000.0
+    }
+   ],
+   "avg": 3829682.53968254,
+   "med": 2875000.0,
+   "source": "Source: Power 4 Athletic Department Benchmarking workbook (All Schools and Source Log tabs). Annual value is the reported figure or, where a source gives a total and a term, the total divided by the term.",
+   "title": "Stadium naming rights: 14 Power 4 schools have a reported annual value, averaging $3.8M with a median of $2.9M",
+   "subtitle": "Miami is highest at $13.9M; 5 of the 14 are in the Big 12 (Arizona, Arizona St, Houston, Texas Tech and UCF). Chart shows all Power 4 schools with a reported value because fewer than 10 Big 12 schools have one."
+  },
+  {
+   "key": "arena_naming",
+   "metric": "Arena naming rights annual value",
+   "unit": "usd",
+   "label": "Arena naming rights annual value",
+   "scope": "all",
+   "conference": "Big 12",
+   "n_conf": 3,
+   "n_conf_total": 16,
+   "n_p4": 11,
+   "categories": [
+    {
+     "school": "NC State",
+     "short": "NC State",
+     "conference": "ACC",
+     "logo": "nc_state.png"
+    },
+    {
+     "school": "UCLA",
+     "short": "UCLA",
+     "conference": "Big Ten",
+     "logo": "ucla.png"
+    },
+    {
+     "school": "Washington",
+     "short": "Washington",
+     "conference": "Big Ten",
+     "logo": "washington.png"
+    },
+    {
+     "school": "Illinois",
+     "short": "Illinois",
+     "conference": "Big Ten",
+     "logo": "illinois.png"
+    },
+    {
+     "school": "Tennessee",
+     "short": "Tennessee",
+     "conference": "SEC",
+     "logo": "tennessee.png"
+    },
+    {
+     "school": "Arizona",
+     "short": "Arizona",
+     "conference": "Big 12",
+     "logo": "arizona.png"
+    },
+    {
+     "school": "UCF",
+     "short": "UCF",
+     "conference": "Big 12",
+     "logo": "ucf.png"
+    },
+    {
+     "school": "Kentucky",
+     "short": "Kentucky",
+     "conference": "SEC",
+     "logo": "kentucky.png"
+    },
+    {
+     "school": "Arizona State",
+     "short": "Arizona St",
+     "conference": "Big 12",
+     "logo": "arizona_state.png"
+    },
+    {
+     "school": "Rutgers",
+     "short": "Rutgers",
+     "conference": "Big Ten",
+     "logo": "rutgers.png"
+    },
+    {
+     "school": "Nebraska",
+     "short": "Nebraska",
+     "conference": "Big Ten",
+     "logo": "nebraska.png"
+    }
+   ],
+   "series": [
+    {
+     "name": "Arena naming rights annual value",
+     "values": [
+      6000000,
+      3800000,
+      2840000,
+      2000000,
+      2000000,
+      1846666.66666667,
+      1666666.66666667,
+      1500000,
+      1475000,
+      1400000,
+      450000
+     ]
+    }
+   ],
+   "lines": [
+    {
+     "name": "Power 4 average ($2.3M)",
+     "value": 2270757.575757576
+    },
+    {
+     "name": "Power 4 median ($1.8M)",
+     "value": 1846666.66666667
+    }
+   ],
+   "avg": 2270757.575757576,
+   "med": 1846666.66666667,
+   "source": "Source: Power 4 Athletic Department Benchmarking workbook (All Schools and Source Log tabs). Annual value is the reported figure or, where a source gives a total and a term, the total divided by the term.",
+   "title": "Arena naming rights: 11 Power 4 schools have a reported annual value, averaging $2.3M with a median of $1.8M",
+   "subtitle": "NC State is highest at $6.0M; 3 of the 11 are in the Big 12 (Arizona, Arizona St and UCF). Chart shows all Power 4 schools with a reported value because fewer than 10 Big 12 schools have one."
+  },
+  {
+   "key": "fb_attendance",
+   "metric": "FB average home attendance 2025",
+   "unit": "num",
+   "label": "Football average home attendance",
+   "scope": "conference",
+   "conference": "Big 12",
+   "n_conf": 16,
+   "n_conf_total": 16,
+   "n_p4": 68,
+   "categories": [
+    {
+     "school": "BYU",
+     "short": "BYU",
+     "conference": "Big 12",
+     "logo": "byu.png"
+    },
+    {
+     "school": "Iowa State",
+     "short": "Iowa State",
+     "conference": "Big 12",
+     "logo": "iowa_state.png"
+    },
+    {
+     "school": "Texas Tech",
+     "short": "Texas Tech",
+     "conference": "Big 12",
+     "logo": "texas_tech.png"
+    },
+    {
+     "school": "West Virginia",
+     "short": "West Virginia",
+     "conference": "Big 12",
+     "logo": "west_virginia.png"
+    },
+    {
+     "school": "Arizona State",
+     "short": "Arizona St",
+     "conference": "Big 12",
+     "logo": "arizona_state.png"
+    },
+    {
+     "school": "Kansas State",
+     "short": "Kansas St",
+     "conference": "Big 12",
+     "logo": "kansas_state.png"
+    },
+    {
+     "school": "Utah",
+     "short": "Utah",
+     "conference": "Big 12",
+     "logo": "utah.png"
+    },
+    {
+     "school": "Colorado",
+     "short": "Colorado",
+     "conference": "Big 12",
+     "logo": "colorado.png"
+    },
+    {
+     "school": "Oklahoma State",
+     "short": "Oklahoma St",
+     "conference": "Big 12",
+     "logo": "oklahoma_state.png"
+    },
+    {
+     "school": "UCF",
+     "short": "UCF",
+     "conference": "Big 12",
+     "logo": "ucf.png"
+    },
+    {
+     "school": "TCU",
+     "short": "TCU",
+     "conference": "Big 12",
+     "logo": "tcu.png"
+    },
+    {
+     "school": "Arizona",
+     "short": "Arizona",
+     "conference": "Big 12",
+     "logo": "arizona.png"
+    },
+    {
+     "school": "Kansas",
+     "short": "Kansas",
+     "conference": "Big 12",
+     "logo": "kansas.png"
+    },
+    {
+     "school": "Baylor",
+     "short": "Baylor",
+     "conference": "Big 12",
+     "logo": "baylor.png"
+    },
+    {
+     "school": "Cincinnati",
+     "short": "Cincinnati",
+     "conference": "Big 12",
+     "logo": "cincinnati.png"
+    },
+    {
+     "school": "Houston",
+     "short": "Houston",
+     "conference": "Big 12",
+     "logo": "houston.png"
+    }
+   ],
+   "series": [
+    {
+     "name": "2025 season",
+     "values": [
+      63789,
+      60862,
+      60143,
+      54506,
+      54444,
+      51773,
+      51701,
+      50469,
+      44664,
+      43409,
+      43319,
+      41782,
+      39478,
+      39447,
+      36052,
+      32215
+     ]
+    },
+    {
+     "name": "2024 season",
+     "values": [
+      62849,
+      57884,
+      58623,
+      52459,
+      48984,
+      51536,
+      52962,
+      52514,
+      52202,
+      43047,
+      44605,
+      46747,
+      39408,
+      42302,
+      36615,
+      27423
+     ]
+    }
+   ],
+   "lines": [
+    {
+     "name": "Power 4 average (60,299)",
+     "value": 60298.779411764706
+    },
+    {
+     "name": "Power 4 median (56,750)",
+     "value": 56750.0
+    }
+   ],
+   "avg": 60298.779411764706,
+   "med": 56750.0,
+   "source": "Source: D1.ticker FBS Attendance Trends, 2025 and 2024 pages, as carried in the benchmarking workbook.",
+   "title": "Big 12 football: 9 of 16 schools drew more fans per home game in 2025 than in 2024",
+   "subtitle": "The Big 12 averaged 48,003 per game in 2025, against a Power 4 average of 60,299 and a median of 56,750; BYU led at 63,789."
+  },
+  {
+   "key": "fb_capacity",
+   "metric": "FB attendance % of capacity 2025",
+   "unit": "pct",
+   "label": "Football percent of capacity filled",
+   "scope": "conference",
+   "conference": "Big 12",
+   "n_conf": 16,
+   "n_conf_total": 16,
+   "n_p4": 68,
+   "categories": [
+    {
+     "school": "Kansas State",
+     "short": "Kansas St",
+     "conference": "Big 12",
+     "logo": "kansas_state.png"
+    },
+    {
+     "school": "BYU",
+     "short": "BYU",
+     "conference": "Big 12",
+     "logo": "byu.png"
+    },
+    {
+     "school": "Arizona State",
+     "short": "Arizona St",
+     "conference": "Big 12",
+     "logo": "arizona_state.png"
+    },
+    {
+     "school": "Colorado",
+     "short": "Colorado",
+     "conference": "Big 12",
+     "logo": "colorado.png"
+    },
+    {
+     "school": "Utah",
+     "short": "Utah",
+     "conference": "Big 12",
+     "logo": "utah.png"
+    },
+    {
+     "school": "Texas Tech",
+     "short": "Texas Tech",
+     "conference": "Big 12",
+     "logo": "texas_tech.png"
+    },
+    {
+     "school": "Iowa State",
+     "short": "Iowa State",
+     "conference": "Big 12",
+     "logo": "iowa_state.png"
+    },
+    {
+     "school": "UCF",
+     "short": "UCF",
+     "conference": "Big 12",
+     "logo": "ucf.png"
+    },
+    {
+     "school": "Kansas",
+     "short": "Kansas",
+     "conference": "Big 12",
+     "logo": "kansas.png"
+    },
+    {
+     "school": "Cincinnati",
+     "short": "Cincinnati",
+     "conference": "Big 12",
+     "logo": "cincinnati.png"
+    },
+    {
+     "school": "TCU",
+     "short": "TCU",
+     "conference": "Big 12",
+     "logo": "tcu.png"
+    },
+    {
+     "school": "West Virginia",
+     "short": "West Virginia",
+     "conference": "Big 12",
+     "logo": "west_virginia.png"
+    },
+    {
+     "school": "Baylor",
+     "short": "Baylor",
+     "conference": "Big 12",
+     "logo": "baylor.png"
+    },
+    {
+     "school": "Oklahoma State",
+     "short": "Oklahoma St",
+     "conference": "Big 12",
+     "logo": "oklahoma_state.png"
+    },
+    {
+     "school": "Arizona",
+     "short": "Arizona",
+     "conference": "Big 12",
+     "logo": "arizona.png"
+    },
+    {
+     "school": "Houston",
+     "short": "Houston",
+     "conference": "Big 12",
+     "logo": "houston.png"
+    }
+   ],
+   "series": [
+    {
+     "name": "2025 season",
+     "values": [
+      1.0355,
+      1.0276,
+      1.0158,
+      1.0057,
+      1.005,
+      0.9986,
+      0.9896,
+      0.982,
+      0.9507,
+      0.9465,
+      0.9217,
+      0.9084,
+      0.8739,
+      0.8539,
+      0.8228,
+      0.8115
+     ]
+    },
+    {
+     "name": "2024 season",
+     "values": [
+      1.0307,
+      0.9902,
+      0.8711,
+      1.0464,
+      1.0295,
+      0.9732999999999999,
+      0.9412,
+      0.9738,
+      1.0429000000000002,
+      0.9612999999999999,
+      0.9912000000000001,
+      0.8743000000000001,
+      0.9370999999999999,
+      1.0,
+      0.8343,
+      0.6856
+     ]
+    }
+   ],
+   "lines": [
+    {
+     "name": "Power 4 average (93%)",
+     "value": 0.9327323529411765
+    },
+    {
+     "name": "Power 4 median (97%)",
+     "value": 0.96645
+    }
+   ],
+   "avg": 0.9327323529411765,
+   "med": 0.96645,
+   "source": "Source: D1.ticker FBS Attendance Trends, Capacity % column of the 2025 and 2024 pages. D1.ticker does not publish the capacity it divides by.",
+   "title": "Big 12 football stadiums were 95% full on average in 2025, against a Power 4 average of 93%",
+   "subtitle": "9 of 16 Big 12 schools filled at least 95% of capacity; 8 filled a larger share than in 2024. Power 4 median is 97%."
+  },
+  {
+   "key": "mbb_attendance",
+   "metric": "MBB average home attendance 2025-26",
+   "unit": "num",
+   "label": "Men's basketball average home attendance",
+   "scope": "conference",
+   "conference": "Big 12",
+   "n_conf": 16,
+   "n_conf_total": 16,
+   "n_p4": 68,
+   "categories": [
+    {
+     "school": "BYU",
+     "short": "BYU",
+     "conference": "Big 12",
+     "logo": "byu.png"
+    },
+    {
+     "school": "Kansas",
+     "short": "Kansas",
+     "conference": "Big 12",
+     "logo": "kansas.png"
+    },
+    {
+     "school": "Arizona",
+     "short": "Arizona",
+     "conference": "Big 12",
+     "logo": "arizona.png"
+    },
+    {
+     "school": "Iowa State",
+     "short": "Iowa State",
+     "conference": "Big 12",
+     "logo": "iowa_state.png"
+    },
+    {
+     "school": "Texas Tech",
+     "short": "Texas Tech",
+     "conference": "Big 12",
+     "logo": "texas_tech.png"
+    },
+    {
+     "school": "West Virginia",
+     "short": "West Virginia",
+     "conference": "Big 12",
+     "logo": "west_virginia.png"
+    },
+    {
+     "school": "Cincinnati",
+     "short": "Cincinnati",
+     "conference": "Big 12",
+     "logo": "cincinnati.png"
+    },
+    {
+     "school": "Arizona State",
+     "short": "Arizona St",
+     "conference": "Big 12",
+     "logo": "arizona_state.png"
+    },
+    {
+     "school": "Kansas State",
+     "short": "Kansas St",
+     "conference": "Big 12",
+     "logo": "kansas_state.png"
+    },
+    {
+     "school": "Utah",
+     "short": "Utah",
+     "conference": "Big 12",
+     "logo": "utah.png"
+    },
+    {
+     "school": "Houston",
+     "short": "Houston",
+     "conference": "Big 12",
+     "logo": "houston.png"
+    },
+    {
+     "school": "Baylor",
+     "short": "Baylor",
+     "conference": "Big 12",
+     "logo": "baylor.png"
+    },
+    {
+     "school": "UCF",
+     "short": "UCF",
+     "conference": "Big 12",
+     "logo": "ucf.png"
+    },
+    {
+     "school": "Colorado",
+     "short": "Colorado",
+     "conference": "Big 12",
+     "logo": "colorado.png"
+    },
+    {
+     "school": "Oklahoma State",
+     "short": "Oklahoma St",
+     "conference": "Big 12",
+     "logo": "oklahoma_state.png"
+    },
+    {
+     "school": "TCU",
+     "short": "TCU",
+     "conference": "Big 12",
+     "logo": "tcu.png"
+    }
+   ],
+   "series": [
+    {
+     "name": "2025-26 season",
+     "values": [
+      18073,
+      15307,
+      14297,
+      14051,
+      13234,
+      11080,
+      9852,
+      7851,
+      7827,
+      7209,
+      7088,
+      6912,
+      6830,
+      6207,
+      5848,
+      5321
+     ]
+    }
+   ],
+   "lines": [
+    {
+     "name": "Power 4 average (10,040)",
+     "value": 10039.70588235294
+    },
+    {
+     "name": "Power 4 median (8,445)",
+     "value": 8445.0
+    }
+   ],
+   "avg": 10039.70588235294,
+   "med": 8445.0,
+   "source": "Source: NCAA Men's Basketball Attendance Records book, 2026 Attendance Summary (home games, 2025-26). The book does not list 2024-25 for every school, so one season is shown.",
+   "title": "Big 12 men's basketball averaged 9,812 fans per home game in 2025-26, against a Power 4 average of 10,040",
+   "subtitle": "7 of 16 Big 12 schools were above the Power 4 median of 8,445; BYU led at 18,073."
+  },
+  {
+   "key": "mbb_capacity",
+   "metric": "MBB attendance % of capacity 2025-26",
+   "unit": "pct",
+   "label": "Men's basketball percent of capacity filled",
+   "scope": "conference",
+   "conference": "Big 12",
+   "n_conf": 12,
+   "n_conf_total": 16,
+   "n_p4": 57,
+   "categories": [
+    {
+     "school": "BYU",
+     "short": "BYU",
+     "conference": "Big 12",
+     "logo": "byu.png"
+    },
+    {
+     "school": "Kansas",
+     "short": "Kansas",
+     "conference": "Big 12",
+     "logo": "kansas.png"
+    },
+    {
+     "school": "Arizona",
+     "short": "Arizona",
+     "conference": "Big 12",
+     "logo": "arizona.png"
+    },
+    {
+     "school": "Baylor",
+     "short": "Baylor",
+     "conference": "Big 12",
+     "logo": "baylor.png"
+    },
+    {
+     "school": "Texas Tech",
+     "short": "Texas Tech",
+     "conference": "Big 12",
+     "logo": "texas_tech.png"
+    },
+    {
+     "school": "Cincinnati",
+     "short": "Cincinnati",
+     "conference": "Big 12",
+     "logo": "cincinnati.png"
+    },
+    {
+     "school": "West Virginia",
+     "short": "West Virginia",
+     "conference": "Big 12",
+     "logo": "west_virginia.png"
+    },
+    {
+     "school": "TCU",
+     "short": "TCU",
+     "conference": "Big 12",
+     "logo": "tcu.png"
+    },
+    {
+     "school": "UCF",
+     "short": "UCF",
+     "conference": "Big 12",
+     "logo": "ucf.png"
+    },
+    {
+     "school": "Arizona State",
+     "short": "Arizona St",
+     "conference": "Big 12",
+     "logo": "arizona_state.png"
+    },
+    {
+     "school": "Utah",
+     "short": "Utah",
+     "conference": "Big 12",
+     "logo": "utah.png"
+    },
+    {
+     "school": "Oklahoma State",
+     "short": "Oklahoma St",
+     "conference": "Big 12",
+     "logo": "oklahoma_state.png"
+    }
+   ],
+   "series": [
+    {
+     "name": "2025-26 season",
+     "values": [
+      1.0052842362888,
+      1.00045751633987,
+      0.97337962962963,
+      0.9216,
+      0.876539939064777,
+      0.82017982017982,
+      0.791428571428572,
+      0.7825,
+      0.726595744680851,
+      0.560785714285714,
+      0.4806,
+      0.429652486959077
+     ]
+    }
+   ],
+   "lines": [
+    {
+     "name": "Power 4 average (75%)",
+     "value": 0.7474470951538625
+    },
+    {
+     "name": "Power 4 median (77%)",
+     "value": 0.773285714285714
+    }
+   ],
+   "avg": 0.7474470951538625,
+   "med": 0.773285714285714,
+   "source": "Source: average home attendance (NCAA Attendance Records book, 2025-26) divided by arena capacity, as calculated in the benchmarking workbook.",
+   "title": "Big 12 men's basketball arenas were 78% full on average in 2025-26, against a Power 4 average of 75%",
+   "subtitle": "BYU filled the largest share at 101%; Power 4 median is 77%. Not shown, no arena capacity in the workbook: Colorado, Houston, Iowa State, Kansas State."
+  }
+ ],
+ "logos": [
+  {
+   "school": "Alabama",
+   "short": "Alabama",
+   "file": "alabama.png"
+  },
+  {
+   "school": "Arizona",
+   "short": "Arizona",
+   "file": "arizona.png"
+  },
+  {
+   "school": "Arizona State",
+   "short": "Arizona St",
+   "file": "arizona_state.png"
+  },
+  {
+   "school": "Arkansas",
+   "short": "Arkansas",
+   "file": "arkansas.png"
+  },
+  {
+   "school": "Auburn",
+   "short": "Auburn",
+   "file": "auburn.png"
+  },
+  {
+   "school": "BYU",
+   "short": "BYU",
+   "file": "byu.png"
+  },
+  {
+   "school": "Baylor",
+   "short": "Baylor",
+   "file": "baylor.png"
+  },
+  {
+   "school": "Boston College",
+   "short": "Boston College",
+   "file": "boston_college.png"
+  },
+  {
+   "school": "California",
+   "short": "California",
+   "file": "california.png"
+  },
+  {
+   "school": "Cincinnati",
+   "short": "Cincinnati",
+   "file": "cincinnati.png"
+  },
+  {
+   "school": "Clemson",
+   "short": "Clemson",
+   "file": "clemson.png"
+  },
+  {
+   "school": "Colorado",
+   "short": "Colorado",
+   "file": "colorado.png"
+  },
+  {
+   "school": "Duke",
+   "short": "Duke",
+   "file": "duke.png"
+  },
+  {
+   "school": "Florida",
+   "short": "Florida",
+   "file": "florida.png"
+  },
+  {
+   "school": "Florida State",
+   "short": "Florida St",
+   "file": "florida_state.png"
+  },
+  {
+   "school": "Georgia",
+   "short": "Georgia",
+   "file": "georgia.png"
+  },
+  {
+   "school": "Georgia Tech",
+   "short": "Georgia Tech",
+   "file": "georgia_tech.png"
+  },
+  {
+   "school": "Houston",
+   "short": "Houston",
+   "file": "houston.png"
+  },
+  {
+   "school": "Illinois",
+   "short": "Illinois",
+   "file": "illinois.png"
+  },
+  {
+   "school": "Indiana",
+   "short": "Indiana",
+   "file": "indiana.png"
+  },
+  {
+   "school": "Iowa",
+   "short": "Iowa",
+   "file": "iowa.png"
+  },
+  {
+   "school": "Iowa State",
+   "short": "Iowa State",
+   "file": "iowa_state.png"
+  },
+  {
+   "school": "Kansas",
+   "short": "Kansas",
+   "file": "kansas.png"
+  },
+  {
+   "school": "Kansas State",
+   "short": "Kansas St",
+   "file": "kansas_state.png"
+  },
+  {
+   "school": "Kentucky",
+   "short": "Kentucky",
+   "file": "kentucky.png"
+  },
+  {
+   "school": "LSU",
+   "short": "LSU",
+   "file": "lsu.png"
+  },
+  {
+   "school": "Louisville",
+   "short": "Louisville",
+   "file": "louisville.png"
+  },
+  {
+   "school": "Maryland",
+   "short": "Maryland",
+   "file": "maryland.png"
+  },
+  {
+   "school": "Miami (FL)",
+   "short": "Miami",
+   "file": "miami_fl.png"
+  },
+  {
+   "school": "Michigan",
+   "short": "Michigan",
+   "file": "michigan.png"
+  },
+  {
+   "school": "Michigan State",
+   "short": "Michigan St",
+   "file": "michigan_state.png"
+  },
+  {
+   "school": "Minnesota",
+   "short": "Minnesota",
+   "file": "minnesota.png"
+  },
+  {
+   "school": "Mississippi State",
+   "short": "Mississippi St",
+   "file": "mississippi_state.png"
+  },
+  {
+   "school": "Missouri",
+   "short": "Missouri",
+   "file": "missouri.png"
+  },
+  {
+   "school": "NC State",
+   "short": "NC State",
+   "file": "nc_state.png"
+  },
+  {
+   "school": "Nebraska",
+   "short": "Nebraska",
+   "file": "nebraska.png"
+  },
+  {
+   "school": "North Carolina",
+   "short": "North Carolina",
+   "file": "north_carolina.png"
+  },
+  {
+   "school": "Northwestern",
+   "short": "Northwestern",
+   "file": "northwestern.png"
+  },
+  {
+   "school": "Notre Dame",
+   "short": "Notre Dame",
+   "file": "notre_dame.png"
+  },
+  {
+   "school": "Ohio State",
+   "short": "Ohio State",
+   "file": "ohio_state.png"
+  },
+  {
+   "school": "Oklahoma",
+   "short": "Oklahoma",
+   "file": "oklahoma.png"
+  },
+  {
+   "school": "Oklahoma State",
+   "short": "Oklahoma St",
+   "file": "oklahoma_state.png"
+  },
+  {
+   "school": "Ole Miss",
+   "short": "Ole Miss",
+   "file": "ole_miss.png"
+  },
+  {
+   "school": "Oregon",
+   "short": "Oregon",
+   "file": "oregon.png"
+  },
+  {
+   "school": "Penn State",
+   "short": "Penn State",
+   "file": "penn_state.png"
+  },
+  {
+   "school": "Pittsburgh",
+   "short": "Pitt",
+   "file": "pittsburgh.png"
+  },
+  {
+   "school": "Purdue",
+   "short": "Purdue",
+   "file": "purdue.png"
+  },
+  {
+   "school": "Rutgers",
+   "short": "Rutgers",
+   "file": "rutgers.png"
+  },
+  {
+   "school": "SMU",
+   "short": "SMU",
+   "file": "smu.png"
+  },
+  {
+   "school": "South Carolina",
+   "short": "South Carolina",
+   "file": "south_carolina.png"
+  },
+  {
+   "school": "Stanford",
+   "short": "Stanford",
+   "file": "stanford.png"
+  },
+  {
+   "school": "Syracuse",
+   "short": "Syracuse",
+   "file": "syracuse.png"
+  },
+  {
+   "school": "TCU",
+   "short": "TCU",
+   "file": "tcu.png"
+  },
+  {
+   "school": "Tennessee",
+   "short": "Tennessee",
+   "file": "tennessee.png"
+  },
+  {
+   "school": "Texas",
+   "short": "Texas",
+   "file": "texas.png"
+  },
+  {
+   "school": "Texas A&M",
+   "short": "Texas A&M",
+   "file": "texas_a_m.png"
+  },
+  {
+   "school": "Texas Tech",
+   "short": "Texas Tech",
+   "file": "texas_tech.png"
+  },
+  {
+   "school": "UCF",
+   "short": "UCF",
+   "file": "ucf.png"
+  },
+  {
+   "school": "UCLA",
+   "short": "UCLA",
+   "file": "ucla.png"
+  },
+  {
+   "school": "USC",
+   "short": "USC",
+   "file": "usc.png"
+  },
+  {
+   "school": "Utah",
+   "short": "Utah",
+   "file": "utah.png"
+  },
+  {
+   "school": "Vanderbilt",
+   "short": "Vanderbilt",
+   "file": "vanderbilt.png"
+  },
+  {
+   "school": "Virginia",
+   "short": "Virginia",
+   "file": "virginia.png"
+  },
+  {
+   "school": "Virginia Tech",
+   "short": "Virginia Tech",
+   "file": "virginia_tech.png"
+  },
+  {
+   "school": "Wake Forest",
+   "short": "Wake Forest",
+   "file": "wake_forest.png"
+  },
+  {
+   "school": "Washington",
+   "short": "Washington",
+   "file": "washington.png"
+  },
+  {
+   "school": "West Virginia",
+   "short": "West Virginia",
+   "file": "west_virginia.png"
+  },
+  {
+   "school": "Wisconsin",
+   "short": "Wisconsin",
+   "file": "wisconsin.png"
+  }
+ ]
+}

@@ -69,3 +69,7 @@ Rules applied in the re-read: a figure is kept only if a page states it (no sums
 ## Percent of capacity
 
 Both sports use the same year. Football 2025 is the Capacity % column of the D1.ticker 2025 page, as reported; D1.ticker does not publish the capacity it divides by, so the figure can differ from attendance divided by the workbook's Stadium capacity column. Men's basketball 2025-26 is a workbook formula, average home attendance divided by Arena capacity, because the NCAA book reports no percentage.
+
+## Chart slides
+
+`scripts/slides_data.py "<conference>"` writes the chart data and takeaways for one conference from the All Schools tab (`slides/spec_<conference>.json`), and `scripts/build_slides.js <spec> <out.pptx>` turns it into a PowerPoint deck with native charts (needs `pptxgenjs` on `NODE_PATH`). A chart shows the conference's schools when at least 10 of them have a value; otherwise it shows every Power 4 school with a value. Each chart has the Power 4 average and median as line series, a row of school logos under the bars (`slides/logos/`, from ESPN's logo files) and a logo library slide at the end. Current charts: jersey patch, stadium naming and arena naming annual value; football average home attendance and percent of capacity, 2025 against 2024; men's basketball average home attendance and percent of capacity, 2025-26. The 2024 football percent of capacity is read from the saved D1.ticker 2024 page and is not in the workbook.
