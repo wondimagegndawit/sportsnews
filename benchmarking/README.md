@@ -38,6 +38,10 @@ There are no per-school tabs; `School Lookup` covers every school.
 - Football: `data/d1ticker/` holds the D1.ticker FBS Attendance Trends pages for 2023, 2024 and 2025, saved unmodified. Average home attendance for each season is the Final Average column of that season's own page. The 2025 page also supplies the year-over-year change, the 5-year average (the page does not say which five seasons), the change against the 5-year average and the percent of capacity. The pages carry averages only: no totals and no game counts.
 - Men's basketball: `data/ncaa_attendance/Attend.pdf` is the NCAA Men's Basketball Attendance Records book (through 2025-26), saved unmodified, with `Attend_layout.txt` as its `pdftotext -layout` extract. The Division I team-by-team table gives home games, total home attendance and average home attendance for 2025-26 for every school; the script checks that the table ties to the PDF's Division I home totals. Three leader tables list only 30 teams each (all-games attendance, and largest increase with the 2024-25 average); those columns are marked top 30, show "--" for other schools and carry no average or median.
 
+## Head coach pay
+
+Each sport has three columns: base pay, supplemental pay and bonuses, and the annual figure, which is a formula adding the two. Where a source states the parts for the current season, they are entered separately (`data/research/verification_zzz_coach_pay.csv`, metrics `fb_hc_base_pay`, `fb_hc_other_pay`, `mbb_hc_base_pay`, `mbb_hc_other_pay`). Supplemental pay and bonuses covers supplemental compensation, rights or media fees, retention payments and other scheduled amounts; performance incentives are excluded. Where a source reports only one annual figure, or only a contract average, that figure is shown as base pay (the build takes it from `fb_hc_annual_comp` or `mbb_hc_annual_comp`). Figures that would need a stated escalator applied are left blank.
+
 ## Verification
 
 Every researched value is checked against its cited source, and the result is shown in the Source Log's Verification column.

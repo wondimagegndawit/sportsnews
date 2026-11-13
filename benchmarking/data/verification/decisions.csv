@@ -23,7 +23,6 @@ Maryland,arena_nr_partner,classify,Kept as a descriptive label: the name comes f
 Ohio State,arena_nr_partner,classify,Kept as a descriptive label: the name comes from the venue's own name; the page read does not describe the naming.
 Wisconsin,fb_hc_annual_comp,withdraw,"The only page stating this figure attributes it to a newspaper-compiled coaching salary database, which this workbook does not use."
 Wisconsin,fb_hc_contract_end,withdraw,"The only page stating this year attributes it to a newspaper-compiled coaching salary database, which this workbook does not use."
-Arkansas,mbb_hc_contract_end,withdraw,The only page stating this year attributes it to a contract obtained by a national newspaper whose reporting this workbook does not use.
 BYU,mmr_partner,skip,"The in-house classification was the researcher's reading of a staff page, not a statement by the school."
 Texas Tech,arena_capacity,skip,"Two official figures conflict (15,098 in the record book, 15,050 on a university page); the existing figure is kept."
 Nebraska,arena_capacity,skip,The only figure found is footnoted as an estimate.

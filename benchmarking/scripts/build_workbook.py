@@ -42,8 +42,8 @@ M('Financial','NCAA and conference distributions','ncaa_conf_distributions','num
 M('Financial','Direct institutional support','direct_institutional_support','num','usd',True); M('Financial','Indirect institutional support','indirect_institutional_support','num','usd',True); M('Financial','Student fees','student_fees','num','usd',True)
 M('Financial','Total subsidy','f_subsidy','formula','usd',True); M('Financial','Subsidy as % of revenue','f_subsidy_pct','formula','pct',True)
 M('Financial','Total coaching salaries and benefits','coaching_salaries','num','usd',True); M('Financial','Total athletics-related debt outstanding','athletics_related_debt','num','usd',True); M('Financial','Annual debt service','debt_service','num','usd',True)
-M('Coaching','Head football coach','fb_hc_name','text'); M('Coaching','FB HC annual guaranteed compensation','fb_hc_annual_comp','num','usd',True); M('Coaching','FB HC contract end year','fb_hc_contract_end','num','yr'); M('Coaching','FB HC pay source type','fb_hc_pay_source_type','text')
-M('Coaching','Head men\'s basketball coach','mbb_hc_name','text'); M('Coaching','MBB HC annual guaranteed compensation','mbb_hc_annual_comp','num','usd',True); M('Coaching','MBB HC contract end year','mbb_hc_contract_end','num','yr'); M('Coaching','MBB HC pay source type','mbb_hc_pay_source_type','text')
+M('Coaching','Head football coach','fb_hc_name','text'); M('Coaching','FB HC base pay','fb_hc_base_pay','num','usd',True); M('Coaching','FB HC supplemental pay and bonuses','fb_hc_other_pay','num','usd',True); M('Coaching','FB HC annual guaranteed compensation','f_fb_hc_total','formula','usd',True); M('Coaching','FB HC contract end year','fb_hc_contract_end','num','yr'); M('Coaching','FB HC pay source type','fb_hc_pay_source_type','text')
+M('Coaching','Head men\'s basketball coach','mbb_hc_name','text'); M('Coaching','MBB HC base pay','mbb_hc_base_pay','num','usd',True); M('Coaching','MBB HC supplemental pay and bonuses','mbb_hc_other_pay','num','usd',True); M('Coaching','MBB HC annual guaranteed compensation','f_mbb_hc_total','formula','usd',True); M('Coaching','MBB HC contract end year','mbb_hc_contract_end','num','yr'); M('Coaching','MBB HC pay source type','mbb_hc_pay_source_type','text')
 M('Venues','Football stadium','stadium_name','text'); M('Venues','Stadium capacity','stadium_capacity','num','cnt',True); M('Venues','Stadium year opened','stadium_year_opened','num','yr',True); M('Venues','Stadium last major renovation year','stadium_last_renovation_year','num','yr',True)
 M('Venues','Men\'s basketball arena','arena_name','text'); M('Venues','Arena capacity','arena_capacity','num','cnt',True); M('Venues','Arena year opened','arena_year_opened','num','yr',True)
 # attendance: every per-school figure in the two sources. Leader-table columns (top 30 only) carry no average or median.
@@ -156,6 +156,20 @@ for s in order:
             else: put(key,None,'','USD','FY2025','EADA','EADA 2024-25','not reported in EADA')
         for key in ('media_rights_revenue','ticket_sales_revenue','contributions_revenue','ncaa_conf_distributions','direct_institutional_support','indirect_institutional_support','student_fees','coaching_salaries','athletics_related_debt','debt_service'):
             put(key,None,'','USD','FY2025','EADA','EADA 2024-25','EADA basis; this MFRS line item is not reported in EADA. '+why)
+    # head coach pay: base pay and supplemental pay or scheduled bonuses where the source states the parts; where only one
+    # annual figure (or a contract average) is reported, it is shown as base pay at the analyst's direction
+    for sp in ('fb','mbb'):
+        bk,ok=f'{sp}_hc_base_pay',f'{sp}_hc_other_pay'; b=get(n,bk); o=get(n,ok); c=get(n,f'{sp}_hc_annual_comp')
+        if b and b['value']!='--':
+            put(bk,num(b['value']),b['source_url'],'USD',b['fiscal_year_or_season'],stype_of(b),b['source_name'],b['notes'],date=b.get('date_accessed'))
+            if o and o['value']!='--': put(ok,num(o['value']),o['source_url'],'USD',o['fiscal_year_or_season'],stype_of(o),o['source_name'],o['notes'],date=o.get('date_accessed'))
+            else: put(ok,None,'','USD','','other','','No supplemental pay or scheduled bonus is stated for this season.')
+        elif c and c['value']!='--':
+            put(bk,num(c['value']),c['source_url'],'USD',c['fiscal_year_or_season'],stype_of(c),c['source_name'],'Only one annual figure is reported; it is shown as base pay. '+c['notes'],date=c.get('date_accessed'))
+            put(ok,None,'','USD','','other','','Not reported separately from the annual figure.')
+        else:
+            why=(c['notes'] if c and c['notes'] else 'not sourced')
+            put(bk,None,'','USD','','other',(c or {}).get('source_name',''),why); put(ok,None,'','USD','','other','',why)
     # everything else straight from merged rows
     for m in S:
         key=m['key']
@@ -326,6 +340,8 @@ for conf,sname in CONFS:
                 elif key=='f_other_sports_revenue': f=f'=IF(AND(ISNUMBER({A("total_operating_revenue")}),ISNUMBER({A("fb_revenue")}),ISNUMBER({A("mbb_revenue")}),ISNUMBER({A("nonprogram_revenue")})),{A("total_operating_revenue")}-{A("fb_revenue")}-{A("mbb_revenue")}-{A("nonprogram_revenue")},"--")'
                 elif key=='f_subsidy_pct': f=f'=IF(AND(ISNUMBER({A("f_subsidy")}),ISNUMBER({A("total_operating_revenue")}),{A("total_operating_revenue")}>0),{A("f_subsidy")}/{A("total_operating_revenue")},"--")'
                 elif key=='f_mbb_attendance_pct_capacity': f=f'=IF(AND(ISNUMBER({A("mbb_avg_attendance_2526")}),ISNUMBER({A("arena_capacity")}),{A("arena_capacity")}>0),{A("mbb_avg_attendance_2526")}/{A("arena_capacity")},"--")'
+                elif key in ('f_fb_hc_total','f_mbb_hc_total'):
+                    sp=key[2:-9]; f=f'=IF(ISNUMBER({A(sp+"_hc_base_pay")}),{A(sp+"_hc_base_pay")}+IF(ISNUMBER({A(sp+"_hc_other_pay")}),{A(sp+"_hc_other_pay")},0),"--")'
                 elif key=='f_fb_winpct': f=f'=IF(AND(ISNUMBER({A("fb_wins_2021_25")}),ISNUMBER({A("fb_losses_2021_25")})),{A("fb_wins_2021_25")}/({A("fb_wins_2021_25")}+{A("fb_losses_2021_25")}),"--")'
                 elif key=='f_mbb_winpct': f=f'=IF(AND(ISNUMBER({A("mbb_wins_2122_2526")}),ISNUMBER({A("mbb_losses_2122_2526")})),{A("mbb_wins_2122_2526")}/({A("mbb_wins_2122_2526")}+{A("mbb_losses_2122_2526")}),"--")'
                 elif key.endswith('_expires'):
@@ -385,6 +401,7 @@ lines=[
  'Structure: All Schools links every row on the conference and Independent tabs; Source Log is the audit trail (values); School Lookup looks up any school.',
  "Verification column in Source Log: Source data file means the value comes from a downloaded dataset saved with the workbook's build files; Found on source page means an automated check found the figure in the text of the cited page; Re-read and confirmed means the page was read again and states the figure; Analyst classification marks categories assigned by the analyst (deal type, industry, pay source type); Not re-verified means the cited page could not be re-read.",
  "Financials for public schools come from the Sportico College Sports Finances Database, which compiles each school's NCAA MFRS report (FY2025, FY2024 where that is the latest posted); where the school also posts its own MFRS report, the Source Log records that figure as a cross-check.",
+ 'Head coach pay: base pay and supplemental pay and bonuses are shown separately where the source states the parts for the current season (supplemental pay, rights or media fees, retention and other scheduled payments; performance incentives are excluded), and the annual figure is their sum. Where a source reports only one annual figure, or only a contract total and length, that annual figure or average is shown as base pay.',
  'Deal dates: the expires column is the stated end year where a source gives one (blue), otherwise start year plus term (black formula). A start year is the stated effective year or, where the source gives only the announcement, the year the agreement was announced, as noted in Source Log. Coach contract end year is the year of the stated expiry date or final season.',
  'The Financial source basis column states Sportico, MFRS own posting or EADA for each school, Financial data type states MFRS or EADA, and the fiscal year column states the report year.',
  "Graduation rates are the NCAA's most recent Graduation Success Rate release (published November 2025). It covers student-athletes who entered in 2015-16 through 2018-19, because the NCAA allows six years to graduate; no newer figure exists. APR is the 2024-25 multi-year rate.",
@@ -418,7 +435,7 @@ def same_value(a,b):
 def verification(row):
     school,_c,metric,value,_u,_fy,_st,_sn,url=row[:9]
     if value in (None,'','--'): return '--'
-    v=VER.get((school,metric))
+    v=VER.get((school,metric)) or VER.get((school,{'FB HC base pay':'FB HC annual guaranteed compensation','MBB HC base pay':'MBB HC annual guaranteed compensation'}.get(metric)))
     if v and same_value(v['value'],value): return v['status']
     if any(h in str(url) for h in BULK_HOSTS) or metric in ('School','Conference'): return 'Source data file'
     if re.search(r'deal type|pay source type|industry$|Financial source basis',metric) or str(value).lower() in ('none','in-house','other'): return 'Analyst classification'
