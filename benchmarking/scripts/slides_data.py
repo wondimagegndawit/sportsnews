@@ -50,6 +50,7 @@ def build(key,metric,unit,label,getters,source,second=None):
 SRC_WB='Source: Power 4 Athletic Department Benchmarking workbook (All Schools and Source Log tabs).'
 def deal(key,hdr,label):
     s=build(key,hdr,'usd',label,[(label,lambda r:val(r,hdr))],SRC_WB+' Annual value is the reported figure or, where a source gives a total and a term, the total divided by the term.')
+    if key=='jersey_patch' and any(school(r)=='Notre Dame' for r in s['rows']): s['source']+=' Notre Dame is shown at the low end of a reported range of $18 million to $20 million a year.'
     f=money; rs=s['rows']; top=rs[0]
     who=f"the {CONF} schools" if s['scope']=='conference' else 'all Power 4 schools with a reported value'
     noun=label.replace(' annual value','')+(' deals' if 'patch' in label else '')

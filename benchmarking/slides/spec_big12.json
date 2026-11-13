@@ -10,8 +10,14 @@
    "conference": "Big 12",
    "n_conf": 0,
    "n_conf_total": 16,
-   "n_p4": 5,
+   "n_p4": 6,
    "categories": [
+    {
+     "school": "Notre Dame",
+     "short": "Notre Dame",
+     "conference": "Independent",
+     "logo": "notre_dame.png"
+    },
     {
      "school": "Ohio State",
      "short": "Ohio State",
@@ -47,6 +53,7 @@
     {
      "name": "Jersey patch annual value",
      "values": [
+      18000000,
       17000000,
       12000000,
       6000000,
@@ -57,19 +64,19 @@
    ],
    "lines": [
     {
-     "name": "Power 4 average ($8.4M)",
-     "value": 8440000
+     "name": "Power 4 average ($10.0M)",
+     "value": 10033333.333333334
     },
     {
-     "name": "Power 4 median ($6.0M)",
-     "value": 6000000
+     "name": "Power 4 median ($9.0M)",
+     "value": 9000000.0
     }
    ],
-   "avg": 8440000,
-   "med": 6000000,
-   "source": "Source: Power 4 Athletic Department Benchmarking workbook (All Schools and Source Log tabs). Annual value is the reported figure or, where a source gives a total and a term, the total divided by the term.",
-   "title": "Jersey patch deals: 5 Power 4 schools have a reported annual value, averaging $8.4M with a median of $6.0M",
-   "subtitle": "Ohio State is highest at $17.0M; no Big 12 school has a reported value. Chart shows all Power 4 schools with a reported value because fewer than 10 Big 12 schools have one."
+   "avg": 10033333.333333334,
+   "med": 9000000.0,
+   "source": "Source: Power 4 Athletic Department Benchmarking workbook (All Schools and Source Log tabs). Annual value is the reported figure or, where a source gives a total and a term, the total divided by the term. Notre Dame is shown at the low end of a reported range of $18 million to $20 million a year.",
+   "title": "Jersey patch deals: 6 Power 4 schools have a reported annual value, averaging $10.0M with a median of $9.0M",
+   "subtitle": "Notre Dame is highest at $18.0M; no Big 12 school has a reported value. Chart shows all Power 4 schools with a reported value because fewer than 10 Big 12 schools have one."
   },
   {
    "key": "stadium_naming",
