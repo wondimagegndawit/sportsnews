@@ -21,8 +21,6 @@ Florida,stadium_nr_partner,classify,Kept as a descriptive label: the name comes 
 USC,arena_nr_partner,classify,Kept as a descriptive label: the name comes from the venue's own name; the page read does not describe the naming.
 Maryland,arena_nr_partner,classify,Kept as a descriptive label: the name comes from the venue's own name; the page read does not describe the naming.
 Ohio State,arena_nr_partner,classify,Kept as a descriptive label: the name comes from the venue's own name; the page read does not describe the naming.
-Wisconsin,fb_hc_annual_comp,withdraw,"The only page stating this figure attributes it to a newspaper-compiled coaching salary database, which this workbook does not use."
-Wisconsin,fb_hc_contract_end,withdraw,"The only page stating this year attributes it to a newspaper-compiled coaching salary database, which this workbook does not use."
 BYU,mmr_partner,skip,"The in-house classification was the researcher's reading of a staff page, not a statement by the school."
 Texas Tech,arena_capacity,skip,"Two official figures conflict (15,098 in the record book, 15,050 on a university page); the existing figure is kept."
 Nebraska,arena_capacity,skip,The only figure found is footnoted as an estimate.
@@ -41,3 +39,5 @@ Washington,fb_hc_annual_comp,keep,"Kept at the analyst's direction: total guaran
 Indiana,mbb_hc_annual_comp,keep,"Kept at the analyst's direction: total guaranteed pay may add a stated base and stated supplemental pay, or use a contract average or an approximate reported figure."
 LSU,mbb_hc_annual_comp,keep,"Kept at the analyst's direction: total guaranteed pay may add a stated base and stated supplemental pay, or use a contract average or an approximate reported figure."
 Michigan State,mbb_hc_annual_comp,keep,"Kept at the analyst's direction: total guaranteed pay may add a stated base and stated supplemental pay, or use a contract average or an approximate reported figure."
+California,apparel_start_year,withdraw,"The three-year agreement began on 1 July 2023, so its stated term ended in mid-2026; no renewal or new term has been found, so the lapsed dates are not shown."
+California,apparel_term_years,withdraw,"The three-year agreement began on 1 July 2023, so its stated term ended in mid-2026; no renewal or new term has been found, so the lapsed dates are not shown."

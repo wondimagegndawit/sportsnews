@@ -36,8 +36,6 @@ log_row,school,tab,cell,metric,value,status,matched_text,strength,http,source_na
 174,California,ACC,CE8,MMR start year,2016,unreadable,,n/a,403,Learfield press release (Sept. 12 2016),https://www.learfield.com/2016/09/cal-athletics-learfield-agree-to-10-year-multimedia-rights-partnership/
 175,California,ACC,CF8,MMR term (years),10,unreadable,,n/a,403,Learfield press release (Sept. 12 2016),https://www.learfield.com/2016/09/cal-athletics-learfield-agree-to-10-year-multimedia-rights-partnership/
 178,California,ACC,CJ8,Apparel partner,Nike,found,Nike,strong,200,SportsLogos.net (press report of school announcement),https://news.sportslogos.net/?p=67634
-179,California,ACC,CK8,Apparel start year,2023,found,2023,weak,200,SportsLogos.net (press report of school announcement),https://news.sportslogos.net/?p=67634
-180,California,ACC,CL8,Apparel term (years),3,found,three-year,medium,200,SportsLogos.net (press report of school announcement),https://news.sportslogos.net/?p=67634
 186,California,ACC,CS8,Varsity sports sponsored,30,unreadable,,n/a,403,Cal Athletics official site (Sept. 24 2026 release),https://calbears.com/news/2026/9/24/athletics-news-cal-announces-historic-naming-rights-partnership-with-databricks
 199,California,ACC,CI8,MMR expires,2027,unreadable,,n/a,403,Learfield press release (Sept. 12 2016),https://www.learfield.com/2016/09/cal-athletics-learfield-agree-to-10-year-multimedia-rights-partnership/
 221,Clemson,ACC,AC9,Head football coach,Dabo Swinney,unreadable,,n/a,202,Associated Press game recap (ESPN.com),http://www.espn.com/ncf/recap?gameId=401858285
@@ -333,7 +331,6 @@ log_row,school,tab,cell,metric,value,status,matched_text,strength,http,source_na
 1475,Virginia Tech,ACC,AF22,FB HC pay source type,press report,classification,,n/a,200,Press report (SI),https://www.si.com/college-football/virginia-tech-contract-details-james-franklin-coach
 1476,Virginia Tech,ACC,AG22,Head men's basketball coach,Mike Young,found,Mike Young,strong,200,Mike Young - Virginia Tech Athletics,https://hokiesports.com/sports/mens-basketball/roster/season/2026-27/staff/mike-young
 1478,Virginia Tech,ACC,AI22,MBB HC contract end year,2028,found,2028,weak,200,Sports Illustrated (press report citing public records),https://www.si.com/college/virginiatech/basketball/report-virginia-tech-extending-contracts-for-mike-young-megan-duffy-pete-d-amour-among-others-01kyqx72hw1a
-1479,Virginia Tech,ACC,AJ22,MBB HC pay source type,press report,classification,,n/a,200,Sports Illustrated (press report citing public records),https://www.si.com/college/virginiatech/basketball/report-virginia-tech-extending-contracts-for-mike-young-megan-duffy-pete-d-amour-among-others-01kyqx72hw1a
 1480,Virginia Tech,ACC,AK22,Football stadium,Lane Stadium/Worsham Field,found,Lane Stadium/Worsham Field,strong,200,Official athletics site,https://hokiesports.com/lane-stadium-worsham-field
 1481,Virginia Tech,ACC,AL22,Stadium capacity,65632,found,"65,632",strong,200,Official athletics site,https://hokiesports.com/lane-stadium-worsham-field
 1482,Virginia Tech,ACC,AM22,Stadium year opened,1965,found,1965,weak,200,Virginia Tech Athletics (official facility page),https://hokiesports.com/lane-stadium-worsham-field
@@ -466,7 +463,6 @@ log_row,school,tab,cell,metric,value,status,matched_text,strength,http,source_na
 1952,Maryland,Big Ten,AC10,Head football coach,Aazaar Abdul-Rahim (interim),unreadable,,n/a,202,Associated Press game recap (ESPN.com),http://www.espn.com/ncf/recap?gameId=401858515
 1956,Maryland,Big Ten,AG10,Head men's basketball coach,Buzz Williams,unreadable,,n/a,403,2026-27 Men’s Basketball Coaches - University of Maryland Athletics,https://umterps.com/sports/mens-basketball/coaches
 1958,Maryland,Big Ten,AI10,MBB HC contract end year,2031,found,2031,weak,200,"The Baltimore Banner, Apr 28 2025",https://www.thebanner.com/sports/college-sports/maryland-buzz-williams-contract-salary-buyout-3FL6KP23EJHM5DBHI2X7RQHJ4U
-1959,Maryland,Big Ten,AJ10,MBB HC pay source type,press report,classification,,n/a,200,The Banner,https://www.thebanner.com/sports/college-sports/maryland-buzz-williams-contract-salary-buyout-3FL6KP23EJHM5DBHI2X7RQHJ4U
 1960,Maryland,Big Ten,AK10,Football stadium,SECU Stadium,found,SECU Stadium,strong,200,Athletics site,https://umterps.com/facilities/secu-stadium/1
 1961,Maryland,Big Ten,AL10,Stadium capacity,46185,found,"46,185",strong,200,University of Maryland Athletics facility page (Quick Facts),https://umterps.com/facilities/secu-stadium/1
 1962,Maryland,Big Ten,AM10,Stadium year opened,1950,found,1950,weak,200,University of Maryland Athletics facility page - substitute,https://umterps.com/facilities/secu-stadium/1
@@ -641,7 +637,6 @@ log_row,school,tab,cell,metric,value,status,matched_text,strength,http,source_na
 2604,Ohio State,Big Ten,CO16,Apparel expires,2033,found,2033,strong,200,Associated Press via Fox Sports,https://www.foxsports.com/stories/other/ohio-state-nike-agree-on-252m-sponsorship-extension
 2626,Oregon,Big Ten,AC17,Head football coach,Dan Lanning,unreadable,,n/a,202,Associated Press game recap (ESPN.com),http://www.espn.com/ncf/recap?gameId=401858514
 2628,Oregon,Big Ten,AE17,FB HC contract end year,2030,found,2030,weak,200,Fox News,https://www.foxnews.com/sports/dan-lanning-staying-oregon-through-2030-after-agreeing-extension
-2629,Oregon,Big Ten,AF17,FB HC pay source type,press report,classification,,n/a,403,On3,https://www.on3.com/teams/oregon-ducks/news/report-oregon-and-dan-lanning-agree-to-six-year-contact-extension
 2630,Oregon,Big Ten,AG17,Head men's basketball coach,Tony Stubblefield (interim),found,tony stubblefield,strong,200,2026-27 Men’s Basketball Roster - University of Oregon Athletics,https://goducks.com/sports/mbball/roster/
 2634,Oregon,Big Ten,AK17,Football stadium,Autzen Stadium,found,Autzen Stadium,strong,200,Athletics site,https://goducks.com/facilities/autzen-stadium/22
 2635,Oregon,Big Ten,AL17,Stadium capacity,54000,found,"54,000",strong,200,Oregon Athletics facility page: Autzen Stadium (goducks.com),https://goducks.com/facilities/autzen-stadium/22
@@ -717,7 +712,6 @@ log_row,school,tab,cell,metric,value,status,matched_text,strength,http,source_na
 2917,Rutgers,Big Ten,AF20,FB HC pay source type,press report,classification,,n/a,200,FOX Sports,https://www.foxsports.com/stories/college-sports/rutgers-greg-schiano-buyout-contract-2026
 2918,Rutgers,Big Ten,AG20,Head men's basketball coach,Steve Pikiell,found,Steve Pikiell,strong,200,2026-27 Men’s Basketball Coaches - Rutgers University Athletics,https://scarletknights.com/sports/mens-basketball/coaches
 2920,Rutgers,Big Ten,AI20,MBB HC contract end year,2031,unreadable,,n/a,403,Rutgers Athletics (official staff page),https://scarletknights.com/staff-directory/steve-pikiell/275
-2921,Rutgers,Big Ten,AJ20,MBB HC pay source type,press report,classification,,n/a,403,Sportsnaut,https://sportsnaut.com/college-basketball/rutgers-extends-coach-steve-pikiell-another-year-to-2030-31
 2922,Rutgers,Big Ten,AK20,Football stadium,SHI Stadium,unreadable,,n/a,403,Rutgers official athletics site (SHI Stadium page),https://scarletknights.com/sports/2017/6/11/facilities-football-html
 2923,Rutgers,Big Ten,AL20,Stadium capacity,52454,unreadable,,n/a,403,Rutgers official athletics site (SHI Stadium page),https://scarletknights.com/sports/2017/6/11/facilities-football-html
 2924,Rutgers,Big Ten,AM20,Stadium year opened,1994,unreadable,,n/a,403,Rutgers official athletics site (SHI Stadium page),https://scarletknights.com/sports/2017/6/11/facilities-football-html
@@ -791,7 +785,6 @@ log_row,school,tab,cell,metric,value,status,matched_text,strength,http,source_na
 3204,Washington,Big Ten,AD23,FB HC annual guaranteed compensation,7750000,found,$7.75 million,strong,200,Associated Press (via KOMO News),https://komonews.com/sports/huskies/university-of-washington-to-hire-arizonas-jedd-fisch-to-be-head-coach-replacing-kalen-deboer-huskies-announcement-associated-press-new-hire-replace-espn-sec-pac12-big10-conference-washington-college-football-uw-university-seattle
 3206,Washington,Big Ten,AF23,FB HC pay source type,contract,classification,,n/a,403,On3,https://www.on3.com/college/washington-huskies/news/new-washington-coach-jedd-fisch-signed-7-year-54-million-contract
 3207,Washington,Big Ten,AG23,Head men's basketball coach,Danny Sprinkle,found,Danny Sprinkle,strong,200,2026-27 Men’s Basketball Coaches - University of Washington Athletics,https://gohuskies.com/sports/mbball/coaches/
-3210,Washington,Big Ten,AJ23,MBB HC pay source type,press report,classification,,n/a,200,Associated Press (via KOMO News),https://komonews.com/sports/sports-content/danny-sprinkle-university-washington-uw-mens-college-basketball-ncaa-new-head-coach-hire-coaching-search-mike-hopkins-pac12-big-ten-conference-athletic-director-utah-state-march-madness
 3211,Washington,Big Ten,AK23,Football stadium,Columbia Bank Stadium,found,Columbia Bank Stadium,strong,200,"Sports Business Journal (press report; Matt Fortuna, Nov 12 2026)",https://www.sportsbusinessjournal.com/Articles/2026/11/12/washington-sells-football-stadium-naming-rights-to-columbia-bank/
 3212,Washington,Big Ten,AL23,Stadium capacity,72132,unreadable,,n/a,403,Washington official athletics site (Husky Stadium page),https://gohuskies.com/facilities/husky-stadium/49
 3213,Washington,Big Ten,AM23,Stadium year opened,1920,unreadable,,n/a,403,Washington official athletics site (Husky Stadium page),https://gohuskies.com/facilities/husky-stadium/49
@@ -820,10 +813,9 @@ log_row,school,tab,cell,metric,value,status,matched_text,strength,http,source_na
 3261,Washington,Big Ten,CN23,Apparel total value,119000000,found,$119 million,strong,200,Spokesman-Review,https://spokesman.com/stories/2018/apr/10/university-of-washington-agrees-to-a-10-year-119-m
 3265,Washington,Big Ten,CS23,Varsity sports sponsored,22,found,22 teams,medium,200,Official athletics site (Huskies academic release),https://gohuskies.com/news/2026/7/13/student-athlete-academic-services-huskies-succeed-in-spring-with-3-49-gpa
 3299,Wisconsin,Big Ten,AC24,Head football coach,Luke Fickell,unreadable,,n/a,202,Associated Press game recap (ESPN.com),http://www.espn.com/ncf/recap?gameId=401858517
-3302,Wisconsin,Big Ten,AF24,FB HC pay source type,press report,classification,,n/a,200,FOX Sports,https://amp.foxsports.com/stories/college-football/wisconsin-luke-fickell-buyout-contract-replacements
+3301,Wisconsin,Big Ten,AE24,FB HC contract end year,2032,found,2032,weak,200,FOX Sports,https://amp.foxsports.com/stories/college-football/wisconsin-luke-fickell-buyout-contract-replacements
 3303,Wisconsin,Big Ten,AG24,Head men's basketball coach,Greg Gard,found,Greg Gard,strong,200,2026-27 Men’s Basketball Coaches | Wisconsin Badgers,https://uwbadgers.com/sports/mbball/coaches/
 3305,Wisconsin,Big Ten,AI24,MBB HC contract end year,2030,found,2030,weak,200,Wisconsin official athletics site (Apr 16 2025 release),https://uwbadgers.com/news/2025/4/16/general-news-uw-athletic-board-approves-coaches-contracts.aspx
-3306,Wisconsin,Big Ten,AJ24,MBB HC pay source type,press report,classification,,n/a,200,Big Ten Central,https://big10central.com/school/wisconsin/wisconsin-finalizing-pay-raise-for-mens-basketball-coach-greg-gard-heres-what-we-know/article_b9372a0c-b676-5805-9096-acc073904528.html
 3307,Wisconsin,Big Ten,AK24,Football stadium,Camp Randall Stadium,found,Camp Randall Stadium,strong,200,Wisconsin official athletics site,https://uwbadgers.com/sports/2015/8/21/GEN_2014010132
 3308,Wisconsin,Big Ten,AL24,Stadium capacity,76030,found,"76,030",strong,200,Wisconsin official athletics site (Camp Randall Stadium page),https://uwbadgers.com/sports/2015/8/21/GEN_2014010132
 3310,Wisconsin,Big Ten,AN24,Stadium last major renovation year,2022,found,2022,weak,200,Wisconsin official athletics site (Camp Randall Stadium page),https://uwbadgers.com/sports/2015/8/21/GEN_2014010132
@@ -989,7 +981,6 @@ log_row,school,tab,cell,metric,value,status,matched_text,strength,http,source_na
 3975,Houston,Big 12,AF13,FB HC pay source type,press report,classification,,n/a,200,FootballScoop (press report),https://footballscoop.com/news/houston-shares-contract-salary-terms-for-willie-fritz
 3976,Houston,Big 12,AG13,Head men's basketball coach,Kelvin Sampson,unreadable,,n/a,403,2026-27 Men’s Basketball Coaches - University of Houston Athletics,https://uhcougars.com/sports/mens-basketball/coaches
 3978,Houston,Big 12,AI13,MBB HC contract end year,2029,not found,,weak,200,"ABC13 Houston (KTRK), May 21, 2025",https://abc13.com/post/uh-mens-basketball-head-coach-kelvin-sampson-agrees-4-year-contract-extension-2028-29-season/16495013/
-3979,Houston,Big 12,AJ13,MBB HC pay source type,press report,classification,,n/a,200,ABC13 (press report),https://abc13.com/post/uh-mens-basketball-head-coach-kelvin-sampson-agrees-4-year-contract-extension-2028-29-season/16495013/
 3980,Houston,Big 12,AK13,Football stadium,TDECU Stadium,found,TDECU Stadium,strong,200,KPRC Click2Houston (local news citing school release),https://www.click2houston.com/news/local/2022/09/08/tdecu-expands-naming-rights-to-university-of-houstons-tdecu-stadium-through-at-least-2034
 3981,Houston,Big 12,AL13,Stadium capacity,40000,found,"40,000",strong,200,University of Houston (UH Stories),https://stories.uh.edu/2023-june-tdecu-extension/index.html
 3982,Houston,Big 12,AM13,Stadium year opened,2014,found,2014,weak,200,University of Houston (UH Stories),https://stories.uh.edu/2023-june-tdecu-extension/index.html
@@ -1065,7 +1056,6 @@ log_row,school,tab,cell,metric,value,status,matched_text,strength,http,source_na
 4359,Oklahoma State,Big 12,AE17,FB HC contract end year,2031,found,2031,weak,200,Sports Illustrated (Oklahoma State Cowboys On SI),https://www.si.com/college/oklahomastate/football/eric-morris-officially-named-osu-head-coach-with-5-year-contract
 4360,Oklahoma State,Big 12,AF17,FB HC pay source type,press report,classification,,n/a,200,Sports Illustrated (press report citing Board of Regents approval),https://www.si.com/college/oklahomastate/football/eric-morris-officially-named-osu-head-coach-with-5-year-contract
 4361,Oklahoma State,Big 12,AG17,Head men's basketball coach,Steve Lutz,found,Steve Lutz,strong,200,2026-27 Cowboy Basketball Coaches - Oklahoma State University Athletics,https://okstate.com/sports/mbball/coaches/
-4364,Oklahoma State,Big 12,AJ17,MBB HC pay source type,press report,classification,,n/a,200,Pokes Report (press report on contract),https://pokesreport.com/s/5821/report-steve-lutzs-contract-details-have-been-released
 4365,Oklahoma State,Big 12,AK17,Football stadium,Boone Pickens Stadium,found,Boone Pickens Stadium,strong,200,Official athletics site (; page JS-rendered),https://okstate.com/sports/2015/6/18/GEN_0618155302
 4366,Oklahoma State,Big 12,AL17,Stadium capacity,52202,found,"52,202",strong,200,Oklahoma State Athletics (okstate.com Boone Pickens Stadium page),https://okstate.com/sports/2015/6/18/GEN_0618155302
 4368,Oklahoma State,Big 12,AN17,Stadium last major renovation year,2024,found,2024,weak,200,Oklahoma State Athletics (okstate.com Boone Pickens Stadium page),https://okstate.com/sports/2015/6/18/GEN_0618155302
@@ -1104,7 +1094,6 @@ log_row,school,tab,cell,metric,value,status,matched_text,strength,http,source_na
 4552,Texas Tech,Big 12,AF19,FB HC pay source type,press report,classification,,n/a,200,KCBD (press report with contract schedule),https://www.kcbd.com/2025/12/17/new-details-outline-texas-tech-coach-joey-mcguires-contract-extension/
 4553,Texas Tech,Big 12,AG19,Head men's basketball coach,Grant McCasland,unreadable,,n/a,403,2026-27 Men’s Basketball Coaches - Texas Tech Red Raiders,https://texastech.com/sports/mbball/coaches/
 4555,Texas Tech,Big 12,AI19,MBB HC contract end year,2031,not found,,weak,200,KCBD / school announcement via press,https://www.kcbd.com/2025/05/19/grant-mccasland-signs-extension-with-texas-tech-through-2030-31-season/
-4556,Texas Tech,Big 12,AJ19,MBB HC pay source type,school announcement,classification,,n/a,200,KCBD / school announcement via press,https://www.kcbd.com/2025/05/19/grant-mccasland-signs-extension-with-texas-tech-through-2030-31-season/
 4557,Texas Tech,Big 12,AK19,Football stadium,Galaxy Stadium,found,Galaxy Stadium,strong,200,NBC DFW / Dallas Morning News / AP,https://www.nbcdfw.com/news/sports/texas-tech-signs-naming-rights-deal-with-digital-assets-company-galaxy/4051708/
 4559,Texas Tech,Big 12,AM19,Stadium year opened,1947,found,1947,weak,200,Texas Tech Athletics (texastech.com stadium facility page),https://texastech.com/facilities/detail/2
 4560,Texas Tech,Big 12,AN19,Stadium last major renovation year,2024,found,2024,weak,200,"Texas Tech University (Texas Tech Now), 10 September 2024",https://ttu.edu/now/posts/2024/09/texas-tech-alumni-work-together-to-create-world-class-football-facility.php
@@ -1193,7 +1182,6 @@ log_row,school,tab,cell,metric,value,status,matched_text,strength,http,source_na
 4838,West Virginia,Big 12,AC22,Head football coach,Rich Rodriguez,unreadable,,n/a,202,Associated Press game recap (ESPN.com),http://www.espn.com/ncf/recap?gameId=401856856
 4841,West Virginia,Big 12,AF22,FB HC pay source type,press report,classification,,n/a,410,Sports Illustrated (press report; FOIA MOU summarized by Rivals),https://www.si.com/college/westvirginia/football/rich-rodriguez-contract-length-salary-with-wvu-revealed
 4842,West Virginia,Big 12,AG22,Head men's basketball coach,Ross Hodge,found,Ross Hodge,strong,200,2026-27 Men’s Basketball Coaches - West Virginia University Athletics,https://wvusports.com/sports/mbball/coaches/
-4845,West Virginia,Big 12,AJ22,MBB HC pay source type,press report,classification,,n/a,410,Sports Illustrated (press report of public-records contract),https://www.si.com/college/westvirginia/basketball/ross-hodge-contract-details-buyout-revealed
 4846,West Virginia,Big 12,AK22,Football stadium,Milan Puskar Stadium,unreadable,,n/a,403,WVU Athletics (wvusports.com Milan Puskar Stadium page),https://wvusports.com/facilities/milan-puskar-stadium/8
 4847,West Virginia,Big 12,AL22,Stadium capacity,60000,unreadable,,n/a,403,WVU Athletics (wvusports.com Milan Puskar Stadium page),https://wvusports.com/facilities/milan-puskar-stadium/8
 4848,West Virginia,Big 12,AM22,Stadium year opened,1980,unreadable,,n/a,403,WVU Athletics (wvusports.com Milan Puskar Stadium page),https://wvusports.com/facilities/milan-puskar-stadium/8
@@ -1310,10 +1298,8 @@ log_row,school,tab,cell,metric,value,status,matched_text,strength,http,source_na
 5286,Florida,SEC,CS10,Varsity sports sponsored,21,found,21 sports,medium,200,Florida Athletics (floridagators.com),https://floridagators.com/news/2021/9/2/general-florida-gators-and-the-brandr-group-launch-group-licensing-for-student-athletes
 5320,Georgia,SEC,AC11,Head football coach,Kirby Smart,unreadable,,n/a,202,Associated Press game recap (ESPN.com),http://www.espn.com/ncf/recap?gameId=401856741
 5322,Georgia,SEC,AE11,FB HC contract end year,2033,found,2033,weak,200,Sports Illustrated (press report on 2024 extension),https://www.si.com/college/2024/05/02/georgia-kirby-smart-contract-extension
-5323,Georgia,SEC,AF11,FB HC pay source type,press report,classification,,n/a,403,Athletic Business,https://www.athleticbusiness.com/operations/personnel/article/15670055/bulldogs-make-kirby-smart-highestpaid-college-football-coach-at-13m-annually-through-2033
 5324,Georgia,SEC,AG11,Head men's basketball coach,Mike White,unreadable,,n/a,403,2026-27 Men’s Basketball Coaches - University of Georgia Athletics,https://georgiadogs.com/sports/mbball/coaches/
 5326,Georgia,SEC,AI11,MBB HC contract end year,2031,found,2031,weak,200,Atlanta Journal-Constitution (records obtained),https://www.ajc.com/sports/2026/02/details-of-mike-whites-contract-extension-confirmed-include-escalator-clause
-5327,Georgia,SEC,AJ11,MBB HC pay source type,press report,classification,,n/a,200,Atlanta Journal-Constitution (records obtained),https://www.ajc.com/sports/2026/02/details-of-mike-whites-contract-extension-confirmed-include-escalator-clause
 5328,Georgia,SEC,AK11,Football stadium,Sanford Stadium,found,Sanford Stadium,strong,200,Georgia Athletics official stadium history,https://georgiadogs.com/documents/download/2025/8/4/25FB_history_sanford.pdf
 5329,Georgia,SEC,AL11,Stadium capacity,93033,found,"93,033",strong,200,Georgia Athletics official stadium history (PDF),https://georgiadogs.com/documents/download/2025/8/4/25FB_history_sanford.pdf
 5330,Georgia,SEC,AM11,Stadium year opened,1929,found,1929,weak,200,Georgia Athletics official stadium history,https://georgiadogs.com/documents/download/2025/8/4/25FB_history_sanford.pdf
@@ -1332,9 +1318,7 @@ log_row,school,tab,cell,metric,value,status,matched_text,strength,http,source_na
 5418,Kentucky,SEC,AE12,FB HC contract end year,2031,found,2031,weak,200,LEX18 (Lexington local TV news),https://www.lex18.com/sports/uk-to-pay-football-head-coach-will-stein-5-year-28-5-minimum-contract
 5419,Kentucky,SEC,AF12,FB HC pay source type,contract,classification,,n/a,404,AP via WTOP (term sheet released by UK),https://wtop.com/ncaa-football/2025/12/kentuckys-stein-set-to-make-28-5m-in-5-year-deal-as-new-football-coach-stoops-owed-nearly-37-7m
 5420,Kentucky,SEC,AG12,Head men's basketball coach,Mark Pope,found,Mark Pope,strong,200,Men’s Basketball Roster 2026-27 – UK Athletics,https://ukathletics.com/sports/mbball/roster/
-5421,Kentucky,SEC,AH12,MBB HC annual guaranteed compensation,5250000,found,"5,250,000",strong,200,USA Today NCAA men's basketball coaches' pay database (page updated 8 April 2026),https://sportsdata.usatoday.com/ncaa/salaries/mens-basketball/coach/team/1459
 5422,Kentucky,SEC,AI12,MBB HC contract end year,2030,found,2030,weak,200,A Sea of Blue (press report),https://www.aseaofblue.com/2025/3/23/24392523/mark-pope-contract-extension-kentucky-basketball-ncaa-sweet-16-uk
-5423,Kentucky,SEC,AJ12,MBB HC pay source type,press report,classification,,n/a,200,A Sea of Blue,https://www.aseaofblue.com/2025/3/23/24392523/mark-pope-contract-extension-kentucky-basketball-ncaa-sweet-16-uk
 5424,Kentucky,SEC,AK12,Football stadium,Kroger Field,found,Kroger Field,strong,200,UK Athletics official facility page,https://ukathletics.com/facilities/kroger-field/
 5425,Kentucky,SEC,AL12,Stadium capacity,61000,found,"61,000",strong,200,Georgia Athletics official 2025 football PDF (’Capacity of SEC Stadiums’),https://georgiadogs.com/documents/download/2025/8/4/25FB_history_sanford.pdf
 5426,Kentucky,SEC,AM12,Stadium year opened,1973,found,1973,weak,200,UK Athletics official facility page,https://ukathletics.com/facilities/kroger-field/
@@ -1389,7 +1373,6 @@ log_row,school,tab,cell,metric,value,status,matched_text,strength,http,source_na
 5564,LSU,SEC,CG13,MMR annual value,9400000,found,$9.4 million,strong,200,Business Report (Baton Rouge),https://www.businessreport.com/business/lsu-board-weighs-10-year-contract-extension-with-multimedia-rights-manager?amp=1
 5574,LSU,SEC,CS13,Varsity sports sponsored,21,found,21 varsity sports,medium,200,LSU Athletics (lsusports.net),https://lsusports.net/news/2026/08/10/lsu-athletics-kickoff-week-aug-10-16-2026
 5608,Mississippi State,SEC,AC14,Head football coach,Jeff Lebby,unreadable,,n/a,202,Associated Press game recap (ESPN.com),http://www.espn.com/ncf/recap?gameId=401856742
-5611,Mississippi State,SEC,AF14,FB HC pay source type,press report,classification,,n/a,200,On3 / Commercial Dispatch,https://footballscoop.com/news/contract-details-for-jeff-lebby-at-mississippi-state
 5612,Mississippi State,SEC,AG14,Head men's basketball coach,Chris Jans,unreadable,,n/a,403,2026-27 Men’s Basketball Coaches - Mississippi State,https://hailstate.com/sports/mbball/coaches/
 5616,Mississippi State,SEC,AK14,Football stadium,Davis Wade Stadium at Scott Field,found,Davis Wade Stadium at Scott Field,strong,200,Mississippi State Athletics official facility page,https://hailstate.com/facilities/davis-wade-stadium/2
 5617,Mississippi State,SEC,AL14,Stadium capacity,60311,found,"60,311",strong,200,Mississippi State Football Record Book,https://static.hailstate.com/custompages/pdf/fb/fb_24mg.pdf
@@ -1484,7 +1467,6 @@ log_row,school,tab,cell,metric,value,status,matched_text,strength,http,source_na
 5958,Ole Miss,SEC,CS17,Varsity sports sponsored,18,unreadable,,n/a,403,Ole Miss Athletics release (Oct 7 2026),https://olemisssports.com/news/2026/10/7/athletics-adidas-ole-miss-announce-7-year-partnership-beginning-in-2027
 5992,South Carolina,SEC,AC18,Head football coach,Shane Beamer,unreadable,,n/a,202,Associated Press game recap (ESPN.com),http://www.espn.com/ncf/recap?gameId=401856744
 5994,South Carolina,SEC,AE18,FB HC contract end year,2030,found,2030,weak,200,WIS-TV (press report on Aug 2026 trustee-approved amendment),https://www.wistv.com/2026/08/21/usc-board-trustees-approves-amendment-beamers-contract/
-5995,South Carolina,SEC,AF18,FB HC pay source type,press report,classification,,n/a,200,WIS/Live5 (school announced extension),https://www.live5news.com/2025/01/24/shane-beamer-gets-extension-south-carolina-through-2030/
 5996,South Carolina,SEC,AG18,Head men's basketball coach,Lamont Paris,found,Lamont Paris,strong,200,Men’s Basketball Roster 2026-27 – University of South Carolina Athletics,https://gamecocksonline.com/sports/mbball/roster/
 5997,South Carolina,SEC,AH18,MBB HC annual guaranteed compensation,4250000,found,"4,250,000",strong,200,The State via AOL (approved contract breakdown),https://www.aol.com/lamont-paris-deal-official-takes-133246800.html
 5998,South Carolina,SEC,AI18,MBB HC contract end year,2030,found,2030,weak,200,The State via AOL (approved contract breakdown),https://www.aol.com/lamont-paris-deal-official-takes-133246800.html
@@ -1540,7 +1522,6 @@ log_row,school,tab,cell,metric,value,status,matched_text,strength,http,source_na
 6150,Tennessee,SEC,CS19,Varsity sports sponsored,20,found,20 varsity sports,medium,200,Tennessee Athletics (utsports.com),https://utsports.com/sports/2025/3/24/tennessee-club-landing-page
 6184,Texas,SEC,AC20,Head football coach,Steve Sarkisian,unreadable,,n/a,202,Associated Press game recap (ESPN.com),http://www.espn.com/ncf/recap?gameId=401856743
 6186,Texas,SEC,AE20,FB HC contract end year,2031,unreadable,,n/a,202,ESPN,https://global.espn.com/college-football/story/_/id/43937018/texas-board-approves-steve-sarkisian-raise-extension
-6187,Texas,SEC,AF20,FB HC pay source type,press report,classification,,n/a,202,ESPN,https://global.espn.com/college-football/story/_/id/43937018/texas-board-approves-steve-sarkisian-raise-extension
 6188,Texas,SEC,AG20,Head men's basketball coach,Sean Miller,unreadable,,n/a,403,2026-27 Men’s Basketball Coaches - University of Texas Athletics,https://texaslonghorns.com/sports/mens-basketball/coaches
 6190,Texas,SEC,AI20,MBB HC contract end year,2031,not found,,weak,200,Associated Press via NBC Sports (May 8 2025),https://www.nbcsports.com/mens-college-basketball/news/texas-regents-approve-sean-millers-6-year-32-million-contract
 6191,Texas,SEC,AJ20,MBB HC pay source type,press report,classification,,n/a,200,NBC Sports (Texas regents-approved contract),https://www.nbcsports.com/mens-college-basketball/news/texas-regents-approve-sean-millers-6-year-32-million-contract

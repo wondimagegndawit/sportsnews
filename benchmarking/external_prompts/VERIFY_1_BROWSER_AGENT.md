@@ -20,7 +20,7 @@ WHAT TO DO FOR EACH ROW, BY THE "Why it is here" COLUMN
 RULES
 - Open the page yourself. Never answer from memory and never rely on a search-result snippet or an AI summary.
 - Never compute, add up, average, round or infer a figure, with one exception: head coach pay in the workbook is base salary plus supplemental compensation, so if a page gives those two parts for the season and they add up to the value shown, that is CONFIRMED (quote both parts). Retention payments, signing bonuses and performance bonuses are not part of the figure. If a page says "five-year deal" but gives no end year, the end year is "not stated". If a page says "about" or "more than", quote that wording.
-- Do not use Wikipedia, wiki mirrors, USA Today's coaching salary or athletics finance databases (or any article that attributes its figure to them), fan blogs, team fan networks, message boards or stadium-guide sites.
+- Do not use Wikipedia, wiki mirrors, fan blogs, team fan networks, message boards or stadium-guide sites.
 - For every row give a short exact quote from the page (under 40 words) that contains the figure or name, and the full URL of the page you actually read. If the page shows a date, give it.
 - If a page is behind a login or paywall that I am signed into in this browser, use it. If you cannot get in, say so and move on.
 - Do every row. Do not stop early, do not skip rows, and do not edit the file.

@@ -35,8 +35,8 @@ From the "31 dollar figures" tab, check every row whose Outcome starts with "Con
 RULES FOR ALL PARTS
 - Open the page yourself. Never answer from memory, a search-result snippet or an AI summary.
 - Report what the page states. Do not compute, add up, average, round or infer a figure yourself, apart from recognising the conventions listed above. For head coach pay, if a retention payment, signing bonus or performance bonus has been folded into the figure shown, report that as DIFFERENT. Quote "about" and "more than" wording exactly.
-- Acceptable sources: the school's, university's, conference's or NCAA's own pages and PDFs; partner or agency press releases; executed contracts and board documents; state salary databases; Associated Press, ESPN, Sports Business Journal, Sportico, The Athletic, Front Office Sports, CBS Sports, Yahoo Sports, Sports Illustrated, NBC and Fox Sports; established newspapers and local TV news.
-- Not acceptable: Wikipedia or wiki mirrors; USA Today's coaching salary or athletics finance databases, or any article that attributes its figure to them; fan blogs, team fan networks and message boards; stadium-guide sites.
+- Acceptable sources: the school's, university's, conference's or NCAA's own pages and PDFs; partner or agency press releases; executed contracts and board documents; state salary databases; Associated Press, ESPN, Sports Business Journal, Sportico, The Athletic, Front Office Sports, CBS Sports, Yahoo Sports, Sports Illustrated, NBC and Fox Sports; established newspapers and local TV news; USA Today's coaches' pay tables (their figures are for the 2025 football season and the 2025-26 basketball season).
+- Not acceptable: Wikipedia or wiki mirrors; fan blogs, team fan networks and message boards; stadium-guide sites.
 - For every row give a short exact quote (under 40 words) containing the figure or name, the full URL you read, and the page's date if shown.
 - If you cannot open a page, say so. Do not fill the gap from memory.
 - Do every row asked for. Do not stop early and do not edit the file.

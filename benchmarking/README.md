@@ -42,9 +42,9 @@ There are no per-school tabs; `School Lookup` covers every school.
 
 Each sport has one pay column: total guaranteed annual pay for the current season, meaning base salary plus supplemental compensation (the guaranteed amounts contracts label as talent, rights, media or outside-income fees). Where a source states the two parts but no total, they are added; where it gives only a contract total and length or an average, the average is shown. Retention payments, signing bonuses and performance bonuses are excluded and described in the Source Log note where known. The re-read totals, with the parts quoted, are in `data/research/verification_zzz_coach_pay.csv` (metrics `fb_hc_annual_comp`, `mbb_hc_annual_comp`). Figures that would need a stated escalator applied are left blank. A three-column layout (base, supplemental, total) was tried and dropped on 13 November 2026 because most sources state only a total.
 
-## Source exceptions
+## USA Today coach pay
 
-USA Today's databases are not used, with one exception made at the analyst's direction on 13 November 2026: Kentucky men's basketball head coach pay (5,250,000, the database's 2025-26 figure). `data/source_exceptions.csv` lists the exception; `merge_research.py` lets only those rows past the source screen and `qa.py` reports them separately from any other hit.
+USA Today's coaches' pay tables were excluded until 13 November 2026, when the analyst allowed them. `scripts/build_usatoday.py` reads the two pages saved in `data/usatoday/` and writes `data/research/verification_zzzzz_usatoday.csv` for pay cells no other source fills. It uses a figure only when the table's coach is the current head coach, the school is public (private-school and Pittsburgh figures come from tax filings about two years old) and the table's note does not say a retention, stay, relocation or other one-time payment is included. The tables cover the 2025 football season and the 2025-26 basketball season, one season earlier than the other pay figures; the season is recorded on every row. Wikipedia and wiki mirrors remain excluded.
 
 ## Verification
 
