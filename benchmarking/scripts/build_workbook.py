@@ -175,7 +175,12 @@ for s in order:
         val=num(r['value']) if m['kind']=='num' else r['value']
         if key.endswith('_pay_source_type'): st={'contract':'contract','school announcement':'press release','state salary database':'contract','press report':'other','USA Today':'other'}[val]
         else: st=stype_of(r)
-        put(key,val,r['source_url'],r['unit'],r['fiscal_year_or_season'],st,r['source_name'],r['notes'],date=r.get('date_accessed'))
+        note=r['notes']; season=r['fiscal_year_or_season']
+        if key.endswith('hc_contract_end') and isinstance(val,(int,float)):   # one structure for every school
+            y=int(val)
+            if key.startswith('fb'): season=f'{y} season'; note=f'Contract runs through the {y} football season ({y}-{str(y+1)[2:]} academic year). '+(note or '')
+            else: season=f'{y-1}-{str(y)[2:]} season'; note=f'Contract runs through the {y-1}-{str(y)[2:]} season. '+(note or '')
+        put(key,val,r['source_url'],r['unit'],season,st,r['source_name'],note,date=r.get('date_accessed'))
     resolved[n]=R
 
 IDENT={'school','conference','control','state'}

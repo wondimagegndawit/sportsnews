@@ -673,7 +673,7 @@ log_row,school,tab,cell,metric,value,status,matched_text,strength,http,source_na
 2898,Purdue,Big Ten,CE19,MMR partner,Learfield,unreadable,,n/a,403,Learfield (Purdue Boilermakers partner page),https://www.learfield.com/partner/purdue-boilermakers/
 2911,Purdue,Big Ten,CT19,Varsity sports sponsored,18,found,18 intercollegiate athletic sports,medium,200,Purdue official athletics site (Mission Statement page),https://purduesports.com/mission-statement
 2945,Rutgers,Big Ten,AC20,Head football coach,Greg Schiano,unreadable,,n/a,202,ESPN,https://www.espn.com/college-football/story/_/id/50443389/rutgers-coach-schiano-back-2027-losing-seasons
-2947,Rutgers,Big Ten,AE20,FB HC contract end season (year season begins),2029,found,2029,weak,200,FOX Sports (On3 contract),https://www.foxsports.com/stories/college-sports/rutgers-greg-schiano-buyout-contract-2026
+2947,Rutgers,Big Ten,AE20,FB HC contract end season (year season begins),2029,found,2029,weak,200,FOX Sports (report of the contract),https://www.foxsports.com/stories/college-sports/rutgers-greg-schiano-buyout-contract-2026
 2949,Rutgers,Big Ten,AG20,Head men's basketball coach,Steve Pikiell,found,Steve Pikiell,strong,200,2026-27 Men’s Basketball Coaches - Rutgers University Athletics,https://scarletknights.com/sports/mens-basketball/coaches
 2952,Rutgers,Big Ten,AJ20,MBB HC contract end season (year season ends),2031,unreadable,,n/a,403,Rutgers Athletics (official staff page),https://scarletknights.com/staff-directory/steve-pikiell/275
 2954,Rutgers,Big Ten,AL20,Football stadium,SHI Stadium,unreadable,,n/a,403,Rutgers official athletics site (SHI Stadium page),https://scarletknights.com/sports/2017/6/11/facilities-football-html
@@ -703,7 +703,7 @@ log_row,school,tab,cell,metric,value,status,matched_text,strength,http,source_na
 3044,UCLA,Big Ten,AD21,FB HC total pay,6750000,found,$6.75 million,strong,200,Legion Report,https://legionreport.com/?p=31970
 3046,UCLA,Big Ten,AF21,FB HC pay source type,press report,classification,,n/a,200,Legion Report,https://legionreport.com/?p=31970
 3047,UCLA,Big Ten,AG21,Head men's basketball coach,Mick Cronin,found,Mick Cronin,strong,200,2026-27 Men’s Basketball Roster - UCLA Bruins,https://uclabruins.com/sports/mens-basketball/roster
-3050,UCLA,Big Ten,AJ21,MBB HC contract end season (year season ends),2028,found,2028,weak,200,Sports Illustrated,https://www.si.com/college/ucla/mens-basketball/details-released-for-mick-cronins-extension-with-ucla-mens-basketball
+3050,UCLA,Big Ten,AJ21,MBB HC contract end season (year season ends),2030,found,2030,weak,200,"CBS Sports (Matt Norlander), 17 December 2025",https://www.cbssports.com/college-basketball/news/mick-cronin-ucla-contract-extension-buyout-salary
 3052,UCLA,Big Ten,AL21,Football stadium,Rose Bowl,found,Rose Bowl,strong,200,UCLA official athletics site,https://uclabruins.com/facilities/the-rose-bowl
 3053,UCLA,Big Ten,AM21,Stadium capacity,91136,found,"91,136",strong,200,UCLA official athletics site,https://uclabruins.com/facilities/the-rose-bowl
 3054,UCLA,Big Ten,AN21,Stadium year opened,1922,found,1922,weak,200,UCLA official athletics site,https://uclabruins.com/facilities/the-rose-bowl

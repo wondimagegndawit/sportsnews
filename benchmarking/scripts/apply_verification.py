@@ -14,7 +14,7 @@ import csv, glob, json, os, re, sys
 DATE='2026-11-13'
 lay=json.load(open('data/workbook_layout.json')); KEY={m['hdr']:m['key'] for m in lay['S']}
 KEY.update({'Department GSR (%)':'dept_gsr','FB GSR (%)':'fb_gsr','FB multi-year APR':'fb_apr_multiyear'})
-KEY.update({'FB HC annual guaranteed compensation':'fb_hc_annual_comp','MBB HC annual guaranteed compensation':'mbb_hc_annual_comp','FB HC total pay':'fb_hc_annual_comp','MBB HC total pay 2026':'mbb_hc_annual_comp','MBB HC total pay 2025':'mbb_hc_prior_comp','FB HC contract end season (year season begins)':'fb_hc_contract_end','MBB HC contract end season (year season ends)':'mbb_hc_contract_end'})   # the single reported figure feeds the base-pay column
+KEY.update({'FB HC annual guaranteed compensation':'fb_hc_annual_comp','MBB HC annual guaranteed compensation':'mbb_hc_annual_comp','FB HC total pay':'fb_hc_annual_comp','MBB HC total pay 2026':'mbb_hc_annual_comp','MBB HC total pay 2025':'mbb_hc_prior_comp','FB HC contract end year':'fb_hc_contract_end','MBB HC contract end year':'mbb_hc_contract_end','FB HC contract end season (year season begins)':'fb_hc_contract_end','MBB HC contract end season (year season ends)':'mbb_hc_contract_end'})   # the single reported figure feeds the base-pay column
 # merged values as they stood BEFORE this script's own output, so reruns are idempotent
 base={}
 for r in csv.DictReader(open('data/merged_values.csv',encoding='utf-8')):
