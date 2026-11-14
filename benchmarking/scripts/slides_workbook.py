@@ -1,7 +1,8 @@
 """Write the chart data behind the slides to an Excel file, one tab per slide, in the benchmarking workbook's style.
 Usage: python3 -I scripts/slides_workbook.py slides/spec_big12.json slides/P4_Benchmarking_Chart_Data_Big12.xlsx
-Each tab: one row per school with the bar values, then the Power 4 average and median repeated on every row (the two
-line series), and summary rows underneath. Blue cells are hardcoded figures, black cells are formulas."""
+Layout (analyst's direction): school names run across row 6 from column D, with the values underneath, one row per
+series, followed by the Power 4 average and median repeated under every school (the two line series). Blue cells are
+hardcoded figures, black cells are formulas."""
 import sys, json
 from openpyxl import Workbook
 from openpyxl.styles import Font, PatternFill, Border, Side, Alignment
@@ -14,6 +15,7 @@ F=lambda **k: Font(name=FN,size=9,**k)
 THIN=Side(style='thin',color='000000'); BLACK=PatternFill('solid',fgColor='000000'); GRAY=PatternFill('solid',fgColor='D9D9D9')
 NUMF={'usd':'#,##0_);\\(#,##0\\);"-"??_);_(@_)','num':'#,##0_);\\(#,##0\\);"-"??_);_(@_)','pct':'0.0%'}
 TAB={'jersey_patch':'Jersey patch','stadium_naming':'Stadium naming','arena_naming':'Arena naming','fb_attendance':'FB attendance','fb_capacity':'FB capacity','mbb_attendance':'MBB attendance','mbb_capacity':'MBB capacity'}
+RIGHT=Alignment(horizontal='right')
 wb=Workbook(); wb.remove(wb.active)
 for s in spec['slides']:
     ws=wb.create_sheet(TAB.get(s['key'],s['key'][:31])); ws.sheet_view.showGridLines=False
@@ -23,37 +25,44 @@ for s in spec['slides']:
     scope=(f"{CONF} schools" if s['scope']=='conference' else 'All Power 4 schools with a reported value')
     unit={'usd':'whole dollars','num':'fans per home game','pct':'share of capacity'}[s['unit']]
     ws['B4']=f"{scope}; {unit}"; ws['B4'].font=F()
-    ser=s['series']; n=len(s['categories']); R0=7; RL=R0+n-1; nf=NUMF[s['unit']]
-    hdr=['School','Conference']+[x['name'] if len(ser)>1 or s['unit']!='usd' else s['label'] for x in ser]+['Power 4 average','Power 4 median']
-    for j,h in enumerate(hdr):
-        c=ws.cell(row=6,column=3+j,value=h); c.font=F(color='FFFFFF'); c.fill=BLACK; c.border=Border(top=THIN,bottom=THIN); c.alignment=Alignment(horizontal='center')
+    ser=s['series']; cats=s['categories']; n=len(cats); nf=NUMF[s['unit']]
+    C0=4; CL=C0+n-1; first,last=L(C0),L(CL)          # schools run from column D
+    # row 6: school names
+    for cc,h in [(3,'School')]+[(C0+i,c['school']) for i,c in enumerate(cats)]:
+        c=ws.cell(6,cc,h); c.font=F(color='FFFFFF'); c.fill=BLACK; c.border=Border(top=THIN,bottom=THIN); c.alignment=Alignment(horizontal='center')
     ws.row_dimensions[6].height=24
-    c0=5; ca=c0+len(ser); cm=ca+1          # first series column, average column, median column
-    # summary rows sit under the schools
-    rows=[]; r=RL+1
-    if s['scope']=='conference': rows+=[(f'{CONF} average','AVERAGE'),(f'{CONF} median','MEDIAN')]
-    rP4a=RL+1+len(rows); rP4m=rP4a+1
-    for i,cat in enumerate(s['categories']):
-        rr=R0+i
-        ws.cell(rr,3,cat['school']).font=F(); ws.cell(rr,4,cat['conference']).font=F()
-        for k,x in enumerate(ser):
-            v=x['values'][i]; c=ws.cell(rr,c0+k,v if v is not None else '--'); c.font=F(color=BLUE); c.number_format=nf; c.alignment=Alignment(horizontal='right')
-        a=ws.cell(rr,ca,f'=${L(c0)}${rP4a}'); a.font=F(); a.number_format=nf
-        m=ws.cell(rr,cm,f'=${L(c0)}${rP4m}'); m.font=F(); m.number_format=nf
-    def summary(row,label,cells):
-        for cc in range(3,cm+1):
+    # one row per bar series
+    r=7
+    for x in ser:
+        ws.cell(r,3,x['name'] if len(ser)>1 or s['unit']!='usd' else s['label']).font=F()
+        for i,v in enumerate(x['values']):
+            c=ws.cell(r,C0+i,v if v is not None else '--'); c.font=F(color=BLUE); c.number_format=nf; c.alignment=RIGHT
+        r+=1
+    r1=7                                              # the first series feeds the Power 4 lines
+    def summary(row,label,values):
+        for cc in range(3,CL+1):
             c=ws.cell(row,cc); c.fill=GRAY; c.font=F(bold=True)
         ws.cell(row,3,label)
-        for cc,(v,blue) in cells.items():
-            c=ws.cell(row,cc,v); c.number_format=nf; c.font=F(bold=True,color=BLUE if blue else '000000'); c.fill=GRAY; c.alignment=Alignment(horizontal='right')
-    for label,fn in rows:
-        summary(r,label,{c0+k:(f'={fn}({L(c0+k)}{R0}:{L(c0+k)}{RL})',False) for k in range(len(ser))}); r+=1
-    if s['scope']=='conference':   # Power 4 figures cover schools that are not on this tab, so they are hardcoded
-        summary(rP4a,f"Power 4 average ({s['n_p4']} schools; {ser[0]['name']})",{c0:(s['avg'],True)}); summary(rP4m,f"Power 4 median ({s['n_p4']} schools; {ser[0]['name']})",{c0:(s['med'],True)})
-    else:
-        summary(rP4a,f"Power 4 average ({s['n_p4']} schools)",{c0:(f'=AVERAGE({L(c0)}{R0}:{L(c0)}{RL})',False)}); summary(rP4m,f"Power 4 median ({s['n_p4']} schools)",{c0:(f'=MEDIAN({L(c0)}{R0}:{L(c0)}{RL})',False)})
-    ws.cell(rP4m+2,3,'Slide title: '+s['title']).font=F(); ws.cell(rP4m+3,3,'Slide subtitle: '+s['subtitle']).font=F(); ws.cell(rP4m+4,3,s['source']).font=F()
-    ws.column_dimensions['C'].width=44; ws.column_dimensions['D'].width=12
-    for cc in range(c0,cm+1): ws.column_dimensions[L(cc)].width=max(18,len(str(ws.cell(6,cc).value))+2)
+        for cc,(v,blue) in values.items():
+            c=ws.cell(row,cc,v); c.number_format=nf; c.font=F(bold=True,color=BLUE if blue else '000000'); c.fill=GRAY; c.alignment=RIGHT
+    # Power 4 average and median, repeated under every school so they chart as flat lines
+    for label,fn,val in ((f"Power 4 average ({s['n_p4']} schools)",'AVERAGE',s['avg']),(f"Power 4 median ({s['n_p4']} schools)",'MEDIAN',s['med'])):
+        if s['scope']=='conference':   # the Power 4 figure covers schools that are not on this tab: hardcoded once, then repeated
+            cells={C0:(val,True)}; cells.update({cc:(f'=${first}${r}',False) for cc in range(C0+1,CL+1)})
+        else:
+            cells={cc:(f'={fn}(${first}${r1}:${last}${r1})',False) for cc in range(C0,CL+1)}
+        summary(r,label,cells); r+=1
+    if s['scope']=='conference':
+        for k,x in enumerate(ser):
+            suffix=f", {x['name']}" if len(ser)>1 else ''
+            for label,fn in ((f'{CONF} average{suffix}','AVERAGE'),(f'{CONF} median{suffix}','MEDIAN')):
+                summary(r,label,{C0:(f'={fn}({first}{7+k}:{last}{7+k})',False)}); r+=1
+    r+=1
+    ws.cell(r,3,'Conference').font=F()
+    for i,c in enumerate(cats): 
+        x=ws.cell(r,C0+i,c['conference']); x.font=F(); x.alignment=RIGHT
+    ws.cell(r+2,3,'Slide title: '+s['title']).font=F(); ws.cell(r+3,3,'Slide subtitle: '+s['subtitle']).font=F(); ws.cell(r+4,3,s['source']).font=F()
+    ws.column_dimensions['C'].width=44
+    for cc in range(C0,CL+1): ws.column_dimensions[L(cc)].width=max(13,len(str(ws.cell(6,cc).value))+2)
     ws.freeze_panes='D7'
 wb.save(out); print('saved',out,wb.sheetnames)
