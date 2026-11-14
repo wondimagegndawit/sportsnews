@@ -93,7 +93,7 @@
    "conference": "Big 12",
    "n_conf": 5,
    "n_conf_total": 16,
-   "n_p4": 13,
+   "n_p4": 14,
    "categories": [
     {
      "school": "Washington",
@@ -166,6 +166,13 @@
      "logo": "ucf.png"
     },
     {
+     "school": "Rutgers",
+     "short": "Rutgers",
+     "abbr": "RUTG",
+     "conference": "Big Ten",
+     "logo": "rutgers.png"
+    },
+    {
      "school": "Kentucky",
      "short": "Kentucky",
      "abbr": "UK",
@@ -201,6 +208,7 @@
       2050000,
       2000000,
       1950000,
+      1866666.66666667,
       1850000,
       1360000,
       1100000
@@ -209,19 +217,19 @@
    ],
    "lines": [
     {
-     "name": "Power 4 average ($3.1M)",
-     "value": 3055897.4358974355
+     "name": "Power 4 average ($3.0M)",
+     "value": 2970952.3809523806
     },
     {
-     "name": "Power 4 median ($2.8M)",
-     "value": 2750000
+     "name": "Power 4 median ($2.4M)",
+     "value": 2400000.0
     }
    ],
-   "avg": 3055897.4358974355,
-   "med": 2750000,
+   "avg": 2970952.3809523806,
+   "med": 2400000.0,
    "source": "Source: Power 4 Athletic Department Benchmarking workbook. Annual value is the reported figure or, where a source gives a total and a term, the total divided by the term. All Power 4 schools with a value are shown because fewer than 10 Big 12 schools have one.",
-   "title": "Stadium naming rights: 13 Power 4 schools have a reported annual value, averaging $3.1M with a median of $2.8M",
-   "subtitle": "Washington is highest at $7.0M; 5 of the 13 are in the Big 12 (Arizona, Arizona St, Houston, Texas Tech and UCF)."
+   "title": "Stadium naming rights: 14 Power 4 schools have a reported annual value, averaging $3.0M with a median of $2.4M",
+   "subtitle": "Washington is highest at $7.0M; 5 of the 14 are in the Big 12 (Arizona, Arizona St, Houston, Texas Tech and UCF)."
   },
   {
    "key": "arena_naming",
