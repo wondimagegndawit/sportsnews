@@ -539,7 +539,7 @@ def vertical_sheet(ws,title,name_value,name_font,name_fill,src_sheet,first,last,
 ws=wb.create_sheet('School Lookup')
 vertical_sheet(ws,'School lookup: choose a school in the yellow cell','Alabama',F_BASE,FILL_IN,'All Schools',all_first,all_last,None,False)
 dv=DataValidation(type='list',formula1=f"='All Schools'!${CL(1)}${all_first}:${CL(1)}${all_last}",allow_blank=False); ws.add_data_validation(dv); dv.add(f'{CL(2)}5')
-names=['Read Me','All Schools']+[sn for _,sn in CONFS]+['Source Log','School Lookup']   # no per-school tabs: School Lookup covers every school
+names=['Read Me','All Schools']+[sn for _,sn in CONFS]+['School Lookup','Source Log']   # no per-school tabs: School Lookup covers every school
 wb._sheets=[wb[n] for n in names]
 for ws in wb: ws.sheet_view.showGridLines=False
 wb.save(OUT); print('saved',OUT,'sheets',len(wb.sheetnames),'sourcelog rows',len(sourcelog))
