@@ -238,9 +238,9 @@
    "label": "Arena naming rights annual value",
    "scope": "all",
    "conference": "Big 12",
-   "n_conf": 4,
+   "n_conf": 5,
    "n_conf_total": 16,
-   "n_p4": 14,
+   "n_p4": 15,
    "categories": [
     {
      "school": "NC State",
@@ -306,6 +306,13 @@
      "logo": "ucf.png"
     },
     {
+     "school": "Texas Tech",
+     "short": "Texas Tech",
+     "abbr": "TTU",
+     "conference": "Big 12",
+     "logo": "texas_tech.png"
+    },
+    {
      "school": "Kentucky",
      "short": "Kentucky",
      "abbr": "UK",
@@ -354,6 +361,7 @@
       1846666.66666667,
       1700000,
       1666666.66666667,
+      1600000,
       1500000,
       1481818.18181818,
       1475000,
@@ -364,19 +372,19 @@
    ],
    "lines": [
     {
-     "name": "Power 4 average ($2.2M)",
-     "value": 2154296.536796537
+     "name": "Power 4 average ($2.1M)",
+     "value": 2117343.434343435
     },
     {
-     "name": "Power 4 median ($1.8M)",
-     "value": 1773333.333333335
+     "name": "Power 4 median ($1.7M)",
+     "value": 1700000
     }
    ],
-   "avg": 2154296.536796537,
-   "med": 1773333.333333335,
+   "avg": 2117343.434343435,
+   "med": 1700000,
    "source": "Source: Power 4 Athletic Department Benchmarking workbook. Annual value is the reported figure or, where a source gives a total and a term, the total divided by the term. All Power 4 schools with a value are shown because fewer than 10 Big 12 schools have one.",
-   "title": "Arena naming rights: 14 Power 4 schools have a reported annual value, averaging $2.2M with a median of $1.8M",
-   "subtitle": "NC State is highest at $6.0M; 4 of the 14 are in the Big 12 (Arizona, Arizona St, UCF and West Virginia)."
+   "title": "Arena naming rights: 15 Power 4 schools have a reported annual value, averaging $2.1M with a median of $1.7M",
+   "subtitle": "NC State is highest at $6.0M; 5 of the 15 are in the Big 12 (Arizona, Arizona St, Texas Tech, UCF and West Virginia)."
   },
   {
    "key": "fb_attendance",
