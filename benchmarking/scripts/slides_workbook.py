@@ -14,7 +14,7 @@ FN='Aptos Narrow'; BLUE='0000FF'
 F=lambda **k: Font(name=FN,size=9,**k)
 THIN=Side(style='thin',color='000000'); BLACK=PatternFill('solid',fgColor='000000'); GRAY=PatternFill('solid',fgColor='D9D9D9')
 NUMF={'usd':'#,##0_);\\(#,##0\\);"-"??_);_(@_)','num':'#,##0_);\\(#,##0\\);"-"??_);_(@_)','pct':'0.0%'}
-TAB={'jersey_patch':'Jersey patch','stadium_naming':'Stadium naming','field_naming':'Field naming','court_naming':'Court naming','logo_deals':'Logo deals','arena_naming':'Arena naming','fb_attendance':'FB attendance','fb_capacity':'FB capacity','mbb_attendance':'MBB attendance','mbb_capacity':'MBB capacity'}
+TAB={'jersey_patch':'Jersey patch','stadium_naming':'Stadium naming','field_naming':'Field naming','court_naming':'Court naming','logo_deals':'Logo deals','arena_naming':'Arena naming','fb_attendance':'FB attendance','fb_capacity':'FB capacity','mbb_attendance':'MBB attendance','total_expenses':'Total expenses','surplus':'Surplus (deficit)','coaching_salaries':'Coaching salaries','debt_service':'Debt service','fb_hc_pay':'FB HC pay','mbb_hc_pay':'MBB HC pay','mbb_capacity':'MBB capacity'}
 RIGHT=Alignment(horizontal='right')
 wb=Workbook(); wb.remove(wb.active)
 for s in spec['slides']:
@@ -46,7 +46,7 @@ for s in spec['slides']:
         for cc,(v,blue) in values.items():
             c=ws.cell(row,cc,v); c.number_format=nf; c.font=F(bold=True,color=BLUE if blue else '000000'); c.fill=GRAY; c.alignment=RIGHT
     # Power 4 average and median, repeated under every school so they chart as flat lines
-    for label,fn,val in ((f"Power 4 average ({s['n_p4']} schools)",'AVERAGE',s['avg']),(f"Power 4 median ({s['n_p4']} schools)",'MEDIAN',s['med'])):
+    for label,fn,val in ((f"Power 4 average ({s.get('n_stat',s['n_p4'])}{' MFRS' if any('basis' in c for c in cats) else ''} schools)",'AVERAGE',s['avg']),(f"Power 4 median ({s.get('n_stat',s['n_p4'])}{' MFRS' if any('basis' in c for c in cats) else ''} schools)",'MEDIAN',s['med'])):
         if s['scope']=='conference':   # the Power 4 figure covers schools that are not on this tab: hardcoded once, then repeated
             cells={C0:(val,True)}; cells.update({cc:(f'=${first}${r}',False) for cc in range(C0+1,CL+1)})
         else:
@@ -61,6 +61,10 @@ for s in spec['slides']:
     ws.cell(r,3,'Conference').font=F()
     for i,c in enumerate(cats): 
         x=ws.cell(r,C0+i,c['conference']); x.font=F(); x.alignment=RIGHT
+    if any('basis' in c for c in cats):      # expense tabs: which schools are on MFRS and which on the federal EADA report
+        r+=1; ws.cell(r,3,'Financial data type').font=F()
+        for i,c in enumerate(cats):
+            x=ws.cell(r,C0+i,c.get('basis','--')); x.font=F(); x.alignment=RIGHT
     if any('sport' in c for c in cats):      # playing-surface tab: which deals are football fields and which are basketball courts
         r+=1; ws.cell(r,3,'Sport').font=F()
         for i,c in enumerate(cats):

@@ -81,6 +81,7 @@
    "avg": 10033333.333333334,
    "med": 9000000.0,
    "source": "Source: Power 4 Athletic Department Benchmarking workbook. Annual value is the reported figure or, where a source gives a total and a term, the total divided by the term. Notre Dame is shown at the low end of a reported range of $18 million to $20 million a year. All Power 4 schools with a value are shown because fewer than 10 Big 12 schools have one.",
+   "n_stat": 6,
    "title": "Jersey patch deals: 6 Power 4 schools have a reported annual value, averaging $10.0M with a median of $9.0M",
    "subtitle": "Notre Dame is highest at $18.0M; no Big 12 school has a reported value."
   },
@@ -212,6 +213,7 @@
    "avg": 2959166.6666666665,
    "med": 2025000.0,
    "source": "Source: Power 4 Athletic Department Benchmarking workbook. Annual value is the reported figure or, where a source gives a total and a term, the total divided by the term. All Power 4 schools with a value are shown because fewer than 10 Big 12 schools have one.",
+   "n_stat": 12,
    "title": "Stadium naming rights: 12 Power 4 schools have a reported annual value, averaging $3.0M with a median of $2.0M",
    "subtitle": "Washington is highest at $7.0M; 5 of the 12 are in the Big 12 (Arizona, Arizona St, Houston, Texas Tech and UCF)."
   },
@@ -438,6 +440,7 @@
    "avg": 2117343.434343435,
    "med": 1700000,
    "source": "Source: Power 4 Athletic Department Benchmarking workbook. Annual value is the reported figure or, where a source gives a total and a term, the total divided by the term. All Power 4 schools with a value are shown because fewer than 10 Big 12 schools have one.",
+   "n_stat": 15,
    "title": "Arena naming rights: 15 Power 4 schools have a reported annual value, averaging $2.1M with a median of $1.7M",
    "subtitle": "NC State is highest at $6.0M; 5 of the 15 are in the Big 12 (Arizona, Arizona St, Texas Tech, UCF and West Virginia)."
   },
@@ -728,6 +731,7 @@
    "avg": 60298.779411764706,
    "med": 56750.0,
    "source": "Source: D1.ticker FBS Attendance Trends, 2025 and 2024 pages, as carried in the benchmarking workbook.",
+   "n_stat": 68,
    "title": "Big 12 football: 9 of 16 schools drew more fans per home game in 2025 than in 2024",
    "subtitle": "The Big 12 averaged 48,003 per game in 2025, against a Power 4 average of 60,299 and a median of 56,750; BYU led at 63,789."
   },
@@ -912,6 +916,7 @@
    "avg": 0.9327323529411765,
    "med": 0.96645,
    "source": "Source: D1.ticker FBS Attendance Trends, Capacity % column of the 2025 and 2024 pages. D1.ticker does not publish the capacity it divides by.",
+   "n_stat": 68,
    "title": "Big 12 football stadiums were 95% full on average in 2025, against a Power 4 average of 93%",
    "subtitle": "9 of 16 Big 12 schools filled at least 95% of capacity; 8 filled a larger share than in 2024. Power 4 median is 97%."
   },
@@ -1075,6 +1080,7 @@
    "avg": 10039.70588235294,
    "med": 8445.0,
    "source": "Source: NCAA Men's Basketball Attendance Records book, 2026 Attendance Summary (home games, 2025-26). The book does not list 2024-25 for every school, so one season is shown.",
+   "n_stat": 68,
    "title": "Big 12 men's basketball averaged 9,812 fans per home game in 2025-26, against a Power 4 average of 10,040",
    "subtitle": "7 of 16 Big 12 schools were above the Power 4 median of 8,445; BYU led at 18,073."
   },
@@ -1238,8 +1244,943 @@
    "avg": 0.7556531571002246,
    "med": 0.774055841941834,
    "source": "Source: average home attendance (NCAA Attendance Records book, 2025-26) divided by arena capacity, as calculated in the benchmarking workbook.",
+   "n_stat": 68,
    "title": "Big 12 men's basketball arenas were 79% full on average in 2025-26, against a Power 4 average of 76%",
    "subtitle": "Houston filled the largest share at 101%; Power 4 median is 77%."
+  },
+  {
+   "key": "total_expenses",
+   "metric": "Total operating expenses",
+   "unit": "usd",
+   "label": "Total operating expenses",
+   "scope": "conference",
+   "conference": "Big 12",
+   "n_conf": 16,
+   "n_conf_total": 16,
+   "n_p4": 66,
+   "categories": [
+    {
+     "school": "Arizona State",
+     "short": "Arizona St",
+     "abbr": "ASU",
+     "conference": "Big 12",
+     "logo": "arizona_state.png",
+     "basis": "MFRS"
+    },
+    {
+     "school": "Colorado",
+     "short": "Colorado",
+     "abbr": "COLO",
+     "conference": "Big 12",
+     "logo": "colorado.png",
+     "basis": "MFRS"
+    },
+    {
+     "school": "Oklahoma State",
+     "short": "Oklahoma St",
+     "abbr": "OKST",
+     "conference": "Big 12",
+     "logo": "oklahoma_state.png",
+     "basis": "MFRS"
+    },
+    {
+     "school": "TCU",
+     "short": "TCU",
+     "abbr": "TCU",
+     "conference": "Big 12",
+     "logo": "tcu.png",
+     "basis": "EADA"
+    },
+    {
+     "school": "Kansas",
+     "short": "Kansas",
+     "abbr": "KU",
+     "conference": "Big 12",
+     "logo": "kansas.png",
+     "basis": "MFRS"
+    },
+    {
+     "school": "Texas Tech",
+     "short": "Texas Tech",
+     "abbr": "TTU",
+     "conference": "Big 12",
+     "logo": "texas_tech.png",
+     "basis": "MFRS"
+    },
+    {
+     "school": "Baylor",
+     "short": "Baylor",
+     "abbr": "BAY",
+     "conference": "Big 12",
+     "logo": "baylor.png",
+     "basis": "EADA"
+    },
+    {
+     "school": "Arizona",
+     "short": "Arizona",
+     "abbr": "ARIZ",
+     "conference": "Big 12",
+     "logo": "arizona.png",
+     "basis": "MFRS"
+    },
+    {
+     "school": "BYU",
+     "short": "BYU",
+     "abbr": "BYU",
+     "conference": "Big 12",
+     "logo": "byu.png",
+     "basis": "EADA"
+    },
+    {
+     "school": "Utah",
+     "short": "Utah",
+     "abbr": "UTAH",
+     "conference": "Big 12",
+     "logo": "utah.png",
+     "basis": "MFRS"
+    },
+    {
+     "school": "West Virginia",
+     "short": "West Virginia",
+     "abbr": "WVU",
+     "conference": "Big 12",
+     "logo": "west_virginia.png",
+     "basis": "MFRS"
+    },
+    {
+     "school": "Cincinnati",
+     "short": "Cincinnati",
+     "abbr": "CIN",
+     "conference": "Big 12",
+     "logo": "cincinnati.png",
+     "basis": "MFRS"
+    },
+    {
+     "school": "Iowa State",
+     "short": "Iowa State",
+     "abbr": "ISU",
+     "conference": "Big 12",
+     "logo": "iowa_state.png",
+     "basis": "MFRS"
+    },
+    {
+     "school": "Kansas State",
+     "short": "Kansas St",
+     "abbr": "KSU",
+     "conference": "Big 12",
+     "logo": "kansas_state.png",
+     "basis": "MFRS"
+    },
+    {
+     "school": "UCF",
+     "short": "UCF",
+     "abbr": "UCF",
+     "conference": "Big 12",
+     "logo": "ucf.png",
+     "basis": "MFRS"
+    },
+    {
+     "school": "Houston",
+     "short": "Houston",
+     "abbr": "HOU",
+     "conference": "Big 12",
+     "logo": "houston.png",
+     "basis": "MFRS"
+    }
+   ],
+   "series": [
+    {
+     "name": "Total operating expenses",
+     "values": [
+      164713777,
+      161512069,
+      156061076,
+      155989500,
+      148361190,
+      144420153,
+      144126427,
+      142907872,
+      136864784,
+      135560135,
+      130706709,
+      119327107,
+      117984063,
+      103671290,
+      103615446,
+      98864678
+     ]
+    }
+   ],
+   "lines": [
+    {
+     "name": "Power 4 average, MFRS schools ($181.6M)",
+     "value": 181644589.4117647
+    },
+    {
+     "name": "Power 4 median, MFRS schools ($173.9M)",
+     "value": 173856988
+    }
+   ],
+   "avg": 181644589.4117647,
+   "med": 173856988,
+   "source": "Source: NCAA Membership Financial Reporting System (MFRS) reports, as compiled by Sportico or posted by the school, in the benchmarking workbook. Gray bars are private schools, shown on the federal EADA report, which defines revenue and expenses differently; the Power 4 average and median use MFRS schools only. Most schools report fiscal 2025; Florida, Georgia Tech, Maryland, Missouri, UCLA report fiscal 2024, the latest posted.",
+   "n_stat": 51,
+   "section": "expense",
+   "title": "The 13 public Big 12 departments spent $132.9M on average, against a Power 4 average of $181.6M",
+   "subtitle": "Arizona St spent the most at $164.7M and Houston the least at $98.9M; Power 4 median is $173.9M."
+  },
+  {
+   "key": "surplus",
+   "metric": "Operating surplus (deficit)",
+   "unit": "usd",
+   "label": "Operating surplus (deficit)",
+   "scope": "conference",
+   "conference": "Big 12",
+   "n_conf": 16,
+   "n_conf_total": 16,
+   "n_p4": 66,
+   "categories": [
+    {
+     "school": "BYU",
+     "short": "BYU",
+     "abbr": "BYU",
+     "conference": "Big 12",
+     "logo": "byu.png",
+     "basis": "EADA"
+    },
+    {
+     "school": "Kansas State",
+     "short": "Kansas St",
+     "abbr": "KSU",
+     "conference": "Big 12",
+     "logo": "kansas_state.png",
+     "basis": "MFRS"
+    },
+    {
+     "school": "UCF",
+     "short": "UCF",
+     "abbr": "UCF",
+     "conference": "Big 12",
+     "logo": "ucf.png",
+     "basis": "MFRS"
+    },
+    {
+     "school": "Utah",
+     "short": "Utah",
+     "abbr": "UTAH",
+     "conference": "Big 12",
+     "logo": "utah.png",
+     "basis": "MFRS"
+    },
+    {
+     "school": "Arizona State",
+     "short": "Arizona St",
+     "abbr": "ASU",
+     "conference": "Big 12",
+     "logo": "arizona_state.png",
+     "basis": "MFRS"
+    },
+    {
+     "school": "Texas Tech",
+     "short": "Texas Tech",
+     "abbr": "TTU",
+     "conference": "Big 12",
+     "logo": "texas_tech.png",
+     "basis": "MFRS"
+    },
+    {
+     "school": "Arizona",
+     "short": "Arizona",
+     "abbr": "ARIZ",
+     "conference": "Big 12",
+     "logo": "arizona.png",
+     "basis": "MFRS"
+    },
+    {
+     "school": "Colorado",
+     "short": "Colorado",
+     "abbr": "COLO",
+     "conference": "Big 12",
+     "logo": "colorado.png",
+     "basis": "MFRS"
+    },
+    {
+     "school": "Iowa State",
+     "short": "Iowa State",
+     "abbr": "ISU",
+     "conference": "Big 12",
+     "logo": "iowa_state.png",
+     "basis": "MFRS"
+    },
+    {
+     "school": "Baylor",
+     "short": "Baylor",
+     "abbr": "BAY",
+     "conference": "Big 12",
+     "logo": "baylor.png",
+     "basis": "EADA"
+    },
+    {
+     "school": "TCU",
+     "short": "TCU",
+     "abbr": "TCU",
+     "conference": "Big 12",
+     "logo": "tcu.png",
+     "basis": "EADA"
+    },
+    {
+     "school": "Cincinnati",
+     "short": "Cincinnati",
+     "abbr": "CIN",
+     "conference": "Big 12",
+     "logo": "cincinnati.png",
+     "basis": "MFRS"
+    },
+    {
+     "school": "West Virginia",
+     "short": "West Virginia",
+     "abbr": "WVU",
+     "conference": "Big 12",
+     "logo": "west_virginia.png",
+     "basis": "MFRS"
+    },
+    {
+     "school": "Kansas",
+     "short": "Kansas",
+     "abbr": "KU",
+     "conference": "Big 12",
+     "logo": "kansas.png",
+     "basis": "MFRS"
+    },
+    {
+     "school": "Oklahoma State",
+     "short": "Oklahoma St",
+     "abbr": "OKST",
+     "conference": "Big 12",
+     "logo": "oklahoma_state.png",
+     "basis": "MFRS"
+    },
+    {
+     "school": "Houston",
+     "short": "Houston",
+     "abbr": "HOU",
+     "conference": "Big 12",
+     "logo": "houston.png",
+     "basis": "MFRS"
+    }
+   ],
+   "series": [
+    {
+     "name": "Operating surplus (deficit)",
+     "values": [
+      16486544,
+      12618259,
+      5269643,
+      4692729,
+      1423872,
+      882377,
+      383516,
+      160189,
+      6045,
+      0,
+      0,
+      -810939,
+      -2590396,
+      -4505094,
+      -5281697,
+      -6105582
+     ]
+    }
+   ],
+   "lines": [
+    {
+     "name": "Power 4 average, MFRS schools (-$2.1M)",
+     "value": -2123556.4509803923
+    },
+    {
+     "name": "Power 4 median, MFRS schools ($0.9M)",
+     "value": 882377
+    }
+   ],
+   "avg": -2123556.4509803923,
+   "med": 882377,
+   "source": "Source: NCAA Membership Financial Reporting System (MFRS) reports, as compiled by Sportico or posted by the school, in the benchmarking workbook. Gray bars are private schools, shown on the federal EADA report, which defines revenue and expenses differently; the Power 4 average and median use MFRS schools only. Most schools report fiscal 2025; Florida, Georgia Tech, Maryland, Missouri, UCLA report fiscal 2024, the latest posted. Operating revenue less operating expenses; private schools on the EADA report often show revenue equal to expenses.",
+   "n_stat": 51,
+   "section": "expense",
+   "title": "5 of 16 Big 12 departments spent more than they took in",
+   "subtitle": "BYU had the largest surplus at $16.5M and Houston the largest deficit at -$6.1M; Power 4 median is $0.9M."
+  },
+  {
+   "key": "coaching_salaries",
+   "metric": "Total coaching salaries and benefits",
+   "unit": "usd",
+   "label": "Total coaching salaries and benefits",
+   "scope": "conference",
+   "conference": "Big 12",
+   "n_conf": 13,
+   "n_conf_total": 16,
+   "n_p4": 53,
+   "categories": [
+    {
+     "school": "Arizona State",
+     "short": "Arizona St",
+     "abbr": "ASU",
+     "conference": "Big 12",
+     "logo": "arizona_state.png"
+    },
+    {
+     "school": "Kansas",
+     "short": "Kansas",
+     "abbr": "KU",
+     "conference": "Big 12",
+     "logo": "kansas.png"
+    },
+    {
+     "school": "Oklahoma State",
+     "short": "Oklahoma St",
+     "abbr": "OKST",
+     "conference": "Big 12",
+     "logo": "oklahoma_state.png"
+    },
+    {
+     "school": "Arizona",
+     "short": "Arizona",
+     "abbr": "ARIZ",
+     "conference": "Big 12",
+     "logo": "arizona.png"
+    },
+    {
+     "school": "Texas Tech",
+     "short": "Texas Tech",
+     "abbr": "TTU",
+     "conference": "Big 12",
+     "logo": "texas_tech.png"
+    },
+    {
+     "school": "Utah",
+     "short": "Utah",
+     "abbr": "UTAH",
+     "conference": "Big 12",
+     "logo": "utah.png"
+    },
+    {
+     "school": "Kansas State",
+     "short": "Kansas St",
+     "abbr": "KSU",
+     "conference": "Big 12",
+     "logo": "kansas_state.png"
+    },
+    {
+     "school": "Colorado",
+     "short": "Colorado",
+     "abbr": "COLO",
+     "conference": "Big 12",
+     "logo": "colorado.png"
+    },
+    {
+     "school": "Iowa State",
+     "short": "Iowa State",
+     "abbr": "ISU",
+     "conference": "Big 12",
+     "logo": "iowa_state.png"
+    },
+    {
+     "school": "West Virginia",
+     "short": "West Virginia",
+     "abbr": "WVU",
+     "conference": "Big 12",
+     "logo": "west_virginia.png"
+    },
+    {
+     "school": "Houston",
+     "short": "Houston",
+     "abbr": "HOU",
+     "conference": "Big 12",
+     "logo": "houston.png"
+    },
+    {
+     "school": "UCF",
+     "short": "UCF",
+     "abbr": "UCF",
+     "conference": "Big 12",
+     "logo": "ucf.png"
+    },
+    {
+     "school": "Cincinnati",
+     "short": "Cincinnati",
+     "abbr": "CIN",
+     "conference": "Big 12",
+     "logo": "cincinnati.png"
+    }
+   ],
+   "series": [
+    {
+     "name": "Total coaching salaries and benefits",
+     "values": [
+      33105946,
+      32625141,
+      29365415,
+      27982624,
+      27524070,
+      25549533,
+      22989694,
+      22818511,
+      22605979,
+      21067185,
+      20682584,
+      19235338,
+      18689891
+     ]
+    }
+   ],
+   "lines": [
+    {
+     "name": "Power 4 average ($33.5M)",
+     "value": 33521215.150943395
+    },
+    {
+     "name": "Power 4 median ($33.2M)",
+     "value": 33193725
+    }
+   ],
+   "avg": 33521215.150943395,
+   "med": 33193725,
+   "source": "Source: NCAA Membership Financial Reporting System (MFRS) reports, as compiled by Sportico or posted by the school, in the benchmarking workbook. All sports, salaries and benefits. Not shown (private, no MFRS report): Baylor, BYU, TCU. Most schools report fiscal 2025; Florida, Georgia Tech, Maryland, Missouri, UCLA report fiscal 2024, the latest posted.",
+   "n_stat": 53,
+   "section": "expense",
+   "title": "Big 12 departments pay coaches $24.9M a year on average, against a Power 4 average of $33.5M",
+   "subtitle": "Coaching pay is 19% of operating expenses for the average Big 12 school; Arizona St is highest at $33.1M."
+  },
+  {
+   "key": "debt_service",
+   "metric": "Annual debt service",
+   "unit": "usd",
+   "label": "Annual debt service",
+   "scope": "conference",
+   "conference": "Big 12",
+   "n_conf": 13,
+   "n_conf_total": 16,
+   "n_p4": 53,
+   "categories": [
+    {
+     "school": "Texas Tech",
+     "short": "Texas Tech",
+     "abbr": "TTU",
+     "conference": "Big 12",
+     "logo": "texas_tech.png"
+    },
+    {
+     "school": "Cincinnati",
+     "short": "Cincinnati",
+     "abbr": "CIN",
+     "conference": "Big 12",
+     "logo": "cincinnati.png"
+    },
+    {
+     "school": "Colorado",
+     "short": "Colorado",
+     "abbr": "COLO",
+     "conference": "Big 12",
+     "logo": "colorado.png"
+    },
+    {
+     "school": "Iowa State",
+     "short": "Iowa State",
+     "abbr": "ISU",
+     "conference": "Big 12",
+     "logo": "iowa_state.png"
+    },
+    {
+     "school": "West Virginia",
+     "short": "West Virginia",
+     "abbr": "WVU",
+     "conference": "Big 12",
+     "logo": "west_virginia.png"
+    },
+    {
+     "school": "Utah",
+     "short": "Utah",
+     "abbr": "UTAH",
+     "conference": "Big 12",
+     "logo": "utah.png"
+    },
+    {
+     "school": "Arizona",
+     "short": "Arizona",
+     "abbr": "ARIZ",
+     "conference": "Big 12",
+     "logo": "arizona.png"
+    },
+    {
+     "school": "Arizona State",
+     "short": "Arizona St",
+     "abbr": "ASU",
+     "conference": "Big 12",
+     "logo": "arizona_state.png"
+    },
+    {
+     "school": "UCF",
+     "short": "UCF",
+     "abbr": "UCF",
+     "conference": "Big 12",
+     "logo": "ucf.png"
+    },
+    {
+     "school": "Houston",
+     "short": "Houston",
+     "abbr": "HOU",
+     "conference": "Big 12",
+     "logo": "houston.png"
+    },
+    {
+     "school": "Kansas State",
+     "short": "Kansas St",
+     "abbr": "KSU",
+     "conference": "Big 12",
+     "logo": "kansas_state.png"
+    },
+    {
+     "school": "Kansas",
+     "short": "Kansas",
+     "abbr": "KU",
+     "conference": "Big 12",
+     "logo": "kansas.png"
+    },
+    {
+     "school": "Oklahoma State",
+     "short": "Oklahoma St",
+     "abbr": "OKST",
+     "conference": "Big 12",
+     "logo": "oklahoma_state.png"
+    }
+   ],
+   "series": [
+    {
+     "name": "Annual debt service",
+     "values": [
+      16778396,
+      15916724,
+      14649402,
+      12090096,
+      11323538,
+      11181497,
+      10628080,
+      9583553,
+      9282151,
+      8447017,
+      7860251,
+      5852923,
+      4381844
+     ]
+    }
+   ],
+   "lines": [
+    {
+     "name": "Power 4 average ($14.3M)",
+     "value": 14270738.830188679
+    },
+    {
+     "name": "Power 4 median ($12.7M)",
+     "value": 12732343
+    }
+   ],
+   "avg": 14270738.830188679,
+   "med": 12732343,
+   "source": "Source: NCAA Membership Financial Reporting System (MFRS) reports, as compiled by Sportico or posted by the school, in the benchmarking workbook. Debt service on athletics facilities, principal and interest. Not shown (private, no MFRS report): Baylor, BYU, TCU. Most schools report fiscal 2025; Florida, Georgia Tech, Maryland, Missouri, UCLA report fiscal 2024, the latest posted.",
+   "n_stat": 53,
+   "section": "expense",
+   "title": "Big 12 departments pay $10.6M a year in debt service on average, against a Power 4 average of $14.3M",
+   "subtitle": "7 of 13 pay $10M or more a year; Texas Tech is highest at $16.8M. Power 4 median is $12.7M."
+  },
+  {
+   "key": "fb_hc_pay",
+   "metric": "FB HC total pay",
+   "unit": "usd",
+   "label": "Football head coach total pay",
+   "scope": "conference",
+   "conference": "Big 12",
+   "n_conf": 14,
+   "n_conf_total": 16,
+   "n_p4": 56,
+   "categories": [
+    {
+     "school": "Colorado",
+     "short": "Colorado",
+     "abbr": "COLO",
+     "conference": "Big 12",
+     "logo": "colorado.png"
+    },
+    {
+     "school": "Arizona State",
+     "short": "Arizona St",
+     "abbr": "ASU",
+     "conference": "Big 12",
+     "logo": "arizona_state.png"
+    },
+    {
+     "school": "TCU",
+     "short": "TCU",
+     "abbr": "TCU",
+     "conference": "Big 12",
+     "logo": "tcu.png"
+    },
+    {
+     "school": "Kansas",
+     "short": "Kansas",
+     "abbr": "KU",
+     "conference": "Big 12",
+     "logo": "kansas.png"
+    },
+    {
+     "school": "Utah",
+     "short": "Utah",
+     "abbr": "UTAH",
+     "conference": "Big 12",
+     "logo": "utah.png"
+    },
+    {
+     "school": "Texas Tech",
+     "short": "Texas Tech",
+     "abbr": "TTU",
+     "conference": "Big 12",
+     "logo": "texas_tech.png"
+    },
+    {
+     "school": "Houston",
+     "short": "Houston",
+     "abbr": "HOU",
+     "conference": "Big 12",
+     "logo": "houston.png"
+    },
+    {
+     "school": "Kansas State",
+     "short": "Kansas St",
+     "abbr": "KSU",
+     "conference": "Big 12",
+     "logo": "kansas_state.png"
+    },
+    {
+     "school": "UCF",
+     "short": "UCF",
+     "abbr": "UCF",
+     "conference": "Big 12",
+     "logo": "ucf.png"
+    },
+    {
+     "school": "Oklahoma State",
+     "short": "Oklahoma St",
+     "abbr": "OKST",
+     "conference": "Big 12",
+     "logo": "oklahoma_state.png"
+    },
+    {
+     "school": "Cincinnati",
+     "short": "Cincinnati",
+     "abbr": "CIN",
+     "conference": "Big 12",
+     "logo": "cincinnati.png"
+    },
+    {
+     "school": "West Virginia",
+     "short": "West Virginia",
+     "abbr": "WVU",
+     "conference": "Big 12",
+     "logo": "west_virginia.png"
+    },
+    {
+     "school": "Arizona",
+     "short": "Arizona",
+     "abbr": "ARIZ",
+     "conference": "Big 12",
+     "logo": "arizona.png"
+    },
+    {
+     "school": "Iowa State",
+     "short": "Iowa State",
+     "abbr": "ISU",
+     "conference": "Big 12",
+     "logo": "iowa_state.png"
+    }
+   ],
+   "series": [
+    {
+     "name": "Football head coach total pay",
+     "values": [
+      8975000,
+      7442000,
+      7036013,
+      6650000,
+      5100000,
+      4554960,
+      4500000,
+      4100000,
+      3858333,
+      3800000,
+      3700000,
+      3600000,
+      3400000,
+      3000000
+     ]
+    }
+   ],
+   "lines": [
+    {
+     "name": "Power 4 average ($7.1M)",
+     "value": 7073022.321428572
+    },
+    {
+     "name": "Power 4 median ($7.0M)",
+     "value": 7018006.5
+    }
+   ],
+   "avg": 7073022.321428572,
+   "med": 7018006.5,
+   "source": "Source: USA Today coaches' pay tables (Total Pay: school pay plus pay from other sources, before bonuses), 2025 season; contracts, school releases or press reports where USA Today has no figure for the current coach. Benchmarking workbook. Not shown, no current pay figure: Baylor, BYU.",
+   "n_stat": 56,
+   "title": "Big 12 football head coaches are paid $5.0M on average, against a Power 4 average of $7.1M",
+   "subtitle": "3 of 14 are above the Power 4 median of $7.0M; Colorado is highest at $9.0M.",
+   "section": "expense"
+  },
+  {
+   "key": "mbb_hc_pay",
+   "metric": "MBB HC total pay 2026",
+   "unit": "usd",
+   "label": "Men's basketball head coach total pay",
+   "scope": "conference",
+   "conference": "Big 12",
+   "n_conf": 13,
+   "n_conf_total": 16,
+   "n_p4": 57,
+   "categories": [
+    {
+     "school": "Kansas",
+     "short": "Kansas",
+     "abbr": "KU",
+     "conference": "Big 12",
+     "logo": "kansas.png"
+    },
+    {
+     "school": "Arizona",
+     "short": "Arizona",
+     "abbr": "ARIZ",
+     "conference": "Big 12",
+     "logo": "arizona.png"
+    },
+    {
+     "school": "Houston",
+     "short": "Houston",
+     "abbr": "HOU",
+     "conference": "Big 12",
+     "logo": "houston.png"
+    },
+    {
+     "school": "Baylor",
+     "short": "Baylor",
+     "abbr": "BAY",
+     "conference": "Big 12",
+     "logo": "baylor.png"
+    },
+    {
+     "school": "Texas Tech",
+     "short": "Texas Tech",
+     "abbr": "TTU",
+     "conference": "Big 12",
+     "logo": "texas_tech.png"
+    },
+    {
+     "school": "TCU",
+     "short": "TCU",
+     "abbr": "TCU",
+     "conference": "Big 12",
+     "logo": "tcu.png"
+    },
+    {
+     "school": "Iowa State",
+     "short": "Iowa State",
+     "abbr": "ISU",
+     "conference": "Big 12",
+     "logo": "iowa_state.png"
+    },
+    {
+     "school": "Utah",
+     "short": "Utah",
+     "abbr": "UTAH",
+     "conference": "Big 12",
+     "logo": "utah.png"
+    },
+    {
+     "school": "Arizona State",
+     "short": "Arizona St",
+     "abbr": "ASU",
+     "conference": "Big 12",
+     "logo": "arizona_state.png"
+    },
+    {
+     "school": "West Virginia",
+     "short": "West Virginia",
+     "abbr": "WVU",
+     "conference": "Big 12",
+     "logo": "west_virginia.png"
+    },
+    {
+     "school": "Colorado",
+     "short": "Colorado",
+     "abbr": "COLO",
+     "conference": "Big 12",
+     "logo": "colorado.png"
+    },
+    {
+     "school": "Oklahoma State",
+     "short": "Oklahoma St",
+     "abbr": "OKST",
+     "conference": "Big 12",
+     "logo": "oklahoma_state.png"
+    },
+    {
+     "school": "UCF",
+     "short": "UCF",
+     "abbr": "UCF",
+     "conference": "Big 12",
+     "logo": "ucf.png"
+    }
+   ],
+   "series": [
+    {
+     "name": "Men's basketball head coach total pay",
+     "values": [
+      8853800,
+      5500000,
+      5500000,
+      5474290,
+      5000000,
+      4365321,
+      4300000,
+      3600000,
+      3500000,
+      2900000,
+      2700000,
+      2550000,
+      2100000
+     ]
+    }
+   ],
+   "lines": [
+    {
+     "name": "Power 4 average ($4.2M)",
+     "value": 4170943.8421052634
+    },
+    {
+     "name": "Power 4 median ($4.0M)",
+     "value": 4000000
+    }
+   ],
+   "avg": 4170943.8421052634,
+   "med": 4000000,
+   "source": "Source: USA Today coaches' pay tables (Total Pay: school pay plus pay from other sources, before bonuses), 2025-26 season; contracts, school releases or press reports where USA Today has no figure for the current coach. Benchmarking workbook. Not shown, no current pay figure: BYU, Cincinnati, Kansas St.",
+   "n_stat": 57,
+   "title": "Big 12 men's basketball head coaches are paid $4.3M on average, against a Power 4 average of $4.2M",
+   "subtitle": "7 of 13 are above the Power 4 median of $4.0M; Kansas is highest at $8.9M.",
+   "section": "expense"
   }
  ],
  "logos": [

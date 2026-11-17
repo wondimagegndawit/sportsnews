@@ -27,26 +27,26 @@ def d1ticker_pct(year):
             if re.fullmatch(r'[\d.]+',p): out[c[0].rstrip('*').strip()]=float(p)/100
     return out
 PCT24=d1ticker_pct(2024)
-def money(v): return f'${v/1e6:.1f}M'
+def money(v): return ('-' if v<0 else '')+f'${abs(v)/1e6:.1f}M'
 def num(v): return f'{v:,.0f}'
 def pct(v): return f'{v*100:.0f}%'
 FMT={'usd':money,'num':num,'pct':pct}
 def names(rs,n=3): 
     x=[LOGO[school(r)]['short'] for r in rs]
     return ', '.join(x[:-1])+' and '+x[-1] if len(x)>1 else x[0]
-def build(key,metric,unit,label,getters,source,second=None):
+def build(key,metric,unit,label,getters,source,second=None,stat=None,stat_label=''):
     """getters: list of (series name, function row->value); the first series ranks the schools and feeds the Power 4 lines."""
     g0=getters[0][1]
     have=[r for r in ROWS if g0(r) is not None]
     inconf=[r for r in have if conf(r)==CONF]
     scope='conference' if len(inconf)>=MIN else 'all'
     rs=sorted(inconf if scope=='conference' else have,key=lambda r:-g0(r))
-    p4=[g0(r) for r in have]; avg=statistics.mean(p4); med=statistics.median(p4); f=FMT[unit]
+    p4=[g0(r) for r in have if stat is None or stat(r)]; avg=statistics.mean(p4); med=statistics.median(p4); f=FMT[unit]   # stat: which schools feed the Power 4 lines
     cats=[dict(school=school(r),short=LOGO[school(r)]['short'],abbr=LOGO[school(r)]['abbr'],conference=conf(r),logo=LOGO[school(r)]['file']) for r in rs]
     series=[dict(name=nm,values=[g(r) for r in rs]) for nm,g in getters]
     return dict(key=key,metric=metric,unit=unit,label=label,scope=scope,conference=CONF,n_conf=len(inconf),n_conf_total=sum(1 for r in ROWS if conf(r)==CONF),n_p4=len(have),
-                categories=cats,series=series,lines=[dict(name=f'Power 4 average ({f(avg)})',value=avg),dict(name=f'Power 4 median ({f(med)})',value=med)],
-                avg=avg,med=med,source=source,rows=rs,inconf=inconf)
+                categories=cats,series=series,lines=[dict(name=f'Power 4 average{stat_label} ({f(avg)})',value=avg),dict(name=f'Power 4 median{stat_label} ({f(med)})',value=med)],
+                avg=avg,med=med,source=source,rows=rs,inconf=inconf,n_stat=len(p4))
 SRC_WB='Source: Power 4 Athletic Department Benchmarking workbook.'
 def deal(key,hdr,label):
     s=build(key,hdr,'usd',label,[(label,lambda r:val(r,hdr))],SRC_WB+' Annual value is the reported figure or, where a source gives a total and a term, the total divided by the term.')
@@ -114,5 +114,50 @@ rs=s['rows']; cavg=statistics.mean(val(r,mp) for r in rs); missing=[school(r) fo
 s['title']=f"{CONF} men's basketball arenas were {pct(cavg)} full on average in 2025-26, against a Power 4 average of {pct(s['avg'])}"
 s['subtitle']=f"{LOGO[school(rs[0])]['short']} filled the largest share at {pct(val(rs[0],mp))}; Power 4 median is {pct(s['med'])}."+(f" Not shown, no arena capacity in the workbook: {', '.join(missing)}." if missing and s['scope']=='conference' else '')
 slides.append(s)
+# ---- expenses: what the department spends, where the money goes, and what the head coaches are paid
+def dtype(r): return ws.cell(r,H['Financial data type']).value
+def fy(r): return ws.cell(r,H['Fiscal year']).value
+mfrs=lambda r: dtype(r)=='MFRS'
+def missing(rs,hdr): return [LOGO[school(r)]['short'] for r in ROWS if conf(r)==CONF and val(r,hdr) is None]
+FYN=' Most schools report fiscal 2025; '+', '.join(sorted(LOGO[school(r)]['short'] for r in ROWS if fy(r)==2024))+' report fiscal 2024, the latest posted.'
+MF="Source: NCAA Membership Financial Reporting System (MFRS) reports, as compiled by Sportico or posted by the school, in the benchmarking workbook."
+PRIV=' Private schools do not publish MFRS reports'
+def finance(key,hdr,label,basis=False):
+    """basis=True: private schools are shown on their federal EADA figure in a second colour, and the Power 4 lines use MFRS schools only."""
+    s=build(key,hdr,'usd',label,[(label,lambda r:val(r,hdr))],MF+FYN,stat=mfrs if basis else None,stat_label=', MFRS schools' if basis else '')
+    if basis:
+        for c,r in zip(s['categories'],s['rows']): c['basis']=dtype(r)
+        s['source']=MF+' Gray bars are private schools, shown on the federal EADA report, which defines revenue and expenses differently; the Power 4 average and median use MFRS schools only.'+FYN
+    s['section']='expense'
+    return s
+ex='Total operating expenses'
+s=finance('total_expenses',ex,'Total operating expenses',basis=True); rs=s['rows']; pub=[r for r in rs if mfrs(r)]; cavg=statistics.mean(val(r,ex) for r in pub)
+s['title']=f"The {len(pub)} public {CONF} departments spent {money(cavg)} on average, against a Power 4 average of {money(s['avg'])}"
+s['subtitle']=f"{LOGO[school(rs[0])]['short']} spent the most at {money(val(rs[0],ex))} and {LOGO[school(rs[-1])]['short']} the least at {money(val(rs[-1],ex))}; Power 4 median is {money(s['med'])}."
+slides.append(s)
+sp='Operating surplus (deficit)'
+s=finance('surplus',sp,'Operating surplus (deficit)',basis=True); rs=s['rows']; neg=[r for r in rs if val(r,sp)<0]
+s['source']+=' Operating revenue less operating expenses; private schools on the EADA report often show revenue equal to expenses.'
+s['title']=f"{len(neg)} of {len(rs)} {CONF} departments spent more than they took in"
+s['subtitle']=f"{LOGO[school(rs[0])]['short']} had the largest surplus at {money(val(rs[0],sp))} and {LOGO[school(rs[-1])]['short']} the largest deficit at {money(val(rs[-1],sp))}; Power 4 median is {money(s['med'])}."
+slides.append(s)
+cs='Total coaching salaries and benefits'
+s=finance('coaching_salaries',cs,'Total coaching salaries and benefits'); rs=s['rows']; cavg=statistics.mean(val(r,cs) for r in rs); share=statistics.mean(val(r,cs)/val(r,ex) for r in rs if val(r,ex))
+s['title']=f"{CONF} departments pay coaches {money(cavg)} a year on average, against a Power 4 average of {money(s['avg'])}"
+s['subtitle']=f"Coaching pay is {pct(share)} of operating expenses for the average {CONF} school; {LOGO[school(rs[0])]['short']} is highest at {money(val(rs[0],cs))}."
+s['source']=MF+' All sports, salaries and benefits.'+(f" Not shown (private, no MFRS report): {', '.join(missing(rs,cs))}." if missing(rs,cs) else '')+FYN; slides.append(s)
+ds='Annual debt service'
+s=finance('debt_service',ds,'Annual debt service'); rs=s['rows']; cavg=statistics.mean(val(r,ds) for r in rs); big=[r for r in rs if val(r,ds)>=10e6]
+s['title']=f"{CONF} departments pay {money(cavg)} a year in debt service on average, against a Power 4 average of {money(s['avg'])}"
+s['subtitle']=f"{len(big)} of {len(rs)} pay $10M or more a year; {LOGO[school(rs[0])]['short']} is highest at {money(val(rs[0],ds))}. Power 4 median is {money(s['med'])}."
+s['source']=MF+' Debt service on athletics facilities, principal and interest.'+(f" Not shown (private, no MFRS report): {', '.join(missing(rs,ds))}." if missing(rs,ds) else '')+FYN; slides.append(s)
+for key,hdr,sport,season in (('fb_hc_pay','FB HC total pay','football','2025 season'),('mbb_hc_pay','MBB HC total pay 2026',"men's basketball",'2025-26 season')):
+    s=build(key,hdr,'usd',f"{sport.capitalize()} head coach total pay",[(f"{sport.capitalize()} head coach total pay",lambda r,h=hdr:val(r,h))],
+            "Source: USA Today coaches' pay tables (Total Pay: school pay plus pay from other sources, before bonuses), "+season+"; contracts, school releases or press reports where USA Today has no figure for the current coach. Benchmarking workbook.")
+    rs=s['rows']; cavg=statistics.mean(val(r,hdr) for r in rs); above=[r for r in rs if val(r,hdr)>s['med']]; miss=missing(rs,hdr)
+    s['title']=f"{CONF} {sport} head coaches are paid {money(cavg)} on average, against a Power 4 average of {money(s['avg'])}"
+    s['subtitle']=f"{len(above)} of {len(rs)} are above the Power 4 median of {money(s['med'])}; {LOGO[school(rs[0])]['short']} is highest at {money(val(rs[0],hdr))}."
+    if miss: s['source']+=f" Not shown, no current pay figure: {', '.join(miss)}."
+    s['section']='expense'; slides.append(s)
 for s in slides: s.pop('rows'); s.pop('inconf')
 json.dump(dict(conference=CONF,slides=slides,logos=[dict(school=k,short=v['short'],file=v['file']) for k,v in sorted(LOGO.items())]),sys.stdout,indent=1)

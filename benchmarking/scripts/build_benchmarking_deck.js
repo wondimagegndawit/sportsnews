@@ -45,14 +45,14 @@ function legend(slide, keys) {
     slide.addText(label, { x: LG.x + 0.52, y: y - 0.03, w: LG.w - 0.6, h: 0.2, fontFace: F, fontSize: 7, color: C.ink, margin: 0, valign: 'middle', isTextBox: true });
   });
 }
-function chart(slide, name, CH, labels, bars, colors, lines, fmt, overlap, dense) {
+function chart(slide, name, CH, labels, bars, colors, lines, fmt, overlap, dense, floor = true) {
   slide.addChart([
     { type: pres.charts.BAR, data: bars.map(b => ({ name: b.name, labels, values: b.values })),
-      options: { barDir: 'col', barOverlapPct: overlap, barGapWidthPct: dense ? 45 : 60, chartColors: colors, showValue: true, dataLabelPosition: 'outEnd', dataLabelFormatCode: fmt.label, dataLabelFontSize: dense && bars.length > 1 ? 6.5 : 8, dataLabelColor: C.ink, dataLabelFontFace: '+mn-lt' } },
+      options: { barDir: 'col', barOverlapPct: overlap, barGapWidthPct: dense ? 45 : 60, chartColors: colors, showValue: true, dataLabelPosition: 'outEnd', dataLabelFormatCode: fmt.label, dataLabelFontSize: dense && (bars.length > 1 || fmt.small) ? 6.5 : 8, dataLabelColor: C.ink, dataLabelFontFace: '+mn-lt' } },
     { type: pres.charts.LINE, data: lines.map(l => ({ name: l.name, labels, values: labels.map(() => l.value) })),
       options: { chartColors: [C.line, C.line], lineSize: 1.5, lineDataSymbol: 'none', lineDash: 'solid', showValue: false } },
   ], { x: CH.x, y: CH.y, w: CH.w, h: CH.h, objectName: name, layout: PL, showLegend: false, catAxisHidden: true, catGridLine: { style: 'none' },
-    valAxisLabelFontSize: 8, valAxisLabelColor: C.ink, valAxisLabelFontFace: '+mn-lt', valAxisLabelFormatCode: fmt.axis, valAxisMinVal: 0,
+    valAxisLabelFontSize: 8, valAxisLabelColor: C.ink, valAxisLabelFontFace: '+mn-lt', valAxisLabelFormatCode: fmt.axis, ...(floor ? { valAxisMinVal: 0 } : {}),
     valGridLine: { color: C.ink, size: 0.5 }, valAxisLineShow: true });
 }
 
@@ -91,26 +91,36 @@ function dealSlide(s) {
 }
 
 // ---- attendance and capacity pages: the conference's schools, one or two seasons, Power 4 average and median
-const HEAD = { fb_attendance: 'FOOTBALL ATTENDANCE', fb_capacity: 'FOOTBALL CAPACITY FILLED', mbb_attendance: "MEN'S BASKETBALL ATTENDANCE", mbb_capacity: "MEN'S BASKETBALL CAPACITY FILLED" };
+const HEAD = { total_expenses: 'TOTAL OPERATING EXPENSES', surplus: 'OPERATING SURPLUS (DEFICIT)', coaching_salaries: 'COACHING SALARIES AND BENEFITS', debt_service: 'ANNUAL DEBT SERVICE', fb_hc_pay: 'FOOTBALL HEAD COACH PAY', mbb_hc_pay: "MEN'S BASKETBALL HEAD COACH PAY", fb_attendance: 'FOOTBALL ATTENDANCE', fb_capacity: 'FOOTBALL CAPACITY FILLED', mbb_attendance: "MEN'S BASKETBALL ATTENDANCE", mbb_capacity: "MEN'S BASKETBALL CAPACITY FILLED" };
 const FMT = { num: { label: '#,##0.0,"K"', axis: '#,##0,"K"' }, pct: { label: '0%', axis: '0%' }, usd: { label: '$#,##0.0,,"M"', axis: '$#,##0,,"M"' } };
 function metricSlide(s) {
   const scope = s.scope === 'conference' ? metric.conference.toUpperCase() : 'ALL P4';
   const slide = frame(`${HEAD[s.key] || s.label.toUpperCase()}: ${scope}`, `${s.title}. ${s.subtitle}`);
   const n = s.categories.length, dense = n > 8, two = s.series.length > 1;
-  const CH = { x: 0.5, y: 2.4, w: 9.0, h: 3.55 };
-  const short = t => t.replace('Power 4 average', 'P4 Average').replace('Power 4 median', 'P4 Median');
-  legend(slide, [...s.series.map((x, i) => ['bar', i ? C.second : C.ink, `= ${x.name.replace(/^(\S+) season$/, '$1 Season')}`]), ['solid', C.line, `= ${short(s.lines[0].name)}`], ['dash', C.line, `= ${short(s.lines[1].name)}`]]);
+  const byBasis = s.categories.some(c => c.basis === 'EADA');          // private schools on the federal report get a second colour
+  const CH = { x: 0.5, y: 2.4, w: 9.0, h: 3.45 };
+  const short = t => t.replace('Power 4 average', 'P4 Average').replace('Power 4 median', 'P4 Median').replace(', MFRS schools', ' MFRS');
+  const all = s.series[0].values.filter(v => v != null), hi = Math.max(...all), lo = Math.min(...all);
+  // dollar charts: whole millions on labels once figures pass $100M, and a signed format where a deficit can show
+  const fmt = s.unit !== 'usd' ? FMT[s.unit] : lo < 0 ? { label: '$#,##0.0,,"M";-$#,##0.0,,"M";$0.0,,"M"', axis: '$#,##0,,"M";-$#,##0,,"M"', small: true }
+            : hi >= 1e8 ? { label: '$#,##0,,"M"', axis: '$#,##0,,"M"' } : FMT.usd;
+  const bars = byBasis ? [['MFRS', 'MFRS report (public)'], ['EADA', 'EADA report (private)']].map(([b, nm]) => ({ name: nm, values: s.categories.map((c, i) => (c.basis === b ? s.series[0].values[i] : null)) }))
+                       : s.series.map(x => ({ name: x.name, values: x.values.map(v => (v == null ? 0 : v)) }));
+  legend(slide, [...(byBasis ? bars.map((b, i) => ['bar', i ? C.second : C.ink, `= ${b.name}`])
+                             : s.series.map((x, i) => ['bar', i ? C.second : C.ink, `= ${s.series.length === 1 && s.unit === 'usd' ? 'Annual Value' : x.name.replace(/^(\S+) season$/, '$1 Season')}`])),
+                 ['solid', C.line, `= ${short(s.lines[0].name)}`], ['dash', C.line, `= ${short(s.lines[1].name)}`]]);
   const name = `Chart: ${s.key}`;
-  chart(slide, name, CH, s.categories.map(c => c.school), s.series.map(x => ({ name: x.name, values: x.values.map(v => (v == null ? 0 : v)) })), two ? [C.ink, C.second] : [C.ink],
-        s.lines.map(l => ({ name: short(l.name), value: l.value })), FMT[s.unit], 0, dense);
+  chart(slide, name, CH, s.categories.map(c => c.school), bars, two || byBasis ? [C.ink, C.second] : [C.ink], s.lines.map(l => ({ name: short(l.name), value: l.value })), fmt, byBasis ? 100 : 0, dense, lo >= 0);
   if (two) labelOnly.add(name);
   const logo = dense ? 0.36 : 0.46, logoY = CH.y + CH.h + 0.06, cx = i => CH.x + CH.w * (PL.x + PL.w * (i + 0.5) / n);
   s.categories.forEach((c, i) => slide.addImage({ path: path.join(LOGO_DIR, c.logo), x: cx(i) - logo / 2, y: logoY, w: logo, h: logo, objectName: `Logo: ${c.school}`, altText: `${c.school} logo` }));
-  slide.addText(s.source, { x: 0.5, y: 6.5, w: 9.0, h: 0.36, fontFace: F, fontSize: 6.5, color: C.ink, margin: 0, valign: 'top', isTextBox: true, objectName: 'Source' });
+  slide.addText(s.source, { x: 0.5, y: 6.42, w: 9.0, h: 0.44, fontFace: F, fontSize: 6.5, color: C.ink, margin: 0, valign: 'top', isTextBox: true, objectName: 'Source' });
 }
 
 deals.forEach(dealSlide);
-metric.slides.filter(s => s.unit !== 'usd').forEach(metricSlide);
+const DEAL_KEYS = new Set(['jersey_patch', 'stadium_naming', 'field_naming', 'arena_naming', 'court_naming', 'logo_deals']);   // drawn from the deal spec above
+metric.slides.filter(s => s.section === 'expense').forEach(metricSlide);
+metric.slides.filter(s => !DEAL_KEYS.has(s.key) && s.section !== 'expense').forEach(metricSlide);
 
 // ---- logo library: every school's logo with its name, to copy from when a school is swapped into a chart
 (function library() {
