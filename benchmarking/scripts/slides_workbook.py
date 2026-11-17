@@ -65,6 +65,9 @@ for s in spec['slides']:
         r+=1; ws.cell(r,3,'Sport').font=F()
         for i,c in enumerate(cats):
             x=ws.cell(r,C0+i,c.get('sport','--')); x.font=F(); x.alignment=RIGHT
+        r+=1; ws.cell(r,3,'Deal type').font=F()
+        for i,c in enumerate(cats):
+            x=ws.cell(r,C0+i,c.get('kind') or '--'); x.font=F(); x.alignment=RIGHT
     ws.cell(r+2,3,'Slide title: '+s['title']).font=F(); ws.cell(r+3,3,'Slide subtitle: '+s['subtitle']).font=F(); ws.cell(r+4,3,s['source']).font=F()
     ws.column_dimensions['C'].width=44
     for cc in range(C0,CL+1): ws.column_dimensions[L(cc)].width=max(13,len(str(ws.cell(6,cc).value))+2)

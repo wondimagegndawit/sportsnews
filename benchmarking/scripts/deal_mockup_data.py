@@ -10,7 +10,7 @@ g=lambda r,h: ws.cell(r,H[h]).value
 num=lambda v: isinstance(v,(int,float)) and not isinstance(v,bool)
 SHORT={'JPMorganChase':'JPMorgan Chase','First Horizon Bank':'First Horizon','MSU Federal Credit Union':'MSU Federal CU','CommunityAmerica Credit Union':'Community America CU',
  'Mountain America Credit Union':'Mountain America CU','L&N Federal Credit Union':'L&N Federal CU','TDECU (Texas Dow Employees Credit Union)':'TDECU','SHI International Corp.':'SHI',
- 'Blue Cross and Blue Shield of Minnesota':'Blue Cross MN','Addition Financial Credit Union':'Addition Financial','Desert Financial Credit Union':'Desert Financial',"Jersey Mike's Subs":"Jersey Mike's",'Edward Jones (court logo)':'Edward Jones (logo)'}
+ 'Blue Cross and Blue Shield of Minnesota':'Blue Cross MN','Addition Financial Credit Union':'Addition Financial','Desert Financial Credit Union':'Desert Financial',"Jersey Mike's Subs":"Jersey Mike's"}
 def money(v): 
     return '$'+f'{v/1e6:.2f}'.rstrip('0').rstrip('.')+'M'
 def terms(r,pre):
@@ -31,7 +31,7 @@ TEXT={'Jersey patch':('JERSEY PATCH DEALS: ALL P4','Jersey patches are new spons
 def entry(r,pre,sport=None):
     a=g(r,f'{pre} annual value')
     d=dict(school=ws.cell(r,3).value,logo=LOGO[ws.cell(r,3).value]['file'],value=a if num(a) else None,sponsor=SHORT.get(g(r,f'{pre} partner'),g(r,f'{pre} partner')),terms=terms(r,pre))
-    if sport: d['sport']=sport
+    if sport: d['sport']=sport; d['kind']=g(r,('Field' if sport=='Football' else 'Court')+' rights type')
     return d
 ALL=[r for r in range(7,ws.max_row+1) if ws.cell(r,3).value in LOGO]
 out=[]

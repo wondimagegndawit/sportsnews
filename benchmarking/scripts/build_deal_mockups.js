@@ -57,19 +57,21 @@ spec.forEach((s, idx) => {
     valGridLine: { color: C.ink, size: 0.5 }, valAxisLineShow: true });
   // logos, then the Sponsor and Terms rows, one cell under each bar
   const logo = dense ? 0.36 : 0.46, logoY = CH.y + CH.h + 0.04;
-  const ROW = bySport ? { ...ROW0, sportY: 5.4, sportH: 0.26, sponsorY: 5.66, sponsorH: 0.5, termsY: 6.16, h: 0.56 } : { ...ROW0, sponsorH: ROW0.h };
+  const ROW = bySport ? { ...ROW0, sportY: 5.38, sportH: 0.23, kindY: 5.61, kindH: 0.23, sponsorY: 5.84, sponsorH: 0.42, termsY: 6.26, h: 0.56 } : { ...ROW0, sponsorH: ROW0.h };
   const band = CH.w * PL.w / n, cx = i => CH.x + CH.w * (PL.x + PL.w * (i + 0.5) / n);
   const fs2 = dense ? 6 : 8;
   // shrink a cell's font when its longest word would not fit the column (Montserrat is about 0.62 em per character)
   const fit = t => { const longest = Math.max(...t.split(/\s+/).map(w => w.length)); return Math.max(4.5, Math.min(fs2, Math.floor(2 * (band - 0.04) * 72 / (0.62 * longest)) / 2)); };
   const compact = t => (dense ? t.replace(' years', ' yrs').replace(' total', '').replace('Through', 'Thru').replace(' a year', '/yr').replace('Term not disclosed', 'Term n/d').replace('Value not disclosed', 'Value n/d').replace(' across 3 schools', '\n(3 schools)') : t);
-  [...(bySport ? [ROW.sportY] : []), ROW.sponsorY, ROW.termsY, ROW.termsY + ROW.h].forEach(y => slide.addShape(pres.shapes.LINE, { x: ROW.label, y, w: W - 2 * ROW.label, h: 0, line: { color: C.rule, width: 0.5 } }));
+  [...(bySport ? [ROW.sportY, ROW.kindY] : []), ROW.sponsorY, ROW.termsY, ROW.termsY + ROW.h].forEach(y => slide.addShape(pres.shapes.LINE, { x: ROW.label, y, w: W - 2 * ROW.label, h: 0, line: { color: C.rule, width: 0.5 } }));
   if (bySport) slide.addText('Sport', { x: ROW.label, y: ROW.sportY, w: ROW.labelW, h: ROW.sportH, fontFace: F, fontSize: 8, bold: true, color: C.ink, margin: 0, valign: 'middle', isTextBox: true, objectName: 'Row label: Sport' });
+  if (bySport) slide.addText('Deal type', { x: ROW.label, y: ROW.kindY, w: ROW.labelW, h: ROW.kindH, fontFace: F, fontSize: 8, bold: true, color: C.ink, margin: 0, valign: 'middle', isTextBox: true, objectName: 'Row label: Deal type' });
   slide.addText('Sponsor', { x: ROW.label, y: ROW.sponsorY, w: ROW.labelW, h: ROW.sponsorH, fontFace: F, fontSize: 8, bold: true, color: C.ink, margin: 0, valign: 'middle', isTextBox: true, objectName: 'Row label: Sponsor' });
   slide.addText('Terms', { x: ROW.label, y: ROW.termsY, w: ROW.labelW, h: ROW.h, fontFace: F, fontSize: 8, bold: true, color: C.ink, margin: 0, valign: 'middle', isTextBox: true, objectName: 'Row label: Terms' });
   s.schools.forEach((x, i) => {
     slide.addImage({ path: path.join(LOGO_DIR, x.logo), x: cx(i) - logo / 2, y: logoY, w: logo, h: logo, objectName: `Logo: ${x.school}`, altText: `${x.school} logo` });
     if (bySport) slide.addText(x.sport, { x: cx(i) - band / 2 + 0.01, y: ROW.sportY, w: band - 0.02, h: ROW.sportH, fontFace: F, fontSize: fs2, color: C.ink, align: 'center', valign: 'middle', margin: 0, isTextBox: true, objectName: `Sport: ${x.school}` });
+    if (bySport) slide.addText(dense ? String(x.kind).replace('Naming rights', 'Naming') : x.kind, { x: cx(i) - band / 2 + 0.01, y: ROW.kindY, w: band - 0.02, h: ROW.kindH, fontFace: F, fontSize: fs2, color: C.ink, align: 'center', valign: 'middle', margin: 0, isTextBox: true, objectName: `Deal type: ${x.school}` });
     slide.addText(x.sponsor, { x: cx(i) - band / 2 + 0.01, y: ROW.sponsorY, w: band - 0.02, h: ROW.sponsorH, fontFace: F, fontSize: fit(x.sponsor), color: C.ink, align: 'center', valign: 'middle', margin: 0, isTextBox: true, objectName: `Sponsor: ${x.school}` });
     slide.addText(x.terms.map(compact).join('\n'), { x: cx(i) - band / 2 + 0.01, y: ROW.termsY, w: band - 0.02, h: ROW.h, fontFace: F, fontSize: fs2, color: C.ink, align: 'center', valign: 'middle', margin: 0, isTextBox: true, objectName: `Terms: ${x.school}` });
   });
