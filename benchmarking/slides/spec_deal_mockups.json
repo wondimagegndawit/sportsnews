@@ -1,0 +1,379 @@
+[
+ {
+  "key": "Jersey patch",
+  "title": "JERSEY PATCH DEALS: ALL P4",
+  "subtitle": "Jersey patches are new sponsorship inventory generating multi-million-dollar deals for schools. While terms are often undisclosed, publicly reported deals average $10M annually",
+  "avg": 10033333.333333334,
+  "med": 9000000.0,
+  "schools": [
+   {
+    "school": "Notre Dame",
+    "logo": "notre_dame.png",
+    "value": 18000000,
+    "sponsor": "SoFi",
+    "terms": [
+     "6 years",
+     "$18M to $20M a year"
+    ]
+   },
+   {
+    "school": "Ohio State",
+    "logo": "ohio_state.png",
+    "value": 17000000,
+    "sponsor": "JPMorgan Chase",
+    "terms": [
+     "Term not disclosed",
+     "$17M a year"
+    ]
+   },
+   {
+    "school": "Tennessee",
+    "logo": "tennessee.png",
+    "value": 12000000,
+    "sponsor": "First Horizon",
+    "terms": [
+     "10 years",
+     "$120M total"
+    ]
+   },
+   {
+    "school": "Illinois",
+    "logo": "illinois.png",
+    "value": 6000000,
+    "sponsor": "Busey Bank",
+    "terms": [
+     "5 years",
+     "$30M total"
+    ]
+   },
+   {
+    "school": "Michigan State",
+    "logo": "michigan_state.png",
+    "value": 4000000,
+    "sponsor": "MSU Federal CU",
+    "terms": [
+     "10 years",
+     "$40M total"
+    ]
+   },
+   {
+    "school": "California",
+    "logo": "california.png",
+    "value": 3200000,
+    "sponsor": "Dialpad",
+    "terms": [
+     "5 years",
+     "$16M total"
+    ]
+   }
+  ]
+ },
+ {
+  "key": "Stadium naming rights",
+  "title": "STADIUM NAMING RIGHTS: ALL P4",
+  "subtitle": "Stadium naming rights are long-term (10+ year) partnerships, often with local companies, and can include added investment for stadium upgrades.",
+  "avg": 2970952.3809523806,
+  "med": 2400000.0,
+  "schools": [
+   {
+    "school": "Washington",
+    "logo": "washington.png",
+    "value": 7000000,
+    "sponsor": "Columbia Bank",
+    "terms": [
+     "10 years",
+     "$70M total"
+    ]
+   },
+   {
+    "school": "Texas Tech",
+    "logo": "texas_tech.png",
+    "value": 5000000,
+    "sponsor": "Galaxy Digital",
+    "terms": [
+     "15 years",
+     "$75M total"
+    ]
+   },
+   {
+    "school": "Arkansas",
+    "logo": "arkansas.png",
+    "value": 5000000,
+    "sponsor": "Community America CU",
+    "terms": [
+     "14 years",
+     "$70M total"
+    ]
+   },
+   {
+    "school": "Penn State",
+    "logo": "penn_state.png",
+    "value": 3333333.33333333,
+    "sponsor": "West Shore Home",
+    "terms": [
+     "15 years",
+     "$50M total"
+    ]
+   },
+   {
+    "school": "Arizona State",
+    "logo": "arizona_state.png",
+    "value": 3333333.33333333,
+    "sponsor": "Mountain America CU",
+    "terms": [
+     "15 years",
+     "$50M total"
+    ]
+   },
+   {
+    "school": "Arizona",
+    "logo": "arizona.png",
+    "value": 3000000,
+    "sponsor": "Casino Del Sol",
+    "terms": [
+     "20 years",
+     "$60M total"
+    ]
+   },
+   {
+    "school": "Georgia Tech",
+    "logo": "georgia_tech.png",
+    "value": 2750000,
+    "sponsor": "Hyundai",
+    "terms": [
+     "20 years",
+     "$55M total"
+    ]
+   },
+   {
+    "school": "Louisville",
+    "logo": "louisville.png",
+    "value": 2050000,
+    "sponsor": "L&N Federal CU",
+    "terms": [
+     "20 years",
+     "$41M total"
+    ]
+   },
+   {
+    "school": "Houston",
+    "logo": "houston.png",
+    "value": 2000000,
+    "sponsor": "TDECU",
+    "terms": [
+     "10 years",
+     "$20M total"
+    ]
+   },
+   {
+    "school": "UCF",
+    "logo": "ucf.png",
+    "value": 1950000,
+    "sponsor": "Acrisure",
+    "terms": [
+     "10 years",
+     "$19.5M total"
+    ]
+   },
+   {
+    "school": "Rutgers",
+    "logo": "rutgers.png",
+    "value": 1866666.66666667,
+    "sponsor": "SHI",
+    "terms": [
+     "6 years",
+     "$11.2M total"
+    ]
+   },
+   {
+    "school": "Kentucky",
+    "logo": "kentucky.png",
+    "value": 1850000,
+    "sponsor": "Kroger",
+    "terms": [
+     "12 years",
+     "$22.2M total"
+    ]
+   },
+   {
+    "school": "Minnesota",
+    "logo": "minnesota.png",
+    "value": 1360000,
+    "sponsor": "Huntington Bank",
+    "terms": [
+     "Through 2030",
+     "$35M total"
+    ]
+   },
+   {
+    "school": "Maryland",
+    "logo": "maryland.png",
+    "value": 1100000,
+    "sponsor": "SECU",
+    "terms": [
+     "10 years",
+     "$11M total"
+    ]
+   }
+  ]
+ },
+ {
+  "key": "Arena naming rights",
+  "title": "ARENA NAMING RIGHTS: ALL P4",
+  "subtitle": "Like stadium naming rights, arena naming rights are long-term partnerships that can include added investment for upgrades.",
+  "avg": 2117343.434343435,
+  "med": 1700000,
+  "schools": [
+   {
+    "school": "NC State",
+    "logo": "nc_state.png",
+    "value": 6000000,
+    "sponsor": "Lenovo",
+    "terms": [
+     "10 years",
+     "$60M total"
+    ]
+   },
+   {
+    "school": "UCLA",
+    "logo": "ucla.png",
+    "value": 3800000,
+    "sponsor": "Wescom Financial",
+    "terms": [
+     "10 years",
+     "$38M total"
+    ]
+   },
+   {
+    "school": "Washington",
+    "logo": "washington.png",
+    "value": 2840000,
+    "sponsor": "Alaska Airlines",
+    "terms": [
+     "10 years",
+     "$28.4M total"
+    ]
+   },
+   {
+    "school": "Illinois",
+    "logo": "illinois.png",
+    "value": 2000000,
+    "sponsor": "State Farm",
+    "terms": [
+     "30 years",
+     "$60M total"
+    ]
+   },
+   {
+    "school": "West Virginia",
+    "logo": "west_virginia.png",
+    "value": 2000000,
+    "sponsor": "Hope Gas",
+    "terms": [
+     "10 years",
+     "$20M total"
+    ]
+   },
+   {
+    "school": "Tennessee",
+    "logo": "tennessee.png",
+    "value": 2000000,
+    "sponsor": "Food City",
+    "terms": [
+     "10 years",
+     "$20M total"
+    ]
+   },
+   {
+    "school": "Arizona",
+    "logo": "arizona.png",
+    "value": 1846666.66666667,
+    "sponsor": "ALKEME",
+    "terms": [
+     "15 years",
+     "$27.7M total"
+    ]
+   },
+   {
+    "school": "Minnesota",
+    "logo": "minnesota.png",
+    "value": 1700000,
+    "sponsor": "Blue Cross MN",
+    "terms": [
+     "10 years",
+     "$17M total"
+    ]
+   },
+   {
+    "school": "UCF",
+    "logo": "ucf.png",
+    "value": 1666666.66666667,
+    "sponsor": "Addition Financial",
+    "terms": [
+     "12 years",
+     "$20M total"
+    ]
+   },
+   {
+    "school": "Texas Tech",
+    "logo": "texas_tech.png",
+    "value": 1600000,
+    "sponsor": "United Supermarkets",
+    "terms": [
+     "10 years",
+     "$16M total"
+    ]
+   },
+   {
+    "school": "Kentucky",
+    "logo": "kentucky.png",
+    "value": 1500000,
+    "sponsor": "Central Bank",
+    "terms": [
+     "14 years",
+     "$21M total"
+    ]
+   },
+   {
+    "school": "Louisville",
+    "logo": "louisville.png",
+    "value": 1481818.18181818,
+    "sponsor": "Yum! Brands",
+    "terms": [
+     "11 years",
+     "$16.3M total"
+    ]
+   },
+   {
+    "school": "Arizona State",
+    "logo": "arizona_state.png",
+    "value": 1475000,
+    "sponsor": "Desert Financial",
+    "terms": [
+     "10 years",
+     "$14.75M total"
+    ]
+   },
+   {
+    "school": "Rutgers",
+    "logo": "rutgers.png",
+    "value": 1400000,
+    "sponsor": "Jersey Mike's",
+    "terms": [
+     "20 years",
+     "$28M total"
+    ]
+   },
+   {
+    "school": "Nebraska",
+    "logo": "nebraska.png",
+    "value": 450000,
+    "sponsor": "Pinnacle Bank",
+    "terms": [
+     "25 years",
+     "$11.25M total"
+    ]
+   }
+  ]
+ }
+]
