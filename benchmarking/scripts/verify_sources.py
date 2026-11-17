@@ -26,6 +26,7 @@ for r in range(7,sl.max_row+1):
     v=sl.cell(r,6).value; url=str(sl.cell(r,11).value or ''); school=sl.cell(r,3).value; metric=sl.cell(r,5).value
     if v in (None,'--') or not url.startswith('http') or any(b in url for b in BULK): continue
     if metric in ('School','Conference','Public or Private','State'): continue
+    if (school,metric) not in cell: continue      # conference-wide deals sit on their own tab and carry their own check status
     tab,addr,raw,shown=cell[(school,metric)]
     note=str(sl.cell(r,13).value or ''); src=str(sl.cell(r,10).value or '')
     rows.append(dict(log_row=r,school=school,tab=tab,cell=addr,metric=metric,value=v,shown=shown,is_formula=isinstance(raw,str) and str(raw).startswith('='),source=src,url=url,note=note,

@@ -412,6 +412,7 @@ lines=[
  ('Where USA Today has no figure','For new hires and most private schools, USA Today has no figure for the current head coach. In those cells I used the coach\'s current pay from a contract, school release or press report, and left the 2025 basketball cell blank. The pay source type column says which kind of source it is, and Source Log gives the season for every figure.'),
  ('Coach contract end','The year shown is the last season the contract covers. For football that is the year the season begins, so a contract that runs through January 31, 2031 shows 2030. For men\'s basketball it is the year the season ends, so a contract through the 2030-31 season shows 2031.'),
  ('Deal dates and values','The expires column is the stated end year where a source gives one (blue); otherwise it is a formula, start year plus term (black). Where a source gives only the announcement, I used the announcement year as the start year and said so in Source Log. Where a source gives two of annual value, term and total value, the third is a formula, so an annual value is sometimes a contract average.'),
+ ('Conference-wide deals','Deals that a conference signed for all of its members are on the Conference Wide tab and are not repeated on the school rows. Right now that is one deal, the Big 12\'s agreement with Monster Energy, which puts a co-branded patch on every member\'s football and basketball jerseys. A school\'s Jersey patch partner column only shows a deal the school signed itself.'),
  ('Football attendance','This comes from the D1.ticker FBS Attendance Trends pages: average home attendance for 2023, 2024 and 2025, plus the year-over-year change, 5-year average, change against that average and percent of capacity from the 2025 page. D1.ticker gives averages only (no totals or game counts) and does not say which five seasons are in its 5-year average or where its data comes from, so I show the figures as displayed.'),
  ('Men\'s basketball attendance','This comes from the 2026 Attendance Summary in the NCAA Men\'s Basketball Attendance Records book (through 2025-26): home games, total home attendance and average home attendance for every school. Columns marked top 30 come from NCAA leader tables that list only 30 teams, so they show "--" for everyone else and carry no average or median.'),
  ('Percent of capacity','Both sports cover the same year. Football 2025 is D1.ticker\'s Capacity % as reported; D1.ticker does not publish the capacity it divides by, so it can differ from the Stadium capacity column. Men\'s basketball 2025-26 is a formula, average home attendance divided by Arena capacity, because the NCAA book gives no percentage.'),
@@ -435,8 +436,37 @@ for k,(lab,txt) in enumerate(lines):
     c=ws.cell(row=R0+k,column=1+OFF,value=CellRichText(TextBlock(_FB,lab+': '),TextBlock(_FR,txt))); c.font=F_BASE
 ws.column_dimensions[CL(1)].width=220
 
+# ---- Conference Wide: deals a conference signed for all of its members; kept off the school rows ----
+CW_COLS=[('Conference','conference',None),('Deal','deal',None),('Partner','partner',None),('Industry','industry',None),('Start year','start_year','yr'),('Term (years)','term_years','cnt'),
+         ('Annual value to conference','annual_value','usd'),('Member schools','f_members','cnt'),('Reported annual value per school','per_school_annual_value','usd'),('What it covers','coverage',None)]
+conflog=[]; CW_STATUS={}
+ws=wb.create_sheet('Conference Wide'); prep(ws,'Conference-wide deals: signed by a conference for all of its members'); header(ws,[h for h,_,_ in CW_COLS])
+_cw={}
+if os.path.exists('data/conference_wide.csv'):
+    for r in csv.DictReader(open('data/conference_wide.csv',encoding='utf-8')): _cw.setdefault((r['conference'],r['deal']),{})[r['metric']]=r
+for j,((conf,deal),d) in enumerate(_cw.items()):
+    r=R0+j; lay=conf_layout[conf]; label=f'{conf} (conference-wide)'
+    for i,(hdr_,key,fmt) in enumerate(CW_COLS,1):
+        cell=ws.cell(row=r,column=i+OFF)
+        if key=='conference': put_cell(cell,conf,F_BASE,align=IND1); continue
+        if key=='deal': put_cell(cell,deal,F_BASE); continue
+        if key=='f_members':   # counts the school rows on the conference tab
+            n_=len(by_conf[conf]); put_cell(cell,f"=COUNTA('{lay['sheet']}'!{CL(1)}{R0}:{CL(1)}{R0+n_-1})",F_I,fmt); continue
+        x=d.get(key); v=x['value'] if x else '--'
+        if v not in ('--',''):
+            try: v=float(v); v=int(v) if v==int(v) else v
+            except ValueError: pass
+        url=x['source_url'] if x else ''
+        put_cell(cell,v if v!='' else '--',F_LINKED if (url and v!='--') else F_HC,fmt)
+        if url and v!='--': cell.hyperlink=url
+        if x:
+            conflog.append([label,conf,f'{deal}: {hdr_}',v,x['unit'],x['season'],stype_of(x) if url else 'analyst classification',x['source_name'],url,x['date_accessed'],x['notes']])
+            CW_STATUS[(label,f'{deal}: {hdr_}')]=x['status']
+setw(ws,{1:14,2:44,3:18,4:26,5:11,6:13,7:26,8:15,9:32,10:70}); ws.freeze_panes=f'{CL(2)}{R0}'
+
 # ---- Source Log ----
 _oi={s['name']:i for i,s in enumerate(order)}; sourcelog.sort(key=lambda r:_oi[r[0]])   # stable: keeps each school's rows together
+sourcelog.extend(conflog)   # conference-wide deals follow the school rows
 ws=wb.create_sheet('Source Log')
 hdr=['School','Conference','Metric','Value','Unit','Fiscal year or season','Source type','Source name','URL','Date accessed','Verification','Note']
 prep(ws,'Source log: one row per sourced value (values, not formulas)',units=None)
@@ -453,6 +483,7 @@ def same_value(a,b):
 def verification(row):
     school,_c,metric,value,_u,_fy,_st,_sn,url=row[:9]
     if value in (None,'','--'): return '--'
+    if (school,metric) in CW_STATUS: return CW_STATUS[(school,metric)]
     v=VER.get((school,metric))
     if v and same_value(v['value'],value): return v['status']
     if any(h in str(url) for h in BULK_HOSTS) or metric in ('School','Conference'): return 'Source data file'
@@ -539,7 +570,7 @@ def vertical_sheet(ws,title,name_value,name_font,name_fill,src_sheet,first,last,
 ws=wb.create_sheet('School Lookup')
 vertical_sheet(ws,'School lookup: choose a school in the yellow cell','Alabama',F_BASE,FILL_IN,'All Schools',all_first,all_last,None,False)
 dv=DataValidation(type='list',formula1=f"='All Schools'!${CL(1)}${all_first}:${CL(1)}${all_last}",allow_blank=False); ws.add_data_validation(dv); dv.add(f'{CL(2)}5')
-names=['Read Me','All Schools']+[sn for _,sn in CONFS]+['School Lookup','Source Log']   # no per-school tabs: School Lookup covers every school
+names=['Read Me','All Schools']+[sn for _,sn in CONFS]+['Conference Wide','School Lookup','Source Log']   # no per-school tabs: School Lookup covers every school
 wb._sheets=[wb[n] for n in names]
 for ws in wb: ws.sheet_view.showGridLines=False
 wb.save(OUT); print('saved',OUT,'sheets',len(wb.sheetnames),'sourcelog rows',len(sourcelog))
