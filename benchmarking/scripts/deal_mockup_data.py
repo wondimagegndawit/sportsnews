@@ -20,7 +20,9 @@ def terms(r,pre):
     else: length='Term not disclosed'
     if ws.cell(r,3).value=='Notre Dame' and pre=='Jersey patch': value='$18M to $20M a year'
     elif num(tot): value=f'{money(tot)} total'
-    else: value=f'{money(a)} a year'
+    elif num(a): value=f'{money(a)} a year'
+    elif ws.cell(r,3).value=='Iowa State' and pre=='Field naming rights': value='Up to $1.5M a year'
+    else: value='Value not disclosed'
     return [length,value]
 TEXT={'Jersey patch':('JERSEY PATCH DEALS: ALL P4','Jersey patches are new sponsorship inventory generating multi-million-dollar deals for schools. While terms are often undisclosed, publicly reported deals average $10M annually'),
  'Stadium naming rights':('STADIUM NAMING RIGHTS: ALL P4','Stadium naming rights are long-term (10+ year) partnerships, often with local companies, and can include added investment for stadium upgrades.'),
@@ -30,7 +32,9 @@ out=[]
 for pre in ('Jersey patch','Stadium naming rights','Field naming rights','Arena naming rights'):
     rows=[r for r in range(7,ws.max_row+1) if ws.cell(r,3).value in LOGO and num(g(r,f'{pre} annual value'))]
     rows.sort(key=lambda r:-g(r,f'{pre} annual value')); vals=[g(r,f'{pre} annual value') for r in rows]
+    if pre=='Field naming rights':   # few field deals carry a value, so every commercial field deal is listed; those without a value get no bar
+        rows+=sorted((r for r in range(7,ws.max_row+1) if ws.cell(r,3).value in LOGO and g(r,f'{pre} deal type')=='commercial' and not num(g(r,f'{pre} annual value'))),key=lambda r:ws.cell(r,3).value)
     out.append(dict(key=pre,title=TEXT[pre][0],subtitle=TEXT[pre][1],avg=statistics.mean(vals),med=statistics.median(vals),
-        schools=[dict(school=ws.cell(r,3).value,logo=LOGO[ws.cell(r,3).value]['file'],value=g(r,f'{pre} annual value'),
+        schools=[dict(school=ws.cell(r,3).value,logo=LOGO[ws.cell(r,3).value]['file'],value=g(r,f'{pre} annual value') if num(g(r,f'{pre} annual value')) else None,
                       sponsor=SHORT.get(g(r,f'{pre} partner'),g(r,f'{pre} partner')),terms=terms(r,pre)) for r in rows]))
 json.dump(out,sys.stdout,indent=1)

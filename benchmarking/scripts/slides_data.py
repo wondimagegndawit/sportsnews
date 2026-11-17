@@ -50,6 +50,7 @@ def build(key,metric,unit,label,getters,source,second=None):
 SRC_WB='Source: Power 4 Athletic Department Benchmarking workbook.'
 def deal(key,hdr,label):
     s=build(key,hdr,'usd',label,[(label,lambda r:val(r,hdr))],SRC_WB+' Annual value is the reported figure or, where a source gives a total and a term, the total divided by the term.')
+    novalue=[r for r in ROWS if key=='field_naming' and ws.cell(r,H['Field naming rights deal type']).value=='commercial' and val(r,hdr) is None]
     if key=='field_naming': s['source']+=' These deals name the playing surface only; the stadium keeps its own name and is not counted under stadium naming rights.'
     if key=='jersey_patch' and any(school(r)=='Notre Dame' for r in s['rows']): s['source']+=' Notre Dame is shown at the low end of a reported range of $18 million to $20 million a year.'
     f=money; rs=s['rows']; top=rs[0]
@@ -63,6 +64,7 @@ def deal(key,hdr,label):
         s['subtitle']=f"{LOGO[school(top)]['short']} is highest at {f(val(top,hdr))}; {tail}."
     else:
         s['subtitle']=f"{LOGO[school(top)]['short']} is highest in the {CONF} at {f(val(top,hdr))}; {s['n_conf']} of {s['n_conf_total']} {CONF} schools have a reported value."
+    if novalue: s['subtitle']+=f" {len(novalue)} more field deals have no reported value ({names(novalue)})."
     return s
 slides=[deal('jersey_patch','Jersey patch annual value','Jersey patch annual value'),
         deal('stadium_naming','Stadium naming rights annual value','Stadium naming rights annual value'),

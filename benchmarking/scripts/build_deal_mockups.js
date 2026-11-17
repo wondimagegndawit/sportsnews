@@ -41,8 +41,8 @@ spec.forEach((s, idx) => {
   // chart: bars plus average and median lines
   const labels = s.schools.map(x => x.school);
   slide.addChart([
-    { type: pres.charts.BAR, data: [{ name: 'Annual Value', labels, values: s.schools.map(x => x.value) }],
-      options: { barDir: 'col', barGapWidthPct: dense ? 45 : 60, chartColors: [C.ink], showValue: true, dataLabelPosition: 'outEnd', dataLabelFormatCode: '$#,##0.0,,"M"', dataLabelFontSize: 8, dataLabelColor: C.ink, dataLabelFontFace: '+mn-lt' } },
+    { type: pres.charts.BAR, data: [{ name: 'Annual Value', labels, values: s.schools.map(x => x.value || 0) }],
+      options: { barDir: 'col', barGapWidthPct: dense ? 45 : 60, chartColors: [C.ink], showValue: true, dataLabelPosition: 'outEnd', dataLabelFormatCode: '$#,##0.0,,"M";;', dataLabelFontSize: 8, dataLabelColor: C.ink, dataLabelFontFace: '+mn-lt' } },
     { type: pres.charts.LINE, data: [{ name: 'P4 Average', labels, values: labels.map(() => s.avg) }, { name: 'P4 Median', labels, values: labels.map(() => s.med) }],
       options: { chartColors: [C.line, C.line], lineSize: 1.5, lineDataSymbol: 'none', lineDash: 'solid', showValue: false } },
   ], { x: CH.x, y: CH.y, w: CH.w, h: CH.h, objectName: `Chart: ${s.key}`, layout: PL, showLegend: false,

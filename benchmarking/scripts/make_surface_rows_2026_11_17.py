@@ -5,6 +5,10 @@ the field or court is moved out of the stadium or arena naming columns into the 
 Findings are in data/surface/*.py (one list per research pass). Run after merge_research.py, then merge again.
 Writes data/research/verification_zzzzzzzzzzz_playing_surface.csv."""
 import csv, glob, re, os
+import subprocess, sys
+OUT='data/research/verification_zzzzzzzzzzz_playing_surface.csv'
+if os.path.exists(OUT):      # rebuild from the values as they stood before this file was applied, so a re-run gives the same rows
+    os.remove(OUT); subprocess.run([sys.executable,'-I','scripts/merge_research.py'],check=True,stdout=subprocess.DEVNULL)
 D='2026-11-17'
 M=list(csv.DictReader(open('data/merged_values.csv',encoding='utf-8')))
 V={(r['school'],r['metric']):r for r in M}
@@ -39,7 +43,7 @@ def copy(school,old,new):
 MOVE={'California':('stadium_nr','field_nr','none','none'),'Georgia Tech':('stadium_nr','field_nr','Bobby Dodd (honoree)','honorific'),'Indiana':('stadium_nr','field_nr','none','none'),
       'Iowa State':('stadium_nr','field_nr','Jack Trice (honoree)','honorific'),'Penn State':('stadium_nr','field_nr','Beaver (stadium name retained)','honorific'),'USC':('stadium_nr','field_nr','none','none'),
       'Virginia Tech':('arena_nr','court_nr','Cassell (honoree)','honorific')}
-IND={'Iowa':'telecommunications (cable)'}
+IND={'Iowa':'telecommunications (cable)','Ohio State':'auto glass'}
 def surface(kind,pre,items):
     label='field' if kind=='field' else 'court'
     for school,name,who,cls,src,url,quote in items:
@@ -70,6 +74,16 @@ VT="Virginia Tech News (5 Aug 2015)"; VTU='https://news.vt.edu/articles/2015/08/
 rows[:]=[r for r in rows if not (r[0]=='Virginia Tech' and r[1] in ('court_nr_start_year','court_nr_term_years','court_nr_annual_value','court_nr_total_value','court_nr_end_year'))]
 for m in ('start_year','term_years','annual_value','total_value'):
     add('Virginia Tech','court_nr_'+m,'--','2026',VT,'',"The 2015 agreement gave Carilion ‘naming privileges to the court for 10 years’ at ‘$500,000 a year’. That term has run and no renewal terms were found, so no current terms are entered.")
+# Georgia Tech: cite the report that states the field deal and the stadium's own name
+FX="FOX 5 Atlanta (8 Aug 2023)"; FXU='https://www.fox5atlanta.com/sports/georgia-tech-announces-field-naming-deal-with-hyundai-for-bobby-dodd-stadium'
+FXQ="‘a deal on Tuesday for Hyundai to pay Georgia Tech approximately $55 million over 20 years for naming rights to the field.’"
+rows[:]=[r for r in rows if not (r[0]=='Georgia Tech' and r[1] in ('field_nr_term_years','field_nr_total_value','stadium_nr_partner','stadium_nr_deal_type'))]
+add('Georgia Tech','field_nr_term_years',20,'2023 to 2043',FX,FXU,FXQ); add('Georgia Tech','field_nr_total_value',55000000,'2023 to 2043',FX,FXU,FXQ)
+for m,v in (('stadium_nr_partner','Bobby Dodd (honoree)'),('stadium_nr_deal_type','honorific')):
+    add('Georgia Tech',m,v,'2026',FX,FXU,"‘renamed Bobby Dodd Stadium in 1988 in honor of the former Georgia Tech coach and athletic director.’ Hyundai's deal covers the field only and is shown in the field naming rights columns.")
+# Ohio State: the release gives the start of the field naming and no other terms
+rows[:]=[r for r in rows if not (r[0]=='Ohio State' and r[1]=='field_nr_start_year')]
+add('Ohio State','field_nr_start_year',2022,'from 2022',"WOSU (26 Aug 2022)",'https://www.wosu.org/sports/2022-08-26/safelite-becomes-sponsor-of-ohio-stadium-field',"Safelite became the sponsor of the Ohio Stadium field for the 2022 season under a multi-year agreement. ‘No financial terms were disclosed.’")
 # stadium name column: the building's name only, where the stored name also carried the field
 def building(n):
     n=re.sub(r'\s*\(.*\)$','',n)
@@ -84,5 +98,5 @@ for s in SCHOOLS:
     if b!=r['value']: rows.append([s,'stadium_name',b,'text',r['fiscal_year_or_season'],r['source_name'],r['source_url'],r.get('date_accessed') or D,(r['notes']+' ' if r['notes'] else '')+f"Building name only; the playing surface is in the Playing surface name column (stored before as ‘{r['value']}’)."])
 done={r[0] for r in rows if r[1]=='field_name'}; donec={r[0] for r in rows if r[1]=='court_name'}
 print('rows',len(rows),'| fields',len(done),'missing',sorted(set(SCHOOLS)-done),'| courts',len(donec),'missing',sorted(set(SCHOOLS)-donec))
-with open('data/research/verification_zzzzzzzzzzz_playing_surface.csv','w',newline='',encoding='utf-8') as fh:
+with open(OUT,'w',newline='',encoding='utf-8') as fh:
     w=csv.writer(fh); w.writerow(['school','metric','value','unit','fiscal_year_or_season','source_name','source_url','date_accessed','notes']); w.writerows(rows)

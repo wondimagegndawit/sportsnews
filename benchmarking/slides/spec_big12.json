@@ -93,7 +93,7 @@
    "conference": "Big 12",
    "n_conf": 5,
    "n_conf_total": 16,
-   "n_p4": 15,
+   "n_p4": 12,
    "categories": [
     {
      "school": "Washington",
@@ -117,13 +117,6 @@
      "logo": "arkansas.png"
     },
     {
-     "school": "Penn State",
-     "short": "Penn State",
-     "abbr": "PSU",
-     "conference": "Big Ten",
-     "logo": "penn_state.png"
-    },
-    {
      "school": "Arizona State",
      "short": "Arizona St",
      "abbr": "ASU",
@@ -136,20 +129,6 @@
      "abbr": "ARIZ",
      "conference": "Big 12",
      "logo": "arizona.png"
-    },
-    {
-     "school": "Georgia Tech",
-     "short": "Georgia Tech",
-     "abbr": "GT",
-     "conference": "ACC",
-     "logo": "georgia_tech.png"
-    },
-    {
-     "school": "Indiana",
-     "short": "Indiana",
-     "abbr": "IU",
-     "conference": "Big Ten",
-     "logo": "indiana.png"
     },
     {
      "school": "Louisville",
@@ -209,10 +188,7 @@
       5000000,
       5000000,
       3333333.33333333,
-      3333333.33333333,
       3000000,
-      2750000,
-      2500000,
       2050000,
       2000000,
       1950000,
@@ -225,19 +201,78 @@
    ],
    "lines": [
     {
-     "name": "Power 4 average ($2.9M)",
-     "value": 2939555.5555555555
+     "name": "Power 4 average ($3.0M)",
+     "value": 2959166.6666666665
     },
     {
-     "name": "Power 4 median ($2.5M)",
-     "value": 2500000
+     "name": "Power 4 median ($2.0M)",
+     "value": 2025000.0
     }
    ],
-   "avg": 2939555.5555555555,
-   "med": 2500000,
+   "avg": 2959166.6666666665,
+   "med": 2025000.0,
    "source": "Source: Power 4 Athletic Department Benchmarking workbook. Annual value is the reported figure or, where a source gives a total and a term, the total divided by the term. All Power 4 schools with a value are shown because fewer than 10 Big 12 schools have one.",
-   "title": "Stadium naming rights: 15 Power 4 schools have a reported annual value, averaging $2.9M with a median of $2.5M",
-   "subtitle": "Washington is highest at $7.0M; 5 of the 15 are in the Big 12 (Arizona, Arizona St, Houston, Texas Tech and UCF)."
+   "title": "Stadium naming rights: 12 Power 4 schools have a reported annual value, averaging $3.0M with a median of $2.0M",
+   "subtitle": "Washington is highest at $7.0M; 5 of the 12 are in the Big 12 (Arizona, Arizona St, Houston, Texas Tech and UCF)."
+  },
+  {
+   "key": "field_naming",
+   "metric": "Field naming rights annual value",
+   "unit": "usd",
+   "label": "Field naming rights annual value",
+   "scope": "all",
+   "conference": "Big 12",
+   "n_conf": 0,
+   "n_conf_total": 16,
+   "n_p4": 3,
+   "categories": [
+    {
+     "school": "Penn State",
+     "short": "Penn State",
+     "abbr": "PSU",
+     "conference": "Big Ten",
+     "logo": "penn_state.png"
+    },
+    {
+     "school": "Georgia Tech",
+     "short": "Georgia Tech",
+     "abbr": "GT",
+     "conference": "ACC",
+     "logo": "georgia_tech.png"
+    },
+    {
+     "school": "Indiana",
+     "short": "Indiana",
+     "abbr": "IU",
+     "conference": "Big Ten",
+     "logo": "indiana.png"
+    }
+   ],
+   "series": [
+    {
+     "name": "Field naming rights annual value",
+     "values": [
+      3333333.33333333,
+      2750000,
+      2500000
+     ]
+    }
+   ],
+   "lines": [
+    {
+     "name": "Power 4 average ($2.9M)",
+     "value": 2861111.11111111
+    },
+    {
+     "name": "Power 4 median ($2.8M)",
+     "value": 2750000
+    }
+   ],
+   "avg": 2861111.11111111,
+   "med": 2750000,
+   "source": "Source: Power 4 Athletic Department Benchmarking workbook. Annual value is the reported figure or, where a source gives a total and a term, the total divided by the term. These deals name the playing surface only; the stadium keeps its own name and is not counted under stadium naming rights. All Power 4 schools with a value are shown because fewer than 10 Big 12 schools have one.",
+   "title": "Field naming rights: 3 Power 4 schools have a reported annual value, averaging $2.9M with a median of $2.8M",
+   "subtitle": "Penn State is highest at $3.3M; no Big 12 school has a reported value. 4 more field deals have no reported value (California, Ohio State, USC and Iowa State)."
   },
   {
    "key": "arena_naming",

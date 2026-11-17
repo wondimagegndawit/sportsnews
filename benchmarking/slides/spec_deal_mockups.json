@@ -72,8 +72,8 @@
   "key": "Stadium naming rights",
   "title": "STADIUM NAMING RIGHTS: ALL P4",
   "subtitle": "Stadium naming rights are long-term (10+ year) partnerships, often with local companies, and can include added investment for stadium upgrades.",
-  "avg": 2939555.5555555555,
-  "med": 2500000,
+  "avg": 2959166.6666666665,
+  "med": 2025000.0,
   "schools": [
    {
     "school": "Washington",
@@ -106,16 +106,6 @@
     ]
    },
    {
-    "school": "Penn State",
-    "logo": "penn_state.png",
-    "value": 3333333.33333333,
-    "sponsor": "West Shore Home",
-    "terms": [
-     "15 years",
-     "$50M total"
-    ]
-   },
-   {
     "school": "Arizona State",
     "logo": "arizona_state.png",
     "value": 3333333.33333333,
@@ -133,26 +123,6 @@
     "terms": [
      "20 years",
      "$60M total"
-    ]
-   },
-   {
-    "school": "Georgia Tech",
-    "logo": "georgia_tech.png",
-    "value": 2750000,
-    "sponsor": "Hyundai",
-    "terms": [
-     "20 years",
-     "$55M total"
-    ]
-   },
-   {
-    "school": "Indiana",
-    "logo": "indiana.png",
-    "value": 2500000,
-    "sponsor": "Merchants Bank",
-    "terms": [
-     "20 years",
-     "$50M total"
     ]
    },
    {
@@ -223,6 +193,85 @@
     "terms": [
      "10 years",
      "$11M total"
+    ]
+   }
+  ]
+ },
+ {
+  "key": "Field naming rights",
+  "title": "FIELD NAMING RIGHTS: ALL P4",
+  "subtitle": "Field naming rights let a school keep its stadium name and still sign a long-term (10+ year) naming partner for the playing surface.",
+  "avg": 2861111.11111111,
+  "med": 2750000,
+  "schools": [
+   {
+    "school": "Penn State",
+    "logo": "penn_state.png",
+    "value": 3333333.33333333,
+    "sponsor": "West Shore Home",
+    "terms": [
+     "15 years",
+     "$50M total"
+    ]
+   },
+   {
+    "school": "Georgia Tech",
+    "logo": "georgia_tech.png",
+    "value": 2750000,
+    "sponsor": "Hyundai",
+    "terms": [
+     "20 years",
+     "$55M total"
+    ]
+   },
+   {
+    "school": "Indiana",
+    "logo": "indiana.png",
+    "value": 2500000,
+    "sponsor": "Merchants Bank",
+    "terms": [
+     "20 years",
+     "$50M total"
+    ]
+   },
+   {
+    "school": "California",
+    "logo": "california.png",
+    "value": null,
+    "sponsor": "Databricks",
+    "terms": [
+     "Term not disclosed",
+     "Value not disclosed"
+    ]
+   },
+   {
+    "school": "Iowa State",
+    "logo": "iowa_state.png",
+    "value": null,
+    "sponsor": "MidAmerican Energy",
+    "terms": [
+     "10 years",
+     "Up to $1.5M a year"
+    ]
+   },
+   {
+    "school": "Ohio State",
+    "logo": "ohio_state.png",
+    "value": null,
+    "sponsor": "Safelite",
+    "terms": [
+     "Term not disclosed",
+     "Value not disclosed"
+    ]
+   },
+   {
+    "school": "USC",
+    "logo": "usc.png",
+    "value": null,
+    "sponsor": "United Airlines",
+    "terms": [
+     "10 years",
+     "Value not disclosed"
     ]
    }
   ]
