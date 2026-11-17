@@ -17,7 +17,7 @@ for r in rows:
 gaps={}
 for sch,s in master.items():
     k=[m for m in ORDER if m not in have[sch] and not (s['control']=='Private' and (m in FIN or m in PAY))]
-    for pre in ('stadium_nr','arena_nr','patch','mmr','apparel'):
+    for pre in ('stadium_nr','arena_nr','field_nr','court_nr','patch','mmr','apparel'):
         if have[sch].get(pre+'_partner','').lower()=='none': k=[m for m in k if not m.startswith(pre+'_')]
         if have[sch].get(pre+'_deal_type','').lower()=='honorific': k=[m for m in k if m not in (pre+'_industry',pre+'_start_year',pre+'_term_years',pre+'_annual_value',pre+'_total_value')]
     gaps[sch]=k

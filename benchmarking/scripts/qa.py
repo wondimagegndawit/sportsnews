@@ -24,7 +24,7 @@ for c in confs:
                 if cv not in ('MFRS','EADA','All'): bad.append((c,cell.coordinate,'data type',cv))
             elif (m['kind']=='formula' or isf) and not (isinstance(cv,(int,float)) or cv=='--'): bad.append((c,cell.coordinate,'formula result',cv))
         if r<=lc['last']:
-            for pre in ('stadium_nr','arena_nr','patch','mmr','apparel'):
+            for pre in ('stadium_nr','arena_nr','field_nr','court_nr','patch','mmr','apparel'):
                 cols=[i for i,m in enumerate(S,1) if m['key'] in (pre+'_annual_value',pre+'_term_years',pre+'_total_value')]
                 kinds=['formula' if isinstance(ws.cell(row=r,column=i+OFF).value,str) and str(ws.cell(row=r,column=i+OFF).value).startswith('=') else ('dash' if ws.cell(row=r,column=i+OFF).value=='--' else 'hard') for i in cols]
                 nd=[ws.cell(row=r,column=1+OFF).value,pre] in lay.get('no_derive',[])   # reported figures cover different periods: shown as reported, nothing derived
@@ -111,7 +111,7 @@ H0={m['hdr']:i for i,m in enumerate(S,1)}; lapsed=[]
 for c in confs:
     lc=lay['conf_layout'][c]
     for r in range(lc['first'],lc['last']+1):
-        for pre in ('Stadium naming rights','Arena naming rights','Jersey patch','MMR','Apparel'):
+        for pre in ('Stadium naming rights','Arena naming rights','Field naming rights','Court naming rights','Jersey patch','MMR','Apparel'):
             e=wbv[c].cell(row=r,column=H0[pre+' expires']+OFF).value
             if isinstance(e,(int,float)) and e<2026: lapsed.append((wbv[c].cell(row=r,column=1+OFF).value,pre,e))
 print('9 deals whose recorded term ended before 2026',lapsed)

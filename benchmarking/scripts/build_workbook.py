@@ -56,7 +56,11 @@ M(A_,'MBB home games 2025-26','mbb_home_games_2526','num','cnt',True); M(A_,'MBB
 M(A_,'MBB average home attendance 2025-26','mbb_avg_attendance_2526','num','cnt',True); M(A_,'MBB attendance % of capacity 2025-26','f_mbb_attendance_pct_capacity','formula','pct',True)
 M(A_,'MBB all games played 2025-26 (top 30)','mbb_all_games_2526','num','cnt'); M(A_,'MBB all-games attendance 2025-26 (top 30)','mbb_all_games_attendance_2526','num','cnt')
 M(A_,'MBB average home attendance 2024-25 (top 30 increases)','mbb_avg_attendance_2425','num','cnt'); M(A_,'MBB change in average home attendance 2025-26 (top 30 increases)','mbb_avg_attendance_change_2526','num','cnt')
-for pre,lab in [('stadium_nr','Stadium naming rights'),('arena_nr','Arena naming rights')]:
+# The playing surface (football field, basketball court) is tracked apart from the building: a deal that names only the
+# field or court sits in the field or court columns, never in the stadium or arena columns.
+for pre,lab in [('stadium_nr','Stadium naming rights'),('arena_nr','Arena naming rights'),('field_nr','Field naming rights'),('court_nr','Court naming rights')]:
+    if pre=='field_nr': M(lab,'Playing surface name (football)','field_name','text')
+    if pre=='court_nr': M(lab,"Playing surface name (men's basketball)",'court_name','text')
     M(lab,f'{lab} partner',f'{pre}_partner','text'); M(lab,f'{lab} industry',f'{pre}_industry','text'); M(lab,f'{lab} deal type',f'{pre}_deal_type','text')
     M(lab,f'{lab} start year',f'{pre}_start_year','num','yr'); M(lab,f'{lab} term (years)',f'{pre}_term_years','num','cnt',True); M(lab,f'{lab} annual value',f'{pre}_annual_value','num','usd',True); M(lab,f'{lab} total value',f'{pre}_total_value','num','usd',True); M(lab,f'{lab} expires',f'f_{pre}_expires','formula','yr')
 M('Football jersey or helmet patch','Jersey patch partner','patch_partner','text'); M('Football jersey or helmet patch','Jersey patch industry','patch_industry','text'); M('Football jersey or helmet patch','Jersey patch start year','patch_start_year','num','yr'); M('Football jersey or helmet patch','Jersey patch term (years)','patch_term_years','num','cnt',True); M('Football jersey or helmet patch','Jersey patch annual value','patch_annual_value','num','usd',True); M('Football jersey or helmet patch','Jersey patch total value','patch_total_value','num','usd',True); M('Football jersey or helmet patch','Jersey patch expires','f_patch_expires','formula','yr')
@@ -170,6 +174,7 @@ for s in order:
                 else: st='press report'
                 put(key,st,comp['source_url'],'text',comp['fiscal_year_or_season'],{'contract':'contract','school announcement':'press release','press report':'other'}[st],comp['source_name'],'Pay source type classified from the compensation row source: '+comp['source_name'])
                 continue
+        if not r and re.match(r'(field|court)_',key): put(key,None,'','','','other','','No naming deal recorded for the playing surface.'); continue
         if not r: put(key,None,'','','','other','','not researched (web-search budget exhausted)' if n!='Notre Dame' else 'not sourced in the Notre Dame research pass'); continue
         if r['value']=='--': put(key,None,'',r['unit'],r['fiscal_year_or_season'],stype_of(r),r['source_name'],r['notes'] or 'not sourced'); continue
         val=num(r['value']) if m['kind']=='num' else r['value']
@@ -343,7 +348,7 @@ for conf,sname in CONFS:
             else:
                 put_cell(cell,val,F_LINKED if url else F_HC,m['fmt'])
                 if url: cell.hyperlink=url; cell.font=F_LINKED
-        for pre in ('stadium_nr','arena_nr','patch','mmr','apparel'):
+        for pre in ('stadium_nr','arena_nr','field_nr','court_nr','patch','mmr','apparel'):
             a,t,tot=R[pre+'_annual_value'][0],R[pre+'_term_years'][0],R[pre+'_total_value'][0]
             ca,ct,ctot=ws[A(pre+'_annual_value')],ws[A(pre+'_term_years')],ws[A(pre+'_total_value')]
             def formula_cell(c,f,fmt):
@@ -397,7 +402,7 @@ _fy24=sum(1 for n in _names if DTYPE[n]=='MFRS' and resolved[n]['fin_fiscal_year
 _ufb=sum(1 for n in _names if resolved[n]['fb_hc_pay_source_type'][0]=='USA Today'); _umb=sum(1 for n in _names if resolved[n]['mbb_hc_pay_source_type'][0]=='USA Today')
 _pfb=sum(_has(n,'fb_hc_annual_comp') for n in _names); _pmb=sum(_has(n,'mbb_hc_annual_comp') for n in _names); _pmb5=sum(_has(n,'mbb_hc_prior_comp') for n in _names)
 _diff=sum(1 for r in csv.DictReader(open('data/research/verification_zzzzz_usatoday.csv',encoding='utf-8')) if 'Another source gives' in r['notes']) if os.path.exists('data/research/verification_zzzzz_usatoday.csv') else 0
-_deal={lab:sum(_annual(n,pre) for n in _names) for lab,pre in (('multimedia rights','mmr'),('apparel','apparel'),('stadium naming rights','stadium_nr'),('arena naming rights','arena_nr'),('jersey patch','patch'))}
+_deal={lab:sum(_annual(n,pre) for n in _names) for lab,pre in (('multimedia rights','mmr'),('apparel','apparel'),('stadium naming rights','stadium_nr'),('arena naming rights','arena_nr'),('field naming rights','field_nr'),('jersey patch','patch'))}
 _conf=', '.join(f'{c} {len(by_conf[c])}' for c,_ in CONFS if c!='Independent')
 _cal=resolved.get('California',{})
 lines=[
@@ -412,6 +417,7 @@ lines=[
  ('Where USA Today has no figure','For new hires and most private schools, USA Today has no figure for the current head coach. In those cells I used the coach\'s current pay from a contract, school release or press report, and left the 2025 basketball cell blank. The pay source type column says which kind of source it is, and Source Log gives the season for every figure.'),
  ('Coach contract end','The year shown is the last season the contract covers. For football that is the year the season begins, so a contract that runs through January 31, 2031 shows 2030. For men\'s basketball it is the year the season ends, so a contract through the 2030-31 season shows 2031.'),
  ('Deal dates and values','The expires column is the stated end year where a source gives one (blue); otherwise it is a formula, start year plus term (black). Where a source gives only the announcement, I used the announcement year as the start year and said so in Source Log. Where a source gives two of annual value, term and total value, the third is a formula, so an annual value is sometimes a contract average.'),
+ ('Playing surface names','Many venues have one name for the building and another for the field or court, for example MidAmerican Energy Field at Jack Trice Stadium. I kept the two apart. Stadium and arena naming rights cover the building only; a deal that names just the field or court is in the Field naming rights or Court naming rights columns, next to the playing surface name. Where the surface has no name of its own the cell says none.'),
  ('Conference-wide deals','Deals that a conference signed for all of its members are on the Conference Wide tab and are not repeated on the school rows. Right now that is one deal, the Big 12\'s agreement with Monster Energy, which puts a co-branded patch on every member\'s football and basketball jerseys. A school\'s Jersey patch partner column only shows a deal the school signed itself.'),
  ('Football attendance','This comes from the D1.ticker FBS Attendance Trends pages: average home attendance for 2023, 2024 and 2025, plus the year-over-year change, 5-year average, change against that average and percent of capacity from the 2025 page. D1.ticker gives averages only (no totals or game counts) and does not say which five seasons are in its 5-year average or where its data comes from, so I show the figures as displayed.'),
  ('Men\'s basketball attendance','This comes from the 2026 Attendance Summary in the NCAA Men\'s Basketball Attendance Records book (through 2025-26): home games, total home attendance and average home attendance for every school. Columns marked top 30 come from NCAA leader tables that list only 30 teams, so they show "--" for everyone else and carry no average or median.'),
@@ -423,7 +429,7 @@ lines=[
  ('Verification','The Verification column in Source Log says how each value was checked. Source data file means it came from a dataset saved with the build files. Found on source page means an automated check found the figure in the text of the cited page. Re-read and confirmed means the page was read again and states the figure. Analyst classification marks categories I assigned (deal type, industry, pay source type). Not re-verified means the cited page could not be read again.'),
  ('Things to keep in mind','A few gaps and judgment calls I want to flag:'),
  ('1. Coach pay timing',f'USA Today\'s tables are a season old, so contracts signed since then are not reflected. {_ufb} football cells and {_umb} men\'s basketball cells use them, and for {_diff} of those {_ufb+_umb} another source gives a different current figure, which I quoted in the Source Log note.'),
- ('2. Deal values are thin',f'Most schools do not publish contract values. Of {NS} schools, an annual value is filled for {_deal["multimedia rights"]} on multimedia rights, {_deal["apparel"]} on apparel, {_deal["stadium naming rights"]} on stadium naming rights, {_deal["arena naming rights"]} on arena naming rights and {_deal["jersey patch"]} on jersey patch, so the averages on those columns rest on small counts.'),
+ ('2. Deal values are thin',f'Most schools do not publish contract values. Of {NS} schools, an annual value is filled for {_deal["multimedia rights"]} on multimedia rights, {_deal["apparel"]} on apparel, {_deal["stadium naming rights"]} on stadium naming rights, {_deal["arena naming rights"]} on arena naming rights, {_deal["field naming rights"]} on field naming rights and {_deal["jersey patch"]} on jersey patch, so the averages on those columns rest on small counts.'),
  ('3. Blank pay cells',f'Head coach pay is filled for {_pfb} of {NS} schools in football and {_pmb} of {NS} in men\'s basketball ({_pmb5} for the 2025 column). The blanks are mostly private schools and interim coaches.'),
  ('4. NC State football','NC State named Philip Rivers head coach on November 13, 2026. The release says he signed a five-year agreement but gives no pay or end date, so those cells are blank until the terms are published.'),
  ('5. Maryland football','Aazaar Abdul-Rahim is the interim head coach, and the search was still open when I last checked on November 13, 2026.'),

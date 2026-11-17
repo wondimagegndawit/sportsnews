@@ -24,9 +24,10 @@ def terms(r,pre):
     return [length,value]
 TEXT={'Jersey patch':('JERSEY PATCH DEALS: ALL P4','Jersey patches are new sponsorship inventory generating multi-million-dollar deals for schools. While terms are often undisclosed, publicly reported deals average $10M annually'),
  'Stadium naming rights':('STADIUM NAMING RIGHTS: ALL P4','Stadium naming rights are long-term (10+ year) partnerships, often with local companies, and can include added investment for stadium upgrades.'),
+ 'Field naming rights':('FIELD NAMING RIGHTS: ALL P4','Field naming rights let a school keep its stadium name and still sign a long-term (10+ year) naming partner for the playing surface.'),
  'Arena naming rights':('ARENA NAMING RIGHTS: ALL P4','Like stadium naming rights, arena naming rights are long-term partnerships that can include added investment for upgrades.')}
 out=[]
-for pre in ('Jersey patch','Stadium naming rights','Arena naming rights'):
+for pre in ('Jersey patch','Stadium naming rights','Field naming rights','Arena naming rights'):
     rows=[r for r in range(7,ws.max_row+1) if ws.cell(r,3).value in LOGO and num(g(r,f'{pre} annual value'))]
     rows.sort(key=lambda r:-g(r,f'{pre} annual value')); vals=[g(r,f'{pre} annual value') for r in rows]
     out.append(dict(key=pre,title=TEXT[pre][0],subtitle=TEXT[pre][1],avg=statistics.mean(vals),med=statistics.median(vals),
