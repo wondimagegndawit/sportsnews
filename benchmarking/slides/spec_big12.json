@@ -924,10 +924,17 @@
    "label": "Men's basketball percent of capacity filled",
    "scope": "conference",
    "conference": "Big 12",
-   "n_conf": 12,
+   "n_conf": 16,
    "n_conf_total": 16,
-   "n_p4": 57,
+   "n_p4": 68,
    "categories": [
+    {
+     "school": "Houston",
+     "short": "Houston",
+     "abbr": "HOU",
+     "conference": "Big 12",
+     "logo": "houston.png"
+    },
     {
      "school": "BYU",
      "short": "BYU",
@@ -941,6 +948,13 @@
      "abbr": "KU",
      "conference": "Big 12",
      "logo": "kansas.png"
+    },
+    {
+     "school": "Iowa State",
+     "short": "Iowa State",
+     "abbr": "ISU",
+     "conference": "Big 12",
+     "logo": "iowa_state.png"
     },
     {
      "school": "Arizona",
@@ -992,6 +1006,20 @@
      "logo": "ucf.png"
     },
     {
+     "school": "Kansas State",
+     "short": "Kansas St",
+     "abbr": "KSU",
+     "conference": "Big 12",
+     "logo": "kansas_state.png"
+    },
+    {
+     "school": "Colorado",
+     "short": "Colorado",
+     "abbr": "COLO",
+     "conference": "Big 12",
+     "logo": "colorado.png"
+    },
+    {
      "school": "Arizona State",
      "short": "Arizona St",
      "abbr": "ASU",
@@ -1017,8 +1045,10 @@
     {
      "name": "2025-26 season",
      "values": [
+      1.00753375977257,
       1.0052842362888,
       1.00045751633987,
+      0.984860166818532,
       0.97337962962963,
       0.9216,
       0.876539939064777,
@@ -1026,6 +1056,8 @@
       0.791428571428572,
       0.7825,
       0.726595744680851,
+      0.710899182561308,
+      0.561008676789588,
       0.560785714285714,
       0.4806,
       0.429652486959077
@@ -1034,19 +1066,19 @@
    ],
    "lines": [
     {
-     "name": "Power 4 average (75%)",
-     "value": 0.7474470951538625
+     "name": "Power 4 average (76%)",
+     "value": 0.7556531571002246
     },
     {
      "name": "Power 4 median (77%)",
-     "value": 0.773285714285714
+     "value": 0.774055841941834
     }
    ],
-   "avg": 0.7474470951538625,
-   "med": 0.773285714285714,
+   "avg": 0.7556531571002246,
+   "med": 0.774055841941834,
    "source": "Source: average home attendance (NCAA Attendance Records book, 2025-26) divided by arena capacity, as calculated in the benchmarking workbook.",
-   "title": "Big 12 men's basketball arenas were 78% full on average in 2025-26, against a Power 4 average of 75%",
-   "subtitle": "BYU filled the largest share at 101%; Power 4 median is 77%. Not shown, no arena capacity in the workbook: Colorado, Houston, Iowa State, Kansas State."
+   "title": "Big 12 men's basketball arenas were 79% full on average in 2025-26, against a Power 4 average of 76%",
+   "subtitle": "Houston filled the largest share at 101%; Power 4 median is 77%."
   }
  ],
  "logos": [
