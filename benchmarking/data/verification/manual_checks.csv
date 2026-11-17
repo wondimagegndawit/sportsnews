@@ -113,3 +113,12 @@ Texas Tech,Arena naming rights term (years),10,Analyst classification,"Derived f
 Texas Tech,Arena naming rights start year,2026,Analyst classification,Derived from the stated history of the agreements; no page states this year
 
 Nebraska,Arena capacity,15000,Found on source page,"Read in the game notes PDF on 2026-11-17: the quick facts line prints 'Capacity/Year Opened' followed by '15,000/2013'; the automated check missed it because the figure is joined to the year."
+Minnesota,Apparel term (years),4,Found on source page,"Read in the regents' minutes PDF on 2026-11-17: 'for the period of August 1, 2023 through July 31, 2027', which is four years; the automated check looks for the number 4 and missed it."
+Michigan State,Apparel expires,2027,Found on source page,"Read on the page on 2026-11-17: 'Michigan State Athletics extended its contract with Nike through 2027, per the latest contract (via FOIA).'"
+USC,Apparel expires,2036,Found on source page,"Read on the page on 2026-11-17: 'a 10-year extension of their all-sport partnership, through 2036'."
+Virginia,MMR expires,2033,Found on source page,"Read on the page on 2026-11-17: 'securing the relationship through the 2032-33 academic year'; the academic year ends in 2033."
+Virginia Tech,MMR total value,77350000,Found on source page,"Read by the research pass on 2026-11-17 (quote in the note); the site refuses the automated re-check."
+Oklahoma State,Jersey patch start year,2026,Found on source page,"Read by the research pass on 2026-11-17: 'beginning with the 2026-27 competition season'; the site refuses the automated re-check."
+West Virginia,Jersey patch start year,2026,Found on source page,"Read by the research pass on 2026-11-17: 'five-year jersey sponsorship beginning with the 2026 athletic campaign'; the site refuses the automated re-check."
+Pittsburgh,Arena naming rights partner,John M. and Gertrude E. Petersen (donors),Found on source page,"Read by the research pass on 2026-11-17: 'John M. and Gertrude E. Petersen Events Center'; the site refuses the automated re-check."
+NC State,Arena year opened,1999,Found on source page,"Read by the research pass on 2026-11-17: 'Lenovo Center doors opened for business in October 1999'; the page did not load for the automated re-check."

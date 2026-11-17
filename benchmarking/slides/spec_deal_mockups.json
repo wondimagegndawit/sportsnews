@@ -72,8 +72,8 @@
   "key": "Stadium naming rights",
   "title": "STADIUM NAMING RIGHTS: ALL P4",
   "subtitle": "Stadium naming rights are long-term (10+ year) partnerships, often with local companies, and can include added investment for stadium upgrades.",
-  "avg": 2970952.3809523806,
-  "med": 2400000.0,
+  "avg": 2939555.5555555555,
+  "med": 2500000,
   "schools": [
    {
     "school": "Washington",
@@ -143,6 +143,16 @@
     "terms": [
      "20 years",
      "$55M total"
+    ]
+   },
+   {
+    "school": "Indiana",
+    "logo": "indiana.png",
+    "value": 2500000,
+    "sponsor": "Merchants Bank",
+    "terms": [
+     "20 years",
+     "$50M total"
     ]
    },
    {
