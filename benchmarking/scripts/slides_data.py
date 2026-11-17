@@ -68,24 +68,21 @@ def deal(key,hdr,label):
 slides=[deal('jersey_patch','Jersey patch annual value','Jersey patch annual value'),
         deal('stadium_naming','Stadium naming rights annual value','Stadium naming rights annual value'),
         deal('arena_naming','Arena naming rights annual value','Arena naming rights annual value')]
-# playing surface: commercial deals on the football field or the basketball court, shown together with the sport in each label
-def surface():
-    items=[]
-    for hdr,sport,tag in (('Field naming rights','Football','FB'),('Court naming rights','Basketball','MBB')):
-        rs=[r for r in ROWS if str(ws.cell(r,H[hdr+' deal type']).value).startswith('commercial')]
-        items+=[(r,sport,tag,val(r,hdr+' annual value')) for r in rs]
-    have=sorted((x for x in items if x[3] is not None),key=lambda x:(x[1]!='Football',-x[3])); none=[x for x in items if x[3] is None]
-    vals=[x[3] for x in have]; avg=statistics.mean(vals); med=statistics.median(vals)
-    cats=[dict(school=school(r),short=f"{LOGO[school(r)]['short']} ({tag})",abbr=f"{LOGO[school(r)]['abbr']} ({tag})",conference=conf(r),logo=LOGO[school(r)]['file'],sport=sport,kind=ws.cell(r,H[('Field' if sport=='Football' else 'Court')+' rights type']).value) for r,sport,tag,_ in have]
-    nfb=sum(1 for x in have if x[1]=='Football'); nbb=len(have)-nfb; inn=[x for x in have if conf(x[0])==CONF]
-    return dict(key='surface_deals',metric='Playing surface annual value',unit='usd',label='Playing surface deals annual value',scope='all',conference=CONF,n_conf=len(inn),
-        n_conf_total=sum(1 for r in ROWS if conf(r)==CONF),n_p4=len(have),categories=cats,series=[dict(name='Playing surface deals annual value',values=vals)],
-        lines=[dict(name=f'Power 4 average ({money(avg)})',value=avg),dict(name=f'Power 4 median ({money(med)})',value=med)],avg=avg,med=med,rows=[],inconf=[],
-        source=SRC_WB+' These deals cover the playing surface only; the stadium or arena keeps its own name. FB is a football field, MBB a basketball court. '+(lambda lg: (f"Logo only (the surface keeps its own name): {', '.join(lg)}; the others are naming rights. " if lg else ''))([c['short'] for c in cats if c['kind']=='Logo only'])+'Duke, Oregon and North Carolina share one $34 million, four-year Edward Jones logo agreement, split evenly here because each school\'s share is not known.'+(f" {len(none)} more deals have no reported value ({', '.join(LOGO[school(x[0])]['short'] for x in none)})." if none else ''),
-        title=f"Playing surface deals: {len(have)} Power 4 schools have a reported annual value, averaging {money(avg)}",
-        subtitle=f"{nfb} are football fields and {nbb} are basketball courts. {LOGO[school(have[0][0])]['short']} is highest at {money(have[0][3])}; "
-                 +(f"{len(inn)} of the {len(have)} {'is' if len(inn)==1 else 'are'} in the {CONF} ({', '.join(LOGO[school(x[0])]['short'] for x in inn)})." if inn else f"no {CONF} school has a reported value."))
-slides.insert(2,surface())
+# playing surface: field naming rights, court naming rights and logo-only deals, each on its own page
+def surface(key,label,picks,note):
+    """picks: list of (column prefix, sport, rights type). Only deals with a value are charted; the rest are named in the source line."""
+    items=[(r,sport,val(r,hdr+' annual value')) for hdr,sport,kind in picks for r in ROWS if ws.cell(r,H[hdr.split()[0]+' rights type']).value==kind]
+    have=sorted((x for x in items if x[2] is not None),key=lambda x:(x[1]!='Football',-x[2])); none=[x for x in items if x[2] is None]
+    vals=[x[2] for x in have]; avg=statistics.mean(vals); med=statistics.median(vals); inn=[x for x in have if conf(x[0])==CONF]
+    cats=[dict(school=school(r),short=LOGO[school(r)]['short'],abbr=LOGO[school(r)]['abbr'],conference=conf(r),logo=LOGO[school(r)]['file'],sport=sport) for r,sport,_ in have]
+    return dict(key=key,metric=label,unit='usd',label=label,scope='all',conference=CONF,n_conf=len(inn),n_conf_total=sum(1 for r in ROWS if conf(r)==CONF),n_p4=len(have),
+        categories=cats,series=[dict(name=label,values=vals)],lines=[dict(name=f'Power 4 average ({money(avg)})',value=avg),dict(name=f'Power 4 median ({money(med)})',value=med)],avg=avg,med=med,rows=[],inconf=[],
+        source=SRC_WB+' '+note+(f" {len(none)} more {'deal has' if len(none)==1 else 'deals have'} no reported value ({', '.join(LOGO[school(x[0])]['short'] for x in none)})." if none else ''),
+        title=f"{label.replace(' annual value','')}: {len(have)} Power 4 {'school has' if len(have)==1 else 'schools have'} a reported annual value, averaging {money(avg)} with a median of {money(med)}",
+        subtitle=f"{LOGO[school(have[0][0])]['short']} is highest at {money(have[0][2])}; "+(f"{len(inn)} of the {len(have)} {'is' if len(inn)==1 else 'are'} in the {CONF} ({', '.join(LOGO[school(x[0])]['short'] for x in inn)})." if inn else f"no {CONF} school has a reported value."))
+slides.insert(2,surface('field_naming','Field naming rights annual value',[('Field naming rights','Football','Naming rights')],'These deals name the football field only; the stadium keeps its own name and is not counted under stadium naming rights.'))
+slides.insert(4,surface('court_naming','Court naming rights annual value',[('Court naming rights','Basketball','Naming rights')],'These deals name the basketball court only; the arena keeps its own name and is not counted under arena naming rights.'))
+slides.insert(5,surface('logo_deals','Playing surface logo deals annual value',[('Field naming rights','Football','Logo only'),('Court naming rights','Basketball','Logo only')],'These are paid logos on the field or court, which keeps its own name. Duke, Oregon and North Carolina share one $34 million, four-year Edward Jones agreement, split evenly here because each school\'s share is not known.'))
 # football: average home attendance, 2025 against 2024
 a25='FB average home attendance 2025'; a24='FB average home attendance 2024'
 s=build('fb_attendance',a25,'num','Football average home attendance',[('2025 season',lambda r:val(r,a25)),('2024 season',lambda r:val(r,a24))],

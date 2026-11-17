@@ -14,7 +14,7 @@ FN='Aptos Narrow'; BLUE='0000FF'
 F=lambda **k: Font(name=FN,size=9,**k)
 THIN=Side(style='thin',color='000000'); BLACK=PatternFill('solid',fgColor='000000'); GRAY=PatternFill('solid',fgColor='D9D9D9')
 NUMF={'usd':'#,##0_);\\(#,##0\\);"-"??_);_(@_)','num':'#,##0_);\\(#,##0\\);"-"??_);_(@_)','pct':'0.0%'}
-TAB={'jersey_patch':'Jersey patch','stadium_naming':'Stadium naming','surface_deals':'Playing surface','arena_naming':'Arena naming','fb_attendance':'FB attendance','fb_capacity':'FB capacity','mbb_attendance':'MBB attendance','mbb_capacity':'MBB capacity'}
+TAB={'jersey_patch':'Jersey patch','stadium_naming':'Stadium naming','field_naming':'Field naming','court_naming':'Court naming','logo_deals':'Logo deals','arena_naming':'Arena naming','fb_attendance':'FB attendance','fb_capacity':'FB capacity','mbb_attendance':'MBB attendance','mbb_capacity':'MBB capacity'}
 RIGHT=Alignment(horizontal='right')
 wb=Workbook(); wb.remove(wb.active)
 for s in spec['slides']:
@@ -65,9 +65,6 @@ for s in spec['slides']:
         r+=1; ws.cell(r,3,'Sport').font=F()
         for i,c in enumerate(cats):
             x=ws.cell(r,C0+i,c.get('sport','--')); x.font=F(); x.alignment=RIGHT
-        r+=1; ws.cell(r,3,'Deal type').font=F()
-        for i,c in enumerate(cats):
-            x=ws.cell(r,C0+i,c.get('kind') or '--'); x.font=F(); x.alignment=RIGHT
     ws.cell(r+2,3,'Slide title: '+s['title']).font=F(); ws.cell(r+3,3,'Slide subtitle: '+s['subtitle']).font=F(); ws.cell(r+4,3,s['source']).font=F()
     ws.column_dimensions['C'].width=44
     for cc in range(C0,CL+1): ws.column_dimensions[L(cc)].width=max(13,len(str(ws.cell(6,cc).value))+2)

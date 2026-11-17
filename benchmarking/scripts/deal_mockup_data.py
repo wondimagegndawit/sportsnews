@@ -1,5 +1,5 @@
-"""Data for the deal slide mock-ups: each school with an annual value, plus a Sponsor line and a Terms line.
-Usage: python3 -I scripts/deal_mockup_data.py > slides/spec_deal_mockups.json
+"""Data for the deal slides of the benchmarking deck: each school with an annual value, plus a Sponsor line and a Terms line.
+Usage: python3 -I scripts/deal_mockup_data.py > slides/spec_deals.json
 Terms show the length and the total value; where the total is not reported it is annual value times term, as in the
 workbook. Where a term is not a whole number of years the stated end year is shown instead."""
 import json, sys, statistics, openpyxl
@@ -24,27 +24,30 @@ def terms(r,pre):
     elif num(a): value=f'{money(a)} a year'
     else: value='Value not disclosed'
     return [length,value]
-TEXT={'Jersey patch':('JERSEY PATCH DEALS: ALL P4','Jersey patches are new sponsorship inventory generating multi-million-dollar deals for schools. While terms are often undisclosed, publicly reported deals average $10M annually'),
- 'Stadium naming rights':('STADIUM NAMING RIGHTS: ALL P4','Stadium naming rights are long-term (10+ year) partnerships, often with local companies, and can include added investment for stadium upgrades.'),
- 'Playing surface':('PLAYING SURFACE DEALS: ALL P4','Schools can keep a stadium or arena name and sell the playing surface instead, through naming rights to the football field or basketball court, or a paid logo on it.'),
- 'Arena naming rights':('ARENA NAMING RIGHTS: ALL P4','Like stadium naming rights, arena naming rights are long-term partnerships that can include added investment for upgrades.')}
 def entry(r,pre,sport=None):
     a=g(r,f'{pre} annual value')
     d=dict(school=ws.cell(r,3).value,logo=LOGO[ws.cell(r,3).value]['file'],value=a if num(a) else None,sponsor=SHORT.get(g(r,f'{pre} partner'),g(r,f'{pre} partner')),terms=terms(r,pre))
-    if sport: d['sport']=sport; d['kind']=g(r,('Field' if sport=='Football' else 'Court')+' rights type')
+    if sport: d['sport']=sport
     return d
 ALL=[r for r in range(7,ws.max_row+1) if ws.cell(r,3).value in LOGO]
+def ranked(rs,pre): return sorted(rs,key=lambda r:(not num(g(r,f'{pre} annual value')),-(g(r,f'{pre} annual value') if num(g(r,f'{pre} annual value')) else 0),ws.cell(r,3).value))
+def surface(pre,kind): return ranked([r for r in ALL if g(r,pre.split()[0]+' rights type')==kind],pre)
+def words(n): return {1:'One',2:'Two',3:'Three',4:'Four',5:'Five',6:'Six',7:'Seven',8:'Eight',9:'Nine'}.get(n,str(n))
 out=[]
-for pre in ('Jersey patch','Stadium naming rights','Playing surface','Arena naming rights'):
-    if pre=='Playing surface':
-        # every commercial deal on a field or court is listed, football first; a deal with no reported value gets no bar
-        sch=[]
-        for p2,sport in (('Field naming rights','Football'),('Court naming rights','Basketball')):
-            rs=[r for r in ALL if str(g(r,f'{p2} deal type')).startswith('commercial')]
-            rs.sort(key=lambda r:(not num(g(r,f'{p2} annual value')),-(g(r,f'{p2} annual value') if num(g(r,f'{p2} annual value')) else 0),ws.cell(r,3).value))
-            sch+=[entry(r,p2,sport) for r in rs]
-    else:
-        rs=sorted((r for r in ALL if num(g(r,f'{pre} annual value'))),key=lambda r:-g(r,f'{pre} annual value')); sch=[entry(r,pre) for r in rs]
+def page(key,title,subtitle,sch):
     vals=[x['value'] for x in sch if x['value'] is not None]
-    out.append(dict(key=pre,title=TEXT[pre][0],subtitle=TEXT[pre][1],avg=statistics.mean(vals),med=statistics.median(vals),schools=sch))
+    out.append(dict(key=key,title=title,subtitle=subtitle,avg=statistics.mean(vals),med=statistics.median(vals),schools=sch))
+for pre,title,sub in (('Jersey patch','JERSEY PATCH DEALS: ALL P4','Jersey patches are new sponsorship inventory generating multi-million-dollar deals for schools. While terms are often undisclosed, publicly reported deals average $10M annually'),
+                      ('Stadium naming rights','STADIUM NAMING RIGHTS: ALL P4','Stadium naming rights are long-term (10+ year) partnerships, often with local companies, and can include added investment for stadium upgrades.')):
+    page(pre,title,sub,[entry(r,pre) for r in ranked([r for r in ALL if num(g(r,f'{pre} annual value'))],pre)])
+# field naming rights: the sponsor's name is on the football field and the stadium keeps its own name; deals without a value get no bar
+f=surface('Field naming rights','Naming rights'); nv=sum(1 for r in f if num(g(r,'Field naming rights annual value')))
+page('Field naming rights','FIELD NAMING RIGHTS: ALL P4',f"Field naming rights let a school keep its stadium name and still sign a long-term (10+ year) naming partner for the playing surface. {words(len(f))} Power 4 schools have one; {words(nv).lower()} have reported terms.",[entry(r,'Field naming rights') for r in f])
+pre='Arena naming rights'
+page(pre,'ARENA NAMING RIGHTS: ALL P4','Like stadium naming rights, arena naming rights are long-term partnerships that can include added investment for upgrades.',[entry(r,pre) for r in ranked([r for r in ALL if num(g(r,f'{pre} annual value'))],pre)])
+c=surface('Court naming rights','Naming rights'); nv=sum(1 for r in c if num(g(r,'Court naming rights annual value')))
+page('Court naming rights','COURT NAMING RIGHTS: ALL P4',f"Selling the name of the basketball court on its own is rare. {words(len(c))} Power 4 schools have a court naming partner, and {words(nv).lower()} {'has' if nv==1 else 'have'} reported terms.",[entry(r,'Court naming rights') for r in c])
+# logo-only deals: a paid logo on the field or court, which keeps its own name; football first, then basketball
+lg=[entry(r,'Field naming rights','Football') for r in surface('Field naming rights','Logo only')]+[entry(r,'Court naming rights','Basketball') for r in surface('Court naming rights','Logo only')]
+page('Logo deals','PLAYING SURFACE LOGO DEALS: ALL P4',"Logo deals put a sponsor's mark on the field or court without renaming it. Edward Jones' $34M, four-year agreement covers Duke, North Carolina and Oregon; the per-school split is not public, so it is divided evenly here.",lg)
 json.dump(out,sys.stdout,indent=1)
