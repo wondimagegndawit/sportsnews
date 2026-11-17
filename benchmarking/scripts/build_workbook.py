@@ -199,6 +199,7 @@ BRAND=CellRichText(TextBlock(InlineFont(rFont='Montserrat',sz=11,b=True,color='0
 FN='Aptos Narrow'; FS=9
 F_BASE=Font(name=FN,size=FS); F_B=Font(name=FN,size=FS,bold=True); F_I=Font(name=FN,size=FS,color='008000'); F_HC=Font(name=FN,size=FS,color='0000FF')
 F_HDR=Font(name=FN,size=FS,color='FFFFFF'); F_BRAND=Font(name='Montserrat',size=11,color='000000'); F_LINKED=Font(name=FN,size=FS,color='0000FF',underline='single')   # hardcode with a source hyperlink attached: blue, underlined
+FILL_FLAG=PatternFill('solid',fgColor='FFC7CE')   # red flag fill: figures shown at the analyst's direction that rest on an assumption
 FILL_BLACK=PatternFill('solid',fgColor='000000'); FILL_SEC=PatternFill('solid',fgColor='E8E8E8'); FILL_IN=PatternFill('solid',fgColor='FFFFCC'); FILL_SUB=PatternFill('solid',fgColor='D9D9D9')
 THIN=Side(style='thin',color='000000'); DBL=Side(style='double',color='000000')
 B_TB=Border(top=THIN,bottom=THIN); B_T=Border(top=THIN); B_TOT=Border(top=THIN,bottom=DBL)
@@ -318,6 +319,7 @@ def summary_and_breakdown(ws,first,last):
     bd=breakdown(ws,sum_last+2,['Schools'],lambda kind,bandc,lab,hdr,j,r: (f'=COUNTIFS({typer},{bandc},{fyr},{lab})' if kind=='fy' else f'=COUNTIFS({basr},{lab})'))
     return dict(first=first,last=last,avg=summary['Average']['All'],med=summary['Median']['All'],sum_first=last+1,sum_last=sum_last,summary=summary,breakdown=bd)
 NO_DERIVE={(r['school'],r['deal_prefix']) for r in csv.DictReader(open('data/no_derive.csv',encoding='utf-8'))} if os.path.exists('data/no_derive.csv') else set()
+SHARED={(r['school'],r['deal_prefix']):int(r['divisor']) for r in csv.DictReader(open('data/shared_deals.csv',encoding='utf-8'))} if os.path.exists('data/shared_deals.csv') else {}
 # ---- conference tabs ----
 conf_rows={}; conf_layout={}
 for conf,sname in CONFS:
@@ -354,6 +356,9 @@ for conf,sname in CONFS:
             def formula_cell(c,f,fmt):
                 c.hyperlink=None; put_cell(c,f,F_BASE,fmt)
             if (s['name'],pre) in NO_DERIVE: pass   # the reported figures do not describe the same period; show them as reported
+            elif (s['name'],pre) in SHARED and tot is not None and t is not None:   # one total shared by several schools: an even split, flagged in red
+                formula_cell(ca,f'=IF(AND(ISNUMBER({A(pre+"_total_value")}),ISNUMBER({A(pre+"_term_years")})),{A(pre+"_total_value")}/{A(pre+"_term_years")}/{SHARED[(s["name"],pre)]},"--")','usd')
+                for c_ in (ca,ct,ctot): c_.fill=FILL_FLAG
             elif a is not None and t is not None and tot is not None:
                 formula_cell(ctot,f'=IF(AND(ISNUMBER({A(pre+"_annual_value")}),ISNUMBER({A(pre+"_term_years")})),{A(pre+"_annual_value")}*{A(pre+"_term_years")},"--")','usd')
                 for row in sourcelog:
@@ -383,6 +388,7 @@ for j,s in enumerate(order):
         cell=ws.cell(row=r,column=i+OFF,value=f"='{sname}'!{CL(i)}{sr}"); cell.font=F_BASE if m['key'] in IDENT else F_I
         if m['fmt']: cell.number_format=FMT[m['fmt']]
         if m['key']=='school': cell.alignment=IND1
+        if any((s['name'],pre) in SHARED and m['key'] in (pre+'_annual_value',pre+'_term_years',pre+'_total_value') for pre in ('field_nr','court_nr','stadium_nr','arena_nr')): cell.fill=FILL_FLAG
 # summary rows and data breakdown for all schools only; the by-conference figures live on the conference tabs
 all_layout=summary_and_breakdown(ws,all_first,all_last)
 setw(ws,{i:max(len(m['hdr']),14)+2 for i,m in enumerate(S,1)}); ws.column_dimensions[CL(1)].width=30; ws.freeze_panes=f'{CL(2)}{R0}'
@@ -418,6 +424,8 @@ lines=[
  ('Coach contract end','The year shown is the last season the contract covers. For football that is the year the season begins, so a contract that runs through January 31, 2031 shows 2030. For men\'s basketball it is the year the season ends, so a contract through the 2030-31 season shows 2031.'),
  ('Deal dates and values','The expires column is the stated end year where a source gives one (blue); otherwise it is a formula, start year plus term (black). Where a source gives only the announcement, I used the announcement year as the start year and said so in Source Log. Where a source gives two of annual value, term and total value, the third is a formula, so an annual value is sometimes a contract average.'),
  ('Playing surface names','Many venues have one name for the building and another for the field or court, for example MidAmerican Energy Field at Jack Trice Stadium. I kept the two apart. Stadium and arena naming rights cover the building only; a deal that names just the field or court is in the Field naming rights or Court naming rights columns, next to the playing surface name. Where the surface has no name of its own the cell says none.'),
+ ('Logo deals and red cells','A paid logo on a court that does not rename it is shown in the Court naming rights columns with the deal type commercial (logo). The Edward Jones agreement covers Duke, Oregon and North Carolina together at $34 million over four years; I do not know each school\'s share, so the annual value splits the total evenly across the three schools, and the term, total and annual cells for those schools are filled red.'),
+ ('Open items','The Open Items tab lists the deal terms I still need to find out, with what is known so far and a source link.'),
  ('Conference-wide deals','Deals that a conference signed for all of its members are on the Conference Wide tab and are not repeated on the school rows. Right now that is one deal, the Big 12\'s agreement with Monster Energy, which puts a co-branded patch on every member\'s football and basketball jerseys. A school\'s Jersey patch partner column only shows a deal the school signed itself.'),
  ('Football attendance','This comes from the D1.ticker FBS Attendance Trends pages: average home attendance for 2023, 2024 and 2025, plus the year-over-year change, 5-year average, change against that average and percent of capacity from the 2025 page. D1.ticker gives averages only (no totals or game counts) and does not say which five seasons are in its 5-year average or where its data comes from, so I show the figures as displayed.'),
  ('Men\'s basketball attendance','This comes from the 2026 Attendance Summary in the NCAA Men\'s Basketball Attendance Records book (through 2025-26): home games, total home attendance and average home attendance for every school. Columns marked top 30 come from NCAA leader tables that list only 30 teams, so they show "--" for everyone else and carry no average or median.'),
@@ -469,6 +477,17 @@ for j,((conf,deal),d) in enumerate(_cw.items()):
             conflog.append([label,conf,f'{deal}: {hdr_}',v,x['unit'],x['season'],stype_of(x) if url else 'analyst classification',x['source_name'],url,x['date_accessed'],x['notes']])
             CW_STATUS[(label,f'{deal}: {hdr_}')]=x['status']
 setw(ws,{1:14,2:44,3:18,4:26,5:11,6:13,7:26,8:15,9:32,10:70}); ws.freeze_panes=f'{CL(2)}{R0}'
+
+# ---- Open Items: things still to find out ----
+ws=wb.create_sheet('Open Items'); prep(ws,'Open items: things we still need to find out'); header(ws,['School','Item','What we know','What we need to find out','Source'])
+if os.path.exists('data/open_items.csv'):
+    for j,o in enumerate(csv.DictReader(open('data/open_items.csv',encoding='utf-8'))):
+        r=R0+j
+        put_cell(ws.cell(row=r,column=1+OFF),o['school'],F_BASE,align=IND1); put_cell(ws.cell(row=r,column=2+OFF),o['item'],F_BASE)
+        put_cell(ws.cell(row=r,column=3+OFF),o['known'],F_BASE); put_cell(ws.cell(row=r,column=4+OFF),o['needed'],F_BASE)
+        c=ws.cell(row=r,column=5+OFF); put_cell(c,o['source_name'],F_LINKED if o['source_url'] else F_BASE)
+        if o['source_url']: c.hyperlink=o['source_url']
+setw(ws,{1:28,2:40,3:70,4:60,5:44}); ws.freeze_panes=f'{CL(2)}{R0}'
 
 # ---- Source Log ----
 _oi={s['name']:i for i,s in enumerate(order)}; sourcelog.sort(key=lambda r:_oi[r[0]])   # stable: keeps each school's rows together
@@ -576,7 +595,7 @@ def vertical_sheet(ws,title,name_value,name_font,name_fill,src_sheet,first,last,
 ws=wb.create_sheet('School Lookup')
 vertical_sheet(ws,'School lookup: choose a school in the yellow cell','Alabama',F_BASE,FILL_IN,'All Schools',all_first,all_last,None,False)
 dv=DataValidation(type='list',formula1=f"='All Schools'!${CL(1)}${all_first}:${CL(1)}${all_last}",allow_blank=False); ws.add_data_validation(dv); dv.add(f'{CL(2)}5')
-names=['Read Me','All Schools']+[sn for _,sn in CONFS]+['Conference Wide','School Lookup','Source Log']   # no per-school tabs: School Lookup covers every school
+names=['Read Me','All Schools']+[sn for _,sn in CONFS]+['Conference Wide','Open Items','School Lookup','Source Log']   # no per-school tabs: School Lookup covers every school
 wb._sheets=[wb[n] for n in names]
 for ws in wb: ws.sheet_view.showGridLines=False
 wb.save(OUT); print('saved',OUT,'sheets',len(wb.sheetnames),'sourcelog rows',len(sourcelog))

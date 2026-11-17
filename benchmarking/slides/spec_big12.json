@@ -216,63 +216,111 @@
    "subtitle": "Washington is highest at $7.0M; 5 of the 12 are in the Big 12 (Arizona, Arizona St, Houston, Texas Tech and UCF)."
   },
   {
-   "key": "field_naming",
-   "metric": "Field naming rights annual value",
+   "key": "surface_deals",
+   "metric": "Playing surface annual value",
    "unit": "usd",
-   "label": "Field naming rights annual value",
+   "label": "Playing surface deals annual value",
    "scope": "all",
    "conference": "Big 12",
-   "n_conf": 0,
+   "n_conf": 1,
    "n_conf_total": 16,
-   "n_p4": 3,
+   "n_p4": 8,
    "categories": [
     {
      "school": "Penn State",
-     "short": "Penn State",
-     "abbr": "PSU",
+     "short": "Penn State (FB)",
+     "abbr": "PSU (FB)",
      "conference": "Big Ten",
-     "logo": "penn_state.png"
+     "logo": "penn_state.png",
+     "sport": "Football"
     },
     {
      "school": "Georgia Tech",
-     "short": "Georgia Tech",
-     "abbr": "GT",
+     "short": "Georgia Tech (FB)",
+     "abbr": "GT (FB)",
      "conference": "ACC",
-     "logo": "georgia_tech.png"
+     "logo": "georgia_tech.png",
+     "sport": "Football"
     },
     {
      "school": "Indiana",
-     "short": "Indiana",
-     "abbr": "IU",
+     "short": "Indiana (FB)",
+     "abbr": "IU (FB)",
      "conference": "Big Ten",
-     "logo": "indiana.png"
+     "logo": "indiana.png",
+     "sport": "Football"
+    },
+    {
+     "school": "Iowa State",
+     "short": "Iowa State (FB)",
+     "abbr": "ISU (FB)",
+     "conference": "Big 12",
+     "logo": "iowa_state.png",
+     "sport": "Football"
+    },
+    {
+     "school": "Duke",
+     "short": "Duke (MBB)",
+     "abbr": "DUKE (MBB)",
+     "conference": "ACC",
+     "logo": "duke.png",
+     "sport": "Basketball"
+    },
+    {
+     "school": "North Carolina",
+     "short": "North Carolina (MBB)",
+     "abbr": "UNC (MBB)",
+     "conference": "ACC",
+     "logo": "north_carolina.png",
+     "sport": "Basketball"
+    },
+    {
+     "school": "Oregon",
+     "short": "Oregon (MBB)",
+     "abbr": "ORE (MBB)",
+     "conference": "Big Ten",
+     "logo": "oregon.png",
+     "sport": "Basketball"
+    },
+    {
+     "school": "Virginia Tech",
+     "short": "Virginia Tech (MBB)",
+     "abbr": "VT (MBB)",
+     "conference": "ACC",
+     "logo": "virginia_tech.png",
+     "sport": "Basketball"
     }
    ],
    "series": [
     {
-     "name": "Field naming rights annual value",
+     "name": "Playing surface deals annual value",
      "values": [
       3333333.33333333,
       2750000,
-      2500000
+      2500000,
+      1500000,
+      2833333.33333333,
+      2833333.33333333,
+      2833333.33333333,
+      500000
      ]
     }
    ],
    "lines": [
     {
-     "name": "Power 4 average ($2.9M)",
-     "value": 2861111.11111111
+     "name": "Power 4 average ($2.4M)",
+     "value": 2385416.666666665
     },
     {
      "name": "Power 4 median ($2.8M)",
-     "value": 2750000
+     "value": 2791666.666666665
     }
    ],
-   "avg": 2861111.11111111,
-   "med": 2750000,
-   "source": "Source: Power 4 Athletic Department Benchmarking workbook. Annual value is the reported figure or, where a source gives a total and a term, the total divided by the term. These deals name the playing surface only; the stadium keeps its own name and is not counted under stadium naming rights. All Power 4 schools with a value are shown because fewer than 10 Big 12 schools have one.",
-   "title": "Field naming rights: 3 Power 4 schools have a reported annual value, averaging $2.9M with a median of $2.8M",
-   "subtitle": "Penn State is highest at $3.3M; no Big 12 school has a reported value. 4 more field deals have no reported value (California, Ohio State, USC and Iowa State)."
+   "avg": 2385416.666666665,
+   "med": 2791666.666666665,
+   "source": "Source: Power 4 Athletic Department Benchmarking workbook. These deals cover the playing surface only (naming rights to the field or court, or a paid logo on it); the stadium or arena keeps its own name. FB is a football field, MBB a basketball court. Duke, Oregon and North Carolina share one $34 million, four-year Edward Jones logo agreement, split evenly here because each school's share is not known. 4 more deals have no reported value (California, Ohio State, USC, Iowa).",
+   "title": "Playing surface deals: 8 Power 4 schools have a reported annual value, averaging $2.4M",
+   "subtitle": "4 are football fields and 4 are basketball courts. Penn State is highest at $3.3M; 1 of the 8 is in the Big 12 (Iowa State)."
   },
   {
    "key": "arena_naming",

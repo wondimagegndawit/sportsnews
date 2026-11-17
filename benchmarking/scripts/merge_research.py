@@ -40,7 +40,7 @@ for r in rows:
         if QUAL.search(v) and m not in ('notes',): reject(r,'qualifier text in value'); continue
     if m.endswith('_deal_type'):
         vv=v.lower()
-        if vv not in ('commercial','honorific','none'): reject(r,'deal type not commercial/honorific/none'); continue
+        if vv not in ('commercial','commercial (logo)','honorific','none'): reject(r,'deal type not commercial/honorific/none'); continue   # 'commercial (logo)': a paid logo on the playing surface that does not rename it
         r['value']=vv
     if m.endswith('_pay_source_type'):
         vv=v.lower()

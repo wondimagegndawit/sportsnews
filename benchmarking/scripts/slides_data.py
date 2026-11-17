@@ -50,8 +50,7 @@ def build(key,metric,unit,label,getters,source,second=None):
 SRC_WB='Source: Power 4 Athletic Department Benchmarking workbook.'
 def deal(key,hdr,label):
     s=build(key,hdr,'usd',label,[(label,lambda r:val(r,hdr))],SRC_WB+' Annual value is the reported figure or, where a source gives a total and a term, the total divided by the term.')
-    novalue=[r for r in ROWS if key=='field_naming' and ws.cell(r,H['Field naming rights deal type']).value=='commercial' and val(r,hdr) is None]
-    if key=='field_naming': s['source']+=' These deals name the playing surface only; the stadium keeps its own name and is not counted under stadium naming rights.'
+    novalue=[]
     if key=='jersey_patch' and any(school(r)=='Notre Dame' for r in s['rows']): s['source']+=' Notre Dame is shown at the low end of a reported range of $18 million to $20 million a year.'
     f=money; rs=s['rows']; top=rs[0]
     who=f"the {CONF} schools" if s['scope']=='conference' else 'all Power 4 schools with a reported value'
@@ -68,8 +67,25 @@ def deal(key,hdr,label):
     return s
 slides=[deal('jersey_patch','Jersey patch annual value','Jersey patch annual value'),
         deal('stadium_naming','Stadium naming rights annual value','Stadium naming rights annual value'),
-        deal('field_naming','Field naming rights annual value','Field naming rights annual value'),
         deal('arena_naming','Arena naming rights annual value','Arena naming rights annual value')]
+# playing surface: commercial deals on the football field or the basketball court, shown together with the sport in each label
+def surface():
+    items=[]
+    for hdr,sport,tag in (('Field naming rights','Football','FB'),('Court naming rights','Basketball','MBB')):
+        rs=[r for r in ROWS if str(ws.cell(r,H[hdr+' deal type']).value).startswith('commercial')]
+        items+=[(r,sport,tag,val(r,hdr+' annual value')) for r in rs]
+    have=sorted((x for x in items if x[3] is not None),key=lambda x:(x[1]!='Football',-x[3])); none=[x for x in items if x[3] is None]
+    vals=[x[3] for x in have]; avg=statistics.mean(vals); med=statistics.median(vals)
+    cats=[dict(school=school(r),short=f"{LOGO[school(r)]['short']} ({tag})",abbr=f"{LOGO[school(r)]['abbr']} ({tag})",conference=conf(r),logo=LOGO[school(r)]['file'],sport=sport) for r,sport,tag,_ in have]
+    nfb=sum(1 for x in have if x[1]=='Football'); nbb=len(have)-nfb; inn=[x for x in have if conf(x[0])==CONF]
+    return dict(key='surface_deals',metric='Playing surface annual value',unit='usd',label='Playing surface deals annual value',scope='all',conference=CONF,n_conf=len(inn),
+        n_conf_total=sum(1 for r in ROWS if conf(r)==CONF),n_p4=len(have),categories=cats,series=[dict(name='Playing surface deals annual value',values=vals)],
+        lines=[dict(name=f'Power 4 average ({money(avg)})',value=avg),dict(name=f'Power 4 median ({money(med)})',value=med)],avg=avg,med=med,rows=[],inconf=[],
+        source=SRC_WB+' These deals cover the playing surface only (naming rights to the field or court, or a paid logo on it); the stadium or arena keeps its own name. FB is a football field, MBB a basketball court. Duke, Oregon and North Carolina share one $34 million, four-year Edward Jones logo agreement, split evenly here because each school\'s share is not known.'+(f" {len(none)} more deals have no reported value ({', '.join(LOGO[school(x[0])]['short'] for x in none)})." if none else ''),
+        title=f"Playing surface deals: {len(have)} Power 4 schools have a reported annual value, averaging {money(avg)}",
+        subtitle=f"{nfb} are football fields and {nbb} are basketball courts. {LOGO[school(have[0][0])]['short']} is highest at {money(have[0][3])}; "
+                 +(f"{len(inn)} of the {len(have)} {'is' if len(inn)==1 else 'are'} in the {CONF} ({', '.join(LOGO[school(x[0])]['short'] for x in inn)})." if inn else f"no {CONF} school has a reported value."))
+slides.insert(2,surface())
 # football: average home attendance, 2025 against 2024
 a25='FB average home attendance 2025'; a24='FB average home attendance 2024'
 s=build('fb_attendance',a25,'num','Football average home attendance',[('2025 season',lambda r:val(r,a25)),('2024 season',lambda r:val(r,a24))],

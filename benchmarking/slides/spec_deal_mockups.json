@@ -198,11 +198,11 @@
   ]
  },
  {
-  "key": "Field naming rights",
-  "title": "FIELD NAMING RIGHTS: ALL P4",
-  "subtitle": "Field naming rights let a school keep its stadium name and still sign a long-term (10+ year) naming partner for the playing surface.",
-  "avg": 2861111.11111111,
-  "med": 2750000,
+  "key": "Playing surface",
+  "title": "PLAYING SURFACE DEALS: ALL P4",
+  "subtitle": "Schools can keep a stadium or arena name and sell the playing surface instead, through naming rights to the football field or basketball court, or a paid logo on it.",
+  "avg": 2385416.666666665,
+  "med": 2791666.666666665,
   "schools": [
    {
     "school": "Penn State",
@@ -212,7 +212,8 @@
     "terms": [
      "15 years",
      "$50M total"
-    ]
+    ],
+    "sport": "Football"
    },
    {
     "school": "Georgia Tech",
@@ -222,7 +223,8 @@
     "terms": [
      "20 years",
      "$55M total"
-    ]
+    ],
+    "sport": "Football"
    },
    {
     "school": "Indiana",
@@ -232,7 +234,19 @@
     "terms": [
      "20 years",
      "$50M total"
-    ]
+    ],
+    "sport": "Football"
+   },
+   {
+    "school": "Iowa State",
+    "logo": "iowa_state.png",
+    "value": 1500000,
+    "sponsor": "MidAmerican Energy",
+    "terms": [
+     "10 years",
+     "$15M total"
+    ],
+    "sport": "Football"
    },
    {
     "school": "California",
@@ -242,17 +256,8 @@
     "terms": [
      "Term not disclosed",
      "Value not disclosed"
-    ]
-   },
-   {
-    "school": "Iowa State",
-    "logo": "iowa_state.png",
-    "value": null,
-    "sponsor": "MidAmerican Energy",
-    "terms": [
-     "10 years",
-     "Up to $1.5M a year"
-    ]
+    ],
+    "sport": "Football"
    },
    {
     "school": "Ohio State",
@@ -262,7 +267,8 @@
     "terms": [
      "Term not disclosed",
      "Value not disclosed"
-    ]
+    ],
+    "sport": "Football"
    },
    {
     "school": "USC",
@@ -272,7 +278,63 @@
     "terms": [
      "10 years",
      "Value not disclosed"
-    ]
+    ],
+    "sport": "Football"
+   },
+   {
+    "school": "Duke",
+    "logo": "duke.png",
+    "value": 2833333.33333333,
+    "sponsor": "Edward Jones (logo)",
+    "terms": [
+     "4 years",
+     "$34M across 3 schools"
+    ],
+    "sport": "Basketball"
+   },
+   {
+    "school": "North Carolina",
+    "logo": "north_carolina.png",
+    "value": 2833333.33333333,
+    "sponsor": "Edward Jones (logo)",
+    "terms": [
+     "4 years",
+     "$34M across 3 schools"
+    ],
+    "sport": "Basketball"
+   },
+   {
+    "school": "Oregon",
+    "logo": "oregon.png",
+    "value": 2833333.33333333,
+    "sponsor": "Edward Jones (logo)",
+    "terms": [
+     "4 years",
+     "$34M across 3 schools"
+    ],
+    "sport": "Basketball"
+   },
+   {
+    "school": "Virginia Tech",
+    "logo": "virginia_tech.png",
+    "value": 500000,
+    "sponsor": "Carilion Clinic",
+    "terms": [
+     "10 years",
+     "$5M total"
+    ],
+    "sport": "Basketball"
+   },
+   {
+    "school": "Iowa",
+    "logo": "iowa.png",
+    "value": null,
+    "sponsor": "Mediacom",
+    "terms": [
+     "Term not disclosed",
+     "Value not disclosed"
+    ],
+    "sport": "Basketball"
    }
   ]
  },
