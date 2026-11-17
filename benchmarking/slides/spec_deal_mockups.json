@@ -213,7 +213,8 @@
      "15 years",
      "$50M total"
     ],
-    "sport": "Football"
+    "sport": "Football",
+    "kind": "Naming rights"
    },
    {
     "school": "Georgia Tech",
@@ -224,7 +225,8 @@
      "20 years",
      "$55M total"
     ],
-    "sport": "Football"
+    "sport": "Football",
+    "kind": "Naming rights"
    },
    {
     "school": "Indiana",
@@ -235,7 +237,8 @@
      "20 years",
      "$50M total"
     ],
-    "sport": "Football"
+    "sport": "Football",
+    "kind": "Naming rights"
    },
    {
     "school": "Iowa State",
@@ -246,7 +249,8 @@
      "10 years",
      "$15M total"
     ],
-    "sport": "Football"
+    "sport": "Football",
+    "kind": "Naming rights"
    },
    {
     "school": "California",
@@ -257,7 +261,20 @@
      "Term not disclosed",
      "Value not disclosed"
     ],
-    "sport": "Football"
+    "sport": "Football",
+    "kind": "Naming rights"
+   },
+   {
+    "school": "Cincinnati",
+    "logo": "cincinnati.png",
+    "value": null,
+    "sponsor": "TQL",
+    "terms": [
+     "Term not disclosed",
+     "Value not disclosed"
+    ],
+    "sport": "Football",
+    "kind": "Logo only"
    },
    {
     "school": "Ohio State",
@@ -268,7 +285,8 @@
      "Term not disclosed",
      "Value not disclosed"
     ],
-    "sport": "Football"
+    "sport": "Football",
+    "kind": "Naming rights"
    },
    {
     "school": "USC",
@@ -279,40 +297,44 @@
      "10 years",
      "Value not disclosed"
     ],
-    "sport": "Football"
+    "sport": "Football",
+    "kind": "Naming rights"
    },
    {
     "school": "Duke",
     "logo": "duke.png",
     "value": 2833333.33333333,
-    "sponsor": "Edward Jones (logo)",
+    "sponsor": "Edward Jones",
     "terms": [
      "4 years",
      "$34M across 3 schools"
     ],
-    "sport": "Basketball"
+    "sport": "Basketball",
+    "kind": "Logo only"
    },
    {
     "school": "North Carolina",
     "logo": "north_carolina.png",
     "value": 2833333.33333333,
-    "sponsor": "Edward Jones (logo)",
+    "sponsor": "Edward Jones",
     "terms": [
      "4 years",
      "$34M across 3 schools"
     ],
-    "sport": "Basketball"
+    "sport": "Basketball",
+    "kind": "Logo only"
    },
    {
     "school": "Oregon",
     "logo": "oregon.png",
     "value": 2833333.33333333,
-    "sponsor": "Edward Jones (logo)",
+    "sponsor": "Edward Jones",
     "terms": [
      "4 years",
      "$34M across 3 schools"
     ],
-    "sport": "Basketball"
+    "sport": "Basketball",
+    "kind": "Logo only"
    },
    {
     "school": "Virginia Tech",
@@ -323,7 +345,8 @@
      "10 years",
      "$5M total"
     ],
-    "sport": "Basketball"
+    "sport": "Basketball",
+    "kind": "Naming rights"
    },
    {
     "school": "Iowa",
@@ -334,7 +357,8 @@
      "Term not disclosed",
      "Value not disclosed"
     ],
-    "sport": "Basketball"
+    "sport": "Basketball",
+    "kind": "Naming rights"
    }
   ]
  },

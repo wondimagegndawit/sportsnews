@@ -10,7 +10,7 @@ g=lambda r,h: ws.cell(r,H[h]).value
 num=lambda v: isinstance(v,(int,float)) and not isinstance(v,bool)
 SHORT={'JPMorganChase':'JPMorgan Chase','First Horizon Bank':'First Horizon','MSU Federal Credit Union':'MSU Federal CU','CommunityAmerica Credit Union':'Community America CU',
  'Mountain America Credit Union':'Mountain America CU','L&N Federal Credit Union':'L&N Federal CU','TDECU (Texas Dow Employees Credit Union)':'TDECU','SHI International Corp.':'SHI',
- 'Blue Cross and Blue Shield of Minnesota':'Blue Cross MN','Addition Financial Credit Union':'Addition Financial','Desert Financial Credit Union':'Desert Financial',"Jersey Mike's Subs":"Jersey Mike's"}
+ 'Blue Cross and Blue Shield of Minnesota':'Blue Cross MN','Addition Financial Credit Union':'Addition Financial','Desert Financial Credit Union':'Desert Financial',"Jersey Mike's Subs":"Jersey Mike's",'TQL (Total Quality Logistics)':'TQL'}
 def money(v): 
     return '$'+f'{v/1e6:.2f}'.rstrip('0').rstrip('.')+'M'
 def terms(r,pre):

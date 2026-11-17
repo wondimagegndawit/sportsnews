@@ -232,7 +232,8 @@
      "abbr": "PSU (FB)",
      "conference": "Big Ten",
      "logo": "penn_state.png",
-     "sport": "Football"
+     "sport": "Football",
+     "kind": "Naming rights"
     },
     {
      "school": "Georgia Tech",
@@ -240,7 +241,8 @@
      "abbr": "GT (FB)",
      "conference": "ACC",
      "logo": "georgia_tech.png",
-     "sport": "Football"
+     "sport": "Football",
+     "kind": "Naming rights"
     },
     {
      "school": "Indiana",
@@ -248,7 +250,8 @@
      "abbr": "IU (FB)",
      "conference": "Big Ten",
      "logo": "indiana.png",
-     "sport": "Football"
+     "sport": "Football",
+     "kind": "Naming rights"
     },
     {
      "school": "Iowa State",
@@ -256,7 +259,8 @@
      "abbr": "ISU (FB)",
      "conference": "Big 12",
      "logo": "iowa_state.png",
-     "sport": "Football"
+     "sport": "Football",
+     "kind": "Naming rights"
     },
     {
      "school": "Duke",
@@ -264,7 +268,8 @@
      "abbr": "DUKE (MBB)",
      "conference": "ACC",
      "logo": "duke.png",
-     "sport": "Basketball"
+     "sport": "Basketball",
+     "kind": "Logo only"
     },
     {
      "school": "North Carolina",
@@ -272,7 +277,8 @@
      "abbr": "UNC (MBB)",
      "conference": "ACC",
      "logo": "north_carolina.png",
-     "sport": "Basketball"
+     "sport": "Basketball",
+     "kind": "Logo only"
     },
     {
      "school": "Oregon",
@@ -280,7 +286,8 @@
      "abbr": "ORE (MBB)",
      "conference": "Big Ten",
      "logo": "oregon.png",
-     "sport": "Basketball"
+     "sport": "Basketball",
+     "kind": "Logo only"
     },
     {
      "school": "Virginia Tech",
@@ -288,7 +295,8 @@
      "abbr": "VT (MBB)",
      "conference": "ACC",
      "logo": "virginia_tech.png",
-     "sport": "Basketball"
+     "sport": "Basketball",
+     "kind": "Naming rights"
     }
    ],
    "series": [
@@ -318,7 +326,7 @@
    ],
    "avg": 2385416.666666665,
    "med": 2791666.666666665,
-   "source": "Source: Power 4 Athletic Department Benchmarking workbook. These deals cover the playing surface only (naming rights to the field or court, or a paid logo on it); the stadium or arena keeps its own name. FB is a football field, MBB a basketball court. Duke, Oregon and North Carolina share one $34 million, four-year Edward Jones logo agreement, split evenly here because each school's share is not known. 4 more deals have no reported value (California, Ohio State, USC, Iowa).",
+   "source": "Source: Power 4 Athletic Department Benchmarking workbook. These deals cover the playing surface only; the stadium or arena keeps its own name. FB is a football field, MBB a basketball court. Logo only (the surface keeps its own name): Duke (MBB), North Carolina (MBB), Oregon (MBB); the others are naming rights. Duke, Oregon and North Carolina share one $34 million, four-year Edward Jones logo agreement, split evenly here because each school's share is not known. 5 more deals have no reported value (California, Ohio State, USC, Cincinnati, Iowa).",
    "title": "Playing surface deals: 8 Power 4 schools have a reported annual value, averaging $2.4M",
    "subtitle": "4 are football fields and 4 are basketball courts. Penn State is highest at $3.3M; 1 of the 8 is in the Big 12 (Iowa State)."
   },
