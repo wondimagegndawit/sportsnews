@@ -280,8 +280,8 @@
   "key": "Arena naming rights",
   "title": "ARENA NAMING RIGHTS: ALL P4",
   "subtitle": "Like stadium naming rights, arena naming rights are long-term partnerships that can include added investment for upgrades.",
-  "avg": 2117343.434343435,
-  "med": 1700000,
+  "avg": 2035009.46969697,
+  "med": 1683333.333333335,
   "schools": [
    {
     "school": "NC State",
@@ -424,6 +424,16 @@
     ]
    },
    {
+    "school": "Maryland",
+    "logo": "maryland.png",
+    "value": 800000,
+    "sponsor": "Comcast (XFINITY)",
+    "terms": [
+     "25 years",
+     "$20M total"
+    ]
+   },
+   {
     "school": "Nebraska",
     "logo": "nebraska.png",
     "value": 450000,
@@ -467,21 +477,10 @@
  {
   "key": "Logo deals",
   "title": "PLAYING SURFACE LOGO DEALS: ALL P4",
-  "subtitle": "Logo deals put a sponsor's mark on the field or court without renaming it. Edward Jones' $34M, four-year agreement covers Duke, North Carolina and Oregon; the per-school split is not public, so it is divided evenly here.",
+  "subtitle": "Logo deals put a sponsor's mark on the field or court without renaming it. 19 are on record (15 football fields, 4 basketball courts), and only Edward Jones' has a reported value: $34M over four years across Duke, North Carolina and Oregon, divided evenly here because the split is not public.",
   "avg": 2833333.33333333,
   "med": 2833333.33333333,
   "schools": [
-   {
-    "school": "Cincinnati",
-    "logo": "cincinnati.png",
-    "value": null,
-    "sponsor": "TQL",
-    "terms": [
-     "Term not disclosed",
-     "Value not disclosed"
-    ],
-    "sport": "Football"
-   },
    {
     "school": "Duke",
     "logo": "duke.png",
@@ -515,6 +514,7 @@
     ],
     "sport": "Basketball"
    }
-  ]
+  ],
+  "note": "No reported value, so not charted. Football fields: Progressive (Georgia, Iowa, Kansas St, Ole Miss, Oregon, Purdue, SMU, Syracuse, Texas Tech, Wake Forest); Blanchard Machinery (South Carolina); Humann (Texas); TQL (Cincinnati); Venture Global (LSU); YellaWood (Auburn). Basketball courts: Humann (Texas). One report puts the going rate for a logo on a major college football field at about $3.5M a year (Insurance Journal, 20 Aug 2026)."
  }
 ]

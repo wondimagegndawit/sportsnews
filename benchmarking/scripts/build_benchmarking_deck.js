@@ -36,7 +36,7 @@ function frame(title, subtitle) {
 }
 // legend box, top left of the panel: keys = [['bar'|'solid'|'dash', color, label], ...]
 function legend(slide, keys) {
-  const step = keys.length > 3 ? 0.22 : 0.26, LG = { x: 0.55, y: 1.42, w: 2.45, h: 0.12 + keys.length * step };
+  const step = keys.length > 3 ? 0.22 : 0.26, LG = { x: 0.55, y: 1.42, w: keys.some(k => k[2].length > 34) ? 3.3 : 2.45, h: 0.12 + keys.length * step };   // long labels get a wider box so they stay on one line
   slide.addShape(pres.shapes.RECTANGLE, { x: LG.x, y: LG.y, w: LG.w, h: LG.h, fill: { color: C.panel }, line: { color: C.ink, width: 0.75 }, objectName: 'Legend box' });
   keys.forEach(([kind, color, label], i) => {
     const y = LG.y + 0.12 + i * step;
@@ -62,7 +62,8 @@ function dealSlide(s) {
   const n = s.schools.length, dense = n > 8, bySport = s.schools.some(x => x.sport);
   const CH = { x: 0.5, y: 2.4, w: 9.0, h: 2.55 };
   const fill = { Football: C.ink, Basketball: C.second };
-  legend(slide, bySport ? [['bar', fill.Football, '= Football field'], ['bar', fill.Basketball, '= Basketball court'], ['solid', C.line, `= P4 Average (${money(s.avg)})`], ['dash', C.line, `= P4 Median (${money(s.med)})`]]
+  const has = sp => s.schools.some(x => x.sport === sp && x.value);   // only sports with a charted bar get a legend key
+  legend(slide, bySport ? [...(has('Football') ? [['bar', fill.Football, '= Football field']] : []), ...(has('Basketball') ? [['bar', fill.Basketball, '= Basketball court']] : []), ['solid', C.line, `= P4 Average (${money(s.avg)})`], ['dash', C.line, `= P4 Median (${money(s.med)})`]]
                         : [['bar', C.ink, '= Annual Value'], ['solid', C.line, `= P4 Average (${money(s.avg)})`], ['dash', C.line, `= P4 Median (${money(s.med)})`]]);
   const labels = s.schools.map(x => x.school);
   const bars = bySport ? ['Football', 'Basketball'].map(sp => ({ name: sp === 'Football' ? 'Football field' : 'Basketball court', values: s.schools.map(x => (x.sport === sp ? x.value || 0 : 0)) }))

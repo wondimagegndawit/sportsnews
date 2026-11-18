@@ -8,7 +8,7 @@ import csv,re
 D='2026-11-18'; OUT='verification_zzzzzzzzzzzzz_blank_reasons.csv'
 M=list(csv.DictReader(open('data/merged_values.csv',encoding='utf-8')))
 V={(r['school'],r['metric']):r for r in M}
-def stale(r): return r['value'] in ('--','') and ('budget' in (r['notes'] or '') or r['_file']==OUT)
+def stale(r): return r['value'] in ('--','') and ('budget' in (r['notes'] or '') or r['_file']==OUT or (r['notes'] or '').strip().lower()=='no commercial naming deal')
 def val(s,m):
     r=V.get((s,m)); return r['value'] if r and r['value'] not in ('--','') else None
 LABEL={'apparel':'apparel agreement','mmr':'multimedia rights agreement','patch':'jersey patch deal','stadium_nr':'stadium naming-rights deal','arena_nr':'arena naming-rights deal','field_nr':'field naming-rights deal','court_nr':'court naming-rights deal'}
