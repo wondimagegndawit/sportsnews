@@ -14,6 +14,5 @@ ROWS_C+=[
 ('SMU','mbb_hc_contract_end','--','2026-27',"SMU Athletics",'',"SMU is private; no report gives the length of Andy Enfield's contract."),
 ('Stanford','mbb_hc_contract_end','--','2026-27',"Stanford Athletics",'',"Stanford is private; reports of Kyle Smith's March 2024 hiring give no contract length."),
 ('USC','mbb_hc_contract_end','--','2026-27',"USC Athletics",'',"USC is private; no report gives the length of Eric Musselman's contract."),
-('California','field_nr_annual_value','--','2026',"Databricks press release",'https://www.databricks.com/company/newsroom/press-releases/soda-hall-football-field-databricks-returns-berkeley-roots-cal',"The parties did not disclose the value or the term of the field naming agreement."),
 ('Miami (FL)','stadium_nr_annual_value','--','2026',"CDC Gaming (AP report)",'https://cdcgaming.com/dolphins-hard-rock-stadium-deal-is-for-nearly-250-million/',"Left out at my direction: Hard Rock Stadium is the Miami Dolphins' stadium, where the university plays as a tenant, so the naming deal is the Dolphins' and is not the university's."),
 ]

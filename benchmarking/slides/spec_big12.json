@@ -228,7 +228,7 @@
    "conference": "Big 12",
    "n_conf": 1,
    "n_conf_total": 16,
-   "n_p4": 4,
+   "n_p4": 5,
    "categories": [
     {
      "school": "Penn State",
@@ -255,6 +255,14 @@
      "sport": "Football"
     },
     {
+     "school": "California",
+     "short": "California",
+     "abbr": "CAL",
+     "conference": "ACC",
+     "logo": "california.png",
+     "sport": "Football"
+    },
+    {
      "school": "Iowa State",
      "short": "Iowa State",
      "abbr": "ISU",
@@ -270,6 +278,7 @@
       3333333.33333333,
       2750000,
       2500000,
+      2280000,
       1500000
      ]
     }
@@ -277,18 +286,18 @@
    "lines": [
     {
      "name": "Power 4 average ($2.5M)",
-     "value": 2520833.3333333326
+     "value": 2472666.666666666
     },
     {
-     "name": "Power 4 median ($2.6M)",
-     "value": 2625000.0
+     "name": "Power 4 median ($2.5M)",
+     "value": 2500000
     }
    ],
-   "avg": 2520833.3333333326,
-   "med": 2625000.0,
-   "source": "Source: Power 4 Athletic Department Benchmarking workbook. These deals name the football field only; the stadium keeps its own name and is not counted under stadium naming rights. 3 more deals have no reported value (California, Ohio State, USC).",
-   "title": "Field naming rights: 4 Power 4 schools have a reported annual value, averaging $2.5M with a median of $2.6M",
-   "subtitle": "Penn State is highest at $3.3M; 1 of the 4 is in the Big 12 (Iowa State)."
+   "avg": 2472666.666666666,
+   "med": 2500000,
+   "source": "Source: Power 4 Athletic Department Benchmarking workbook. These deals name the football field only; the stadium keeps its own name and is not counted under stadium naming rights. 2 more deals have no reported value (Ohio State, USC).",
+   "title": "Field naming rights: 5 Power 4 schools have a reported annual value, averaging $2.5M with a median of $2.5M",
+   "subtitle": "Penn State is highest at $3.3M; 1 of the 5 is in the Big 12 (Iowa State)."
   },
   {
    "key": "arena_naming",

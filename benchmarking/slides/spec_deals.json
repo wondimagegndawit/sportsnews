@@ -200,9 +200,9 @@
  {
   "key": "Field naming rights",
   "title": "FIELD NAMING RIGHTS: ALL P4",
-  "subtitle": "Field naming rights let a school keep its stadium name and still sign a long-term (10+ year) naming partner for the playing surface. Seven Power 4 schools have one; four have reported terms.",
-  "avg": 2520833.3333333326,
-  "med": 2625000.0,
+  "subtitle": "Field naming rights let a school keep its stadium name and still sign a long-term (10+ year) naming partner for the playing surface. Seven Power 4 schools have one; five have reported terms.",
+  "avg": 2472666.666666666,
+  "med": 2500000,
   "schools": [
    {
     "school": "Penn State",
@@ -235,6 +235,16 @@
     ]
    },
    {
+    "school": "California",
+    "logo": "california.png",
+    "value": 2280000,
+    "sponsor": "Databricks",
+    "terms": [
+     "10 years",
+     "$22.8M total"
+    ]
+   },
+   {
     "school": "Iowa State",
     "logo": "iowa_state.png",
     "value": 1500000,
@@ -242,16 +252,6 @@
     "terms": [
      "10 years",
      "$15M total"
-    ]
-   },
-   {
-    "school": "California",
-    "logo": "california.png",
-    "value": null,
-    "sponsor": "Databricks",
-    "terms": [
-     "Term not disclosed",
-     "Value not disclosed"
     ]
    },
    {
