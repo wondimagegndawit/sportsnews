@@ -280,19 +280,9 @@
   "key": "Arena naming rights",
   "title": "ARENA NAMING RIGHTS: ALL P4",
   "subtitle": "Like stadium naming rights, arena naming rights are long-term partnerships that can include added investment for upgrades.",
-  "avg": 2035009.46969697,
-  "med": 1683333.333333335,
+  "avg": 1691259.46969697,
+  "med": 1633333.333333335,
   "schools": [
-   {
-    "school": "NC State",
-    "logo": "nc_state.png",
-    "value": 6000000,
-    "sponsor": "Lenovo",
-    "terms": [
-     "10 years",
-     "$60M total"
-    ]
-   },
    {
     "school": "UCLA",
     "logo": "ucla.png",
@@ -431,6 +421,16 @@
     "terms": [
      "25 years",
      "$20M total"
+    ]
+   },
+   {
+    "school": "NC State",
+    "logo": "nc_state.png",
+    "value": 500000,
+    "sponsor": "Lenovo",
+    "terms": [
+     "10 years",
+     "$60M total"
     ]
    },
    {

@@ -299,6 +299,7 @@ log_row,school,tab,cell,metric,value,status,matched_text,strength,http,source_na
 1073,NC State,ACC,CA15,Arena naming rights deal type,commercial,classification,,n/a,200,WRAL,https://www.wral.com/story/21621199/
 1074,NC State,ACC,CB15,Arena naming rights start year,2024,found,2024,weak,200,WRAL,https://www.wral.com/story/21621199/
 1075,NC State,ACC,CC15,Arena naming rights term (years),10,found,10 years,medium,200,WRAL,https://www.wral.com/story/21621199/
+1076,NC State,ACC,CD15,Arena naming rights annual value,500000,found,"500,000",strong,200,WRAL News (2 Oct 2025),https://www.wral.com/sports/ncstate-centennial-authority-naming-rights-funds-broader-use-october-2025/
 1077,NC State,ACC,CE15,Arena naming rights total value,60000000,found,$60 million,strong,200,WRAL,https://www.wral.com/story/21621199/
 1078,NC State,ACC,CG15,Playing surface name (football),Wayne Day Family Field,found,Wayne Day Family Field,strong,200,International Association of Venue Managers (30 Mar 2023),https://blog.iavm.org/north-carolina-state-university-names-daktronics-for-project-at-wayne-day-family-field-at-carter-finley-stadium/
 1080,NC State,ACC,CI15,Field naming rights partner,Wayne T. Day and family (donors),found,all words: wayne day family,medium,200,International Association of Venue Managers (30 Mar 2023),https://blog.iavm.org/north-carolina-state-university-names-daktronics-for-project-at-wayne-day-family-field-at-carter-finley-stadium/

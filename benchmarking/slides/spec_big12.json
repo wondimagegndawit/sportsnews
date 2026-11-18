@@ -311,13 +311,6 @@
    "n_p4": 16,
    "categories": [
     {
-     "school": "NC State",
-     "short": "NC State",
-     "abbr": "NCSU",
-     "conference": "ACC",
-     "logo": "nc_state.png"
-    },
-    {
      "school": "UCLA",
      "short": "UCLA",
      "abbr": "UCLA",
@@ -416,6 +409,13 @@
      "logo": "maryland.png"
     },
     {
+     "school": "NC State",
+     "short": "NC State",
+     "abbr": "NCSU",
+     "conference": "ACC",
+     "logo": "nc_state.png"
+    },
+    {
      "school": "Nebraska",
      "short": "Nebraska",
      "abbr": "NEB",
@@ -427,7 +427,6 @@
     {
      "name": "Arena naming rights annual value",
      "values": [
-      6000000,
       3800000,
       2840000,
       2000000,
@@ -442,27 +441,28 @@
       1475000,
       1400000,
       800000,
+      500000,
       450000
      ]
     }
    ],
    "lines": [
     {
-     "name": "Power 4 average ($2.0M)",
-     "value": 2035009.46969697
+     "name": "Power 4 average ($1.7M)",
+     "value": 1691259.46969697
     },
     {
-     "name": "Power 4 median ($1.7M)",
-     "value": 1683333.333333335
+     "name": "Power 4 median ($1.6M)",
+     "value": 1633333.333333335
     }
    ],
-   "avg": 2035009.46969697,
-   "med": 1683333.333333335,
-   "cavg": 2035009.46969697,
-   "cmed": 1683333.333333335,
+   "avg": 1691259.46969697,
+   "med": 1633333.333333335,
+   "cavg": 1691259.46969697,
+   "cmed": 1633333.333333335,
    "source": "Source: Power 4 Athletic Department Benchmarking workbook. Annual value is the reported figure or, where a source gives a total and a term, the total divided by the term. All Power 4 schools with a value are shown because fewer than 10 Big 12 schools have one.",
-   "title": "Arena naming rights: 16 Power 4 schools have a reported annual value, averaging $2.0M with a median of $1.7M",
-   "subtitle": "NC State is highest at $6.0M; 5 of the 16 are in the Big 12 (Arizona, Arizona St, Texas Tech, UCF and West Virginia)."
+   "title": "Arena naming rights: 16 Power 4 schools have a reported annual value, averaging $1.7M with a median of $1.6M",
+   "subtitle": "UCLA is highest at $3.8M; 5 of the 16 are in the Big 12 (Arizona, Arizona St, Texas Tech, UCF and West Virginia)."
   },
   {
    "key": "court_naming",
