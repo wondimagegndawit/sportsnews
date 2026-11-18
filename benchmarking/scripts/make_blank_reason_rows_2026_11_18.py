@@ -13,7 +13,13 @@ def val(s,m):
     r=V.get((s,m)); return r['value'] if r and r['value'] not in ('--','') else None
 LABEL={'apparel':'apparel agreement','mmr':'multimedia rights agreement','patch':'jersey patch deal','stadium_nr':'stadium naming-rights deal','arena_nr':'arena naming-rights deal','field_nr':'field naming-rights deal','court_nr':'court naming-rights deal'}
 rows=[]; n={'none':0,'honorific':0,'in-house':0,'derived':0}
-for r in M:
+FIELDS={'apparel':['start_year','term_years','annual_value','total_value'],'mmr':['start_year','term_years','annual_value','total_value'],'patch':['industry','start_year','term_years','annual_value','total_value'],
+        'stadium_nr':['industry','start_year','term_years','annual_value','total_value'],'arena_nr':['industry','start_year','term_years','annual_value','total_value']}
+UNIT=lambda f:'USD' if f.endswith('_value') else 'years' if f=='term_years' else 'year' if f=='start_year' else 'text'
+# cells an early pass never wrote a row for (mostly SEC): treat them like the stale blanks
+CAND=list(M)+[dict(school=s,metric=f'{g}_{f}',value='--',unit=UNIT(f),fiscal_year_or_season='2026',notes='budget',_file='')
+              for s in sorted({r['school'] for r in M}) for g,fs in FIELDS.items() for f in fs if (s,f'{g}_{f}') not in V]
+for r in CAND:
     if not stale(r): continue
     s,m=r['school'],r['metric']
     g=next((g for g in LABEL if m.startswith(g+'_')),None)

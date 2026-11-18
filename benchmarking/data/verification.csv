@@ -36,6 +36,7 @@ California,Student-athlete meals,3358812,Found on source page,"automated text ch
 California,Head men's basketball coach,Mark Madsen,Re-read and confirmed,page re-read on 2026-11-13: ‘Mark Madsen Head Coach’,https://calbears.com/sports/mbball/roster/
 California,MBB HC contract end season (year season ends),2030,Found on source page,automated text check (weak match: 2030),https://abc7news.com/sports/cal-extends-mens-basketball-coach-mark-madsen-through-2030/14517587/
 California,Football stadium,California Memorial Stadium,Found on source page,automated text check (strong match: California Memorial Stadium),https://www.databricks.com/company/newsroom/press-releases/soda-hall-football-field-databricks-returns-berkeley-roots-cal
+California,Stadium year opened,1923,Found on source page,automated text check (weak match: 1923),https://newsarchive.berkeley.edu/news/media/releases/2005/11/10_stadium_history.shtml
 California,Arena capacity,11200,Re-read and confirmed,"page re-read on 2026-11-13: ‘(Haas Pavilion capacity changed to 11,200 for 2024-25 season).’",https://calbears.com/news/2026/1/14/mens-basketball-sellout-crowd-fills-haas-for-cals-first-berkeley-battle-with-no-6-duke.aspx
 California,Arena naming rights partner,Walter A. Haas Jr. (honoree),Found on source page,automated text check (medium match: all words: walter haas jr.),https://www.berkeley.edu/map/haas-pavilion/
 California,Playing surface name (football),Databricks Field,Found on source page,automated text check (strong match: Databricks Field),https://www.databricks.com/company/newsroom/press-releases/soda-hall-football-field-databricks-returns-berkeley-roots-cal
@@ -66,6 +67,7 @@ Clemson,Apparel start year,2018,Found on source page,automated text check (weak 
 Clemson,Apparel term (years),10,Found on source page,automated text check (medium match: 10-year),https://collegefootballtalk.nbcsports.com/2018/08/03/clemson-announces-10-year-58-million-apparel-contract-extension-with-nike/
 Clemson,Apparel total value,58000000,Found on source page,automated text check (strong match: $58 million),https://collegefootballtalk.nbcsports.com/2018/08/03/clemson-announces-10-year-58-million-apparel-contract-extension-with-nike/
 Clemson,Varsity sports sponsored,21,Found on source page,automated text check (medium match: 21 varsity sports),https://www.clemson.edu/about/impact/documents/impact-brags.pdf
+Duke,FB HC contract end season (year season begins),2031,Found on source page,automated text check (weak match: 2031),https://spectrumlocalnews.com/nc/charlotte/sports/2026/04/17/duke-football-manny-diaz-contract
 Duke,Head men's basketball coach,Jon Scheyer,Re-read and confirmed,page re-read on 2026-11-13: ‘Jon Scheyer Head Coach’,https://goduke.com/sports/mbball/coaches/
 Duke,Stadium last major renovation year,2016,Found on source page,automated text check (weak match: 2016),https://goduke.com/news/2014/9/25/209674388
 Duke,Men's basketball arena,Cameron Indoor Stadium,Found on source page,automated text check (strong match: Cameron Indoor Stadium),https://goduke.com/facilities/cameron-indoor-stadium/11
@@ -82,6 +84,7 @@ Florida State,Stadium capacity,67277,Found on source page,"automated text check 
 Florida State,Stadium year opened,1950,Re-read and confirmed,page re-read on 2026-11-13: ‘Bobby Bowden Field at Doak S. Campbell Stadium opened in 1950 and has welcomed millions of fans’,https://seminoles.com/sports/2026/1/16/doak-campbell-stadium
 Florida State,Stadium last major renovation year,2025,Re-read and confirmed,"page re-read on 2026-11-13: ‘As part of Doak Campbell Stadium’s 75th anniversary, a two-year renovation project was unveiled prior to the 2025 season opener against Alabama.’",https://seminoles.com/sports/2026/1/16/doak-campbell-stadium
 Florida State,Men's basketball arena,Donald L. Tucker Civic Center,Found on source page,automated text check (strong match: Donald L. Tucker Civic Center),https://announcements.fsu.edu/node/5161
+Florida State,Arena year opened,1981,Found on source page,automated text check (weak match: 1981),https://announcements.fsu.edu/node/5161
 Florida State,Stadium naming rights partner,Doak S. Campbell (honoree),Found on source page,automated text check (strong match: doak s. campbell),https://president.fsu.edu/?p=252
 Florida State,Arena naming rights partner,Donald L. Tucker (honoree),Found on source page,automated text check (strong match: donald l. tucker),https://announcements.fsu.edu/node/5161
 Florida State,Playing surface name (football),Bobby Bowden Field,Found on source page,automated text check (strong match: Bobby Bowden Field),https://president.fsu.edu/?p=252
@@ -127,6 +130,7 @@ Louisville,Head men's basketball coach,Pat Kelsey,Re-read and confirmed,page re-
 Louisville,Football stadium,L&N Federal Credit Union Stadium,Found on source page,automated text check (medium match: all words: l&n federal credit union),https://frontofficesports.com/article/ncaa-college-sports-jersey-patch-deals-football-basketbal-conference/
 Louisville,Stadium capacity,59823,Found on source page,"automated text check (strong match: 59,823)",https://gocards.com/documents/download/2026/9/28/Game_5_-_NC_State.pdf
 Louisville,Stadium year opened,1998,Re-read and confirmed,"page re-read on 2026-11-13: ‘Opened in 1998 and renovated in 2010 and 2019, Cardinal Stadium is a 60,800-seat facility located at the corner of Floyd Street and Central Avenue and is home to the UofL football program.’",https://gocards.com/news/2023/1/30/football-l-n-federal-credit-union-inks-naming-rights-deal-to-rename-cardinal-stadium
+Louisville,Stadium last major renovation year,2018,Found on source page,automated text check (weak match: 2018),https://landnstadium.com/guest-services/stadium-history
 Louisville,Men's basketball arena,KFC Yum! Center,Found on source page,automated text check (strong match: KFC Yum! Center),https://gocards.com/facilities/kfc-yum-center/7
 Louisville,Arena capacity,22090,Re-read and confirmed,"The page lists Basketball: 22,090 (read on 2026-11-13); source used at the analyst’s direction",
 Louisville,Stadium naming rights partner,L&N Federal Credit Union,Found on source page,automated text check (medium match: all words: l&n federal credit union),https://frontofficesports.com/article/ncaa-college-sports-jersey-patch-deals-football-basketbal-conference/
@@ -150,10 +154,12 @@ Miami (FL),Arena year opened,2003,Found on source page,automated text check (wea
 Miami (FL),Stadium naming rights partner,Hard Rock International,Found on source page,automated text check (strong match: Hard Rock International),https://cdcgaming.com/dolphins-hard-rock-stadium-deal-is-for-nearly-250-million/
 Miami (FL),Stadium naming rights start year,2016,Found on source page,automated text check (weak match: 2016),https://cdcgaming.com/dolphins-hard-rock-stadium-deal-is-for-nearly-250-million/
 Miami (FL),Arena naming rights partner,Watsco,Found on source page,automated text check (strong match: Watsco),https://miamihurricanes.com/facilities/watsco-center/
+Miami (FL),Arena naming rights start year,2016,Found on source page,automated text check (weak match: 2016),http://news.pollstar.com/2016/11/15/bankunited-center-now-watsco/
 Miami (FL),MMR start year,2021,Found on source page,automated text check (weak match: 2021),https://legendsglobal.com/legends-takes-another-step-into-college-signs-miami-to-10-year-deal/
 Miami (FL),MMR term (years),10,Found on source page,automated text check (medium match: 10-year),https://legendsglobal.com/legends-takes-another-step-into-college-signs-miami-to-10-year-deal/
 Miami (FL),Apparel partner,Nike,Re-read and confirmed,"page re-read on 2026-11-13: ‘Today, Nike and the University of Miami announced a new multi-year partnership, beginning in July 2027, that reunites two brands with a long history together.’",https://about.nike.com/en/newsroom/releases/nike-and-the-university-of-miami-reunite-in-a-new-multi-year-partnership
 Miami (FL),Apparel start year,2027,Re-read and confirmed,"page re-read on 2026-11-13: ‘Today, Nike and the University of Miami announced a new multi-year partnership, beginning in July 2027’",https://about.nike.com/en/newsroom/releases/nike-and-the-university-of-miami-reunite-in-a-new-multi-year-partnership
+Miami (FL),Apparel term (years),10,Found on source page,automated text check (medium match: 10-year),https://www.tsn.ca/ncaa/football/article/report-miami-going-back-to-nike-in-deal-that-will-exceed-200m/
 Miami (FL),Apparel total value,200000000,Re-read and confirmed,page re-read on 2026-11-13: ‘The sides have struck a 10-year deal that will exceed $200 million in total value’,https://www.tsn.ca/ncaa/football/article/report-miami-going-back-to-nike-in-deal-that-will-exceed-200m/
 Miami (FL),Varsity sports sponsored,18,Re-read and confirmed,page re-read on 2026-11-13,https://miamihurricanes.com/history/
 NC State,Head men's basketball coach,Justin Gainey,Re-read and confirmed,page re-read on 2026-11-13: ‘Justin Gainey Head Coach’,https://gopack.com/sports/mbball/coaches/
@@ -200,11 +206,13 @@ Pittsburgh,Jersey patch start year,2026,Found on source page,automated text chec
 Pittsburgh,MMR start year,2019,Re-read and confirmed,page re-read on 2026-11-13,https://www.jmisports.com/pitt-signs-long-term-multimedia-rights-deal-with-jmi-sports-21/
 Pittsburgh,Apparel partner,Nike,Re-read and confirmed,page re-read on 2026-11-13,https://www.utimes.pitt.edu/news/athletics-news-pitt
 Pittsburgh,Varsity sports sponsored,19,Found on source page,automated text check (medium match: 19 varsity teams),https://pittsburghpanthers.com/facilities/victory-heights-arena-and-sports-performance-center/95
+SMU,FB HC contract end season (year season begins),2032,Found on source page,automated text check (weak match: 2032),https://saturdayblitz.com/rhett-lashlee-lands-blockbuster-extension-as-smu-invests-big-in-its-future
 SMU,Head men's basketball coach,Andy Enfield,Re-read and confirmed,page re-read on 2026-11-13: ‘Andy Enfield Head Coach’,https://smumustangs.com/sports/mens-basketball/coaches
 SMU,Men's basketball arena,Moody Coliseum,Found on source page,automated text check (strong match: Moody Coliseum),https://smumustangs.com/facilities/moody-coliseum-volleyball/38
 SMU,Arena capacity,7000,Re-read and confirmed,"page re-read on 2026-11-13: ‘Opened: 1956 Capacity: 7,000 Location: 3009 Binkley Ave., Dallas, TX 75205’",https://smumustangs.com/facilities/moody-coliseum-volleyball/38
 SMU,Arena year opened,1956,Re-read and confirmed,"page re-read on 2026-11-13: ‘When Moody Coliseum opened in 1956, it was one of the largest structures of its kind.’",https://smumustangs.com/facilities/moody-coliseum-volleyball/38
 SMU,Stadium naming rights partner,Gerald J. Ford,Found on source page,automated text check (strong match: Gerald J. Ford),https://www.fox4news.com/sports/smu-gets-50-million-donation-for-ford-stadium-expansion
+SMU,Arena naming rights partner,Moody Foundation (donor),Found on source page,automated text check (strong match: moody foundation),https://www.smu.edu/news/archives/2011/moody-gift-20april2011
 SMU,Jersey patch partner,Texas Capital,Found on source page,automated text check (strong match: Texas Capital),https://frontofficesports.com/article/ncaa-college-sports-jersey-patch-deals-football-basketbal-conference/
 SMU,Jersey patch start year,2026,Found on source page,automated text check (weak match: 2026),https://frontofficesports.com/article/ncaa-college-sports-jersey-patch-deals-football-basketbal-conference/
 SMU,Apparel partner,Nike,Found on source page,automated text check (strong match: Nike),https://smumustangs.com/documents/download/2025/8/21/2025-26_Student-Athlete_Handbook.pdf
@@ -283,6 +291,7 @@ Virginia Tech,MMR term (years),10,Found on source page,automated text check (med
 Virginia Tech,Apparel partner,Nike,Found on source page,automated text check (strong match: Nike),https://www.withpavilion.com/solicitations/52969dc2-769d-4fc4-9d0a-2e8d5479dabc/contracts/virginia-tech_vtg-2161-2024_nike-usa-inc
 Virginia Tech,Varsity sports sponsored,22,Re-read and confirmed,"page re-read on 2026-11-13: ‘growing the scholarship endowment, and providing comprehensive support for all 22 varsity sports.’",https://hokiesports.com/news/2022/04/11/hokie-club-concludes-successful-year-of-athletics-fundraising
 Wake Forest,Head men's basketball coach,Steve Forbes,Re-read and confirmed,page re-read on 2026-11-13: ‘Steve Forbes Head Men’s Basketball Coach’,https://godeacs.com/sports/mbball/coaches/
+Wake Forest,Stadium last major renovation year,2008,Found on source page,automated text check (weak match: 2008),https://stadium.ljvm.com/venue-info
 Wake Forest,Men's basketball arena,Lawrence Joel Veterans Memorial Coliseum,Found on source page,automated text check (strong match: Lawrence Joel Veterans Memorial Coliseum),https://godeacs.com/documents/download/2026/11/4/Wake_Forest_Game_Notes_-_Game_2_-_at_No._24_Vanderbilt_-_11.5.26.pdf
 Wake Forest,Arena capacity,12799,Found on source page,"automated text check (strong match: 12,799)",https://godeacs.com/documents/download/2026/11/4/Wake_Forest_Game_Notes_-_Game_2_-_at_No._24_Vanderbilt_-_11.5.26.pdf
 Wake Forest,Arena year opened,1989,Found on source page,automated text check (weak match: 1989),https://godeacs.com/news/2019/12/6/mens-basketball-ljvm-coliseums-opening-dawns-new-era-for-wake-forest-and-winston-salem
@@ -453,6 +462,7 @@ Minnesota,Stadium naming rights expires,2030,Re-read and confirmed,page re-read 
 Nebraska,FB HC contract end season (year season begins),2032,Found on source page,automated text check (weak match: 2032),https://docs.nebraska.edu/unop/docs/transparency/Coach%20Matt%20Rhule%20Employment%20Agreement.pdf
 Nebraska,Football stadium,Memorial Stadium,Found on source page,automated text check (strong match: Memorial Stadium),https://huskers.com/facilities/memorial-stadium
 Nebraska,Stadium year opened,1923,Re-read and confirmed,page re-read on 2026-11-13: ‘Oldest FBS Stadiums (West of the Mississippi) Stadium School Built ... Memorial Stadium Nebraska 1923’,https://okstate.com/sports/2015/6/18/GEN_0618155302
+Nebraska,Stadium last major renovation year,2013,Found on source page,automated text check (weak match: 2013),https://news.unl.edu/article/stadium-expansion-celebrated
 Nebraska,Men's basketball arena,Pinnacle Bank Arena,Found on source page,automated text check (strong match: Pinnacle Bank Arena),https://huskers.com/news/2013/08/30/pinnacle-bank-arena-opens
 Nebraska,Arena year opened,2013,Found on source page,automated text check (weak match: 2013),https://huskers.com/news/2013/08/30/pinnacle-bank-arena-opens
 Nebraska,Arena naming rights partner,Pinnacle Bank,Found on source page,automated text check (strong match: Pinnacle Bank),https://huskers.com/news/2012/01/31/pinnacle-bank-arena
@@ -470,7 +480,9 @@ Nebraska,Apparel start year,2017,Found on source page,automated text check (weak
 Nebraska,Apparel term (years),11,Found on source page,automated text check (medium match: 11-year),https://www.nbcsports.com/college-football/news/nebraska-set-to-approve-11-year-extension-with-adidas-worth-129-million
 Nebraska,Apparel total value,129000000,Found on source page,automated text check (strong match: $129 million),https://www.nbcsports.com/college-football/news/nebraska-set-to-approve-11-year-extension-with-adidas-worth-129-million
 Nebraska,Varsity sports sponsored,25,Found on source page,automated text check (medium match: 25-sport),https://huskers.com/staff/troy-dannen
+Northwestern,FB HC contract end season (year season begins),2031,Found on source page,automated text check (weak match: 2031),https://www.nbcsports.com/college-football/news/northwestern-extends-david-brauns-contract-through-the-2031-season
 Northwestern,Head men's basketball coach,Chris Collins,Re-read and confirmed,page re-read on 2026-11-13: ‘Sullivan-Ubben Head Men’s Basketball Coach Chris Collins has guided’,https://nusports.com/sports/mens-basketball/roster/season/2026-27/staff/chris-collins
+Northwestern,MBB HC contract end season (year season ends),2028,Found on source page,automated text check (weak match: 2028),https://www.thescore.com/ncaab/news/2640481
 Northwestern,Football stadium,Ryan Field,Found on source page,automated text check (strong match: Ryan Field),https://nusports.com/ryan-field
 Northwestern,Stadium year opened,2026,Found on source page,automated text check (weak match: 2026),https://6abc.com/post/penn-state-no-match-northwestern-ryan-field-opener/19903292/
 Northwestern,Stadium last major renovation year,2026,Re-read and confirmed,page re-read on 2026-11-13: ‘The Wildcats will play their first-ever contest in the New Ryan Field for the season’s Big Ten home opener.’,https://nusports.com/news/2026/09/29/new-ryan-field-david-braun-usher-in-transformative-era-of-northwestern-football
@@ -503,6 +515,7 @@ Ohio State,Jersey patch partner,JPMorganChase,Found on source page,automated tex
 Ohio State,Jersey patch start year,2026,Re-read and confirmed,page re-read on 2026-11-13: ‘Ohio State will be donning a new JPMorganChase jersey patch starting in 2026 as part of a sponsorship deal with all 36 varsity sports programs.’,https://bleacherreport.com/articles/25458592-ohio-state-unveils-jpmorganchase-jersey-patch-video-photos-after-historic-contract
 Ohio State,Jersey patch annual value,17000000,Found on source page,automated text check (strong match: $17 million),https://www.nationalfootballpost.com/ohio-state-signs-record-17m-jersey-patch-deal-with-chase
 Ohio State,Apparel partner,Nike,Re-read and confirmed,page re-read on 2026-11-13,https://www.foxsports.com/stories/other/ohio-state-nike-agree-on-252m-sponsorship-extension
+Ohio State,Apparel start year,2018,Found on source page,automated text check (weak match: 2018),https://www.ksl.com/article/38140542
 Ohio State,Apparel term (years),15,Re-read and confirmed,page re-read on 2026-11-13,https://www.foxsports.com/stories/other/ohio-state-nike-agree-on-252m-sponsorship-extension
 Ohio State,Apparel total value,252000000,Re-read and confirmed,page re-read on 2026-11-13,https://www.foxsports.com/stories/other/ohio-state-nike-agree-on-252m-sponsorship-extension
 Ohio State,Varsity sports sponsored,36,Found on source page,automated text check (medium match: 36 varsity sports),https://news.osu.edu/ohio-state-remains-committed-to-36-varsity-sports/
@@ -522,6 +535,7 @@ Oregon,MMR start year,2019,Found on source page,automated text check (weak match
 Oregon,MMR term (years),10,Found on source page,automated text check (medium match: ten-year),https://trustees.uoregon.edu/sites/default/files/meeting_packet_-_ffc_16_march_2020_-_v3.pdf
 Oregon,MMR total value,123050000,Found on source page,automated text check (strong match: $123.05 million),https://trustees.uoregon.edu/sites/default/files/meeting_packet_-_ffc_16_march_2020_-_v3.pdf
 Oregon,Apparel partner,Nike,Found on source page,automated text check (strong match: Nike),https://www.complex.com/sneakers/a/brandon-richard/nike-oregon-88-million-deal
+Oregon,Apparel start year,2017,Found on source page,automated text check (weak match: 2017),https://trustees.uoregon.edu/sites/trustees2.uoregon.edu/files/resolution_approval_of_multi-sport_apparel_agreenment_for_oregon_athletics.pdf
 Oregon,Apparel term (years),11,Found on source page,automated text check (medium match: 11-year),https://www.complex.com/sneakers/a/brandon-richard/nike-oregon-88-million-deal
 Oregon,Apparel total value,88000000,Found on source page,automated text check (strong match: $88 million),https://www.complex.com/sneakers/a/brandon-richard/nike-oregon-88-million-deal
 Penn State,FB HC total pay,8000000,Found on source page,automated text check (strong match: $8 mil),https://onwardstate.com/2025/12/08/matt-campbells-penn-state-contract-details-revealed/
@@ -603,6 +617,7 @@ UCLA,Field naming rights partner,Tod Spieker family (donors),Found on source pag
 UCLA,MMR start year,2024,Found on source page,automated text check (weak match: 2024),https://uclabruins.com/news/2024/9/5/bruin-athletics-ucla-athletics-jmi-sports-sign-11-year-multimedia-rights-partnership
 UCLA,MMR term (years),11,Found on source page,automated text check (medium match: 11-year),https://uclabruins.com/news/2024/9/5/bruin-athletics-ucla-athletics-jmi-sports-sign-11-year-multimedia-rights-partnership
 UCLA,MMR total value,108000000,Found on source page,automated text check (strong match: $108 million),https://sports.yahoo.com/amid-revolutionary-changes-ucla-extends-185729610.html
+UCLA,Apparel start year,2021,Found on source page,automated text check (weak match: 2021),https://www.formula4media.com/articles/ucla-partners-with-nike-after-ua-split
 UCLA,Apparel term (years),6,Re-read and confirmed,"page re-read on 2026-11-13: ‘While the school was able to pivot and strike a new deal with Jordan Brand and Nike, the six-year, $46.45 million contract did not do nearly enough’",https://www.si.com/college/ucla/news/report-ucla-reaches-67-million-settlement-with-under-armour
 UCLA,Apparel total value,46450000,Re-read and confirmed,"page re-read on 2026-11-13: ‘While the school was able to pivot and strike a new deal with Jordan Brand and Nike, the six-year, $46.45 million contract did not do nearly enough’",https://www.si.com/college/ucla/news/report-ucla-reaches-67-million-settlement-with-under-armour
 UCLA,Varsity sports sponsored,23,Found on source page,automated text check (medium match: 23 teams),https://uclabruins.com/news/2026/5/5/bruin-athletics-ucla-teams-record-high-academic-progress-rates
@@ -610,8 +625,8 @@ USC,Stadium last major renovation year,2019,Found on source page,automated text 
 USC,Playing surface name (football),United Airlines Field,Found on source page,automated text check (strong match: United Airlines Field),https://www.cbsnews.com/losangeles/news/following-criticism-usc-and-united-airlines-reach-naming-rights-deal-for-la-memorial-coliseum-field/
 USC,Field rights type,Naming rights,Found on source page,automated text check (strong match: Naming rights),https://www.cbsnews.com/losangeles/news/following-criticism-usc-and-united-airlines-reach-naming-rights-deal-for-la-memorial-coliseum-field/
 USC,Field naming rights partner,United Airlines,Found on source page,automated text check (strong match: United Airlines),https://www.cbsnews.com/losangeles/news/following-criticism-usc-and-united-airlines-reach-naming-rights-deal-for-la-memorial-coliseum-field/
-USC,Field naming rights start year,2019,Found on source page,automated text check (weak match: 2019),https://www.nbcsports.com/college-football/news/united-usc-strike-10-year-deal-for-l-a-coliseum-field-naming-rights
-USC,Field naming rights term (years),10,Found on source page,automated text check (medium match: 10-year),https://www.nbcsports.com/college-football/news/united-usc-strike-10-year-deal-for-l-a-coliseum-field-naming-rights
+USC,Field naming rights start year,2019,Found on source page,automated text check (weak match: 2019),https://today.usc.edu/the-university-of-southern-california-and-united-airlines-agree-to-field-naming/
+USC,Field naming rights term (years),10,Found on source page,automated text check (medium match: 10-year),https://today.usc.edu/the-university-of-southern-california-and-united-airlines-agree-to-field-naming/
 USC,MMR partner,Learfield,Found on source page,automated text check (strong match: Learfield),https://www.lafbnetwork.com/ncaaf/usc-trojans/usc-trojans-news/usc-trojans-new-partnership-learfield
 USC,MMR start year,2026,Found on source page,automated text check (weak match: 2026),https://www.lafbnetwork.com/ncaaf/usc-trojans/usc-trojans-news/usc-trojans-new-partnership-learfield
 USC,MMR term (years),15,Found on source page,automated text check (medium match: 15-year),https://www.lafbnetwork.com/ncaaf/usc-trojans/usc-trojans-news/usc-trojans-new-partnership-learfield
@@ -700,11 +715,13 @@ Arizona State,Apparel term (years),5,Re-read and confirmed,page re-read on 2026-
 Arizona State,Varsity sports sponsored,26,Found on source page,automated text check (medium match: 26 sports),https://thesundevils.com/sun-devil-student-athletes-by-yearsport-additions
 Baylor,Head men's basketball coach,Scott Drew,Re-read and confirmed,page re-read on 2026-11-13: ‘Scott Drew Head Coach’,https://baylorbears.com/sports/mbball/coaches/
 Baylor,Stadium capacity,45140,Re-read and confirmed,page re-read on 2026-11-13,https://baylorbears.com/documents/download/2026/8/19/BU_FB_2026_Media_Almanac_081926_web_version.pdf
+Baylor,Stadium last major renovation year,2024,Found on source page,automated text check (weak match: 2024),https://baylorlariat.com/2024/08/28/baylor-football-looks-to-break-mclane-stadium-woes-on-10-year-anniversary/
 Baylor,Apparel partner,Nike,Found on source page,automated text check (strong match: Nike),https://www.kbtx.com/2026/11/02/texas-am-athletics-final-year-adidas-contract-could-test-very-different-market/
 BYU,Head men's basketball coach,Kevin Young,Re-read and confirmed,page re-read on 2026-11-13: ‘Kevin Young Head Coach’,https://byucougars.com/sports/mens-basketball/roster
 BYU,Football stadium,LaVell Edwards Stadium,Found on source page,automated text check (strong match: LaVell Edwards Stadium),https://byucougars.com/athletic-facilities
 BYU,Stadium capacity,62073,Found on source page,"automated text check (strong match: 62,073)",https://byucougars.com/athletic-facilities
 BYU,Stadium year opened,1964,Found on source page,automated text check (weak match: 1964),https://byucougars.com/athletic-facilities
+BYU,Stadium last major renovation year,2026,Found on source page,automated text check (weak match: 2026),https://byucougars.com/news/2026/08/22/lavell-edwards-stadium-upgrades-ready-for-2026
 BYU,Men's basketball arena,Marriott Center,Found on source page,automated text check (strong match: Marriott Center),https://byucougars.com/basketball-facilities
 BYU,Arena capacity,17978,Found on source page,"automated text check (strong match: 17,978)",https://byucougars.com/basketball-facilities
 BYU,Arena year opened,1971,Found on source page,automated text check (weak match: 1971),https://byucougars.com/basketball-facilities
@@ -754,6 +771,7 @@ Colorado,Varsity sports sponsored,17,Found on source page,"automated text check 
 Houston,Football stadium,TDECU Stadium,Found on source page,automated text check (strong match: TDECU Stadium),https://www.click2houston.com/news/local/2022/09/08/tdecu-expands-naming-rights-to-university-of-houstons-tdecu-stadium-through-at-least-2034
 Houston,Stadium capacity,40000,Re-read and confirmed,"page re-read on 2026-11-13: ‘TDECU Stadium has a seating capacity of 40,000.’",https://stories.uh.edu/2023-june-tdecu-extension/index.html
 Houston,Stadium year opened,2014,Re-read and confirmed,page re-read on 2026-11-13: ‘When UH first partnered with TDECU in 2014 and opened the $128 million TDECU Stadium’,https://stories.uh.edu/2023-june-tdecu-extension/index.html
+Houston,Stadium last major renovation year,2025,Found on source page,automated text check (weak match: 2025),https://www.dlrgroup.com/firm-news/memorial-hermann-football-operations-center-unveiled/
 Houston,Men's basketball arena,Fertitta Center,Found on source page,automated text check (strong match: Fertitta Center),http://www.uh.edu/fertitta-center/venue-information/sponsorship/
 Houston,Arena capacity,7035,Found on source page,"automated text check (strong match: 7,035)",https://s3.us-east-2.amazonaws.com/sidearm.nextgen.sites/uhcougars.com/documents/2025/7/28/mbkb_Prospectus_07282025.pdf
 Houston,Arena year opened,2018,Found on source page,automated text check (weak match: 2018),https://s3.us-east-2.amazonaws.com/sidearm.nextgen.sites/uhcougars.com/documents/2025/7/28/mbkb_Prospectus_07282025.pdf
@@ -768,6 +786,7 @@ Houston,Playing surface name (men's basketball),Penick Court,Found on source pag
 Houston,Court naming rights partner,Rusty and Tricia Penick and family (donors),Found on source page,automated text check (medium match: all words: rusty tricia penick family),https://thedailycougar.com/2019/10/07/houston-dedicates-penick-court-fertitta-center/
 Houston,MMR partner,Learfield,Found on source page,automated text check (strong match: Learfield),https://uhcougars.com/news/2025/1/14/general-houston-athletics-and-learfield-announce-multimedia-rights-renewal
 Houston,Apparel partner,Nike,Found on source page,automated text check (strong match: Nike),https://www.kbtx.com/2026/11/02/texas-am-athletics-final-year-adidas-contract-could-test-very-different-market/
+Houston,Varsity sports sponsored,17,Found on source page,automated text check (medium match: 17 sports programs),https://www.uh.edu/sfac/unit-requests/fy26/departments/athletics/fy26q_athletics.pdf
 Iowa State,FB HC total pay,3000000,Re-read and confirmed,Raised by the second independent review and read on the source page on 2026-11-13,
 Iowa State,Head men's basketball coach,T.J. Otzelberger,Re-read and confirmed,page re-read on 2026-11-13: ‘T.J. Otzelberger Head Coach’,https://cyclones.com/sports/mbball/coaches/
 Iowa State,MBB HC contract end season (year season ends),2036,Re-read and confirmed,"page re-read on 2026-11-13: ‘Per the release, the head coach has agreed to a 10-year extension, putting him under contract through 2036.’",https://www.si.com/college/iowa-state/basketball/tj-otzelberger-agrees-to-massive-extension-with-iowa-state-basketball
@@ -779,6 +798,7 @@ Iowa State,Men's basketball arena,Hilton Coliseum,Found on source page,automated
 Iowa State,Arena capacity,14267,Found on source page,"automated text check (strong match: 14,267)",https://static.hailstate.com/custompages/pdf/mbk/202526/Game2IowaState-Opp.pdf
 Iowa State,Arena year opened,1971,Found on source page,automated text check (weak match: 1971),https://static.hailstate.com/custompages/pdf/mbk/202526/Game2IowaState-Opp.pdf
 Iowa State,Stadium naming rights partner,Jack Trice (honoree),Found on source page,automated text check (strong match: jack trice),https://www.radioiowa.com/2018/08/01/isu-sells-football-field-naming-rights-to-midamerican-energy/
+Iowa State,Arena naming rights partner,James H. Hilton (honoree),Found on source page,"Read on the cited page on 2026-11-18: ‘The Coliseum was named after Dr. James H. Hilton, ISU’s President from 1953-65’.",
 Iowa State,Playing surface name (football),MidAmerican Energy Field,Found on source page,automated text check (strong match: MidAmerican Energy Field),https://www.radioiowa.com/2018/08/01/isu-sells-football-field-naming-rights-to-midamerican-energy/
 Iowa State,Field rights type,Naming rights,Found on source page,automated text check (strong match: Naming rights),https://www.radioiowa.com/2018/08/01/isu-sells-football-field-naming-rights-to-midamerican-energy/
 Iowa State,Field naming rights partner,MidAmerican Energy,Found on source page,automated text check (strong match: MidAmerican Energy),https://www.radioiowa.com/2018/08/01/isu-sells-football-field-naming-rights-to-midamerican-energy/
@@ -811,7 +831,9 @@ Kansas,Apparel partner,adidas,Found on source page,automated text check (strong 
 Kansas,Apparel start year,2017,Found on source page,automated text check (weak match: 2017),https://www2.ljworld.com/sports/ku-football/2019/apr/24/ku-announces-partnership-extension-with-adidas-through-2031/
 Kansas,Apparel term (years),14,Found on source page,automated text check (medium match: 14-year),https://www2.ljworld.com/sports/ku-football/2019/apr/24/ku-announces-partnership-extension-with-adidas-through-2031/
 Kansas,Apparel total value,196000000,Found on source page,automated text check (strong match: $196 million),https://www2.ljworld.com/sports/ku-football/2019/apr/24/ku-announces-partnership-extension-with-adidas-through-2031/
+Kansas,Varsity sports sponsored,16,Found on source page,automated text check (medium match: 16 varsity sports teams),https://www2.kusports.com/sports/2025/dec/31/26-jayhawk-athletes-to-know-in-26/
 Kansas State,FB HC total pay,4100000,Re-read and confirmed,"page re-read on 2026-11-13: ‘Klein’s deal runs for five years and will have a base salary of $4.1 million for the 2026 season. That amount will increase by $100,000 for the next four seasons.’",https://1350kman.com/2025/12/details-on-new-k-state-coach-collin-kleins-contract/
+Kansas State,MBB HC total pay 2026,3300000,Found on source page,automated text check (strong match: $3.3 million),https://themercury.com/k_state_sports/details-on-new-k-state-mens-basketball-coach-casey-alexanders-5-year-contract/article_9d4ef9bd-362a-468e-8960-8a2c34c055f9.html
 Kansas State,Football stadium,Bill Snyder Family Stadium,Found on source page,automated text check (strong match: Bill Snyder Family Stadium),https://www.kstatesports.com/news/2024/9/12/sports-extra-theres-no-place-else-like-it
 Kansas State,Stadium capacity,50000,Found on source page,"automated text check (strong match: 50,000)",https://s3.us-east-2.amazonaws.com/sidearm.nextgen.sites/kstate.sidearmsports.com/documents/2026/8/31/Game_1_-_Nicholls.pdf
 Kansas State,Stadium year opened,1968,Re-read and confirmed,"page re-read on 2026-11-13: ‘The stadium opened its doors Sept. 21, 1968, with a 21-0 shutout of Colorado State.’",https://www.kstatesports.com/news/2009/7/20/5583e65be4b06b726e665603_131478115769813575
@@ -829,6 +851,7 @@ Kansas State,Jersey patch term (years),1,Found on source page,automated text che
 Kansas State,Apparel partner,Nike,Found on source page,automated text check (strong match: Nike),https://www.yahoo.com/news/k-state-apparel-contract-leaves-184846337.html
 Kansas State,Apparel start year,2024,Found on source page,automated text check (weak match: 2024),https://www.yahoo.com/news/k-state-apparel-contract-leaves-184846337.html
 Kansas State,Apparel term (years),3,Found on source page,automated text check (medium match: three years),https://www.yahoo.com/news/k-state-apparel-contract-leaves-184846337.html
+Kansas State,Varsity sports sponsored,16,Found on source page,automated text check (medium match: 16 sport programs),https://littleapplepost.com/posts/5a832fdc-17ef-4429-863c-355fa0ff0922
 Oklahoma State,FB HC total pay,3800000,Re-read and confirmed,"page re-read on 2026-11-13: ‘The five-year deal runs through Jan. 31, 2031, and pays Morris a base salary of $3.8 million in 2026, with a $100,000 annual increase each February 1.’",https://www.si.com/college/oklahomastate/football/eric-morris-officially-named-osu-head-coach-with-5-year-contract
 Oklahoma State,Head men's basketball coach,Steve Lutz,Re-read and confirmed,page re-read on 2026-11-13: ‘Steve Lutz Head Coach’,https://okstate.com/sports/mbball/coaches/
 Oklahoma State,Football stadium,Boone Pickens Stadium,Found on source page,automated text check (strong match: Boone Pickens Stadium),https://okstate.com/sports/2015/6/18/GEN_0618155302
@@ -842,6 +865,7 @@ TCU,Head men's basketball coach,Jamie Dixon,Re-read and confirmed,page re-read o
 TCU,Stadium year opened,1930,Found on source page,automated text check (weak match: 1930),https://s3.us-east-2.amazonaws.com/sidearm.nextgen.sites/gofrogs.com/documents/2026/10/26/0826_TCU_Game_Notes_vs._Kansas.pdf
 TCU,Men's basketball arena,Ed and Rae Schollmaier Arena,Found on source page,automated text check (strong match: Ed and Rae Schollmaier Arena),https://gofrogs.com/sports/2018/7/13/facilities-tcu-facilities-basketball-html
 TCU,Arena capacity,6800,Re-read and confirmed,"page re-read on 2026-11-13: ‘Facility Facts Year Opened: 1961 Renovated: 2015 Facility Name: Ed and Rae Schollmaier Arena Pronunciation: shole-my-er Capacity: 6,800’",https://gofrogs.com/sports/2018/7/13/facilities-tcu-facilities-basketball-html
+TCU,Arena year opened,1961,Found on source page,automated text check (weak match: 1961),https://magazine.tcu.edu/latest-news/schollmaier-arena-to-be-new-name-for-coliseum/
 TCU,Arena naming rights partner,Ed and Rae Schollmaier,Found on source page,automated text check (strong match: Ed and Rae Schollmaier),https://gofrogs.com/sports/2018/7/13/facilities-tcu-facilities-basketball-html
 TCU,Playing surface name (football),Moncrief Field,Found on source page,automated text check (medium match: all words: moncrief),https://magazine.tcu.edu/?p=5286
 TCU,Apparel partner,Nike,Found on source page,automated text check (strong match: Nike),https://www.kbtx.com/2026/11/02/texas-am-athletics-final-year-adidas-contract-could-test-very-different-market/
@@ -1001,6 +1025,7 @@ Florida,Playing surface name (football),Steve Spurrier-Florida Field,Found on so
 Florida,Field naming rights partner,Steve Spurrier (honoree),Found on source page,automated text check (strong match: steve spurrier),https://s3.us-east-2.amazonaws.com/sidearm.nextgen.sites/gatorzone.com/documents/2026/11/2/WEEK_10_NOTES_-_MASTER_-_OKLAHOMA.pdf
 Florida,Playing surface name (men's basketball),Billy Donovan Court,Found on source page,automated text check (strong match: Billy Donovan Court),https://onlygators.com/?p=100124
 Florida,Court naming rights partner,Billy Donovan (honoree),Found on source page,automated text check (strong match: billy donovan),https://onlygators.com/?p=100124
+Florida,Apparel partner,Jordan Brand,Found on source page,automated text check (strong match: Jordan Brand),https://www.si.com/onsi/jerseys/news/georgia-florida-vanderbilt-have-new-alternate-uniforms-on-the-way
 Florida,Varsity sports sponsored,21,Found on source page,automated text check (medium match: 21 sports),https://floridagators.com/news/2021/9/2/general-florida-gators-and-the-brandr-group-launch-group-licensing-for-student-athletes
 Georgia,FB HC contract end season (year season begins),2033,Found on source page,automated text check (weak match: 2033),https://www.si.com/college/2024/05/02/georgia-kirby-smart-contract-extension
 Georgia,MBB HC contract end season (year season ends),2031,Found on source page,automated text check (weak match: 2031),https://www.ajc.com/sports/2026/02/details-of-mike-whites-contract-extension-confirmed-include-escalator-clause
@@ -1015,6 +1040,7 @@ Georgia,Stadium naming rights partner,Steadman Vincent Sanford (honoree),Found o
 Georgia,Arena naming rights partner,Stegeman (honoree),Re-read and confirmed,page re-read on 2026-11-13: ‘in memory of former AD and basketball coach Herman J. Stegeman’,https://news.uga.edu/?p=6906
 Georgia,Playing surface name (football),Dooley Field,Found on source page,automated text check (strong match: Dooley Field),https://s3.us-east-2.amazonaws.com/sidearm.nextgen.sites/georgiadogs.com/documents/2026/8/31/26FB_GameNotes_TSU.pdf
 Georgia,Field naming rights partner,Vince Dooley (honoree),Found on source page,automated text check (strong match: vince dooley),https://s3.us-east-2.amazonaws.com/sidearm.nextgen.sites/georgiadogs.com/documents/2026/8/31/26FB_GameNotes_TSU.pdf
+Georgia,Apparel partner,Nike,Found on source page,automated text check (strong match: Nike),https://www.si.com/onsi/jerseys/news/georgia-florida-vanderbilt-have-new-alternate-uniforms-on-the-way
 Georgia,Varsity sports sponsored,21,Re-read and confirmed,page re-read on 2026-11-13,https://www.ajc.com/sports/georgia-bulldogs/raise-extension-for-josh-brooks-highlights-georgias-end-of-year-board-meeting/HAPDHIBJ7VAMFGPBR6XGKUMYUU
 Kentucky,FB HC total pay,5500000,Re-read and confirmed,"page re-read on 2026-11-13: ‘Stein’s contract will last through January 2031, with his pay beginning at $5,500,000 for the 2026 season.’",https://www.lex18.com/sports/uk-to-pay-football-head-coach-will-stein-5-year-28-5-minimum-contract
 Kentucky,Head men's basketball coach,Mark Pope,Re-read and confirmed,page re-read on 2026-11-13: ‘Mark Pope Head Coach’,https://ukathletics.com/sports/mbball/roster/
@@ -1060,6 +1086,8 @@ LSU,Jersey patch start year,2026,Re-read and confirmed,Stated on the source page
 LSU,MMR partner,Playfly,Found on source page,automated text check (strong match: Playfly),https://www.businessreport.com/business/lsu-board-weighs-10-year-contract-extension-with-multimedia-rights-manager?amp=1
 LSU,MMR term (years),10,Found on source page,automated text check (medium match: 10-year),https://www.businessreport.com/business/lsu-board-weighs-10-year-contract-extension-with-multimedia-rights-manager?amp=1
 LSU,MMR annual value,9400000,Found on source page,automated text check (strong match: $9.4 million),https://www.businessreport.com/business/lsu-board-weighs-10-year-contract-extension-with-multimedia-rights-manager?amp=1
+LSU,Apparel partner,Nike,Found on source page,automated text check (strong match: Nike),https://lsusports.net/news/2025/12/11/lsu-athletics-announces-long-term-partnership-extension-with-nike-leads-nikes-launch-of-blue-ribbon-elite-nil-program/
+LSU,Apparel term (years),10,Found on source page,automated text check (medium match: 10-year),https://sports.yahoo.com/articles/nike-returning-roots-college-sports-150000196.html
 LSU,Varsity sports sponsored,21,Found on source page,automated text check (medium match: 21 varsity sports),https://lsusports.net/news/2026/08/10/lsu-athletics-kickoff-week-aug-10-16-2026
 Mississippi State,Football stadium,Davis Wade Stadium,Found on source page,The school's facility page is for Davis Wade Stadium at Scott Field; the building name is the first part of that name.,
 Mississippi State,Stadium capacity,60311,Found on source page,"automated text check (strong match: 60,311)",https://static.hailstate.com/custompages/pdf/fb/fb_24mg.pdf
@@ -1091,6 +1119,7 @@ Missouri,Court naming rights partner,Norm Stewart (honoree),Found on source page
 Missouri,Jersey patch partner,Ambetter Health,Found on source page,automated text check (strong match: Ambetter Health),https://frontofficesports.com/ncaa-college-sports-jersey-patch-deals-football-basketbal-conference/
 Missouri,Jersey patch start year,2026,Found on source page,automated text check (weak match: 2026),https://frontofficesports.com/ncaa-college-sports-jersey-patch-deals-football-basketbal-conference/
 Missouri,MMR partner,Learfield,Found on source page,automated text check (strong match: Learfield),https://mutigers.com/sports/2025/6/2/mizzou-athletics-for-businesses.aspx
+Missouri,Apparel partner,Nike,Found on source page,automated text check (strong match: Nike),https://mutigers.com/news/2026/08/19/mizzou-unveils-throwback-football-uniforms-for-memorial-stadium-100th-anniversary-game
 Missouri,Varsity sports sponsored,20,Found on source page,automated text check (medium match: 20 varsity programs),https://mutigers.com/news/2026/08/28/athletics-delivers-historic-sponsorship-growth-nil-opportunities-in-partnership-with-learfield
 Oklahoma,FB HC contract end season (year season begins),2031,Found on source page,The page gives the contract’s end as quoted in the note; the last season it covers is shown (convention set on 2026-11-13),
 Oklahoma,Head men's basketball coach,Porter Moser,Re-read and confirmed,page re-read on 2026-11-13: ‘Porter Moser Head Coach’,https://soonersports.com/sports/mens-basketball/coaches
@@ -1202,6 +1231,7 @@ Vanderbilt,Field naming rights partner,Dudley (honoree),Found on source page,aut
 Vanderbilt,Jersey patch partner,SRM Concrete,Found on source page,automated text check (strong match: SRM Concrete),https://frontofficesports.com/ncaa-college-sports-jersey-patch-deals-football-basketbal-conference/
 Vanderbilt,Jersey patch start year,2026,Found on source page,automated text check (weak match: 2026),https://frontofficesports.com/ncaa-college-sports-jersey-patch-deals-football-basketbal-conference/
 Vanderbilt,MMR partner,Learfield,Found on source page,automated text check (strong match: Learfield),https://vucommodores.com/firstbankstadium/
+Vanderbilt,Apparel partner,Nike,Found on source page,automated text check (strong match: Nike),https://vucommodores.com/news/2026/08/24/dores-wear-gold
 Vanderbilt,Varsity sports sponsored,17,Found on source page,automated text check (medium match: 17 varsity sports),https://vucommodores.com/news/2026/06/15/commodores-on-a-mission
 Notre Dame,FB HC contract end season (year season begins),2031,Found on source page,automated text check (weak match: 2031),https://www.si.com/college-football/sources-marcus-freeman-spurns-nfl-interest-to-remain-at-notre-dame
 Notre Dame,Head men's basketball coach,Micah Shrewsberry,Re-read and confirmed,page re-read on 2026-11-13: ‘Micah Shrewsberry Glenn & Stacey Murphy Head Men’s Basketball Coach’,https://fightingirish.com/sports/mbball/roster
@@ -1332,6 +1362,10 @@ Ole Miss,Team travel: other sports,3167248,Found on source page,Read in the save
 Ole Miss,"Fundraising, marketing and promotion",17951333,Found on source page,Read in the saved copy of the school's FY2025 NCAA report on 2026-11-18 (Statement of Revenues and Expenses by sport); the site refuses the automated re-check.,
 Ole Miss,Student-athlete meals,2006072,Found on source page,Read in the saved copy of the school's FY2025 NCAA report on 2026-11-18 (Statement of Revenues and Expenses by sport); the site refuses the automated re-check.,
 California,Team travel: other sports,5754350,Found on source page,"Read in the saved copy of the school's FY2025 statement on 2026-11-18: Other Men's Sports 2,642,908 and Other Women Sports 3,111,442 on line 28, added together.",
+Duke,MBB HC contract end season (year season ends),2031,Found on source page,Read on the cited page on 2026-11-18: ‘Duke coach Jon Scheyer has agreed to a two-year extension running through the 2030-31 season’.,
+Duke,Arena naming rights partner,Eddie Cameron (honoree),Found on source page,"Read on the cited page on 2026-11-18: ‘It was named for Eddie Cameron, longtime coach and athletic director, in 1972.’",
+West Virginia,Stadium last major renovation year,2017,Found on source page,Read on the cited page on 2026-11-18: ‘Cost: $48.9 million Completion Date: 2017’.,
+Baylor,Varsity sports sponsored,19,Found on source page,Read on the cited page on 2026-11-18: ‘Baylor is a founding member of the competitive Big 12 Conference and fields 19 varsity athletic teams.’ The site refuses the automated re-check.,
 California,Stadium capacity,52428,Re-read and confirmed,"page re-read on 2026-11-13: ‘Capacity....................................................................................................52,428’",https://calbears.com/documents/download/2026/8/7/2026_Cal_Football_Info_Guide.pdf
 California,Stadium last major renovation year,2012,Re-read and confirmed,"page re-read on 2026-11-13: ‘California Memorial Stadium reopend after a 21-month renovation on Sept. 1, 2012.’",https://calbears.com/sports/2013/4/17/208213293.aspx
 California,Men's basketball arena,Haas Pavilion,Re-read and confirmed,"page re-read on 2026-11-13: ‘Haas Pavilion serves as the home venue for five of Cal’s sports programs – men’s and women’s basketball, women’s volleyball, and men’s and women’s gymnastics.’",https://calbears.com/news/2014/8/25/209616892

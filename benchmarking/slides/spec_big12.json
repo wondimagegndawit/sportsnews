@@ -2974,9 +2974,9 @@
    "label": "Men's basketball head coach total pay",
    "scope": "conference",
    "conference": "Big 12",
-   "n_conf": 13,
+   "n_conf": 14,
    "n_conf_total": 16,
-   "n_p4": 57,
+   "n_p4": 58,
    "categories": [
     {
      "school": "Kansas",
@@ -3042,6 +3042,13 @@
      "logo": "arizona_state.png"
     },
     {
+     "school": "Kansas State",
+     "short": "Kansas St",
+     "abbr": "KSU",
+     "conference": "Big 12",
+     "logo": "kansas_state.png"
+    },
+    {
      "school": "West Virginia",
      "short": "West Virginia",
      "abbr": "WVU",
@@ -3083,6 +3090,7 @@
       4300000,
       3600000,
       3500000,
+      3300000,
       2900000,
       2700000,
       2550000,
@@ -3093,19 +3101,19 @@
    "lines": [
     {
      "name": "Big 12 average ($4.3M)",
-     "value": 4334108.538461538
+     "value": 4260243.642857143
     },
     {
-     "name": "Big 12 median ($4.3M)",
-     "value": 4300000
+     "name": "Big 12 median ($4.0M)",
+     "value": 3950000.0
     }
    ],
-   "avg": 4170943.8421052634,
-   "med": 4000000,
-   "cavg": 4334108.538461538,
-   "cmed": 4300000,
-   "source": "Source: USA Today coaches' pay tables (Total Pay: school pay plus pay from other sources, before bonuses), 2025-26 season; contracts, school releases or press reports where USA Today has no figure for the current coach. Benchmarking workbook. Not shown, no current pay figure: BYU, Cincinnati, Kansas St.",
-   "title": "Big 12 men's basketball head coaches are paid $4.3M on average, with a median of $4.3M",
+   "avg": 4155927.5689655175,
+   "med": 3973864.5,
+   "cavg": 4260243.642857143,
+   "cmed": 3950000.0,
+   "source": "Source: USA Today coaches' pay tables (Total Pay: school pay plus pay from other sources, before bonuses), 2025-26 season; contracts, school releases or press reports where USA Today has no figure for the current coach. Benchmarking workbook. Not shown, no current pay figure: BYU, Cincinnati.",
+   "title": "Big 12 men's basketball head coaches are paid $4.3M on average, with a median of $4.0M",
    "subtitle": "Kansas is highest at $8.9M and UCF lowest at $2.1M. The Power 4 average is $4.2M.",
    "section": "expense"
   }

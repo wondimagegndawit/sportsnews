@@ -492,7 +492,7 @@ if os.path.exists('data/open_items.csv'):
         r=R0+j
         put_cell(ws.cell(row=r,column=1+OFF),o['school'],F_BASE,align=IND1); put_cell(ws.cell(row=r,column=2+OFF),o['item'],F_BASE)
         put_cell(ws.cell(row=r,column=3+OFF),o['known'],F_BASE); put_cell(ws.cell(row=r,column=4+OFF),o['needed'],F_BASE)
-        c=ws.cell(row=r,column=5+OFF); put_cell(c,o['source_name'],F_LINKED if o['source_url'] else F_BASE)
+        c=ws.cell(row=r,column=5+OFF); put_cell(c,o['source_name'] or '--',F_LINKED if o['source_url'] else F_BASE)
         if o['source_url']: c.hyperlink=o['source_url']
 setw(ws,{1:28,2:40,3:70,4:60,5:44}); ws.freeze_panes=f'{CL(2)}{R0}'
 
