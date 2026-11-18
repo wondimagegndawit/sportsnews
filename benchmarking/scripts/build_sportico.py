@@ -99,6 +99,12 @@ for s in master:
                         ('support_staff_pay','Support Staff/ Administrative Compensation, Benefits and Bonuses paid by the University','line 24, support and administrative staff compensation, benefits and bonuses paid by the university and related entities'),
                         ('student_meals','Student-Athlete Meals','line 39, student-athlete meals other than meals during team travel')):
         c=cols(nm); add(s,'sp_'+key,c[5] if c else None,'USD',yr,note+'; '+what)
+    # an entry can leave the 'Total NCAA Distributions' row at zero while the 'NCAA Distributions' row carries the money
+    # (Iowa State, fiscal 2025); the NCAA Distributions row is used then, as the Sportico page shows it
+    ncaa_note=''
+    if vals['ncaa_distributions']==0:
+        alt=next((num(v[-1]) for k,v in T.items() if k.strip().lower().startswith('ncaa distributions') and isinstance(v,list) and v),None)
+        if alt: vals['ncaa_distributions']=alt; ncaa_note="; the 'Total NCAA Distributions' row is zero in this entry, so the 'NCAA Distributions' row is used"
     ind=None
     if vals['indirect_6'] is not None: ind=vals['indirect_6']+(vals['indirect_6a'] or 0)
     add(s,'sp_indirect_institutional_support',ind,'USD',yr,note+f"; line 6 ({vals['indirect_6']}) plus line 6A facilities debt service paid by the institution ({vals['indirect_6a'] or 0})")
@@ -106,7 +112,7 @@ for s in master:
     if vals['ncaa_distributions'] is not None and vals['conference_distributions'] is not None:
         dist=vals['ncaa_distributions']+vals['conference_distributions']+(vals['conference_bowl_distributions'] or 0)
         parts=[f"line 12 NCAA distributions {vals['ncaa_distributions']:,}",f"line 13 conference distributions (non media, non post-season) {vals['conference_distributions']:,}",f"line 13A conference post-season distributions {(vals['conference_bowl_distributions'] or 0):,}"]
-    add(s,'sp_ncaa_conf_distributions',dist,'USD',yr,note+'; sum of '+'; '.join(parts))
+    add(s,'sp_ncaa_conf_distributions',dist,'USD',yr,note+'; sum of '+'; '.join(parts)+ncaa_note)
     summary.append((s['name'],yr,vals['total_operating_revenue'],vals['total_operating_expenses'],vals['athletics_related_debt']))
 with open('data/sportico_values.csv','w',newline='') as f:
     w=csv.DictWriter(f,fieldnames=['school','metric','value','unit','fiscal_year_or_season','source_name','source_url','date_accessed','notes']); w.writeheader(); w.writerows(out)
