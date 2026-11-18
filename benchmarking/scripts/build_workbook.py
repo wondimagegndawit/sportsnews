@@ -424,7 +424,8 @@ lines=[
  ('Financials, private schools',f'The other {_ne} schools (the private universities, including Notre Dame, plus Pittsburgh) do not publish MFRS reports, so I used the federal EADA report for 2024-25 (fiscal 2025). EADA only gives total revenue, total expenses, football revenue, men\'s basketball revenue and unallocated revenue, and it defines them differently from MFRS. Every other financial line shows "--" for those schools, and I would not compare the two groups line for line.'),
  ('Expense lines','For public schools I also carry several lines from the NCAA report: coaching pay (line 22) and support and administrative staff pay (line 24), both as paid by the university; team travel (line 28) with football, men\'s basketball, women\'s basketball and other sports shown separately; fundraising, marketing and promotion (line 31); student-athlete meals (line 39); and facilities debt service, leases and rent (line 34). Team travel is regular-season travel only; post-season travel sits on other lines. The sport columns do not add to the total where a school reports travel that is not tied to a sport.'),
  ('Revenue lines','For public schools I carry three revenue lines from the NCAA report: ticket sales (line 1), media rights (line 11) and royalties, licensing, advertisement and sponsorships (line 15), plus total operating revenue for football and for men\'s basketball. Schools do not all put conference media money on the same line: most report it as media rights, some as conference distributions, so read media rights together with NCAA and conference distributions. Schools also differ in how much media and conference money they assign to a sport, which moves the football and basketball totals.'),
- ('Full NCAA report detail','FY25 FRS Clean is a reference table of the fiscal 2025 reports in the Sportico database: one row per school, one column per report line, all-sports totals, with a note where a school\'s entry needed an adjustment or lacks lines. Three more tabs carry the whole NCAA report for the public schools, by sport. FRS Detail has every revenue and expense line with football, men\'s basketball, women\'s basketball, other sports, non-program specific and total. FRS by Sport has total revenue and total expenses for each individual sport. FRS Statement shows one school\'s statement by sport; pick the school in the yellow cell, and it also gives the conference and Power 4 average for each line in the same fiscal year. Where a school\'s lines do not add up to its reported total, the statement shows the gap on its own row.'),
+ ('Full NCAA report detail','FY25 FRS Clean is a reference table of the fiscal 2025 reports in the Sportico database: one row per school, one column per report line, all-sports totals, with a note where a school\'s entry needed an adjustment or lacks lines. FY25 FRS Clean by Sport is the same table with a row for each of football, men\'s basketball, women\'s basketball, other sports and non-program specific; the five rows of a school add up to its row on FY25 FRS Clean. FRS Detail is the base table for all of this: every revenue and expense line for every public school, with football, men\'s basketball, women\'s basketball, other sports, non-program specific and total, a Row type column (line item, subtotal or total, so a pivot can leave out subtotals and totals) and a check that the sport columns add to the total. FRS by Sport has total revenue and total expenses for each individual sport. FRS Statement shows one school\'s statement by sport; pick the school in the yellow cell, and it also gives the conference and Power 4 average for each line in the same fiscal year. Where a school\'s lines do not add up to its reported total, the statement shows the gap on its own row.'),
+ ('Tie-out and adding a year','FRS Tie-Out checks every school with formulas: the revenue lines against the reported total, the expense lines against the reported total, the sport columns against the total on every line, the main tab against the report, and the individual sports against the statement. Result says Ties or See note, and the note explains each exception. To add a later year, paste its rows below the last row of FRS Detail (and FRS by Sport) in the same columns: the statement and the tie-out read down to row 20,000. The statement shows the latest year on file for the school unless a year is typed in the second yellow cell. On FRS Tie-Out, copy a row down and change the school and year.'),
  ('Financial labels','Financial source basis says Sportico, MFRS own posting or EADA for each school, Financial data type says MFRS or EADA, and Fiscal year gives the report year. The source link for a school\'s financial cells is on its Financial source basis cell.'),
  ('Head coach pay',f'I used the Total Pay column in USA Today\'s coaches\' pay tables, which is school pay plus pay from other sources, before bonuses. Football is the 2025 season table, the latest published. Men\'s basketball shows table years 2026 (the 2025-26 season) and 2025 (the 2024-25 season). Total Pay can include retention or one-time payments; where the table says so, I repeated it in the Source Log note.'),
  ('Where USA Today has no figure','For new hires and most private schools, USA Today has no figure for the current head coach. In those cells I used the coach\'s current pay from a contract, school release or press report, and left the 2025 basketball cell blank. The pay source type column says which kind of source it is, and Source Log gives the season for every figure.'),
@@ -503,17 +504,21 @@ FRS=list(csv.DictReader(open('data/frs_detail.csv',encoding='utf-8'))) if os.pat
 FRSS=list(csv.DictReader(open('data/frs_sport_totals.csv',encoding='utf-8'))) if os.path.exists('data/frs_sport_totals.csv') else []
 SPORTCOLS=[('Football','football'),("Men's basketball",'mens_basketball'),("Women's basketball",'womens_basketball'),('Other sports','other_sports'),('Non-program specific','non_program'),('Total','total')]
 ws=wb.create_sheet('FRS Detail'); prep(ws,'NCAA financial report detail: every revenue and expense line, by sport')
-header(ws,['School','Conference','Fiscal year','Section','Line','Line item']+[h for h,_ in SPORTCOLS]+['Source'])
+header(ws,['School','Conference','Fiscal year','Section','Line','Line item','Row type']+[h for h,_ in SPORTCOLS]+['Check: sport columns less total','Source'])
+def _rowtype(x): return 'Total' if not x['line_id'] else ('Subtotal' if x['line_id']=='12' else 'Line item')
 for j,x in enumerate(FRS):
     r=R0+j
     put_cell(ws.cell(row=r,column=1+OFF),x['school'],F_BASE,align=IND1); put_cell(ws.cell(row=r,column=2+OFF),x['conference'],F_BASE)
     put_cell(ws.cell(row=r,column=3+OFF),int(x['fiscal_year']),F_HC,'yr'); put_cell(ws.cell(row=r,column=4+OFF),x['section'],F_BASE)
     put_cell(ws.cell(row=r,column=5+OFF),x['line_id'] or '--',F_BASE,align=CENTER); put_cell(ws.cell(row=r,column=6+OFF),x['line_item'],F_BASE)
-    for i,(h,k) in enumerate(SPORTCOLS): put_cell(ws.cell(row=r,column=7+i+OFF),int(x[k]),F_HC,'usd')
-    c=ws.cell(row=r,column=13+OFF); put_cell(c,x['source_name'],F_LINKED); c.hyperlink=x['source_url']
+    put_cell(ws.cell(row=r,column=7+OFF),_rowtype(x),F_BASE)
+    for i,(h,k) in enumerate(SPORTCOLS): put_cell(ws.cell(row=r,column=8+i+OFF),int(x[k]),F_HC,'usd')
+    put_cell(ws.cell(row=r,column=14+OFF),f'=SUM({CL(8)}{r}:{CL(12)}{r})-{CL(13)}{r}',F_BASE,'usd')
+    c=ws.cell(row=r,column=15+OFF); put_cell(c,x['source_name'],F_LINKED); c.hyperlink=x['source_url']
 FRS_LAST=R0+len(FRS)-1
-setw(ws,{1:22,2:12,3:11,4:10,5:6,6:70,7:16,8:18,9:20,10:16,11:20,12:16,13:54}); ws.freeze_panes=f'{CL(7)}{R0}'
-if FRS: ws.auto_filter.ref=f'{CL(1)}{R_HDR}:{CL(13)}{FRS_LAST}'
+FRS_END=max(FRS_LAST,20000)     # formulas on other tabs read down to this row, so later years can be added below
+setw(ws,{1:22,2:12,3:11,4:10,5:6,6:70,7:11,8:16,9:18,10:20,11:16,12:20,13:16,14:28,15:54}); ws.freeze_panes=f'{CL(8)}{R0}'
+if FRS: ws.auto_filter.ref=f'{CL(1)}{R_HDR}:{CL(15)}{FRS_LAST}'
 ws=wb.create_sheet('FRS by Sport'); prep(ws,'NCAA financial report: total revenue and total expenses for each sport')
 header(ws,['School','Conference','Fiscal year','Sport','Total revenue','Total expenses','Revenue less expenses','Source'])
 for j,x in enumerate(FRSS):
@@ -549,15 +554,92 @@ for j,s in enumerate(S25):
 w25={1:22,2:12}; w25.update({3+i:max(16,min(len(h)+2,70)) for i,h in enumerate(hdr25[2:])}); w25[3+len(L25)+1]=70; w25[3+len(L25)+2]=54
 setw(ws,w25); ws.freeze_panes=f'{CL(3)}{R0}'
 if S25: ws.auto_filter.ref=f'{CL(1)}{R_HDR}:{CL(len(hdr25))}{R0+len(S25)-1}'
+# FY25 FRS Clean by Sport: the same table as FY25 FRS Clean, with one row for each sport column of each school
+ws=wb.create_sheet('FY25 FRS Clean by Sport'); prep(ws,'Fiscal 2025 NCAA financial reports from the Sportico database: one row per school and sport column')
+V25S=collections.defaultdict(dict)
+for x in _c25:
+    for h_,k_ in SPORTCOLS[:5]: V25S[(x['school'],h_)][(x['section'],x['line_id'])]=int(x[k_])
+hdr25s=['School','Conference','Sport']+hdr25[2:-2]+['Source']
+header(ws,hdr25s); j=0
+for s in S25:
+    for h_,k_ in SPORTCOLS[:5]:
+        r=R0+j; j+=1
+        put_cell(ws.cell(row=r,column=1+OFF),s['name'],F_BASE,align=IND1); put_cell(ws.cell(row=r,column=2+OFF),s['conf'],F_BASE); put_cell(ws.cell(row=r,column=3+OFF),h_,F_BASE)
+        for i,(sec,lid,item) in enumerate(L25):
+            v=V25S[(s['name'],h_)].get((sec,lid)); put_cell(ws.cell(row=r,column=4+i+OFF),v if v is not None else '--',F_HC,'usd')
+        n25s=4+len(L25); cR=CL(iR+1); cE=CL(iE+1)
+        put_cell(ws.cell(row=r,column=n25s+OFF),f'=IF(AND(ISNUMBER({cR}{r}),ISNUMBER({cE}{r})),{cR}{r}-{cE}{r},"--")',F_BASE,'usd')
+        x0=next(x for x in _c25 if x['school']==s['name']); c=ws.cell(row=r,column=n25s+1+OFF); put_cell(c,x0['source_name'],F_LINKED); c.hyperlink=x0['source_url']
+w25s={1:22,2:12,3:20}; w25s.update({4+i:max(16,min(len(h)+2,70)) for i,h in enumerate(hdr25s[3:-1])}); w25s[len(hdr25s)]=54
+setw(ws,w25s); ws.freeze_panes=f'{CL(4)}{R0}'
+if j: ws.auto_filter.ref=f'{CL(1)}{R_HDR}:{CL(len(hdr25s))}{R0+j-1}'
+# FRS Tie-Out: live checks on FRS Detail, one row per school and fiscal year
+ws=wb.create_sheet('FRS Tie-Out'); prep(ws,'NCAA report tie-out: do the lines add up to the totals, do the sports add up, and does the main tab match')
+def _dr(i): return f"'FRS Detail'!${CL(i)}${R0}:${CL(i)}${FRS_END}"
+D_SCH,D_FY,D_SEC,D_TYPE,D_TOT,D_CHK=_dr(1),_dr(3),_dr(4),_dr(7),_dr(13),_dr(14)
+_sp_last=R0+max(len(FRSS),1)-1
+def _sr(i): return f"'FRS by Sport'!${CL(i)}${R0}:${CL(i)}${max(_sp_last,20000)}"
+_ix={m['key']:i for i,m in enumerate(S,1)}
+def _all(key): return f"'All Schools'!${CL(_ix[key])}${all_first}:${CL(_ix[key])}${all_last}"
+A_SCH=f"'All Schools'!${CL(1)}${all_first}:${CL(1)}${all_last}"
+header(ws,['School','Conference','Fiscal year','Basis','Revenue: sum of the lines','Revenue: reported total','Difference','Expenses: sum of the lines','Expenses: reported total','Difference',
+           'Lines where the sport columns do not add to the total','Main tab: total operating revenue','Difference from the report','Main tab: total operating expenses','Difference from the report',
+           'Individual sports: revenue','Statement sport columns: revenue','Difference','Individual sports: expenses','Statement sport columns: expenses','Difference','Result','Note'])
+_pairs=list(dict.fromkeys((x['school'],x['fiscal_year']) for x in FRS)); _first={}
+for x in FRS: _first.setdefault((x['school'],x['fiscal_year']),x)
+_tot=collections.defaultdict(dict)
+for x in FRS: _tot[(x['school'],x['fiscal_year'])][(x['section'],x['line_id'])]=x
+_spsum=collections.defaultdict(lambda:[0,0,0])
+for x in FRSS:
+    k_=(x['school'],x['fiscal_year']); _spsum[k_][2]+=1
+    for i_,f_ in enumerate(('total_revenue','total_expenses')):
+        if x[f_] not in ('--',''): _spsum[k_][i_]+=int(x[f_])
+G=F_I
+for j,(n_,fy_) in enumerate(_pairs):
+    r=R0+j; x=_first[(n_,fy_)]; crit=f'{D_SCH},${CL(1)}{r},{D_FY},${CL(3)}{r}'
+    put_cell(ws.cell(row=r,column=1+OFF),n_,F_BASE,align=IND1); put_cell(ws.cell(row=r,column=2+OFF),x['conference'],F_BASE); put_cell(ws.cell(row=r,column=3+OFF),int(fy_),F_BASE,'yr'); put_cell(ws.cell(row=r,column=4+OFF),x['basis'],F_BASE)
+    for c0,sec in ((5,'Revenue'),(8,'Expense')):
+        put_cell(ws.cell(row=r,column=c0+OFF),f'=SUMIFS({D_TOT},{crit},{D_SEC},"{sec}",{D_TYPE},"Line item")',G,'usd')
+        put_cell(ws.cell(row=r,column=c0+1+OFF),f'=IF(COUNTIFS({crit},{D_SEC},"{sec}",{D_TYPE},"Total")=0,"--",SUMIFS({D_TOT},{crit},{D_SEC},"{sec}",{D_TYPE},"Total"))',G,'usd')
+        put_cell(ws.cell(row=r,column=c0+2+OFF),f'=IF(ISNUMBER({CL(c0+1)}{r}),{CL(c0)}{r}-{CL(c0+1)}{r},"--")',F_BASE,'usd')
+    put_cell(ws.cell(row=r,column=11+OFF),f'=COUNTIFS({crit},{D_CHK},">2")+COUNTIFS({crit},{D_CHK},"<-2")',G,'cnt')
+    for c0,key,rep_ in ((12,'total_operating_revenue',6),(14,'total_operating_expenses',9)):
+        put_cell(ws.cell(row=r,column=c0+OFF),f'=IFERROR(IF(INDEX({_all("fin_fiscal_year")},MATCH(${CL(1)}{r},{A_SCH},0))=${CL(3)}{r},INDEX({_all(key)},MATCH(${CL(1)}{r},{A_SCH},0)),"--"),"--")',G,'usd')
+        put_cell(ws.cell(row=r,column=c0+1+OFF),f'=IF(AND(ISNUMBER({CL(c0)}{r}),ISNUMBER({CL(rep_)}{r})),{CL(c0)}{r}-{CL(rep_)}{r},"--")',F_BASE,'usd')
+    scrit=f'{_sr(1)},${CL(1)}{r},{_sr(3)},${CL(3)}{r}'
+    for c0,scol,sec in ((16,5,'Revenue'),(19,6,'Expense')):
+        put_cell(ws.cell(row=r,column=c0+OFF),f'=IF(COUNTIFS({scrit})=0,"--",SUMIFS({_sr(scol)},{scrit}))',G,'usd')
+        four='+'.join(f'SUMIFS({_dr(8+i)},{crit},{D_SEC},"{sec}",{D_TYPE},"Total")' for i in range(4))
+        put_cell(ws.cell(row=r,column=c0+1+OFF),f'=IF(COUNTIFS({crit},{D_SEC},"{sec}",{D_TYPE},"Total")=0,"--",{four})',G,'usd')
+        put_cell(ws.cell(row=r,column=c0+2+OFF),f'=IF(AND(ISNUMBER({CL(c0)}{r}),ISNUMBER({CL(c0+1)}{r})),{CL(c0)}{r}-{CL(c0+1)}{r},"--")',F_BASE,'usd')
+    need=','.join(f'IF(ISNUMBER({CL(c_)}{r}),ABS({CL(c_)}{r})<=2,FALSE)' for c_ in (7,10,13,15)); opt=','.join(f'IF(ISNUMBER({CL(c_)}{r}),ABS({CL(c_)}{r})<=2,TRUE)' for c_ in (18,21))
+    put_cell(ws.cell(row=r,column=22+OFF),f'=IF(AND({need},{CL(11)}{r}=0,{opt}),"Ties","See note")',F_B)
+    # the note explains every exception, worked out from the same figures
+    d_=_tot[(n_,fy_)]; parts=[FRSN[n_]] if n_ in FRSN and fy_=='2025' and x['basis'].startswith('Sportico') else []
+    for sec,lab in (('Revenue','revenue'),('Expense','expense')):
+        lines=sum(int(v['total']) for (s_,i_),v in d_.items() if s_==sec and i_ and i_!='12')
+        if (sec,'') not in d_: parts.append(f"The source has no total operating {lab}s row for this year, so the {lab} lines ({lines:,}) cannot be tied to a total.")
+        elif abs(lines-int(d_[(sec,'')]['total']))>2 and not parts: parts.append(f"The {lab} lines add up to {abs(lines-int(d_[(sec,'')]['total'])):,} {'less' if lines<int(d_[(sec,'')]['total']) else 'more'} than the reported total.")
+    if x['basis']=='MFRS own posting' and n_=='California': parts.append("Read from the school's own statement, which reports facilities debt service below its expense total; it is counted within expenses here, as the other schools report it.")
+    sp_=_spsum.get((n_,fy_))
+    if sp_ and sp_[2] and ('Revenue','') in d_:
+        gr=sp_[0]-sum(int(d_[('Revenue','')][k_]) for _,k_ in SPORTCOLS[:4]); ge=(sp_[1]-sum(int(d_[('Expense','')][k_]) for _,k_ in SPORTCOLS[:4])) if ('Expense','') in d_ else 0
+        if abs(gr)>2 or abs(ge)>2: parts.append("The individual sports on FRS by Sport add up to less than the statement's sport columns, because the source's sport-by-sport section leaves out part of the revenue or expenses of some smaller sports. The statement by line item is not affected.")
+    elif not sp_ or not sp_[2]: parts.append("Sport-by-sport totals are not compiled for this school, so that check is blank.")
+    put_cell(ws.cell(row=r,column=23+OFF),' '.join(parts) if parts else '--',F_BASE)
+setw(ws,{1:22,2:12,3:11,4:26,5:22,6:22,7:14,8:22,9:22,10:14,11:30,12:26,13:22,14:28,15:22,16:22,17:26,18:14,19:22,20:28,21:14,22:10,23:70}); ws.freeze_panes=f'{CL(2)}{R0}'
+if _pairs: ws.auto_filter.ref=f'{CL(1)}{R_HDR}:{CL(23)}{R0+len(_pairs)-1}'
 # one school's statement, pulled from FRS Detail
 ws=wb.create_sheet('FRS Statement'); prep(ws,'NCAA report statement by sport: choose a school in the yellow cell')
-def _rng(i): return f"'FRS Detail'!${CL(i)}${R0}:${CL(i)}${FRS_LAST}"
+def _rng(i): return f"'FRS Detail'!${CL(i)}${R0}:${CL(i)}${FRS_END}"
 R_SCH,R_CONF,R_FY,R_SEC,R_ITEM=_rng(1),_rng(2),_rng(3),_rng(4),_rng(6)
 frs_schools=list(dict.fromkeys(x['school'] for x in FRS)); PICK=f'${CL(2)}$5'
 ws.cell(row=5,column=1+OFF,value='School').font=F_B
 c=ws.cell(row=5,column=2+OFF,value='Arizona' if 'Arizona' in frs_schools else (frs_schools[0] if frs_schools else '--')); c.font=F_BASE; c.fill=FILL_IN
 ws.cell(row=5,column=4+OFF,value='Conference').font=F_B; put_cell(ws.cell(row=5,column=5+OFF),f'=IFERROR(INDEX({R_CONF},MATCH({PICK},{R_SCH},0)),"--")',F_I); CONFC=f'${CL(5)}$5'
-ws.cell(row=5,column=7+OFF,value='Fiscal year').font=F_B; put_cell(ws.cell(row=5,column=8+OFF),f'=IFERROR(INDEX({R_FY},MATCH({PICK},{R_SCH},0)),"--")',F_I,'yr'); FYC=f'${CL(8)}$5'
+OVR=f'${CL(10)}$5'
+ws.cell(row=5,column=7+OFF,value='Fiscal year').font=F_B; put_cell(ws.cell(row=5,column=8+OFF),f'=IF(ISNUMBER({OVR}),{OVR},IF(COUNTIFS({R_SCH},{PICK})=0,"--",_xlfn.MAXIFS({R_FY},{R_SCH},{PICK})))',F_I,'yr'); FYC=f'${CL(8)}$5'
+ws.cell(row=5,column=9+OFF,value='Show another year (optional)').font=F_B; c=ws.cell(row=5,column=10+OFF); c.font=F_BASE; c.fill=FILL_IN; c.number_format=FMT['yr']
 header(ws,['Line','Line item']+[h for h,_ in SPORTCOLS]+['Conference average (total)','Power 4 average (total)'])
 def _key(x): 
     m=re.match(r'(\d+)([A-Z]?)',x['line_id']); return (0 if x['section']=='Revenue' else 1, 1 if not x['line_id'] else 0, int(m.group(1)) if m else 0, m.group(2) if m else '')
@@ -579,13 +661,13 @@ for sec,lab in (('Revenue','Revenues'),('Expense','Expenses')):
             r+=1
         font=F_B if is_total else F_BASE
         put_cell(ws.cell(row=r,column=1+OFF),lid or '--',font,align=CENTER); put_cell(ws.cell(row=r,column=2+OFF),item,font)
-        crit=f'{R_SCH},{PICK},{R_SEC},"{sec}",{R_ITEM},${CL(2)}{r}'
+        crit=f'{R_SCH},{PICK},{R_FY},{FYC},{R_SEC},"{sec}",{R_ITEM},${CL(2)}{r}'
         for i in range(6):
-            c=ws.cell(row=r,column=3+i+OFF); put_cell(c,f'=IF(COUNTIFS({crit})=0,"--",SUMIFS({_rng(7+i)},{crit}))',Font(name=FN,size=FS,color='008000',bold=is_total),'usd')
+            c=ws.cell(row=r,column=3+i+OFF); put_cell(c,f'=IF(COUNTIFS({crit})=0,"--",SUMIFS({_rng(8+i)},{crit}))',Font(name=FN,size=FS,color='008000',bold=is_total),'usd')
             if is_total: c.border=B_TOT
         base=f'{R_FY},{FYC},{R_SEC},"{sec}",{R_ITEM},${CL(2)}{r}'
-        put_cell(ws.cell(row=r,column=9+OFF),f'=IFERROR(AVERAGEIFS({_rng(12)},{R_CONF},{CONFC},{base}),"--")',Font(name=FN,size=FS,color='008000',bold=is_total),'usd')
-        put_cell(ws.cell(row=r,column=10+OFF),f'=IFERROR(AVERAGEIFS({_rng(12)},{base}),"--")',Font(name=FN,size=FS,color='008000',bold=is_total),'usd')
+        put_cell(ws.cell(row=r,column=9+OFF),f'=IFERROR(AVERAGEIFS({_rng(13)},{R_CONF},{CONFC},{base}),"--")',Font(name=FN,size=FS,color='008000',bold=is_total),'usd')
+        put_cell(ws.cell(row=r,column=10+OFF),f'=IFERROR(AVERAGEIFS({_rng(13)},{base}),"--")',Font(name=FN,size=FS,color='008000',bold=is_total),'usd')
         if is_total:
             tot_cell[sec]=r
             for i in (1,2,9,10): ws.cell(row=r,column=i+OFF).border=B_TOT
@@ -716,7 +798,7 @@ def vertical_sheet(ws,title,name_value,name_font,name_fill,src_sheet,first,last,
 ws=wb.create_sheet('School Lookup')
 vertical_sheet(ws,'School lookup: choose a school in the yellow cell','Alabama',F_BASE,FILL_IN,'All Schools',all_first,all_last,None,False)
 dv=DataValidation(type='list',formula1=f"='All Schools'!${CL(1)}${all_first}:${CL(1)}${all_last}",allow_blank=False); ws.add_data_validation(dv); dv.add(f'{CL(2)}5')
-names=['Read Me','All Schools']+[sn for _,sn in CONFS]+['Conference Wide','Open Items','School Lookup','FY25 FRS Clean','FRS Statement','FRS Detail','FRS by Sport','Source Log']   # no per-school tabs: School Lookup covers every school
+names=['Read Me','All Schools']+[sn for _,sn in CONFS]+['Conference Wide','Open Items','School Lookup','FY25 FRS Clean','FY25 FRS Clean by Sport','FRS Statement','FRS Detail','FRS by Sport','FRS Tie-Out','Source Log']   # no per-school tabs: School Lookup covers every school
 wb._sheets=[wb[n] for n in names]
 for ws in wb: ws.sheet_view.showGridLines=False
 wb.save(OUT); print('saved',OUT,'sheets',len(wb.sheetnames),'sourcelog rows',len(sourcelog))
