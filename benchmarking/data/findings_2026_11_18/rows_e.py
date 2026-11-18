@@ -25,7 +25,7 @@ ROWS_E=[
 ('Georgia','mmr_start_year',2017,'2017-18 to 2026-27',*_UGA,"‘signing a new 10-year, $152.5-million multimedia and marketing rights deal with IMG College and JMI Sports’; ‘at least $12.8 million for the 2017-18 academic year’."+_UGAX),
 ('Georgia','mmr_term_years',10,'2017-18 to 2026-27',*_UGA,"‘signing a new 10-year, $152.5-million multimedia and marketing rights deal with IMG College and JMI Sports’; ‘with increases each year through the duration of the contract, ending in 2026-27.’"+_UGAX),
 ('Georgia','mmr_total_value',152500000,'2017-18 to 2026-27',*_UGA,"‘signing a new 10-year, $152.5-million multimedia and marketing rights deal with IMG College and JMI Sports’."+_UGAX),
-('South Carolina','mmr_partner','Learfield','from 1 July 2017',*_SC,_SCN),
+('South Carolina','mmr_partner','Learfield','from 1 July 2017',"University of South Carolina, board of trustees brief (23 Apr 2026)",'https://www.sc.edu/uofsc/posts/2026/04/04-botboardbrief.php',"‘Amending the Gamecock Sports Properties, LLC (Learfield) multimedia corporate sponsorship agreement’. "+_SCN),
 ('South Carolina','mmr_start_year',2017,'from 1 July 2017',*_SC,_SCN),
 ('South Carolina','mmr_term_years',10,'from 1 July 2017',*_SC,_SCN),
 ('South Carolina','mmr_total_value','--','from 1 July 2017',*_SC,"The release gives no value, and none was reported elsewhere. "+_SCN),
