@@ -34,9 +34,11 @@ def ranked(rs,pre): return sorted(rs,key=lambda r:(not num(g(r,f'{pre} annual va
 def surface(pre,kind): return ranked([r for r in ALL if g(r,pre.split()[0]+' rights type')==kind],pre)
 def words(n): return {1:'One',2:'Two',3:'Three',4:'Four',5:'Five',6:'Six',7:'Seven',8:'Eight',9:'Nine'}.get(n,str(n))
 out=[]
-def page(key,title,subtitle,sch):
+def page(key,title,subtitle,sch,note=None):
     vals=[x['value'] for x in sch if x['value'] is not None]
-    out.append(dict(key=key,title=title,subtitle=subtitle,avg=statistics.mean(vals),med=statistics.median(vals),schools=sch))
+    d=dict(key=key,title=title,subtitle=subtitle,avg=statistics.mean(vals),med=statistics.median(vals),schools=sch)
+    if note: d['note']=note
+    out.append(d)
 for pre,title,sub in (('Jersey patch','JERSEY PATCH DEALS: ALL P4','Jersey patches are new sponsorship inventory generating multi-million-dollar deals for schools. While terms are often undisclosed, publicly reported deals average $10M annually'),
                       ('Stadium naming rights','STADIUM NAMING RIGHTS: ALL P4','Stadium naming rights are long-term (10+ year) partnerships, often with local companies, and can include added investment for stadium upgrades.')):
     page(pre,title,sub,[entry(r,pre) for r in ranked([r for r in ALL if num(g(r,f'{pre} annual value'))],pre)])
@@ -48,6 +50,15 @@ page(pre,'ARENA NAMING RIGHTS: ALL P4','Like stadium naming rights, arena naming
 c=surface('Court naming rights','Naming rights'); nv=sum(1 for r in c if num(g(r,'Court naming rights annual value')))
 page('Court naming rights','COURT NAMING RIGHTS: ALL P4',f"Selling the name of the basketball court on its own is rare. {words(len(c))} Power 4 schools have a court naming partner, and {words(nv).lower()} {'has' if nv==1 else 'have'} reported terms.",[entry(r,'Court naming rights') for r in c])
 # logo-only deals: a paid logo on the field or court, which keeps its own name; football first, then basketball
-lg=[entry(r,'Field naming rights','Football') for r in surface('Field naming rights','Logo only')]+[entry(r,'Court naming rights','Basketball') for r in surface('Court naming rights','Logo only')]
-page('Logo deals','PLAYING SURFACE LOGO DEALS: ALL P4',"Logo deals put a sponsor's mark on the field or court without renaming it. Edward Jones' $34M, four-year agreement covers Duke, North Carolina and Oregon; the per-school split is not public, so it is divided evenly here.",lg)
+lg_all=[entry(r,'Field naming rights','Football') for r in surface('Field naming rights','Logo only')]+[entry(r,'Court naming rights','Basketball') for r in surface('Court naming rights','Logo only')]
+# only deals with a reported value are charted; the rest are listed by sponsor under the chart
+lg=[x for x in lg_all if x['value'] is not None]; rest=[x for x in lg_all if x['value'] is None]
+def _group(xs):
+    by={}
+    for x in xs: by.setdefault(x['sponsor'],[]).append(LOGO[x['school']]['short'])
+    return '; '.join(f"{sp} ({', '.join(sorted(ns))})" for sp,ns in sorted(by.items(),key=lambda kv:(-len(kv[1]),kv[0])))
+nf=sum(1 for x in lg_all if x['sport']=='Football'); nb=len(lg_all)-nf
+note=("No reported value, so not charted. Football fields: "+_group([x for x in rest if x['sport']=='Football'])+". Basketball courts: "+(_group([x for x in rest if x['sport']=='Basketball']) or 'none')
+      +". One report puts the going rate for a logo on a major college football field at about $3.5M a year (Insurance Journal, 20 Aug 2026).") if rest else None
+page('Logo deals','PLAYING SURFACE LOGO DEALS: ALL P4',f"Logo deals put a sponsor's mark on the field or court without renaming it. {len(lg_all)} are on record ({nf} football fields, {nb} basketball courts), and only Edward Jones' has a reported value: $34M over four years across Duke, North Carolina and Oregon, divided evenly here because the split is not public.",lg,note)
 json.dump(out,sys.stdout,indent=1)

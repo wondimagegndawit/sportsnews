@@ -88,6 +88,7 @@ function dealSlide(s) {
     cell(x.sponsor, i, ROW.sponsorY, ROW.sponsorH, fit(x.sponsor), `Sponsor: ${x.school}`);
     cell(x.terms.map(compact).join('\n'), i, ROW.termsY, ROW.h, fs2, `Terms: ${x.school}`);
   });
+  if (s.note) slide.addText(s.note, { x: X0, y: ROW.termsY + ROW.h + 0.03, w: W - 2 * X0, h: 0.3, fontFace: F, fontSize: 6, color: C.ink, margin: 0, valign: 'top', isTextBox: true, objectName: 'Note' });
 }
 
 // ---- attendance and capacity pages: the conference's schools, one or two seasons, Power 4 average and median
