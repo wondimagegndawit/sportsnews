@@ -145,7 +145,7 @@ revenue('licensing_sponsorship','Licensing, advertising and sponsorship revenue'
 mr='Media rights revenue'
 ZERO=[LOGO[school(r)]['short'] for r in ROWS if conf(r)==CONF and frs25(r) and val(r,mr)==0]
 revenue('media_rights',mr,'media rights','Line 11: revenue for radio, television, internet and digital rights, including the conference media payout where the school reports it on this line.',
-        (f" Not charted: {', '.join(ZERO)}, which reports $0 on this line and carries its conference payout under conference distributions (line 13)." if ZERO else '')+' Media money a school reports as a conference distribution is not counted here.',
+        (f" Not charted: {', '.join(ZERO)}, which reports $0 on this line and carries its conference payout under conference distributions (line 13)." if ZERO else '')+' Media money a school reports as a conference distribution is not counted here; several schools outside the Big 12 report most of it that way, so the Power 4 average is indicative only.',
         only=lambda r: frs25(r) and val(r,mr)!=0)
 for key,hdr,sport in (('fb_revenue','Football revenue','football'),('mbb_revenue',"Men's basketball revenue","men's basketball")):
     s=finance(key,hdr,hdr,'revenue'); rs=s['rows']; share=statistics.mean(val(r,hdr)/val(r,tr) for r in rs if val(r,tr))
@@ -194,7 +194,7 @@ line_item('support_staff_pay','Support and administrative staff pay','support an
 line_item('team_travel','Team travel','team travel','Line 28: air and ground travel, lodging and meals for the preseason and regular season, all sports; post-season travel is reported on other lines.')
 for key,hdr,noun in (('team_travel_fb','Team travel: football','football team travel'),('team_travel_mbb',"Team travel: men's basketball","men's basketball team travel"),('team_travel_wbb',"Team travel: women's basketball","women's basketball team travel")):
     line_item(key,hdr,noun,'Line 28, the '+hdr.split(': ')[1]+' column: regular-season travel, lodging and meals; post-season travel is reported on other lines.')
-line_item('fundraising_marketing','Fundraising, marketing and promotion','fundraising, marketing and promotion','Line 31: costs of fundraising, marketing and promotion.',' Schools classify these costs differently (some include their foundation or outsourced marketing), so the line varies widely.')
+line_item('fundraising_marketing','Fundraising, marketing and promotion','fundraising, marketing and promotion','Line 31: costs of fundraising, marketing and promotion.',' Schools classify these costs differently (some include their foundation or outsourced marketing), so the line varies widely; at several Power 4 schools it more than tripled from fiscal 2024, which points to a change in what they report on it.')
 line_item('student_meals','Student-athlete meals','student-athlete meals','Line 39: meal allowances and food provided to student-athletes, other than meals during team travel.')
 # keep the expense pages in a reading order: the totals, then pay, travel, other lines, debt, head coaches
 ORDER=['total_expenses','surplus','coaching_salaries','support_staff_pay','team_travel','team_travel_fb','team_travel_mbb','team_travel_wbb','fundraising_marketing','student_meals','debt_service','fb_hc_pay','mbb_hc_pay']

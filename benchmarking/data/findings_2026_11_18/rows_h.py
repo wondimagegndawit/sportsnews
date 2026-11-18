@@ -1,0 +1,25 @@
+# Part H: on-field sponsor logos (football). The field keeps its own name in each case; these are logo deals, not naming rights.
+_IJ=("Insurance Journal (20 Aug 2026)",'https://amp.insurancejournal.com/news/national/2026/08/20/882178.htm')
+_IJQ="‘will gain more exposure this fall with its logo placement on 13 college football fields, including the fields at Ole Miss, Georgia, Oregon, USC, Boise State, Colorado State, Iowa, Kansas State, Purdue, SMU, Syracuse, Texas Tech and Wake Forest.’"
+_IJN="‘Terms of the deals were not disclosed’. The same report puts the going rate for a logo on a major college football field at ‘about $3.5 million a year, with some schools commanding as much as $15 million’, which is a market figure and not this school's fee."
+def _logo(school,partner,industry,season,src,q,start,start_note,term,term_src,term_note,val_src,val_note,own):
+    out=[(school,'field_nr_partner',partner,season,*src,q+f' A paid logo on the field; {own}.'),
+         (school,'field_nr_deal_type','commercial',season,*src,f'A paid logo on the field; {own}. See the rights type column.'),
+         (school,'field_nr_rights_type','Logo only',season,*src,f'The sponsor pays for a logo on the field; {own}. Classified by the researcher.'),
+         (school,'field_nr_industry',industry,season,*src,'Industry classified by the researcher.'),
+         (school,'field_nr_start_year',start,season,*src,start_note),
+         (school,'field_nr_term_years',term,season,*term_src,term_note),
+         (school,'field_nr_total_value','--',season,*val_src,val_note),(school,'field_nr_annual_value','--',season,*val_src,val_note)]
+    return out
+ROWS_H=[]
+for _s,_own in (('Ole Miss','the field keeps its own name (Hollingsworth Field)'),('Georgia','the field keeps its own name (Dooley Field)'),('Oregon','the field is not renamed'),('Iowa','the field keeps its own name (Duke Slater Field)'),
+                ('Kansas State','the field keeps its own name (Wagner Field)'),('Purdue','the field keeps its own name (Rohrman Field)'),('SMU','the field is not renamed'),('Syracuse','the field keeps its own name (Ernie Davis Legends Field)'),
+                ('Texas Tech','the field keeps its own name (Cody Campbell Field)'),('Wake Forest','the field is not renamed')):
+    ROWS_H+=_logo(_s,'Progressive','insurance','2026 season',_IJ,_IJQ,'--',"The report confirms the logo for the 2026 season (‘this fall’); the first season is not stated.",'--',_IJ,"The length of the agreement is not reported. ‘Terms of the deals were not disclosed’.",_IJ,_IJN,_own)
+_AU=("Auburn Athletics release (20 Aug 2025)",'https://auburntigers.com/news/2025/8/20/auburn-athletics-and-yellawood-enter-expanded-five-year-partnership-to-honor-coach-pat-dye')
+ROWS_H+=_logo('Auburn','YellaWood','building products (treated lumber)','from the 2025 season',_AU,"‘The on-field displays, 18 feet high and 21 feet wide on each 25-yard line, will also feature YellaWood's yellow logo’.",2025,"Release of 20 August 2025; the logos were first on the field in the 2025 season.",5,_AU,"‘The five-year partnership, facilitated by Auburn Sports Properties, a division of Playfly Sports’",_AU,"The release gives no value. Press reports say only ‘a five-year, eight-figure deal’, attributed to unnamed sources, with no amount.",'the field keeps its own name (Pat Dye Field)')
+_LS=("LSU Athletics release (6 Sep 2025)",'https://lsusports.net/news/2025/09/06/lsu-athletics-expands-partnership-with-venture-global/')
+ROWS_H+=_logo('LSU','Venture Global','energy (liquefied natural gas)','from the 2025 season',_LS,"‘an expanded multiyear partnership with Venture Global’ with ‘logo placement on the 25-yard lines at Tiger Stadium's historic field’.",2025,"Release of 6 September 2025, the day of the 2025 home opener.",'--',_LS,"The release says ‘multiyear’ and gives no number of years.",_LS,"The release gives no value and none has been reported.",'the field is not renamed')
+_SC=("Learfield release (11 Aug 2025)",'https://www.learfield.com/2025/08/blanchard-machinerys-commitment-will-help-build-a-stronger-south-carolina-and-bring-their-logo-to-the-field-at-williams-brice-stadium/')
+_SCP=("South Carolina Public Radio (13 Aug 2025)",'https://www.southcarolinapublicradio.org/sc-news/2025-08-13/williams-brice-receives-first-on-field-sponsor-logo-part-of-350-million-renovation-plan')
+ROWS_H+=_logo('South Carolina','Blanchard Machinery','heavy equipment dealer','from the 2025 season',_SC,"‘Beginning with the 2025 home opener, fans will see the Blanchard CAT and Blanchard Rental logos’ ‘featured on both 25-yard lines’.",2025,"‘Beginning with the 2025 home opener’",5,_SCP,"‘within this five-year long partnership’ (the Learfield release calls it a ‘five-year partnership extension’).",_SCP,"‘As of yet, there is no specification on how much this sponsorship costs’",'the field is not renamed')
