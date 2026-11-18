@@ -159,5 +159,21 @@ for key,hdr,sport,season in (('fb_hc_pay','FB HC total pay','football','2025 sea
     s['subtitle']=f"{len(above)} of {len(rs)} are above the Power 4 median of {money(s['med'])}; {LOGO[school(rs[0])]['short']} is highest at {money(val(rs[0],hdr))}."
     if miss: s['source']+=f" Not shown, no current pay figure: {', '.join(miss)}."
     s['section']='expense'; slides.append(s)
+# expense lines from the NCAA report: one page each, the conference's public schools against the Power 4
+def line_item(key,hdr,noun,what,extra=''):
+    s=finance(key,hdr,hdr); rs=s['rows']; cavg=statistics.mean(val(r,hdr) for r in rs); share=statistics.mean(val(r,hdr)/val(r,ex) for r in rs if val(r,ex)); miss=missing(rs,hdr)
+    s['title']=f"{CONF} departments spend {money(cavg)} a year on {noun} on average, against a Power 4 average of {money(s['avg'])}"
+    s['subtitle']=f"{LOGO[school(rs[0])]['short']} is highest at {money(val(rs[0],hdr))} and {LOGO[school(rs[-1])]['short']} lowest at {money(val(rs[-1],hdr))}; the line is {share*100:.1f}% of the average {CONF} budget."
+    s['source']=MF+' '+what+extra+(f" Not shown (private, no MFRS report): {', '.join(miss)}." if miss else '')+FYN
+    slides.append(s)
+line_item('support_staff_pay','Support and administrative staff pay','support and administrative staff','Line 24: compensation, benefits and bonuses for non-coaching staff paid by the university and related entities.')
+line_item('team_travel','Team travel','team travel','Line 28: air and ground travel, lodging and meals for the preseason and regular season, all sports; post-season travel is reported on other lines.')
+for key,hdr,noun in (('team_travel_fb','Team travel: football','football team travel'),('team_travel_mbb',"Team travel: men's basketball","men's basketball team travel"),('team_travel_wbb',"Team travel: women's basketball","women's basketball team travel")):
+    line_item(key,hdr,noun,'Line 28, the '+hdr.split(': ')[1]+' column: regular-season travel, lodging and meals; post-season travel is reported on other lines.')
+line_item('fundraising_marketing','Fundraising, marketing and promotion','fundraising, marketing and promotion','Line 31: costs of fundraising, marketing and promotion.',' Schools classify these costs differently (some include their foundation or outsourced marketing), so the line varies widely.')
+line_item('student_meals','Student-athlete meals','student-athlete meals','Line 39: meal allowances and food provided to student-athletes, other than meals during team travel.')
+# keep the expense pages in a reading order: the totals, then pay, travel, other lines, debt, head coaches
+ORDER=['total_expenses','surplus','coaching_salaries','support_staff_pay','team_travel','team_travel_fb','team_travel_mbb','team_travel_wbb','fundraising_marketing','student_meals','debt_service','fb_hc_pay','mbb_hc_pay']
+slides=[s for s in slides if s.get('section')!='expense']+sorted((s for s in slides if s.get('section')=='expense'),key=lambda s:ORDER.index(s['key']))
 for s in slides: s.pop('rows'); s.pop('inconf')
 json.dump(dict(conference=CONF,slides=slides,logos=[dict(school=k,short=v['short'],file=v['file']) for k,v in sorted(LOGO.items())]),sys.stdout,indent=1)

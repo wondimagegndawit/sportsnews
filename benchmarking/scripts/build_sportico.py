@@ -77,6 +77,21 @@ for s in master:
     add(s,'sp_nonprogram_revenue',trv[4] if trv else None,'USD',yr,bk+' (Non-Program Specific: revenue not attributable to a sport, e.g. media rights, institutional support, student fees)')
     for k in ('total_operating_revenue','total_operating_expenses','media_rights_revenue','ticket_sales_revenue','contributions_revenue','direct_institutional_support','student_fees','coaching_salaries','debt_service','athletics_related_debt'):
         add(s,'sp_'+k,vals[k],'USD',yr,note+('; line 34 includes leases and rental fees' if k=='debt_service' else '')+('; line 22, paid by the university and related entities' if k=='coaching_salaries' else '')+('; line 52' if k=='athletics_related_debt' else ''))
+    # more expense lines; each Totals row carries six figures: football, men's basketball, women's basketball, other sports,
+    # non-program specific, all sports
+    def cols(*names):
+        for nm in names:
+            for k,v in T.items():
+                if k.strip().lower().startswith(nm.lower()) and isinstance(v,list) and len(v)==6: return [num(x) for x in v]
+        return None
+    tv=cols('Team Travel'); ln=note.replace('all-sports total column','{} column')
+    add(s,'sp_team_travel',tv[5] if tv else None,'USD',yr,note+'; line 28, team travel for the regular season (post-season travel is reported on lines 41 and 42)')
+    for key,i,lab in (('team_travel_fb',0,'Football'),('team_travel_mbb',1,"Men's Basketball"),('team_travel_wbb',2,"Women's Basketball"),('team_travel_other',3,'Other Sports')):
+        add(s,'sp_'+key,tv[i] if tv else None,'USD',yr,ln.format(lab)+'; line 28, team travel')
+    for key,nm,what in (('fundraising_marketing','Fund Raising, Marketing and Promotion','line 31, fundraising, marketing and promotion'),
+                        ('support_staff_pay','Support Staff/ Administrative Compensation, Benefits and Bonuses paid by the University','line 24, support and administrative staff compensation, benefits and bonuses paid by the university and related entities'),
+                        ('student_meals','Student-Athlete Meals','line 39, student-athlete meals other than meals during team travel')):
+        c=cols(nm); add(s,'sp_'+key,c[5] if c else None,'USD',yr,note+'; '+what)
     ind=None
     if vals['indirect_6'] is not None: ind=vals['indirect_6']+(vals['indirect_6a'] or 0)
     add(s,'sp_indirect_institutional_support',ind,'USD',yr,note+f"; line 6 ({vals['indirect_6']}) plus line 6A facilities debt service paid by the institution ({vals['indirect_6a'] or 0})")

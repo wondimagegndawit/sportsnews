@@ -14,7 +14,7 @@ FN='Aptos Narrow'; BLUE='0000FF'
 F=lambda **k: Font(name=FN,size=9,**k)
 THIN=Side(style='thin',color='000000'); BLACK=PatternFill('solid',fgColor='000000'); GRAY=PatternFill('solid',fgColor='D9D9D9')
 NUMF={'usd':'#,##0_);\\(#,##0\\);"-"??_);_(@_)','num':'#,##0_);\\(#,##0\\);"-"??_);_(@_)','pct':'0.0%'}
-TAB={'jersey_patch':'Jersey patch','stadium_naming':'Stadium naming','field_naming':'Field naming','court_naming':'Court naming','logo_deals':'Logo deals','arena_naming':'Arena naming','fb_attendance':'FB attendance','fb_capacity':'FB capacity','mbb_attendance':'MBB attendance','total_expenses':'Total expenses','surplus':'Surplus (deficit)','coaching_salaries':'Coaching salaries','debt_service':'Debt service','fb_hc_pay':'FB HC pay','mbb_hc_pay':'MBB HC pay','mbb_capacity':'MBB capacity'}
+TAB={'jersey_patch':'Jersey patch','stadium_naming':'Stadium naming','field_naming':'Field naming','court_naming':'Court naming','logo_deals':'Logo deals','arena_naming':'Arena naming','fb_attendance':'FB attendance','fb_capacity':'FB capacity','mbb_attendance':'MBB attendance','total_expenses':'Total expenses','surplus':'Surplus (deficit)','coaching_salaries':'Coaching salaries','support_staff_pay':'Support staff pay','team_travel':'Team travel','team_travel_fb':'Travel football','team_travel_mbb':'Travel MBB','team_travel_wbb':'Travel WBB','fundraising_marketing':'Fundraising marketing','student_meals':'Student-athlete meals','debt_service':'Debt service','fb_hc_pay':'FB HC pay','mbb_hc_pay':'MBB HC pay','mbb_capacity':'MBB capacity'}
 RIGHT=Alignment(horizontal='right')
 wb=Workbook(); wb.remove(wb.active)
 for s in spec['slides']:

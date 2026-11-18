@@ -91,7 +91,7 @@ function dealSlide(s) {
 }
 
 // ---- attendance and capacity pages: the conference's schools, one or two seasons, Power 4 average and median
-const HEAD = { total_expenses: 'TOTAL OPERATING EXPENSES', surplus: 'OPERATING SURPLUS (DEFICIT)', coaching_salaries: 'COACHING SALARIES AND BENEFITS', debt_service: 'ANNUAL DEBT SERVICE', fb_hc_pay: 'FOOTBALL HEAD COACH PAY', mbb_hc_pay: "MEN'S BASKETBALL HEAD COACH PAY", fb_attendance: 'FOOTBALL ATTENDANCE', fb_capacity: 'FOOTBALL CAPACITY FILLED', mbb_attendance: "MEN'S BASKETBALL ATTENDANCE", mbb_capacity: "MEN'S BASKETBALL CAPACITY FILLED" };
+const HEAD = { total_expenses: 'TOTAL OPERATING EXPENSES', surplus: 'OPERATING SURPLUS (DEFICIT)', coaching_salaries: 'COACHING SALARIES AND BENEFITS', support_staff_pay: 'SUPPORT AND ADMIN STAFF PAY', team_travel: 'TEAM TRAVEL', team_travel_fb: 'TEAM TRAVEL, FOOTBALL', team_travel_mbb: "TEAM TRAVEL, MEN'S BASKETBALL", team_travel_wbb: "TEAM TRAVEL, WOMEN'S BASKETBALL", fundraising_marketing: 'FUNDRAISING, MARKETING AND PROMOTION', student_meals: 'STUDENT-ATHLETE MEALS', debt_service: 'ANNUAL DEBT SERVICE', fb_hc_pay: 'FOOTBALL HEAD COACH PAY', mbb_hc_pay: "MEN'S BASKETBALL HEAD COACH PAY", fb_attendance: 'FOOTBALL ATTENDANCE', fb_capacity: 'FOOTBALL CAPACITY FILLED', mbb_attendance: "MEN'S BASKETBALL ATTENDANCE", mbb_capacity: "MEN'S BASKETBALL CAPACITY FILLED" };
 const FMT = { num: { label: '#,##0.0,"K"', axis: '#,##0,"K"' }, pct: { label: '0%', axis: '0%' }, usd: { label: '$#,##0.0,,"M"', axis: '$#,##0,,"M"' } };
 function metricSlide(s) {
   const scope = s.scope === 'conference' ? metric.conference.toUpperCase() : 'ALL P4';
