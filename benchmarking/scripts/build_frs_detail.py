@@ -127,7 +127,7 @@ def pdf_items(path,kind):
     k=next(i_ for i_,(n_,v_) in enumerate(items) if n_.startswith('Total Operating Expenses'))
     items[k]=('Total Operating Expenses',[a+b for a,b in zip(items[k][1],debt)]); items.insert(k,('Athletic Facilities Debt Service',debt))
     return items
-rows=[]; sport_rows=[]; report=[]; done=[]
+rows=[]; sport_rows=[]; report=[]; done=[]; rebuilt=[]; resub=[]
 for s in master:
     n=s['name']; sp=SPV.get((n,'sp_fiscal_year')); tor=MV.get((n,'total_operating_revenue'))
     own=tor and tor['value'] not in ('--','') and MV.get((n,'fin_fiscal_year')) and MV[(n,'fin_fiscal_year')]['value'] not in ('--','')
@@ -140,6 +140,16 @@ for s in master:
     elif spy and spy>=2024:
         e=sp_entry(n,spy); T=e.get('Totals',{}); items=[(k,[num(x) for x in v]) for k,v in T.items() if isinstance(v,list) and len(v)==6]
         d=match(items); fy=spy; basis='Sportico (MFRS compilation)'; src=SP_NAME; url=URL
+        # where the compilation dropped the Total Operating Expenses row but kept the surplus row, the total is total
+        # revenue less that surplus; it is used only if it also equals the sum of the expense lines
+        if ('Expense','') not in d and ('Revenue','') in d:
+            exc=next(([num(x) for x in v] for k,v in T.items() if 'excess (deficiencies)' in k.lower() and isinstance(v,list) and len(v)==6),None)
+            if exc:
+                tot=[d[('Revenue','')][c]-exc[c] for c in range(6)]; lines=[sum(v[c] for (s_,i),v in d.items() if s_=='Expense' and i!='') for c in range(6)]
+                if all(abs(a_-b_)<=1 for a_,b_ in zip(tot,lines)): d[('Expense','')]=tot; rebuilt.append(n)
+        # the NCAA distributions subtotal is the sum of its three parts; a few entries leave the subtotal row at zero
+        parts=[d.get(('Revenue',i)) for i in ('12A','12B','12C')]
+        if ('Revenue','12') in d and all(parts) and any(abs(sum(p[c] for p in parts)-d[('Revenue','12')][c])>1 for c in range(6)): d[('Revenue','12')]=[sum(p[c] for p in parts) for c in range(6)]; resub.append(n)
         sports={k:(num(e.get('Revenues',{}).get(k)),num(e.get('Expenses',{}).get(k))) for k in list(dict.fromkeys(list(e.get('Revenues',{}))+list(e.get('Expenses',{}))))}
     else: continue
     check(n,d,report); done.append((n,fy,basis,len(d)))
@@ -155,5 +165,6 @@ with open('data/frs_sport_totals.csv','w',newline='',encoding='utf-8') as fh:
     w=csv.writer(fh); w.writerow(['school','conference','fiscal_year','sport','total_revenue','total_expenses','source_name','source_url']); w.writerows(sport_rows)
 print('schools',len(done),'| detail rows',len(rows),'| sport rows',len(sport_rows),'| by basis',collections.Counter((b,f) for _,f,b,_ in done))
 print('lines per school',collections.Counter(k for *_,k in done))
+print('expense total rebuilt from revenue less the reported surplus:',rebuilt,'| line 12 subtotal reset to its parts:',resub)
 print('checks that failed:',len(report))
 for r in report[:60]: print('  ',r)

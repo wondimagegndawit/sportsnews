@@ -1264,7 +1264,7 @@
    "conference": "Big 12",
    "n_conf": 13,
    "n_conf_total": 16,
-   "n_p4": 47,
+   "n_p4": 48,
    "categories": [
     {
      "school": "Arizona State",
@@ -1388,14 +1388,14 @@
      "value": 135560135
     }
    ],
-   "avg": 183736393.4680851,
-   "med": 178288091,
+   "avg": 185357640.85416666,
+   "med": 180495234.5,
    "cavg": 132900428.07692307,
    "cmed": 135560135,
-   "source": "Source: NCAA Membership Financial Reporting System (MFRS) reports for fiscal 2025, as compiled by Sportico or posted by the school, in the benchmarking workbook. Shown: the 13 Big 12 schools that file the NCAA report and are on fiscal 2025; not shown: Baylor, BYU, TCU. The Power 4 figure covers 47 schools on the same basis.",
+   "source": "Source: NCAA Membership Financial Reporting System (MFRS) reports for fiscal 2025, as compiled by Sportico or posted by the school, in the benchmarking workbook. Shown: the 13 Big 12 schools that file the NCAA report and are on fiscal 2025; not shown: Baylor, BYU, TCU. The Power 4 figure covers 48 schools on the same basis.",
    "section": "expense",
    "title": "Big 12 departments spent $132.9M on average in fiscal 2025, with a median of $135.6M",
-   "subtitle": "Arizona St spent the most at $164.7M and Houston the least at $98.9M. The Power 4 average is $183.7M."
+   "subtitle": "Arizona St spent the most at $164.7M and Houston the least at $98.9M. The Power 4 average is $185.4M."
   },
   {
    "key": "surplus",
@@ -1406,7 +1406,7 @@
    "conference": "Big 12",
    "n_conf": 13,
    "n_conf_total": 16,
-   "n_p4": 47,
+   "n_p4": 48,
    "categories": [
     {
      "school": "Kansas State",
@@ -1530,14 +1530,14 @@
      "value": 160189
     }
    ],
-   "avg": -780298.6382978724,
-   "med": 893714,
+   "avg": -466378.9375,
+   "med": 1100468.0,
    "cavg": 472532.46153846156,
    "cmed": 160189,
-   "source": "Source: NCAA Membership Financial Reporting System (MFRS) reports for fiscal 2025, as compiled by Sportico or posted by the school, in the benchmarking workbook. Operating revenue less operating expenses. Shown: the 13 Big 12 schools that file the NCAA report and are on fiscal 2025; not shown: Baylor, BYU, TCU. The Power 4 figure covers 47 schools on the same basis.",
+   "source": "Source: NCAA Membership Financial Reporting System (MFRS) reports for fiscal 2025, as compiled by Sportico or posted by the school, in the benchmarking workbook. Operating revenue less operating expenses. Shown: the 13 Big 12 schools that file the NCAA report and are on fiscal 2025; not shown: Baylor, BYU, TCU. The Power 4 figure covers 48 schools on the same basis.",
    "section": "expense",
    "title": "5 of 13 Big 12 departments spent more than they took in in fiscal 2025",
-   "subtitle": "Kansas St had the largest surplus at $12.6M and Houston the largest deficit at -$6.1M; the Big 12 median is $0.2M. The Power 4 average is -$0.8M."
+   "subtitle": "Kansas St had the largest surplus at $12.6M and Houston the largest deficit at -$6.1M; the Big 12 median is $0.2M. The Power 4 average is -$0.5M."
   },
   {
    "key": "coaching_salaries",
