@@ -44,15 +44,26 @@ for s in master:
                 x=num(v[-1] if isinstance(v,list) else v)
                 if x: return x
         return None
+    def rebuilt_revenue(T):
+        """Total revenue by column where the entry leaves that row at zero: total operating expenses plus the reported excess
+        of revenues over expenses. Only where both of those rows are present."""
+        tr=next(([num(x) for x in v] for k,v in T.items() if k.strip().lower().startswith('total operating revenues') and isinstance(v,list) and len(v)==6),None)
+        te=next(([num(x) for x in v] for k,v in T.items() if k.strip().lower().startswith('total operating expenses') and 'nil' not in k.lower() and isinstance(v,list) and len(v)==6),None)
+        xs=next(([num(x) for x in v] for k,v in T.items() if 'excess (deficiencies)' in k.lower() and isinstance(v,list) and len(v)==6),None)
+        if (tr is None or not any(tr)) and te and any(te) and xs: return [a_+b_ for a_,b_ in zip(te,xs)]
+        return None
     chosen=None; skipped=[]
     for yr in sorted(years,reverse=True):
         cname,sec=years[yr]; T=sec.get('Totals',{})
         rv=line(T,'Total Operating Revenues'); ex=exp_of(T)
         if rv: chosen=yr; break
+        if rebuilt_revenue(T): chosen=yr; break      # the revenue total row is blank but the expense total and surplus rows give it
         skipped.append(f'FY{yr} (total revenue line {rv})')
     if not chosen: summary.append((s['name'],'NO VALID YEAR')); continue
     yr=chosen; cname,sec=years[yr]; T=sec.get('Totals',{}); N=sec.get('Numbers',{})
     note=f"Sportico database entry '{cname}', fiscal year {yr}, Totals view, all-sports total column; compiled from the school's NCAA MFRS report"+(f"; later Sportico year(s) skipped because the total revenue line is missing or zero in the database: "+', '.join(skipped) if skipped else '')
+    rb=None if line(T,'Total Operating Revenues') else rebuilt_revenue(T)
+    rv_note=(f"; the Total Operating Revenues row is blank in this Sportico entry, so this is total operating expenses plus the reported excess of revenues over expenses" if rb else '')
     ex_note=''; ex_val=exp_of(T)
     if ex_val is None:      # total dropped from the entry: total revenue less the reported surplus, if that equals the sum of the expense lines
         rv_=line(T,'Total Operating Revenues'); xs=next((num(v[-1]) for k,v in T.items() if 'excess (deficiencies)' in k.lower() and isinstance(v,list) and len(v)==6),None)
@@ -62,10 +73,10 @@ for s in master:
             ex_val=rv_-xs; ex_note=f'; the Total Operating Expenses row is missing from this Sportico entry, so this is total operating revenues ({rv_:,}) less the reported excess of revenues over expenses ({xs:,}), which equals the sum of the expense lines'
         else: note+='; the Total Operating Expenses line is missing from this Sportico entry'
     vals=dict(
-      total_operating_revenue=line(T,'Total Operating Revenues'), total_operating_expenses=ex_val,
+      total_operating_revenue=(rb[5] if rb else line(T,'Total Operating Revenues')), total_operating_expenses=ex_val,
       media_rights_revenue=line(T,'Media Rights'), ticket_sales_revenue=line(T,'Ticket Sales'), contributions_revenue=line(T,'Contributions'),
       ncaa_distributions=line(T,'Total NCAA Distributions','NCAA Distributions'), conference_distributions=line(T,'Conference Distributions (Non Media'),
-      conference_bowl_distributions=line(T,'Conference Distributions of Post','Conference Distributions of Football Bowl'),
+      conference_bowl_distributions=line(T,'Conference Distributions of Post','Conference Distributions of Football Bowl','Conference Distributions of Bowl'),
       direct_institutional_support=line(T,'Direct Institutional Support'), indirect_6=line(T,'Indirect Institutional Support'), indirect_6a=line(T,'Indirect Institutional Support - Athletic Facilities'),
       student_fees=line(T,'Student Fees'), coaching_salaries=line(T,'Coaching Salaries, Benefits and Bonuses paid by the University'),
       debt_service=line(T,'Athletic Facilities Debt Service'), athletics_related_debt=line(N,'Total Athletics Related Debt') if N else None)
@@ -78,12 +89,13 @@ for s in master:
     trv=None
     for k,v in T.items():
         if k.strip().lower().startswith('total operating revenues') and isinstance(v,list) and len(v)==6: trv=[num(x) for x in v]; break
-    bk=note+'; Total Operating Revenues row, sport column of the Sportico Totals view'
+    if rb: trv=rb
+    bk=note+('; Total Operating Revenues row, sport column of the Sportico Totals view' if not rb else '; total operating expenses plus the reported excess, sport column of the Sportico Totals view (the revenue total row is blank in this entry)')
     add(s,'sp_fb_revenue',trv[0] if trv else None,'USD',yr,bk+' (Football)')
     add(s,'sp_mbb_revenue',trv[1] if trv else None,'USD',yr,bk+" (Men's Basketball)")
     add(s,'sp_nonprogram_revenue',trv[4] if trv else None,'USD',yr,bk+' (Non-Program Specific: revenue not attributable to a sport, e.g. media rights, institutional support, student fees)')
     for k in ('total_operating_revenue','total_operating_expenses','media_rights_revenue','ticket_sales_revenue','contributions_revenue','direct_institutional_support','student_fees','coaching_salaries','debt_service','athletics_related_debt'):
-        add(s,'sp_'+k,vals[k],'USD',yr,note+(ex_note if k=='total_operating_expenses' else '')+('; line 34 includes leases and rental fees' if k=='debt_service' else '')+('; line 22, paid by the university and related entities' if k=='coaching_salaries' else '')+('; line 52' if k=='athletics_related_debt' else ''))
+        add(s,'sp_'+k,vals[k],'USD',yr,note+(ex_note if k=='total_operating_expenses' else '')+(rv_note if k=='total_operating_revenue' else '')+('; line 34 includes leases and rental fees' if k=='debt_service' else '')+('; line 22, paid by the university and related entities' if k=='coaching_salaries' else '')+('; line 52' if k=='athletics_related_debt' else ''))
     # more expense lines; each Totals row carries six figures: football, men's basketball, women's basketball, other sports,
     # non-program specific, all sports
     def cols(*names):

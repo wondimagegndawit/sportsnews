@@ -57,7 +57,10 @@ merged=OrderedDict()
 for r in rows:
     k=(r['school'],r['metric'])
     if k not in merged: merged[k]=r; continue
-    if r['value']=='--': continue
+    if r['value']=='--':
+        # a later blank from a verification pass replaces an earlier blank, so the cell carries the most recent reason
+        if merged[k]['value']=='--' and r['_file'].startswith('verification_') and r['notes'].strip(): merged[k]=r
+        continue
     prev=merged[k]
     if prev['value']!='--' and prev['value'].lower()!=r['value'].lower() and r['metric'].endswith('_partner'):
         pre=r['metric'][:-8]

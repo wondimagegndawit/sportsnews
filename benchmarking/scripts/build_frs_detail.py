@@ -127,7 +127,7 @@ def pdf_items(path,kind):
     k=next(i_ for i_,(n_,v_) in enumerate(items) if n_.startswith('Total Operating Expenses'))
     items[k]=('Total Operating Expenses',[a+b for a,b in zip(items[k][1],debt)]); items.insert(k,('Athletic Facilities Debt Service',debt))
     return items
-rows=[]; sport_rows=[]; report=[]; done=[]; rebuilt=[]; resub=[]
+rows=[]; sport_rows=[]; report=[]; done=[]; rebuilt=[]; resub=[]; rerev=[]
 for s in master:
     n=s['name']; sp=SPV.get((n,'sp_fiscal_year')); tor=MV.get((n,'total_operating_revenue'))
     own=tor and tor['value'] not in ('--','') and MV.get((n,'fin_fiscal_year')) and MV[(n,'fin_fiscal_year')]['value'] not in ('--','')
@@ -140,6 +140,11 @@ for s in master:
     elif spy and spy>=2024:
         e=sp_entry(n,spy); T=e.get('Totals',{}); items=[(k,[num(x) for x in v]) for k,v in T.items() if isinstance(v,list) and len(v)==6]
         d=match(items); fy=spy; basis='Sportico (MFRS compilation)'; src=SP_NAME; url=URL
+        # where the entry leaves the Total Operating Revenues row at zero, it is total operating expenses plus the reported
+        # excess of revenues over expenses, by column
+        if ('Revenue','') in d and not any(d[('Revenue','')]) and ('Expense','') in d:
+            exc=next(([num(x) for x in v] for k,v in T.items() if 'excess (deficiencies)' in k.lower() and isinstance(v,list) and len(v)==6),None)
+            if exc: d[('Revenue','')]=[d[('Expense','')][c]+exc[c] for c in range(6)]; rerev.append(n)
         # where the compilation dropped the Total Operating Expenses row but kept the surplus row, the total is total
         # revenue less that surplus; it is used only if it also equals the sum of the expense lines
         if ('Expense','') not in d and ('Revenue','') in d:
@@ -161,12 +166,29 @@ for s in master:
         rows.append([n,s['conf'],fy,basis,sec,i,cname]+v+[src,url])
     if sports:
         for k,(rv,ex) in sports.items(): sport_rows.append([n,s['conf'],fy,k,rv if rv is not None else '--',ex if ex is not None else '--',src,url])
+# notes for the workbook: where a school's rows differ from a plain copy of the source, and what its entry lacks
+FULL25=[(c[0],c[1]) for c in CANON if c[1] not in ('50',)]
+have=collections.defaultdict(set)
+for r_ in rows: have[r_[0]].add((r_[4],r_[5]))
+notes=[]
+for n_,fy_,basis_,_k in done:
+    parts=[]
+    if n_ in rerev: parts.append("Total Operating Revenues is total operating expenses plus the reported excess of revenues over expenses; that row is blank in the Sportico data file.")
+    if n_ in rebuilt: parts.append("Total Operating Expenses is total operating revenues less the reported excess of revenues over expenses, which equals the sum of the expense lines and the total shown on the Sportico page; that row is missing in the Sportico data file.")
+    if n_ in resub: parts.append("Total NCAA Distributions shows the NCAA Distributions row, as the Sportico page does; the subtotal row is zero in the Sportico data file. Shown this way at my direction.")
+    if basis_.startswith('Sportico') and fy_==2025:
+        lack=[f"{i} {next(c[2] for c in CANON if (c[0],c[1])==(s_,i))}" for s_,i in FULL25 if i and (s_,i) not in have[n_]]
+        if lack: parts.append("The Sportico entry does not carry these lines: "+'; '.join(lack)+". Its lines therefore add up to less than its reported totals.")
+        if ('Expense','') not in have[n_]: parts.append("The entry has no Total Operating Expenses row and no surplus row, so no expense total is shown.")
+    if parts: notes.append([n_,' '.join(parts)])
+with open('data/frs_notes.csv','w',newline='',encoding='utf-8') as fh:
+    w=csv.writer(fh); w.writerow(['school','note']); w.writerows(notes)
 with open('data/frs_detail.csv','w',newline='',encoding='utf-8') as fh:
     w=csv.writer(fh); w.writerow(['school','conference','fiscal_year','basis','section','line_id','line_item','football','mens_basketball','womens_basketball','other_sports','non_program','total','source_name','source_url']); w.writerows(rows)
 with open('data/frs_sport_totals.csv','w',newline='',encoding='utf-8') as fh:
     w=csv.writer(fh); w.writerow(['school','conference','fiscal_year','sport','total_revenue','total_expenses','source_name','source_url']); w.writerows(sport_rows)
 print('schools',len(done),'| detail rows',len(rows),'| sport rows',len(sport_rows),'| by basis',collections.Counter((b,f) for _,f,b,_ in done))
 print('lines per school',collections.Counter(k for *_,k in done))
-print('expense total rebuilt from revenue less the reported surplus:',rebuilt,'| line 12 total taken from the NCAA Distributions row:',resub)
+print('revenue total rebuilt from expenses plus the reported surplus:',rerev,'| expense total rebuilt from revenue less the reported surplus:',rebuilt,'| line 12 total taken from the NCAA Distributions row:',resub)
 print('checks that failed:',len(report))
 for r in report[:60]: print('  ',r)
