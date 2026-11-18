@@ -109,7 +109,8 @@ for s in master:
         add(s,'sp_'+key,tv[i] if tv else None,'USD',yr,ln.format(lab)+'; line 28, team travel')
     for key,nm,what in (('fundraising_marketing','Fund Raising, Marketing and Promotion','line 31, fundraising, marketing and promotion'),
                         ('support_staff_pay','Support Staff/ Administrative Compensation, Benefits and Bonuses paid by the University','line 24, support and administrative staff compensation, benefits and bonuses paid by the university and related entities'),
-                        ('student_meals','Student-Athlete Meals','line 39, student-athlete meals other than meals during team travel')):
+                        ('student_meals','Student-Athlete Meals','line 39, student-athlete meals other than meals during team travel'),
+                        ('licensing_sponsorship_revenue','Royalties','line 15, royalties, licensing, advertisement and sponsorships')):
         c=cols(nm); add(s,'sp_'+key,c[5] if c else None,'USD',yr,note+'; '+what)
     # an entry can leave the 'Total NCAA Distributions' row at zero while the 'NCAA Distributions' row carries the money
     # (Iowa State, fiscal 2025); the NCAA Distributions row is used then, as the Sportico page shows it

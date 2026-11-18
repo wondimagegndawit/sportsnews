@@ -128,9 +128,31 @@ frs25=lambda r: dtype(r)=='MFRS' and fy(r)==2025
 OUT=[LOGO[school(r)]['short'] for r in ROWS if conf(r)==CONF and not frs25(r)]
 MF="Source: NCAA Membership Financial Reporting System (MFRS) reports for fiscal 2025, as compiled by Sportico or posted by the school, in the benchmarking workbook."
 def scope_note(s): return f" Shown: the {len(s['rows'])} {CONF} schools that file the NCAA report and are on fiscal 2025"+(f"; not shown: {', '.join(OUT)}" if OUT else '')+f". The Power 4 figure covers {s['n_p4']} schools on the same basis."
-def finance(key,hdr,label):
-    s=build(key,hdr,'usd',label,[(label,lambda r:val(r,hdr))],MF,only=frs25); s['section']='expense'; s['source']=MF+scope_note(s)
+def finance(key,hdr,label,section='expense',only=frs25):
+    s=build(key,hdr,'usd',label,[(label,lambda r:val(r,hdr))],MF,only=only); s['section']=section; s['source']=MF+scope_note(s)
     return s
+# ---- revenue: where the money comes from (ticket sales, licensing and sponsorship, media rights) and what football
+#      and men's basketball bring in. Same schools as the expense pages: NCAA report filers on fiscal 2025.
+tr='Total operating revenue'
+def revenue(key,hdr,noun,what,extra='',only=frs25,verb='take in'):
+    s=finance(key,hdr,hdr,'revenue',only); rs=s['rows']; share=statistics.mean(val(r,hdr)/val(r,tr) for r in rs if val(r,tr))
+    s['title']=f"{CONF} departments {verb} {money(s['cavg'])} a year from {noun} on average, with a median of {money(s['cmed'])}"
+    s['subtitle']=f"{LOGO[school(rs[0])]['short']} is highest at {money(val(rs[0],hdr))} and {LOGO[school(rs[-1])]['short']} lowest at {money(val(rs[-1],hdr))}; the line is {share*100:.1f}% of the average {CONF} department's revenue. The Power 4 average is {money(s['avg'])}."
+    s['source']=MF+' '+what+extra+scope_note(s)
+    slides.append(s); return s
+revenue('ticket_sales','Ticket sales revenue','ticket sales','Line 1: sales of admissions to athletics events, all sports.')
+revenue('licensing_sponsorship','Licensing, advertising and sponsorship revenue','licensing, advertising and sponsorships','Line 15: royalties, licensing, advertisements and sponsorships, all sports.',' Schools that sell these rights through an outside rights holder report the guaranteed fee here.')
+mr='Media rights revenue'
+ZERO=[LOGO[school(r)]['short'] for r in ROWS if conf(r)==CONF and frs25(r) and val(r,mr)==0]
+revenue('media_rights',mr,'media rights','Line 11: revenue for radio, television, internet and digital rights, including the conference media payout where the school reports it on this line.',
+        (f" Not charted: {', '.join(ZERO)}, which reports $0 on this line and carries its conference payout under conference distributions (line 13)." if ZERO else '')+' Media money a school reports as a conference distribution is not counted here.',
+        only=lambda r: frs25(r) and val(r,mr)!=0)
+for key,hdr,sport in (('fb_revenue','Football revenue','football'),('mbb_revenue',"Men's basketball revenue","men's basketball")):
+    s=finance(key,hdr,hdr,'revenue'); rs=s['rows']; share=statistics.mean(val(r,hdr)/val(r,tr) for r in rs if val(r,tr))
+    s['title']=f"{CONF} {sport} programs bring in {money(s['cavg'])} a year in operating revenue on average, with a median of {money(s['cmed'])}"
+    s['subtitle']=f"{LOGO[school(rs[0])]['short']} is highest at {money(val(rs[0],hdr))} and {LOGO[school(rs[-1])]['short']} lowest at {money(val(rs[-1],hdr))}; {sport} is {pct(share)} of the average {CONF} department's revenue. The Power 4 average is {money(s['avg'])}."
+    s['source']=MF+f" Total operating revenue, {sport} column. Schools differ in how much media rights and conference money they assign to the sport instead of to non-program revenue, so the totals are not fully like for like."+scope_note(s)
+    slides.append(s)
 ex='Total operating expenses'
 s=finance('total_expenses',ex,'Total operating expenses'); rs=s['rows']
 s['title']=f"{CONF} departments spent {money(s['cavg'])} on average in fiscal 2025, with a median of {money(s['cmed'])}"
@@ -176,6 +198,6 @@ line_item('fundraising_marketing','Fundraising, marketing and promotion','fundra
 line_item('student_meals','Student-athlete meals','student-athlete meals','Line 39: meal allowances and food provided to student-athletes, other than meals during team travel.')
 # keep the expense pages in a reading order: the totals, then pay, travel, other lines, debt, head coaches
 ORDER=['total_expenses','surplus','coaching_salaries','support_staff_pay','team_travel','team_travel_fb','team_travel_mbb','team_travel_wbb','fundraising_marketing','student_meals','debt_service','fb_hc_pay','mbb_hc_pay']
-slides=[s for s in slides if s.get('section')!='expense']+sorted((s for s in slides if s.get('section')=='expense'),key=lambda s:ORDER.index(s['key']))
+slides=[s for s in slides if s.get('section') not in ('expense','revenue')]+[s for s in slides if s.get('section')=='revenue']+sorted((s for s in slides if s.get('section')=='expense'),key=lambda s:ORDER.index(s['key']))
 for s in slides: s.pop('rows'); s.pop('inconf')
 json.dump(dict(conference=CONF,slides=slides,logos=[dict(school=k,short=v['short'],file=v['file']) for k,v in sorted(LOGO.items())]),sys.stdout,indent=1)

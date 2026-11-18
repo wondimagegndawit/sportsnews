@@ -91,7 +91,7 @@ function dealSlide(s) {
 }
 
 // ---- attendance and capacity pages: the conference's schools, one or two seasons, Power 4 average and median
-const HEAD = { total_expenses: 'TOTAL OPERATING EXPENSES', surplus: 'OPERATING SURPLUS (DEFICIT)', coaching_salaries: 'COACHING SALARIES AND BENEFITS', support_staff_pay: 'SUPPORT AND ADMIN STAFF PAY', team_travel: 'TEAM TRAVEL', team_travel_fb: 'TEAM TRAVEL, FOOTBALL', team_travel_mbb: "TEAM TRAVEL, MEN'S BASKETBALL", team_travel_wbb: "TEAM TRAVEL, WOMEN'S BASKETBALL", fundraising_marketing: 'FUNDRAISING, MARKETING AND PROMOTION', student_meals: 'STUDENT-ATHLETE MEALS', debt_service: 'ANNUAL DEBT SERVICE', fb_hc_pay: 'FOOTBALL HEAD COACH PAY', mbb_hc_pay: "MEN'S BASKETBALL HEAD COACH PAY", fb_attendance: 'FOOTBALL ATTENDANCE', fb_capacity: 'FOOTBALL CAPACITY FILLED', mbb_attendance: "MEN'S BASKETBALL ATTENDANCE", mbb_capacity: "MEN'S BASKETBALL CAPACITY FILLED" };
+const HEAD = { ticket_sales: 'TICKET SALES REVENUE', licensing_sponsorship: 'LICENSING, ADS AND SPONSORSHIP REVENUE', media_rights: 'MEDIA RIGHTS REVENUE', fb_revenue: 'FOOTBALL OPERATING REVENUE', mbb_revenue: "MEN'S BASKETBALL OPERATING REVENUE", total_expenses: 'TOTAL OPERATING EXPENSES', surplus: 'OPERATING SURPLUS (DEFICIT)', coaching_salaries: 'COACHING SALARIES AND BENEFITS', support_staff_pay: 'SUPPORT AND ADMIN STAFF PAY', team_travel: 'TEAM TRAVEL', team_travel_fb: 'TEAM TRAVEL, FOOTBALL', team_travel_mbb: "TEAM TRAVEL, MEN'S BASKETBALL", team_travel_wbb: "TEAM TRAVEL, WOMEN'S BASKETBALL", fundraising_marketing: 'FUNDRAISING, MARKETING AND PROMOTION', student_meals: 'STUDENT-ATHLETE MEALS', debt_service: 'ANNUAL DEBT SERVICE', fb_hc_pay: 'FOOTBALL HEAD COACH PAY', mbb_hc_pay: "MEN'S BASKETBALL HEAD COACH PAY", fb_attendance: 'FOOTBALL ATTENDANCE', fb_capacity: 'FOOTBALL CAPACITY FILLED', mbb_attendance: "MEN'S BASKETBALL ATTENDANCE", mbb_capacity: "MEN'S BASKETBALL CAPACITY FILLED" };
 const FMT = { num: { label: '#,##0.0,"K"', axis: '#,##0,"K"' }, pct: { label: '0%', axis: '0%' }, usd: { label: '$#,##0.0,,"M"', axis: '$#,##0,,"M"' } };
 function metricSlide(s) {
   const scope = s.scope === 'conference' ? metric.conference.toUpperCase() : 'ALL P4';
@@ -119,8 +119,9 @@ function metricSlide(s) {
 
 deals.forEach(dealSlide);
 const DEAL_KEYS = new Set(['jersey_patch', 'stadium_naming', 'field_naming', 'arena_naming', 'court_naming', 'logo_deals']);   // drawn from the deal spec above
+metric.slides.filter(s => s.section === 'revenue').forEach(metricSlide);
 metric.slides.filter(s => s.section === 'expense').forEach(metricSlide);
-metric.slides.filter(s => !DEAL_KEYS.has(s.key) && s.section !== 'expense').forEach(metricSlide);
+metric.slides.filter(s => !DEAL_KEYS.has(s.key) && s.section !== 'expense' && s.section !== 'revenue').forEach(metricSlide);
 
 // ---- logo library: every school's logo with its name, to copy from when a school is swapped into a chart
 (function library() {

@@ -1256,6 +1256,708 @@
    "subtitle": "Houston filled the largest share at 101% and Oklahoma St the smallest at 43%. The Power 4 average was 76%."
   },
   {
+   "key": "ticket_sales",
+   "metric": "Ticket sales revenue",
+   "unit": "usd",
+   "label": "Ticket sales revenue",
+   "scope": "conference",
+   "conference": "Big 12",
+   "n_conf": 13,
+   "n_conf_total": 16,
+   "n_p4": 49,
+   "categories": [
+    {
+     "school": "Colorado",
+     "short": "Colorado",
+     "abbr": "COLO",
+     "conference": "Big 12",
+     "logo": "colorado.png"
+    },
+    {
+     "school": "Kansas",
+     "short": "Kansas",
+     "abbr": "KU",
+     "conference": "Big 12",
+     "logo": "kansas.png"
+    },
+    {
+     "school": "Iowa State",
+     "short": "Iowa State",
+     "abbr": "ISU",
+     "conference": "Big 12",
+     "logo": "iowa_state.png"
+    },
+    {
+     "school": "West Virginia",
+     "short": "West Virginia",
+     "abbr": "WVU",
+     "conference": "Big 12",
+     "logo": "west_virginia.png"
+    },
+    {
+     "school": "Arizona",
+     "short": "Arizona",
+     "abbr": "ARIZ",
+     "conference": "Big 12",
+     "logo": "arizona.png"
+    },
+    {
+     "school": "Kansas State",
+     "short": "Kansas St",
+     "abbr": "KSU",
+     "conference": "Big 12",
+     "logo": "kansas_state.png"
+    },
+    {
+     "school": "Texas Tech",
+     "short": "Texas Tech",
+     "abbr": "TTU",
+     "conference": "Big 12",
+     "logo": "texas_tech.png"
+    },
+    {
+     "school": "Arizona State",
+     "short": "Arizona St",
+     "abbr": "ASU",
+     "conference": "Big 12",
+     "logo": "arizona_state.png"
+    },
+    {
+     "school": "Utah",
+     "short": "Utah",
+     "abbr": "UTAH",
+     "conference": "Big 12",
+     "logo": "utah.png"
+    },
+    {
+     "school": "Cincinnati",
+     "short": "Cincinnati",
+     "abbr": "CIN",
+     "conference": "Big 12",
+     "logo": "cincinnati.png"
+    },
+    {
+     "school": "Oklahoma State",
+     "short": "Oklahoma St",
+     "abbr": "OKST",
+     "conference": "Big 12",
+     "logo": "oklahoma_state.png"
+    },
+    {
+     "school": "UCF",
+     "short": "UCF",
+     "abbr": "UCF",
+     "conference": "Big 12",
+     "logo": "ucf.png"
+    },
+    {
+     "school": "Houston",
+     "short": "Houston",
+     "abbr": "HOU",
+     "conference": "Big 12",
+     "logo": "houston.png"
+    }
+   ],
+   "series": [
+    {
+     "name": "Ticket sales revenue",
+     "values": [
+      27581300,
+      26751470,
+      23693203,
+      23573673,
+      23137352,
+      20253371,
+      19519593,
+      17281766,
+      14035708,
+      12789585,
+      11779505,
+      8371974,
+      7634760
+     ]
+    }
+   ],
+   "lines": [
+    {
+     "name": "Big 12 average ($18.2M)",
+     "value": 18184866.153846152
+    },
+    {
+     "name": "Big 12 median ($19.5M)",
+     "value": 19519593
+    }
+   ],
+   "avg": 33107777.714285713,
+   "med": 29573521,
+   "cavg": 18184866.153846152,
+   "cmed": 19519593,
+   "source": "Source: NCAA Membership Financial Reporting System (MFRS) reports for fiscal 2025, as compiled by Sportico or posted by the school, in the benchmarking workbook. Line 1: sales of admissions to athletics events, all sports. Shown: the 13 Big 12 schools that file the NCAA report and are on fiscal 2025; not shown: Baylor, BYU, TCU. The Power 4 figure covers 49 schools on the same basis.",
+   "section": "revenue",
+   "title": "Big 12 departments take in $18.2M a year from ticket sales on average, with a median of $19.5M",
+   "subtitle": "Colorado is highest at $27.6M and Houston lowest at $7.6M; the line is 13.5% of the average Big 12 department's revenue. The Power 4 average is $33.1M."
+  },
+  {
+   "key": "licensing_sponsorship",
+   "metric": "Licensing, advertising and sponsorship revenue",
+   "unit": "usd",
+   "label": "Licensing, advertising and sponsorship revenue",
+   "scope": "conference",
+   "conference": "Big 12",
+   "n_conf": 13,
+   "n_conf_total": 16,
+   "n_p4": 49,
+   "categories": [
+    {
+     "school": "Arizona State",
+     "short": "Arizona St",
+     "abbr": "ASU",
+     "conference": "Big 12",
+     "logo": "arizona_state.png"
+    },
+    {
+     "school": "Texas Tech",
+     "short": "Texas Tech",
+     "abbr": "TTU",
+     "conference": "Big 12",
+     "logo": "texas_tech.png"
+    },
+    {
+     "school": "Utah",
+     "short": "Utah",
+     "abbr": "UTAH",
+     "conference": "Big 12",
+     "logo": "utah.png"
+    },
+    {
+     "school": "UCF",
+     "short": "UCF",
+     "abbr": "UCF",
+     "conference": "Big 12",
+     "logo": "ucf.png"
+    },
+    {
+     "school": "Colorado",
+     "short": "Colorado",
+     "abbr": "COLO",
+     "conference": "Big 12",
+     "logo": "colorado.png"
+    },
+    {
+     "school": "Kansas",
+     "short": "Kansas",
+     "abbr": "KU",
+     "conference": "Big 12",
+     "logo": "kansas.png"
+    },
+    {
+     "school": "Kansas State",
+     "short": "Kansas St",
+     "abbr": "KSU",
+     "conference": "Big 12",
+     "logo": "kansas_state.png"
+    },
+    {
+     "school": "West Virginia",
+     "short": "West Virginia",
+     "abbr": "WVU",
+     "conference": "Big 12",
+     "logo": "west_virginia.png"
+    },
+    {
+     "school": "Oklahoma State",
+     "short": "Oklahoma St",
+     "abbr": "OKST",
+     "conference": "Big 12",
+     "logo": "oklahoma_state.png"
+    },
+    {
+     "school": "Cincinnati",
+     "short": "Cincinnati",
+     "abbr": "CIN",
+     "conference": "Big 12",
+     "logo": "cincinnati.png"
+    },
+    {
+     "school": "Houston",
+     "short": "Houston",
+     "abbr": "HOU",
+     "conference": "Big 12",
+     "logo": "houston.png"
+    },
+    {
+     "school": "Arizona",
+     "short": "Arizona",
+     "abbr": "ARIZ",
+     "conference": "Big 12",
+     "logo": "arizona.png"
+    },
+    {
+     "school": "Iowa State",
+     "short": "Iowa State",
+     "abbr": "ISU",
+     "conference": "Big 12",
+     "logo": "iowa_state.png"
+    }
+   ],
+   "series": [
+    {
+     "name": "Licensing, advertising and sponsorship revenue",
+     "values": [
+      20425234,
+      20209486,
+      15717133,
+      13883426,
+      12354633,
+      12147484,
+      9914071,
+      9550743,
+      7169416,
+      6831880,
+      6447110,
+      5639702,
+      2281324
+     ]
+    }
+   ],
+   "lines": [
+    {
+     "name": "Big 12 average ($11.0M)",
+     "value": 10967049.384615384
+    },
+    {
+     "name": "Big 12 median ($9.9M)",
+     "value": 9914071
+    }
+   ],
+   "avg": 16036854.346938776,
+   "med": 13883426,
+   "cavg": 10967049.384615384,
+   "cmed": 9914071,
+   "source": "Source: NCAA Membership Financial Reporting System (MFRS) reports for fiscal 2025, as compiled by Sportico or posted by the school, in the benchmarking workbook. Line 15: royalties, licensing, advertisements and sponsorships, all sports. Schools that sell these rights through an outside rights holder report the guaranteed fee here. Shown: the 13 Big 12 schools that file the NCAA report and are on fiscal 2025; not shown: Baylor, BYU, TCU. The Power 4 figure covers 49 schools on the same basis.",
+   "section": "revenue",
+   "title": "Big 12 departments take in $11.0M a year from licensing, advertising and sponsorships on average, with a median of $9.9M",
+   "subtitle": "Arizona St is highest at $20.4M and Iowa State lowest at $2.3M; the line is 8.1% of the average Big 12 department's revenue. The Power 4 average is $16.0M."
+  },
+  {
+   "key": "media_rights",
+   "metric": "Media rights revenue",
+   "unit": "usd",
+   "label": "Media rights revenue",
+   "scope": "conference",
+   "conference": "Big 12",
+   "n_conf": 12,
+   "n_conf_total": 16,
+   "n_p4": 48,
+   "categories": [
+    {
+     "school": "Oklahoma State",
+     "short": "Oklahoma St",
+     "abbr": "OKST",
+     "conference": "Big 12",
+     "logo": "oklahoma_state.png"
+    },
+    {
+     "school": "Kansas",
+     "short": "Kansas",
+     "abbr": "KU",
+     "conference": "Big 12",
+     "logo": "kansas.png"
+    },
+    {
+     "school": "Iowa State",
+     "short": "Iowa State",
+     "abbr": "ISU",
+     "conference": "Big 12",
+     "logo": "iowa_state.png"
+    },
+    {
+     "school": "Arizona State",
+     "short": "Arizona St",
+     "abbr": "ASU",
+     "conference": "Big 12",
+     "logo": "arizona_state.png"
+    },
+    {
+     "school": "Utah",
+     "short": "Utah",
+     "abbr": "UTAH",
+     "conference": "Big 12",
+     "logo": "utah.png"
+    },
+    {
+     "school": "Arizona",
+     "short": "Arizona",
+     "abbr": "ARIZ",
+     "conference": "Big 12",
+     "logo": "arizona.png"
+    },
+    {
+     "school": "Kansas State",
+     "short": "Kansas St",
+     "abbr": "KSU",
+     "conference": "Big 12",
+     "logo": "kansas_state.png"
+    },
+    {
+     "school": "West Virginia",
+     "short": "West Virginia",
+     "abbr": "WVU",
+     "conference": "Big 12",
+     "logo": "west_virginia.png"
+    },
+    {
+     "school": "Texas Tech",
+     "short": "Texas Tech",
+     "abbr": "TTU",
+     "conference": "Big 12",
+     "logo": "texas_tech.png"
+    },
+    {
+     "school": "Colorado",
+     "short": "Colorado",
+     "abbr": "COLO",
+     "conference": "Big 12",
+     "logo": "colorado.png"
+    },
+    {
+     "school": "UCF",
+     "short": "UCF",
+     "abbr": "UCF",
+     "conference": "Big 12",
+     "logo": "ucf.png"
+    },
+    {
+     "school": "Houston",
+     "short": "Houston",
+     "abbr": "HOU",
+     "conference": "Big 12",
+     "logo": "houston.png"
+    }
+   ],
+   "series": [
+    {
+     "name": "Media rights revenue",
+     "values": [
+      33432702,
+      28415297,
+      24827937,
+      23348167,
+      23297746,
+      23297527,
+      23297527,
+      23297527,
+      22427183,
+      19586994,
+      12239965,
+      9446387
+     ]
+    }
+   ],
+   "lines": [
+    {
+     "name": "Big 12 average ($22.2M)",
+     "value": 22242913.25
+    },
+    {
+     "name": "Big 12 median ($23.3M)",
+     "value": 23297527.0
+    }
+   ],
+   "avg": 40493427.375,
+   "med": 41446427.0,
+   "cavg": 22242913.25,
+   "cmed": 23297527.0,
+   "source": "Source: NCAA Membership Financial Reporting System (MFRS) reports for fiscal 2025, as compiled by Sportico or posted by the school, in the benchmarking workbook. Line 11: revenue for radio, television, internet and digital rights, including the conference media payout where the school reports it on this line. Not charted: Cincinnati, which reports $0 on this line and carries its conference payout under conference distributions (line 13). Media money a school reports as a conference distribution is not counted here. Shown: the 12 Big 12 schools that file the NCAA report and are on fiscal 2025; not shown: Baylor, BYU, TCU. The Power 4 figure covers 48 schools on the same basis.",
+   "section": "revenue",
+   "title": "Big 12 departments take in $22.2M a year from media rights on average, with a median of $23.3M",
+   "subtitle": "Oklahoma St is highest at $33.4M and Houston lowest at $9.4M; the line is 16.4% of the average Big 12 department's revenue. The Power 4 average is $40.5M."
+  },
+  {
+   "key": "fb_revenue",
+   "metric": "Football revenue",
+   "unit": "usd",
+   "label": "Football revenue",
+   "scope": "conference",
+   "conference": "Big 12",
+   "n_conf": 13,
+   "n_conf_total": 16,
+   "n_p4": 49,
+   "categories": [
+    {
+     "school": "Utah",
+     "short": "Utah",
+     "abbr": "UTAH",
+     "conference": "Big 12",
+     "logo": "utah.png"
+    },
+    {
+     "school": "Arizona State",
+     "short": "Arizona St",
+     "abbr": "ASU",
+     "conference": "Big 12",
+     "logo": "arizona_state.png"
+    },
+    {
+     "school": "Texas Tech",
+     "short": "Texas Tech",
+     "abbr": "TTU",
+     "conference": "Big 12",
+     "logo": "texas_tech.png"
+    },
+    {
+     "school": "Colorado",
+     "short": "Colorado",
+     "abbr": "COLO",
+     "conference": "Big 12",
+     "logo": "colorado.png"
+    },
+    {
+     "school": "UCF",
+     "short": "UCF",
+     "abbr": "UCF",
+     "conference": "Big 12",
+     "logo": "ucf.png"
+    },
+    {
+     "school": "Oklahoma State",
+     "short": "Oklahoma St",
+     "abbr": "OKST",
+     "conference": "Big 12",
+     "logo": "oklahoma_state.png"
+    },
+    {
+     "school": "Iowa State",
+     "short": "Iowa State",
+     "abbr": "ISU",
+     "conference": "Big 12",
+     "logo": "iowa_state.png"
+    },
+    {
+     "school": "West Virginia",
+     "short": "West Virginia",
+     "abbr": "WVU",
+     "conference": "Big 12",
+     "logo": "west_virginia.png"
+    },
+    {
+     "school": "Arizona",
+     "short": "Arizona",
+     "abbr": "ARIZ",
+     "conference": "Big 12",
+     "logo": "arizona.png"
+    },
+    {
+     "school": "Kansas State",
+     "short": "Kansas St",
+     "abbr": "KSU",
+     "conference": "Big 12",
+     "logo": "kansas_state.png"
+    },
+    {
+     "school": "Kansas",
+     "short": "Kansas",
+     "abbr": "KU",
+     "conference": "Big 12",
+     "logo": "kansas.png"
+    },
+    {
+     "school": "Houston",
+     "short": "Houston",
+     "abbr": "HOU",
+     "conference": "Big 12",
+     "logo": "houston.png"
+    },
+    {
+     "school": "Cincinnati",
+     "short": "Cincinnati",
+     "abbr": "CIN",
+     "conference": "Big 12",
+     "logo": "cincinnati.png"
+    }
+   ],
+   "series": [
+    {
+     "name": "Football revenue",
+     "values": [
+      101799480,
+      86778405,
+      81731341,
+      69306236,
+      60153630,
+      56992244,
+      53144404,
+      52816079,
+      52780482,
+      38177213,
+      37110397,
+      16225445,
+      13486498
+     ]
+    }
+   ],
+   "lines": [
+    {
+     "name": "Big 12 average ($55.4M)",
+     "value": 55423219.538461536
+    },
+    {
+     "name": "Big 12 median ($53.1M)",
+     "value": 53144404
+    }
+   ],
+   "avg": 88860641.12244898,
+   "med": 86778405,
+   "cavg": 55423219.538461536,
+   "cmed": 53144404,
+   "source": "Source: NCAA Membership Financial Reporting System (MFRS) reports for fiscal 2025, as compiled by Sportico or posted by the school, in the benchmarking workbook. Total operating revenue, football column. Schools differ in how much media rights and conference money they assign to the sport instead of to non-program revenue, so the totals are not fully like for like. Shown: the 13 Big 12 schools that file the NCAA report and are on fiscal 2025; not shown: Baylor, BYU, TCU. The Power 4 figure covers 49 schools on the same basis.",
+   "section": "revenue",
+   "title": "Big 12 football programs bring in $55.4M a year in operating revenue on average, with a median of $53.1M",
+   "subtitle": "Utah is highest at $101.8M and Cincinnati lowest at $13.5M; football is 41% of the average Big 12 department's revenue. The Power 4 average is $88.9M."
+  },
+  {
+   "key": "mbb_revenue",
+   "metric": "Men's basketball revenue",
+   "unit": "usd",
+   "label": "Men's basketball revenue",
+   "scope": "conference",
+   "conference": "Big 12",
+   "n_conf": 13,
+   "n_conf_total": 16,
+   "n_p4": 49,
+   "categories": [
+    {
+     "school": "Arizona",
+     "short": "Arizona",
+     "abbr": "ARIZ",
+     "conference": "Big 12",
+     "logo": "arizona.png"
+    },
+    {
+     "school": "Kansas",
+     "short": "Kansas",
+     "abbr": "KU",
+     "conference": "Big 12",
+     "logo": "kansas.png"
+    },
+    {
+     "school": "Utah",
+     "short": "Utah",
+     "abbr": "UTAH",
+     "conference": "Big 12",
+     "logo": "utah.png"
+    },
+    {
+     "school": "Texas Tech",
+     "short": "Texas Tech",
+     "abbr": "TTU",
+     "conference": "Big 12",
+     "logo": "texas_tech.png"
+    },
+    {
+     "school": "Oklahoma State",
+     "short": "Oklahoma St",
+     "abbr": "OKST",
+     "conference": "Big 12",
+     "logo": "oklahoma_state.png"
+    },
+    {
+     "school": "Iowa State",
+     "short": "Iowa State",
+     "abbr": "ISU",
+     "conference": "Big 12",
+     "logo": "iowa_state.png"
+    },
+    {
+     "school": "Arizona State",
+     "short": "Arizona St",
+     "abbr": "ASU",
+     "conference": "Big 12",
+     "logo": "arizona_state.png"
+    },
+    {
+     "school": "Colorado",
+     "short": "Colorado",
+     "abbr": "COLO",
+     "conference": "Big 12",
+     "logo": "colorado.png"
+    },
+    {
+     "school": "West Virginia",
+     "short": "West Virginia",
+     "abbr": "WVU",
+     "conference": "Big 12",
+     "logo": "west_virginia.png"
+    },
+    {
+     "school": "Kansas State",
+     "short": "Kansas St",
+     "abbr": "KSU",
+     "conference": "Big 12",
+     "logo": "kansas_state.png"
+    },
+    {
+     "school": "Cincinnati",
+     "short": "Cincinnati",
+     "abbr": "CIN",
+     "conference": "Big 12",
+     "logo": "cincinnati.png"
+    },
+    {
+     "school": "Houston",
+     "short": "Houston",
+     "abbr": "HOU",
+     "conference": "Big 12",
+     "logo": "houston.png"
+    },
+    {
+     "school": "UCF",
+     "short": "UCF",
+     "abbr": "UCF",
+     "conference": "Big 12",
+     "logo": "ucf.png"
+    }
+   ],
+   "series": [
+    {
+     "name": "Men's basketball revenue",
+     "values": [
+      29837839,
+      21918944,
+      18542580,
+      16744271,
+      16083335,
+      14437710,
+      13493883,
+      11918493,
+      11803841,
+      11401757,
+      11260460,
+      7760412,
+      7027084
+     ]
+    }
+   ],
+   "lines": [
+    {
+     "name": "Big 12 average ($14.8M)",
+     "value": 14786969.923076924
+    },
+    {
+     "name": "Big 12 median ($13.5M)",
+     "value": 13493883
+    }
+   ],
+   "avg": 19152705.204081632,
+   "med": 16702408,
+   "cavg": 14786969.923076924,
+   "cmed": 13493883,
+   "source": "Source: NCAA Membership Financial Reporting System (MFRS) reports for fiscal 2025, as compiled by Sportico or posted by the school, in the benchmarking workbook. Total operating revenue, men's basketball column. Schools differ in how much media rights and conference money they assign to the sport instead of to non-program revenue, so the totals are not fully like for like. Shown: the 13 Big 12 schools that file the NCAA report and are on fiscal 2025; not shown: Baylor, BYU, TCU. The Power 4 figure covers 49 schools on the same basis.",
+   "section": "revenue",
+   "title": "Big 12 men's basketball programs bring in $14.8M a year in operating revenue on average, with a median of $13.5M",
+   "subtitle": "Arizona is highest at $29.8M and UCF lowest at $7.0M; men's basketball is 11% of the average Big 12 department's revenue. The Power 4 average is $19.2M."
+  },
+  {
    "key": "total_expenses",
    "metric": "Total operating expenses",
    "unit": "usd",
