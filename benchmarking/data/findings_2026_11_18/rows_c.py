@@ -2,7 +2,7 @@
 _bc=("Boston College News (Oct 2025)",'https://www.bc.edu/bc-web/sites/bc-news/articles/2025/fall/gift-will-establish-the-edgerley-family-court-in-conte-forum.html')
 ROWS_C=[]
 for f in ('annual_value','total_value','term_years','start_year','industry'):
-    ROWS_C.append(('Boston College','arena_nr_'+f,'--','2026',*_bc,"Conte Forum's name is not classified (no page read says for whom or why it is named), and no naming-rights deal is reported."))
+    pass
 for f in ('annual_value','total_value','term_years','start_year'):
     ROWS_C.append(('BYU','mmr_'+f,'--','2026',"BYU Athletics",'',"The holder of BYU's multimedia rights is not identified, so there are no terms to show."))
 for s in ('Boston College','Duke','Stanford','Syracuse','Wake Forest','BYU','Northwestern'):
