@@ -1264,7 +1264,7 @@
    "conference": "Big 12",
    "n_conf": 13,
    "n_conf_total": 16,
-   "n_p4": 48,
+   "n_p4": 49,
    "categories": [
     {
      "school": "Arizona State",
@@ -1388,14 +1388,14 @@
      "value": 135560135
     }
    ],
-   "avg": 185357640.85416666,
-   "med": 180495234.5,
+   "avg": 185472815.5510204,
+   "med": 182702378,
    "cavg": 132900428.07692307,
    "cmed": 135560135,
-   "source": "Source: NCAA Membership Financial Reporting System (MFRS) reports for fiscal 2025, as compiled by Sportico or posted by the school, in the benchmarking workbook. Shown: the 13 Big 12 schools that file the NCAA report and are on fiscal 2025; not shown: Baylor, BYU, TCU. The Power 4 figure covers 48 schools on the same basis.",
+   "source": "Source: NCAA Membership Financial Reporting System (MFRS) reports for fiscal 2025, as compiled by Sportico or posted by the school, in the benchmarking workbook. Shown: the 13 Big 12 schools that file the NCAA report and are on fiscal 2025; not shown: Baylor, BYU, TCU. The Power 4 figure covers 49 schools on the same basis.",
    "section": "expense",
    "title": "Big 12 departments spent $132.9M on average in fiscal 2025, with a median of $135.6M",
-   "subtitle": "Arizona St spent the most at $164.7M and Houston the least at $98.9M. The Power 4 average is $185.4M."
+   "subtitle": "Arizona St spent the most at $164.7M and Houston the least at $98.9M. The Power 4 average is $185.5M."
   },
   {
    "key": "surplus",
@@ -1406,7 +1406,7 @@
    "conference": "Big 12",
    "n_conf": 13,
    "n_conf_total": 16,
-   "n_p4": 48,
+   "n_p4": 49,
    "categories": [
     {
      "school": "Kansas State",
@@ -1530,14 +1530,14 @@
      "value": 160189
     }
    ],
-   "avg": -466378.9375,
-   "med": 1100468.0,
+   "avg": -643262.3673469388,
+   "med": 893714,
    "cavg": 472532.46153846156,
    "cmed": 160189,
-   "source": "Source: NCAA Membership Financial Reporting System (MFRS) reports for fiscal 2025, as compiled by Sportico or posted by the school, in the benchmarking workbook. Operating revenue less operating expenses. Shown: the 13 Big 12 schools that file the NCAA report and are on fiscal 2025; not shown: Baylor, BYU, TCU. The Power 4 figure covers 48 schools on the same basis.",
+   "source": "Source: NCAA Membership Financial Reporting System (MFRS) reports for fiscal 2025, as compiled by Sportico or posted by the school, in the benchmarking workbook. Operating revenue less operating expenses. Shown: the 13 Big 12 schools that file the NCAA report and are on fiscal 2025; not shown: Baylor, BYU, TCU. The Power 4 figure covers 49 schools on the same basis.",
    "section": "expense",
    "title": "5 of 13 Big 12 departments spent more than they took in in fiscal 2025",
-   "subtitle": "Kansas St had the largest surplus at $12.6M and Houston the largest deficit at -$6.1M; the Big 12 median is $0.2M. The Power 4 average is -$0.5M."
+   "subtitle": "Kansas St had the largest surplus at $12.6M and Houston the largest deficit at -$6.1M; the Big 12 median is $0.2M. The Power 4 average is -$0.6M."
   },
   {
    "key": "coaching_salaries",
@@ -1548,7 +1548,7 @@
    "conference": "Big 12",
    "n_conf": 13,
    "n_conf_total": 16,
-   "n_p4": 48,
+   "n_p4": 49,
    "categories": [
     {
      "school": "Arizona State",
@@ -1672,11 +1672,11 @@
      "value": 22989694
     }
    ],
-   "avg": 33882603.395833336,
-   "med": 34296254.5,
+   "avg": 33862665.469387755,
+   "med": 33705036,
    "cavg": 24941685.46153846,
    "cmed": 22989694,
-   "source": "Source: NCAA Membership Financial Reporting System (MFRS) reports for fiscal 2025, as compiled by Sportico or posted by the school, in the benchmarking workbook. Line 22: salaries, benefits and bonuses for all coaches, paid by the university and related entities. Shown: the 13 Big 12 schools that file the NCAA report and are on fiscal 2025; not shown: Baylor, BYU, TCU. The Power 4 figure covers 48 schools on the same basis.",
+   "source": "Source: NCAA Membership Financial Reporting System (MFRS) reports for fiscal 2025, as compiled by Sportico or posted by the school, in the benchmarking workbook. Line 22: salaries, benefits and bonuses for all coaches, paid by the university and related entities. Shown: the 13 Big 12 schools that file the NCAA report and are on fiscal 2025; not shown: Baylor, BYU, TCU. The Power 4 figure covers 49 schools on the same basis.",
    "section": "expense",
    "title": "Big 12 departments pay coaches $24.9M a year on average, with a median of $23.0M",
    "subtitle": "Arizona St is highest at $33.1M and Cincinnati lowest at $18.7M; coaching pay is 19% of the average Big 12 budget. The Power 4 average is $33.9M."
@@ -1690,7 +1690,7 @@
    "conference": "Big 12",
    "n_conf": 13,
    "n_conf_total": 16,
-   "n_p4": 48,
+   "n_p4": 49,
    "categories": [
     {
      "school": "Kansas",
@@ -1814,11 +1814,11 @@
      "value": 23633325
     }
    ],
-   "avg": 30881020.916666668,
-   "med": 29304480.0,
+   "avg": 30901901.06122449,
+   "med": 29341612,
    "cavg": 23162846.692307692,
    "cmed": 23633325,
-   "source": "Source: NCAA Membership Financial Reporting System (MFRS) reports for fiscal 2025, as compiled by Sportico or posted by the school, in the benchmarking workbook. Line 24: compensation, benefits and bonuses for non-coaching staff paid by the university and related entities. Shown: the 13 Big 12 schools that file the NCAA report and are on fiscal 2025; not shown: Baylor, BYU, TCU. The Power 4 figure covers 48 schools on the same basis.",
+   "source": "Source: NCAA Membership Financial Reporting System (MFRS) reports for fiscal 2025, as compiled by Sportico or posted by the school, in the benchmarking workbook. Line 24: compensation, benefits and bonuses for non-coaching staff paid by the university and related entities. Shown: the 13 Big 12 schools that file the NCAA report and are on fiscal 2025; not shown: Baylor, BYU, TCU. The Power 4 figure covers 49 schools on the same basis.",
    "section": "expense",
    "title": "Big 12 departments spend $23.2M a year on support and administrative staff on average, with a median of $23.6M",
    "subtitle": "Kansas is highest at $33.3M and Houston lowest at $16.4M; the line is 17.5% of the average Big 12 budget. The Power 4 average is $30.9M."
@@ -1832,7 +1832,7 @@
    "conference": "Big 12",
    "n_conf": 13,
    "n_conf_total": 16,
-   "n_p4": 48,
+   "n_p4": 49,
    "categories": [
     {
      "school": "Kansas",
@@ -1956,11 +1956,11 @@
      "value": 8446508
     }
    ],
-   "avg": 10093296.75,
-   "med": 9673050.5,
+   "avg": 10063310.387755102,
+   "med": 9665155,
    "cavg": 8006965.769230769,
    "cmed": 8446508,
-   "source": "Source: NCAA Membership Financial Reporting System (MFRS) reports for fiscal 2025, as compiled by Sportico or posted by the school, in the benchmarking workbook. Line 28: air and ground travel, lodging and meals for the preseason and regular season, all sports; post-season travel is reported on other lines. Shown: the 13 Big 12 schools that file the NCAA report and are on fiscal 2025; not shown: Baylor, BYU, TCU. The Power 4 figure covers 48 schools on the same basis.",
+   "source": "Source: NCAA Membership Financial Reporting System (MFRS) reports for fiscal 2025, as compiled by Sportico or posted by the school, in the benchmarking workbook. Line 28: air and ground travel, lodging and meals for the preseason and regular season, all sports; post-season travel is reported on other lines. Shown: the 13 Big 12 schools that file the NCAA report and are on fiscal 2025; not shown: Baylor, BYU, TCU. The Power 4 figure covers 49 schools on the same basis.",
    "section": "expense",
    "title": "Big 12 departments spend $8.0M a year on team travel on average, with a median of $8.4M",
    "subtitle": "Kansas is highest at $10.8M and Houston lowest at $4.2M; the line is 6.1% of the average Big 12 budget. The Power 4 average is $10.1M."
@@ -1974,7 +1974,7 @@
    "conference": "Big 12",
    "n_conf": 13,
    "n_conf_total": 16,
-   "n_p4": 48,
+   "n_p4": 49,
    "categories": [
     {
      "school": "Arizona State",
@@ -2098,11 +2098,11 @@
      "value": 2329034
     }
    ],
-   "avg": 2683247.5833333335,
-   "med": 2521118.0,
+   "avg": 2667211.6326530613,
+   "med": 2494942,
    "cavg": 2218084,
    "cmed": 2329034,
-   "source": "Source: NCAA Membership Financial Reporting System (MFRS) reports for fiscal 2025, as compiled by Sportico or posted by the school, in the benchmarking workbook. Line 28, the football column: regular-season travel, lodging and meals; post-season travel is reported on other lines. Shown: the 13 Big 12 schools that file the NCAA report and are on fiscal 2025; not shown: Baylor, BYU, TCU. The Power 4 figure covers 48 schools on the same basis.",
+   "source": "Source: NCAA Membership Financial Reporting System (MFRS) reports for fiscal 2025, as compiled by Sportico or posted by the school, in the benchmarking workbook. Line 28, the football column: regular-season travel, lodging and meals; post-season travel is reported on other lines. Shown: the 13 Big 12 schools that file the NCAA report and are on fiscal 2025; not shown: Baylor, BYU, TCU. The Power 4 figure covers 49 schools on the same basis.",
    "section": "expense",
    "title": "Big 12 departments spend $2.2M a year on football team travel on average, with a median of $2.3M",
    "subtitle": "Arizona St is highest at $3.0M and Houston lowest at $1.2M; the line is 1.7% of the average Big 12 budget. The Power 4 average is $2.7M."
@@ -2116,7 +2116,7 @@
    "conference": "Big 12",
    "n_conf": 13,
    "n_conf_total": 16,
-   "n_p4": 48,
+   "n_p4": 49,
    "categories": [
     {
      "school": "Arizona",
@@ -2240,11 +2240,11 @@
      "value": 1442917
     }
    ],
-   "avg": 1789904.5625,
-   "med": 1612238.0,
+   "avg": 1782833.8775510204,
+   "med": 1606272,
    "cavg": 1614731.6153846155,
    "cmed": 1442917,
-   "source": "Source: NCAA Membership Financial Reporting System (MFRS) reports for fiscal 2025, as compiled by Sportico or posted by the school, in the benchmarking workbook. Line 28, the men's basketball column: regular-season travel, lodging and meals; post-season travel is reported on other lines. Shown: the 13 Big 12 schools that file the NCAA report and are on fiscal 2025; not shown: Baylor, BYU, TCU. The Power 4 figure covers 48 schools on the same basis.",
+   "source": "Source: NCAA Membership Financial Reporting System (MFRS) reports for fiscal 2025, as compiled by Sportico or posted by the school, in the benchmarking workbook. Line 28, the men's basketball column: regular-season travel, lodging and meals; post-season travel is reported on other lines. Shown: the 13 Big 12 schools that file the NCAA report and are on fiscal 2025; not shown: Baylor, BYU, TCU. The Power 4 figure covers 49 schools on the same basis.",
    "section": "expense",
    "title": "Big 12 departments spend $1.6M a year on men's basketball team travel on average, with a median of $1.4M",
    "subtitle": "Arizona is highest at $2.6M and Utah lowest at $0.9M; the line is 1.2% of the average Big 12 budget. The Power 4 average is $1.8M."
@@ -2258,7 +2258,7 @@
    "conference": "Big 12",
    "n_conf": 13,
    "n_conf_total": 16,
-   "n_p4": 48,
+   "n_p4": 49,
    "categories": [
     {
      "school": "Texas Tech",
@@ -2382,11 +2382,11 @@
      "value": 828322
     }
    ],
-   "avg": 1175414.3125,
-   "med": 1096358.0,
+   "avg": 1173095.5918367347,
+   "med": 1093261,
    "cavg": 983566.3846153846,
    "cmed": 828322,
-   "source": "Source: NCAA Membership Financial Reporting System (MFRS) reports for fiscal 2025, as compiled by Sportico or posted by the school, in the benchmarking workbook. Line 28, the women's basketball column: regular-season travel, lodging and meals; post-season travel is reported on other lines. Shown: the 13 Big 12 schools that file the NCAA report and are on fiscal 2025; not shown: Baylor, BYU, TCU. The Power 4 figure covers 48 schools on the same basis.",
+   "source": "Source: NCAA Membership Financial Reporting System (MFRS) reports for fiscal 2025, as compiled by Sportico or posted by the school, in the benchmarking workbook. Line 28, the women's basketball column: regular-season travel, lodging and meals; post-season travel is reported on other lines. Shown: the 13 Big 12 schools that file the NCAA report and are on fiscal 2025; not shown: Baylor, BYU, TCU. The Power 4 figure covers 49 schools on the same basis.",
    "section": "expense",
    "title": "Big 12 departments spend $1.0M a year on women's basketball team travel on average, with a median of $0.8M",
    "subtitle": "Texas Tech is highest at $1.9M and Houston lowest at $0.5M; the line is 0.7% of the average Big 12 budget. The Power 4 average is $1.2M."
@@ -2400,7 +2400,7 @@
    "conference": "Big 12",
    "n_conf": 13,
    "n_conf_total": 16,
-   "n_p4": 48,
+   "n_p4": 49,
    "categories": [
     {
      "school": "Arizona State",
@@ -2524,14 +2524,14 @@
      "value": 3385305
     }
    ],
-   "avg": 9075732.916666666,
-   "med": 3628276.0,
+   "avg": 9597490.959183674,
+   "med": 3780345,
    "cavg": 4067451.5384615385,
    "cmed": 3385305,
-   "source": "Source: NCAA Membership Financial Reporting System (MFRS) reports for fiscal 2025, as compiled by Sportico or posted by the school, in the benchmarking workbook. Line 31: costs of fundraising, marketing and promotion. Schools classify these costs differently (some include their foundation or outsourced marketing), so the line varies widely. Shown: the 13 Big 12 schools that file the NCAA report and are on fiscal 2025; not shown: Baylor, BYU, TCU. The Power 4 figure covers 48 schools on the same basis.",
+   "source": "Source: NCAA Membership Financial Reporting System (MFRS) reports for fiscal 2025, as compiled by Sportico or posted by the school, in the benchmarking workbook. Line 31: costs of fundraising, marketing and promotion. Schools classify these costs differently (some include their foundation or outsourced marketing), so the line varies widely. Shown: the 13 Big 12 schools that file the NCAA report and are on fiscal 2025; not shown: Baylor, BYU, TCU. The Power 4 figure covers 49 schools on the same basis.",
    "section": "expense",
    "title": "Big 12 departments spend $4.1M a year on fundraising, marketing and promotion on average, with a median of $3.4M",
-   "subtitle": "Arizona St is highest at $8.1M and Houston lowest at $1.2M; the line is 2.9% of the average Big 12 budget. The Power 4 average is $9.1M."
+   "subtitle": "Arizona St is highest at $8.1M and Houston lowest at $1.2M; the line is 2.9% of the average Big 12 budget. The Power 4 average is $9.6M."
   },
   {
    "key": "student_meals",
@@ -2542,7 +2542,7 @@
    "conference": "Big 12",
    "n_conf": 13,
    "n_conf_total": 16,
-   "n_p4": 48,
+   "n_p4": 49,
    "categories": [
     {
      "school": "Arizona",
@@ -2666,14 +2666,14 @@
      "value": 2972071
     }
    ],
-   "avg": 4464214,
-   "med": 3929417.5,
+   "avg": 4445587.142857143,
+   "med": 3875297,
    "cavg": 3525716.6153846155,
    "cmed": 2972071,
-   "source": "Source: NCAA Membership Financial Reporting System (MFRS) reports for fiscal 2025, as compiled by Sportico or posted by the school, in the benchmarking workbook. Line 39: meal allowances and food provided to student-athletes, other than meals during team travel. Shown: the 13 Big 12 schools that file the NCAA report and are on fiscal 2025; not shown: Baylor, BYU, TCU. The Power 4 figure covers 48 schools on the same basis.",
+   "source": "Source: NCAA Membership Financial Reporting System (MFRS) reports for fiscal 2025, as compiled by Sportico or posted by the school, in the benchmarking workbook. Line 39: meal allowances and food provided to student-athletes, other than meals during team travel. Shown: the 13 Big 12 schools that file the NCAA report and are on fiscal 2025; not shown: Baylor, BYU, TCU. The Power 4 figure covers 49 schools on the same basis.",
    "section": "expense",
    "title": "Big 12 departments spend $3.5M a year on student-athlete meals on average, with a median of $3.0M",
-   "subtitle": "Arizona is highest at $7.0M and Utah lowest at $1.7M; the line is 2.7% of the average Big 12 budget. The Power 4 average is $4.5M."
+   "subtitle": "Arizona is highest at $7.0M and Utah lowest at $1.7M; the line is 2.7% of the average Big 12 budget. The Power 4 average is $4.4M."
   },
   {
    "key": "debt_service",
@@ -2684,7 +2684,7 @@
    "conference": "Big 12",
    "n_conf": 13,
    "n_conf_total": 16,
-   "n_p4": 48,
+   "n_p4": 49,
    "categories": [
     {
      "school": "Texas Tech",
@@ -2808,14 +2808,14 @@
      "value": 10628080
     }
    ],
-   "avg": 14878215.791666666,
-   "med": 12765497.5,
+   "avg": 14789662.448979592,
+   "med": 12732343,
    "cavg": 10613497.846153846,
    "cmed": 10628080,
-   "source": "Source: NCAA Membership Financial Reporting System (MFRS) reports for fiscal 2025, as compiled by Sportico or posted by the school, in the benchmarking workbook. Line 34: debt service on athletics facilities (principal and interest), leases and rental fees. Shown: the 13 Big 12 schools that file the NCAA report and are on fiscal 2025; not shown: Baylor, BYU, TCU. The Power 4 figure covers 48 schools on the same basis.",
+   "source": "Source: NCAA Membership Financial Reporting System (MFRS) reports for fiscal 2025, as compiled by Sportico or posted by the school, in the benchmarking workbook. Line 34: debt service on athletics facilities (principal and interest), leases and rental fees. Shown: the 13 Big 12 schools that file the NCAA report and are on fiscal 2025; not shown: Baylor, BYU, TCU. The Power 4 figure covers 49 schools on the same basis.",
    "section": "expense",
    "title": "Big 12 departments pay $10.6M a year in debt service on average, with a median of $10.6M",
-   "subtitle": "7 of 13 pay $10M or more a year; Texas Tech is highest at $16.8M. The Power 4 average is $14.9M."
+   "subtitle": "7 of 13 pay $10M or more a year; Texas Tech is highest at $16.8M. The Power 4 average is $14.8M."
   },
   {
    "key": "fb_hc_pay",
