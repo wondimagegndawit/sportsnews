@@ -99,7 +99,7 @@ function metricSlide(s) {
   const n = s.categories.length, dense = n > 8, two = s.series.length > 1;
   const byBasis = s.categories.some(c => c.basis === 'EADA');          // private schools on the federal report get a second colour
   const CH = { x: 0.5, y: 2.4, w: 9.0, h: 3.45 };
-  const short = t => t.replace('Power 4 average', 'P4 Average').replace('Power 4 median', 'P4 Median').replace(', MFRS schools', ' MFRS');
+  const short = t => t.replace('Power 4', 'P4').replace(' average', ' Average').replace(' median', ' Median').replace(', both seasons', ', Both Seasons');
   const all = s.series[0].values.filter(v => v != null), hi = Math.max(...all), lo = Math.min(...all);
   // dollar charts: whole millions on labels once figures pass $100M, and a signed format where a deficit can show
   const fmt = s.unit !== 'usd' ? FMT[s.unit] : lo < 0 ? { label: '$#,##0.0,,"M";-$#,##0.0,,"M";$0.0,,"M"', axis: '$#,##0,,"M";-$#,##0,,"M"', small: true }

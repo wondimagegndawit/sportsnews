@@ -34,19 +34,25 @@ FMT={'usd':money,'num':num,'pct':pct}
 def names(rs,n=3): 
     x=[LOGO[school(r)]['short'] for r in rs]
     return ', '.join(x[:-1])+' and '+x[-1] if len(x)>1 else x[0]
-def build(key,metric,unit,label,getters,source,second=None,stat=None,stat_label=''):
-    """getters: list of (series name, function row->value); the first series ranks the schools and feeds the Power 4 lines."""
+def build(key,metric,unit,label,getters,source,second=None,only=None):
+    """getters: list of (series name, function row->value); the first series ranks the schools.
+    only: predicate that limits which schools are eligible at all (for example, fiscal 2025 NCAA-report schools).
+    A page that shows the conference's schools carries the conference average and median of the schools shown (all
+    seasons shown, where there are two); a page that shows every Power 4 school with a value carries the Power 4 lines."""
     g0=getters[0][1]
-    have=[r for r in ROWS if g0(r) is not None]
+    have=[r for r in ROWS if g0(r) is not None and (only is None or only(r))]
     inconf=[r for r in have if conf(r)==CONF]
     scope='conference' if len(inconf)>=MIN else 'all'
     rs=sorted(inconf if scope=='conference' else have,key=lambda r:-g0(r))
-    p4=[g0(r) for r in have if stat is None or stat(r)]; avg=statistics.mean(p4); med=statistics.median(p4); f=FMT[unit]   # stat: which schools feed the Power 4 lines
+    p4=[g0(r) for r in have]; avg=statistics.mean(p4); med=statistics.median(p4); f=FMT[unit]
     cats=[dict(school=school(r),short=LOGO[school(r)]['short'],abbr=LOGO[school(r)]['abbr'],conference=conf(r),logo=LOGO[school(r)]['file']) for r in rs]
     series=[dict(name=nm,values=[g(r) for r in rs]) for nm,g in getters]
+    shown=[v for x in series for v in x['values'] if v is not None]; cavg=statistics.mean(shown); cmed=statistics.median(shown)
+    both=', both seasons' if len(getters)>1 else ''
+    lines=([dict(name=f'{CONF} average{both} ({f(cavg)})',value=cavg),dict(name=f'{CONF} median{both} ({f(cmed)})',value=cmed)] if scope=='conference'
+           else [dict(name=f'Power 4 average ({f(avg)})',value=avg),dict(name=f'Power 4 median ({f(med)})',value=med)])
     return dict(key=key,metric=metric,unit=unit,label=label,scope=scope,conference=CONF,n_conf=len(inconf),n_conf_total=sum(1 for r in ROWS if conf(r)==CONF),n_p4=len(have),
-                categories=cats,series=series,lines=[dict(name=f'Power 4 average{stat_label} ({f(avg)})',value=avg),dict(name=f'Power 4 median{stat_label} ({f(med)})',value=med)],
-                avg=avg,med=med,source=source,rows=rs,inconf=inconf,n_stat=len(p4))
+                categories=cats,series=series,lines=lines,avg=avg,med=med,cavg=cavg,cmed=cmed,source=source,rows=rs,inconf=inconf)
 SRC_WB='Source: Power 4 Athletic Department Benchmarking workbook.'
 def deal(key,hdr,label):
     s=build(key,hdr,'usd',label,[(label,lambda r:val(r,hdr))],SRC_WB+' Annual value is the reported figure or, where a source gives a total and a term, the total divided by the term.')
@@ -87,84 +93,80 @@ slides.insert(5,surface('logo_deals','Playing surface logo deals annual value',[
 a25='FB average home attendance 2025'; a24='FB average home attendance 2024'
 s=build('fb_attendance',a25,'num','Football average home attendance',[('2025 season',lambda r:val(r,a25)),('2024 season',lambda r:val(r,a24))],
         'Source: D1.ticker FBS Attendance Trends, 2025 and 2024 pages, as carried in the benchmarking workbook.')
-rs=s['rows']; up=[r for r in rs if val(r,a24) is not None and val(r,a25)>val(r,a24)]; cavg=statistics.mean(val(r,a25) for r in rs)
+rs=s['rows']; up=[r for r in rs if val(r,a24) is not None and val(r,a25)>val(r,a24)]
 s['title']=f"{CONF} football: {len(up)} of {len(rs)} schools drew more fans per home game in 2025 than in 2024"
-s['subtitle']=f"The {CONF} averaged {num(cavg)} per game in 2025, against a Power 4 average of {num(s['avg'])} and a median of {num(s['med'])}; {LOGO[school(rs[0])]['short']} led at {num(val(rs[0],a25))}."
+s['subtitle']=f"Across the two seasons the {CONF} averaged {num(s['cavg'])} per game, with a median of {num(s['cmed'])}; {LOGO[school(rs[0])]['short']} led in 2025 at {num(val(rs[0],a25))}. The Power 4 average in 2025 was {num(s['avg'])}."
 slides.append(s)
 # football: percent of capacity, 2025 against 2024
 p25='FB attendance % of capacity 2025'
 s=build('fb_capacity',p25,'pct','Football percent of capacity filled',[('2025 season',lambda r:val(r,p25)),('2024 season',lambda r:PCT24.get(school(r)))],
         'Source: D1.ticker FBS Attendance Trends, Capacity % column of the 2025 and 2024 pages. D1.ticker does not publish the capacity it divides by.')
-rs=s['rows']; cavg=statistics.mean(val(r,p25) for r in rs); up=[r for r in rs if PCT24.get(school(r)) is not None and val(r,p25)>PCT24[school(r)]]; full=[r for r in rs if val(r,p25)>=0.95]
-s['title']=f"{CONF} football stadiums were {pct(cavg)} full on average in 2025, against a Power 4 average of {pct(s['avg'])}"
-s['subtitle']=f"{len(full)} of {len(rs)} {CONF} schools filled at least 95% of capacity; {len(up)} filled a larger share than in 2024. Power 4 median is {pct(s['med'])}."
+rs=s['rows']; full=[r for r in rs if val(r,p25)>=0.95]
+s['title']=f"{CONF} football stadiums were {pct(s['cavg'])} full on average across 2025 and 2024, with a median of {pct(s['cmed'])}"
+s['subtitle']=f"{len(full)} of {len(rs)} {CONF} schools filled at least 95% of capacity in 2025; {LOGO[school(rs[0])]['short']} filled the largest share at {pct(val(rs[0],p25))}. The Power 4 average in 2025 was {pct(s['avg'])}."
 slides.append(s)
 # men's basketball: average home attendance and percent of capacity, 2025-26
 m26='MBB average home attendance 2025-26'
 s=build('mbb_attendance',m26,'num',"Men's basketball average home attendance",[('2025-26 season',lambda r:val(r,m26))],
         "Source: NCAA Men's Basketball Attendance Records book, 2026 Attendance Summary (home games, 2025-26). The book does not list 2024-25 for every school, so one season is shown.")
-rs=s['rows']; cavg=statistics.mean(val(r,m26) for r in rs); above=[r for r in rs if val(r,m26)>s['med']]
-s['title']=f"{CONF} men's basketball averaged {num(cavg)} fans per home game in 2025-26, against a Power 4 average of {num(s['avg'])}"
-s['subtitle']=f"{len(above)} of {len(rs)} {CONF} schools were above the Power 4 median of {num(s['med'])}; {LOGO[school(rs[0])]['short']} led at {num(val(rs[0],m26))}."
+rs=s['rows']
+s['title']=f"{CONF} men's basketball averaged {num(s['cavg'])} fans per home game in 2025-26, with a median of {num(s['cmed'])}"
+s['subtitle']=f"{LOGO[school(rs[0])]['short']} led at {num(val(rs[0],m26))} and {LOGO[school(rs[-1])]['short']} drew the fewest at {num(val(rs[-1],m26))}. The Power 4 average was {num(s['avg'])}."
 slides.append(s)
 mp='MBB attendance % of capacity 2025-26'
 s=build('mbb_capacity',mp,'pct',"Men's basketball percent of capacity filled",[('2025-26 season',lambda r:val(r,mp))],
         "Source: average home attendance (NCAA Attendance Records book, 2025-26) divided by arena capacity, as calculated in the benchmarking workbook.")
-rs=s['rows']; cavg=statistics.mean(val(r,mp) for r in rs); missing=[school(r) for r in ROWS if conf(r)==CONF and val(r,mp) is None]
-s['title']=f"{CONF} men's basketball arenas were {pct(cavg)} full on average in 2025-26, against a Power 4 average of {pct(s['avg'])}"
-s['subtitle']=f"{LOGO[school(rs[0])]['short']} filled the largest share at {pct(val(rs[0],mp))}; Power 4 median is {pct(s['med'])}."+(f" Not shown, no arena capacity in the workbook: {', '.join(missing)}." if missing and s['scope']=='conference' else '')
+rs=s['rows']
+s['title']=f"{CONF} men's basketball arenas were {pct(s['cavg'])} full on average in 2025-26, with a median of {pct(s['cmed'])}"
+s['subtitle']=f"{LOGO[school(rs[0])]['short']} filled the largest share at {pct(val(rs[0],mp))} and {LOGO[school(rs[-1])]['short']} the smallest at {pct(val(rs[-1],mp))}. The Power 4 average was {pct(s['avg'])}."
 slides.append(s)
 # ---- expenses: what the department spends, where the money goes, and what the head coaches are paid
+# Financial pages show only schools that file the NCAA report and are on fiscal 2025 (analyst's direction, 18 Nov 2026).
 def dtype(r): return ws.cell(r,H['Financial data type']).value
 def fy(r): return ws.cell(r,H['Fiscal year']).value
-mfrs=lambda r: dtype(r)=='MFRS'
-def missing(rs,hdr): return [LOGO[school(r)]['short'] for r in ROWS if conf(r)==CONF and val(r,hdr) is None]
-FYN=' Most schools report fiscal 2025; '+', '.join(sorted(LOGO[school(r)]['short'] for r in ROWS if fy(r)==2024))+' report fiscal 2024, the latest posted.'
-MF="Source: NCAA Membership Financial Reporting System (MFRS) reports, as compiled by Sportico or posted by the school, in the benchmarking workbook."
-PRIV=' Private schools do not publish MFRS reports'
-def finance(key,hdr,label,basis=False):
-    """basis=True: private schools are shown on their federal EADA figure in a second colour, and the Power 4 lines use MFRS schools only."""
-    s=build(key,hdr,'usd',label,[(label,lambda r:val(r,hdr))],MF+FYN,stat=mfrs if basis else None,stat_label=', MFRS schools' if basis else '')
-    if basis:
-        for c,r in zip(s['categories'],s['rows']): c['basis']=dtype(r)
-        s['source']=MF+' Gray bars are private schools, shown on the federal EADA report, which defines revenue and expenses differently; the Power 4 average and median use MFRS schools only.'+FYN
-    s['section']='expense'
+frs25=lambda r: dtype(r)=='MFRS' and fy(r)==2025
+OUT=[LOGO[school(r)]['short'] for r in ROWS if conf(r)==CONF and not frs25(r)]
+MF="Source: NCAA Membership Financial Reporting System (MFRS) reports for fiscal 2025, as compiled by Sportico or posted by the school, in the benchmarking workbook."
+def scope_note(s): return f" Shown: the {len(s['rows'])} {CONF} schools that file the NCAA report and are on fiscal 2025"+(f"; not shown: {', '.join(OUT)}" if OUT else '')+f". The Power 4 figure covers {s['n_p4']} schools on the same basis."
+def finance(key,hdr,label):
+    s=build(key,hdr,'usd',label,[(label,lambda r:val(r,hdr))],MF,only=frs25); s['section']='expense'; s['source']=MF+scope_note(s)
     return s
 ex='Total operating expenses'
-s=finance('total_expenses',ex,'Total operating expenses',basis=True); rs=s['rows']; pub=[r for r in rs if mfrs(r)]; cavg=statistics.mean(val(r,ex) for r in pub)
-s['title']=f"The {len(pub)} public {CONF} departments spent {money(cavg)} on average, against a Power 4 average of {money(s['avg'])}"
-s['subtitle']=f"{LOGO[school(rs[0])]['short']} spent the most at {money(val(rs[0],ex))} and {LOGO[school(rs[-1])]['short']} the least at {money(val(rs[-1],ex))}; Power 4 median is {money(s['med'])}."
+s=finance('total_expenses',ex,'Total operating expenses'); rs=s['rows']
+s['title']=f"{CONF} departments spent {money(s['cavg'])} on average in fiscal 2025, with a median of {money(s['cmed'])}"
+s['subtitle']=f"{LOGO[school(rs[0])]['short']} spent the most at {money(val(rs[0],ex))} and {LOGO[school(rs[-1])]['short']} the least at {money(val(rs[-1],ex))}. The Power 4 average is {money(s['avg'])}."
 slides.append(s)
 sp='Operating surplus (deficit)'
-s=finance('surplus',sp,'Operating surplus (deficit)',basis=True); rs=s['rows']; neg=[r for r in rs if val(r,sp)<0]
-s['source']+=' Operating revenue less operating expenses; private schools on the EADA report often show revenue equal to expenses.'
-s['title']=f"{len(neg)} of {len(rs)} {CONF} departments spent more than they took in"
-s['subtitle']=f"{LOGO[school(rs[0])]['short']} had the largest surplus at {money(val(rs[0],sp))} and {LOGO[school(rs[-1])]['short']} the largest deficit at {money(val(rs[-1],sp))}; Power 4 median is {money(s['med'])}."
+s=finance('surplus',sp,'Operating surplus (deficit)'); rs=s['rows']; neg=[r for r in rs if val(r,sp)<0]
+s['source']=MF+' Operating revenue less operating expenses.'+scope_note(s)
+s['title']=f"{len(neg)} of {len(rs)} {CONF} departments spent more than they took in in fiscal 2025"
+s['subtitle']=f"{LOGO[school(rs[0])]['short']} had the largest surplus at {money(val(rs[0],sp))} and {LOGO[school(rs[-1])]['short']} the largest deficit at {money(val(rs[-1],sp))}; the {CONF} median is {money(s['cmed'])}. The Power 4 average is {money(s['avg'])}."
 slides.append(s)
 cs='Total coaching salaries and benefits'
-s=finance('coaching_salaries',cs,'Total coaching salaries and benefits'); rs=s['rows']; cavg=statistics.mean(val(r,cs) for r in rs); share=statistics.mean(val(r,cs)/val(r,ex) for r in rs if val(r,ex))
-s['title']=f"{CONF} departments pay coaches {money(cavg)} a year on average, against a Power 4 average of {money(s['avg'])}"
-s['subtitle']=f"Coaching pay is {pct(share)} of operating expenses for the average {CONF} school; {LOGO[school(rs[0])]['short']} is highest at {money(val(rs[0],cs))}."
-s['source']=MF+' All sports, salaries and benefits.'+(f" Not shown (private, no MFRS report): {', '.join(missing(rs,cs))}." if missing(rs,cs) else '')+FYN; slides.append(s)
+s=finance('coaching_salaries',cs,'Total coaching salaries and benefits'); rs=s['rows']; share=statistics.mean(val(r,cs)/val(r,ex) for r in rs if val(r,ex))
+s['title']=f"{CONF} departments pay coaches {money(s['cavg'])} a year on average, with a median of {money(s['cmed'])}"
+s['subtitle']=f"{LOGO[school(rs[0])]['short']} is highest at {money(val(rs[0],cs))} and {LOGO[school(rs[-1])]['short']} lowest at {money(val(rs[-1],cs))}; coaching pay is {pct(share)} of the average {CONF} budget. The Power 4 average is {money(s['avg'])}."
+s['source']=MF+' Line 22: salaries, benefits and bonuses for all coaches, paid by the university and related entities.'+scope_note(s); slides.append(s)
 ds='Annual debt service'
-s=finance('debt_service',ds,'Annual debt service'); rs=s['rows']; cavg=statistics.mean(val(r,ds) for r in rs); big=[r for r in rs if val(r,ds)>=10e6]
-s['title']=f"{CONF} departments pay {money(cavg)} a year in debt service on average, against a Power 4 average of {money(s['avg'])}"
-s['subtitle']=f"{len(big)} of {len(rs)} pay $10M or more a year; {LOGO[school(rs[0])]['short']} is highest at {money(val(rs[0],ds))}. Power 4 median is {money(s['med'])}."
-s['source']=MF+' Debt service on athletics facilities, principal and interest.'+(f" Not shown (private, no MFRS report): {', '.join(missing(rs,ds))}." if missing(rs,ds) else '')+FYN; slides.append(s)
+s=finance('debt_service',ds,'Annual debt service'); rs=s['rows']; big=[r for r in rs if val(r,ds)>=10e6]
+s['title']=f"{CONF} departments pay {money(s['cavg'])} a year in debt service on average, with a median of {money(s['cmed'])}"
+s['subtitle']=f"{len(big)} of {len(rs)} pay $10M or more a year; {LOGO[school(rs[0])]['short']} is highest at {money(val(rs[0],ds))}. The Power 4 average is {money(s['avg'])}."
+s['source']=MF+' Line 34: debt service on athletics facilities (principal and interest), leases and rental fees.'+scope_note(s); slides.append(s)
+def missing(rs,hdr): return [LOGO[school(r)]['short'] for r in ROWS if conf(r)==CONF and val(r,hdr) is None]
 for key,hdr,sport,season in (('fb_hc_pay','FB HC total pay','football','2025 season'),('mbb_hc_pay','MBB HC total pay 2026',"men's basketball",'2025-26 season')):
     s=build(key,hdr,'usd',f"{sport.capitalize()} head coach total pay",[(f"{sport.capitalize()} head coach total pay",lambda r,h=hdr:val(r,h))],
             "Source: USA Today coaches' pay tables (Total Pay: school pay plus pay from other sources, before bonuses), "+season+"; contracts, school releases or press reports where USA Today has no figure for the current coach. Benchmarking workbook.")
-    rs=s['rows']; cavg=statistics.mean(val(r,hdr) for r in rs); above=[r for r in rs if val(r,hdr)>s['med']]; miss=missing(rs,hdr)
-    s['title']=f"{CONF} {sport} head coaches are paid {money(cavg)} on average, against a Power 4 average of {money(s['avg'])}"
-    s['subtitle']=f"{len(above)} of {len(rs)} are above the Power 4 median of {money(s['med'])}; {LOGO[school(rs[0])]['short']} is highest at {money(val(rs[0],hdr))}."
+    rs=s['rows']; miss=missing(rs,hdr)
+    s['title']=f"{CONF} {sport} head coaches are paid {money(s['cavg'])} on average, with a median of {money(s['cmed'])}"
+    s['subtitle']=f"{LOGO[school(rs[0])]['short']} is highest at {money(val(rs[0],hdr))} and {LOGO[school(rs[-1])]['short']} lowest at {money(val(rs[-1],hdr))}. The Power 4 average is {money(s['avg'])}."
     if miss: s['source']+=f" Not shown, no current pay figure: {', '.join(miss)}."
     s['section']='expense'; slides.append(s)
-# expense lines from the NCAA report: one page each, the conference's public schools against the Power 4
+# expense lines from the NCAA report: one page each
 def line_item(key,hdr,noun,what,extra=''):
-    s=finance(key,hdr,hdr); rs=s['rows']; cavg=statistics.mean(val(r,hdr) for r in rs); share=statistics.mean(val(r,hdr)/val(r,ex) for r in rs if val(r,ex)); miss=missing(rs,hdr)
-    s['title']=f"{CONF} departments spend {money(cavg)} a year on {noun} on average, against a Power 4 average of {money(s['avg'])}"
-    s['subtitle']=f"{LOGO[school(rs[0])]['short']} is highest at {money(val(rs[0],hdr))} and {LOGO[school(rs[-1])]['short']} lowest at {money(val(rs[-1],hdr))}; the line is {share*100:.1f}% of the average {CONF} budget."
-    s['source']=MF+' '+what+extra+(f" Not shown (private, no MFRS report): {', '.join(miss)}." if miss else '')+FYN
+    s=finance(key,hdr,hdr); rs=s['rows']; share=statistics.mean(val(r,hdr)/val(r,ex) for r in rs if val(r,ex))
+    s['title']=f"{CONF} departments spend {money(s['cavg'])} a year on {noun} on average, with a median of {money(s['cmed'])}"
+    s['subtitle']=f"{LOGO[school(rs[0])]['short']} is highest at {money(val(rs[0],hdr))} and {LOGO[school(rs[-1])]['short']} lowest at {money(val(rs[-1],hdr))}; the line is {share*100:.1f}% of the average {CONF} budget. The Power 4 average is {money(s['avg'])}."
+    s['source']=MF+' '+what+extra+scope_note(s)
     slides.append(s)
 line_item('support_staff_pay','Support and administrative staff pay','support and administrative staff','Line 24: compensation, benefits and bonuses for non-coaching staff paid by the university and related entities.')
 line_item('team_travel','Team travel','team travel','Line 28: air and ground travel, lodging and meals for the preseason and regular season, all sports; post-season travel is reported on other lines.')

@@ -45,18 +45,17 @@ for s in spec['slides']:
         ws.cell(row,3,label)
         for cc,(v,blue) in values.items():
             c=ws.cell(row,cc,v); c.number_format=nf; c.font=F(bold=True,color=BLUE if blue else '000000'); c.fill=GRAY; c.alignment=RIGHT
-    # Power 4 average and median, repeated under every school so they chart as flat lines
-    for label,fn,val in ((f"Power 4 average ({s.get('n_stat',s['n_p4'])}{' MFRS' if any('basis' in c for c in cats) else ''} schools)",'AVERAGE',s['avg']),(f"Power 4 median ({s.get('n_stat',s['n_p4'])}{' MFRS' if any('basis' in c for c in cats) else ''} schools)",'MEDIAN',s['med'])):
-        if s['scope']=='conference':   # the Power 4 figure covers schools that are not on this tab: hardcoded once, then repeated
-            cells={C0:(val,True)}; cells.update({cc:(f'=${first}${r}',False) for cc in range(C0+1,CL+1)})
-        else:
-            cells={cc:(f'={fn}(${first}${r1}:${last}${r1})',False) for cc in range(C0,CL+1)}
+    # the two line series, repeated under every school so they chart as flat lines: the conference average and median of
+    # the schools shown on a conference tab (both seasons where two are shown), the Power 4 figures on an all-schools tab
+    rl=7+len(ser)-1; both=', both seasons' if len(ser)>1 else ''
+    for word,fn in (('average','AVERAGE'),('median','MEDIAN')):
+        if s['scope']=='conference': label=f"{CONF} {word} ({n} schools{both})"; cells={cc:(f'={fn}(${first}${r1}:${last}${rl})',False) for cc in range(C0,CL+1)}
+        else: label=f"Power 4 {word} ({s['n_p4']} schools)"; cells={cc:(f'={fn}(${first}${r1}:${last}${r1})',False) for cc in range(C0,CL+1)}
         summary(r,label,cells); r+=1
-    if s['scope']=='conference':
+    if s['scope']=='conference' and len(ser)>1:      # each season on its own, for reference
         for k,x in enumerate(ser):
-            suffix=f", {x['name']}" if len(ser)>1 else ''
-            for label,fn in ((f'{CONF} average{suffix}','AVERAGE'),(f'{CONF} median{suffix}','MEDIAN')):
-                summary(r,label,{C0:(f'={fn}({first}{7+k}:{last}{7+k})',False)}); r+=1
+            for word,fn in (('average','AVERAGE'),('median','MEDIAN')):
+                summary(r,f"{CONF} {word}, {x['name']}",{C0:(f'={fn}({first}{7+k}:{last}{7+k})',False)}); r+=1
     r+=1
     ws.cell(r,3,'Conference').font=F()
     for i,c in enumerate(cats): 
