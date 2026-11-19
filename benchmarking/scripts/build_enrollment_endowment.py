@@ -26,7 +26,7 @@ for s in M:
     note=NOTE.get(n,'')
     if not nr and n not in NOTE: note=(note+' ' if note else '')+"Not in the NACUBO FY2025 study (participation is voluntary)."
     out.append(dict(school=n,conference=s['conf'],unitid=u,
-        undergrad=ug['value'] if ug else '--',total=tt['value'] if tt else '--',enroll_url=f'https://nces.ed.gov/collegenavigator/?id={u}',
+        undergrad=ug['value'] if ug else '--',total=tt['value'] if tt else '--',enroll_url=f'https://nces.ed.gov/collegenavigator/?id={u}#enrolmt',
         endow_fy25=int(round(nr[9]*1000)) if nr else '--',nacubo_entity=str(nr[2]).rstrip('*^§°£¶x ') if nr else '--',nacubo_url=NAC_URL,
         endow_fy24=ip[0] if ip else '--',ipeds_url=IPEDS_FIN[ip[1]] if ip else '',note=note or '--'))
 with open('data/enrollment_endowment.csv','w',newline='',encoding='utf-8') as fh:

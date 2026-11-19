@@ -581,7 +581,7 @@ if os.path.exists('data/enrollment_endowment.csv'):
         for col in (3,4,5): put_cell(ws.cell(row=r,column=col+OFF),f'=IFERROR(AVERAGEIFS({CL(col)}{R0}:{CL(col)}{last},{CL(2)}{R0}:{CL(2)}{last},"{cf}"),"--")',F_BASE,'cnt' if col<5 else 'usd')
         r+=1
     r+=1
-    for t_ in ("Sources: enrollment is the IPEDS fall 2024 headcount, the latest published (each figure links to the school's College Navigator page). Endowment is the market value reported to the 2025 NACUBO-Commonfund Study of Endowments at the end of fiscal 2025, which is 30 June 2025 for every school here except Miami (31 May 2025).",
+    for t_ in ("Sources: enrollment is the IPEDS fall 2024 headcount, the latest published (each figure links to the Enrollment section of the school's College Navigator page, which is headed 'Enrollment Fall 2024'; the summary line at the top of that page gives the same figures without a date). Endowment is the market value reported to the 2025 NACUBO-Commonfund Study of Endowments at the end of fiscal 2025, which is 30 June 2025 for every school here except Miami (31 May 2025).",
                "NACUBO participation is voluntary: 11 schools did not report a campus figure and are shown as --. Many public schools report their foundation's endowment; the Entity column shows what was reported."):
         put_cell(ws.cell(row=r,column=1+OFF),t_,F_BASE); r+=1
     setw(ws,{1:22,2:12,3:24,4:24,5:30,6:46,7:70}); ws.freeze_panes=f'{CL(3)}{R0}'; ws.auto_filter.ref=f'{CL(1)}{R_HDR}:{CL(7)}{last}'
