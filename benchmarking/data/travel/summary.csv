@@ -1,0 +1,49 @@
+school,sport,games,home,away,neutral,trips,round_trip_miles,schedule_url
+Arizona,football,12,7,5,0,5,9324,https://www.espn.com/college-football/team/schedule/_/id/12/season/2024
+Arizona,mbb,34,16,11,7,14,27806,https://www.espn.com/mens-college-basketball/team/schedule/_/id/12/season/2025
+Arizona,wbb,32,17,12,3,14,21484,https://www.espn.com/womens-college-basketball/team/schedule/_/id/12/season/2025
+Arizona State,football,13,6,6,1,7,11552,https://www.espn.com/college-football/team/schedule/_/id/9/season/2024
+Arizona State,mbb,32,14,11,7,17,29676,https://www.espn.com/mens-college-basketball/team/schedule/_/id/9/season/2025
+Arizona State,wbb,32,14,12,6,16,30258,https://www.espn.com/womens-college-basketball/team/schedule/_/id/9/season/2025
+Baylor,football,12,6,6,0,6,8226,https://www.espn.com/college-football/team/schedule/_/id/239/season/2024
+Baylor,mbb,33,16,12,5,15,23314,https://www.espn.com/mens-college-basketball/team/schedule/_/id/239/season/2025
+Baylor,wbb,34,17,10,7,13,19802,https://www.espn.com/womens-college-basketball/team/schedule/_/id/239/season/2025
+BYU,football,12,6,6,0,6,9440,https://www.espn.com/college-football/team/schedule/_/id/252/season/2024
+BYU,mbb,33,17,11,5,14,26220,https://www.espn.com/mens-college-basketball/team/schedule/_/id/252/season/2025
+BYU,wbb,30,15,12,3,14,24048,https://www.espn.com/womens-college-basketball/team/schedule/_/id/252/season/2025
+Cincinnati,football,12,6,6,0,6,8202,https://www.espn.com/college-football/team/schedule/_/id/2132/season/2024
+Cincinnati,mbb,33,17,13,3,15,20144,https://www.espn.com/mens-college-basketball/team/schedule/_/id/2132/season/2025
+Cincinnati,wbb,29,15,11,3,13,20470,https://www.espn.com/womens-college-basketball/team/schedule/_/id/2132/season/2025
+Colorado,football,12,6,6,0,6,7518,https://www.espn.com/college-football/team/schedule/_/id/38/season/2024
+Colorado,mbb,34,18,10,6,12,20600,https://www.espn.com/mens-college-basketball/team/schedule/_/id/38/season/2025
+Colorado,wbb,32,16,12,4,14,17446,https://www.espn.com/womens-college-basketball/team/schedule/_/id/38/season/2025
+Houston,football,12,6,6,0,6,8590,https://www.espn.com/college-football/team/schedule/_/id/248/season/2024
+Houston,mbb,34,17,10,7,13,18178,https://www.espn.com/mens-college-basketball/team/schedule/_/id/248/season/2025
+Houston,wbb,30,15,12,3,14,17478,https://www.espn.com/womens-college-basketball/team/schedule/_/id/248/season/2025
+Iowa State,football,13,7,5,1,6,7050,https://www.espn.com/college-football/team/schedule/_/id/66/season/2024
+Iowa State,mbb,33,17,11,5,13,23154,https://www.espn.com/mens-college-basketball/team/schedule/_/id/66/season/2025
+Iowa State,wbb,33,17,11,5,14,18350,https://www.espn.com/womens-college-basketball/team/schedule/_/id/66/season/2025
+Kansas,football,12,6,6,0,6,7354,https://www.espn.com/college-football/team/schedule/_/id/2305/season/2024
+Kansas,mbb,33,17,12,4,15,16080,https://www.espn.com/mens-college-basketball/team/schedule/_/id/2305/season/2025
+Kansas,wbb,30,16,9,5,12,15060,https://www.espn.com/womens-college-basketball/team/schedule/_/id/2305/season/2025
+Kansas State,football,12,6,6,0,6,7586,https://www.espn.com/college-football/team/schedule/_/id/2306/season/2024
+Kansas State,mbb,33,15,12,6,15,19570,https://www.espn.com/mens-college-basketball/team/schedule/_/id/2306/season/2025
+Kansas State,wbb,33,18,10,5,13,13290,https://www.espn.com/womens-college-basketball/team/schedule/_/id/2306/season/2025
+Oklahoma State,football,12,6,6,0,6,4368,https://www.espn.com/college-football/team/schedule/_/id/197/season/2024
+Oklahoma State,mbb,32,15,12,5,15,16254,https://www.espn.com/mens-college-basketball/team/schedule/_/id/197/season/2025
+Oklahoma State,wbb,31,18,9,4,11,14104,https://www.espn.com/womens-college-basketball/team/schedule/_/id/197/season/2025
+TCU,football,12,6,6,0,6,7684,https://www.espn.com/college-football/team/schedule/_/id/2628/season/2024
+TCU,mbb,32,17,11,4,14,18126,https://www.espn.com/mens-college-basketball/team/schedule/_/id/2628/season/2025
+TCU,wbb,34,19,9,6,12,13246,https://www.espn.com/womens-college-basketball/team/schedule/_/id/2628/season/2025
+Texas Tech,football,12,7,5,0,5,6140,https://www.espn.com/college-football/team/schedule/_/id/2641/season/2024
+Texas Tech,mbb,33,18,10,5,13,16194,https://www.espn.com/mens-college-basketball/team/schedule/_/id/2641/season/2025
+Texas Tech,wbb,34,17,11,6,13,18352,https://www.espn.com/womens-college-basketball/team/schedule/_/id/2641/season/2025
+UCF,football,12,7,5,0,5,9742,https://www.espn.com/college-football/team/schedule/_/id/2116/season/2024
+UCF,mbb,33,18,10,5,13,28756,https://www.espn.com/mens-college-basketball/team/schedule/_/id/2116/season/2025
+UCF,wbb,30,16,11,3,12,30726,https://www.espn.com/womens-college-basketball/team/schedule/_/id/2116/season/2025
+Utah,football,12,6,6,0,6,9818,https://www.espn.com/college-football/team/schedule/_/id/254/season/2024
+Utah,mbb,32,19,10,3,13,27324,https://www.espn.com/mens-college-basketball/team/schedule/_/id/254/season/2025
+Utah,wbb,30,16,11,3,13,26326,https://www.espn.com/womens-college-basketball/team/schedule/_/id/254/season/2025
+West Virginia,football,12,7,5,0,5,8686,https://www.espn.com/college-football/team/schedule/_/id/277/season/2024
+West Virginia,mbb,32,17,11,4,13,26152,https://www.espn.com/mens-college-basketball/team/schedule/_/id/277/season/2025
+West Virginia,wbb,31,16,10,5,12,25392,https://www.espn.com/womens-college-basketball/team/schedule/_/id/277/season/2025
