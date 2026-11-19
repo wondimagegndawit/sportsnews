@@ -555,6 +555,36 @@ w25={1:22,2:12}; w25.update({3+i:max(16,min(len(h)+2,70)) for i,h in enumerate(h
 setw(ws,w25); ws.freeze_panes=f'{CL(3)}{R0}'
 if S25: ws.auto_filter.ref=f'{CL(1)}{R_HDR}:{CL(len(hdr25))}{R0+len(S25)-1}'
 # FY25 FRS Clean by Sport: the same table as FY25 FRS Clean, with one row for each sport column of each school
+# Enrollment and Endowment: one row per school, every figure linked to its source
+if os.path.exists('data/enrollment_endowment.csv'):
+    ws=wb.create_sheet('Enrollment and Endowment'); prep(ws,'Enrollment and endowment: all 68 schools')
+    header(ws,['School','Conference','Undergraduate enrollment, fall 2024 (2024-25 academic year, FY2025)','Total enrollment, fall 2024 (2024-25 academic year, FY2025)',
+               'Endowment, FY2025 (year ended mid-2025), NACUBO','Entity reported to NACUBO','Endowment, FY2024 (year ended mid-2024), IPEDS','Note'])
+    EE=list(csv.DictReader(open('data/enrollment_endowment.csv',encoding='utf-8')))
+    EE.sort(key=lambda x:([c for c,_ in CONFS].index(x['conference']) if x['conference'] in [c for c,_ in CONFS] else 99,x['school']))
+    for j,x in enumerate(EE):
+        r=R0+j
+        put_cell(ws.cell(row=r,column=1+OFF),x['school'],F_BASE,align=IND1); put_cell(ws.cell(row=r,column=2+OFF),x['conference'],F_BASE)
+        for col,key,url in ((3,'undergrad','enroll_url'),(4,'total','enroll_url'),(5,'endow_fy25','nacubo_url'),(7,'endow_fy24','ipeds_url')):
+            v=x[key]; c=ws.cell(row=r,column=col+OFF)
+            if v in ('--',''): put_cell(c,'--',F_BASE)
+            else:
+                put_cell(c,int(float(v)),F_LINKED,'cnt' if col<5 else 'usd'); c.hyperlink=x[url]
+        put_cell(ws.cell(row=r,column=6+OFF),x['nacubo_entity'],F_BASE); put_cell(ws.cell(row=r,column=8+OFF),x['note'],F_BASE)
+    last=R0+len(EE)-1; r=last+2
+    for lab,fn in (('Average','AVERAGE'),('Median','MEDIAN')):
+        put_cell(ws.cell(row=r,column=1+OFF),lab+', all schools with a value',F_B)
+        for col in (3,4,5,7): put_cell(ws.cell(row=r,column=col+OFF),f'=IFERROR({fn}({CL(col)}{R0}:{CL(col)}{last}),"--")',F_B,'cnt' if col<5 else 'usd')
+        r+=1
+    for cf,_ in CONFS:
+        put_cell(ws.cell(row=r,column=1+OFF),f'{cf} average',F_BASE)
+        for col in (3,4,5,7): put_cell(ws.cell(row=r,column=col+OFF),f'=IFERROR(AVERAGEIFS({CL(col)}{R0}:{CL(col)}{last},{CL(2)}{R0}:{CL(2)}{last},"{cf}"),"--")',F_BASE,'cnt' if col<5 else 'usd')
+        r+=1
+    r+=1
+    for t_ in ("Sources: enrollment is the IPEDS fall 2024 headcount (each figure links to the school's College Navigator page); FY2025 endowment is the NACUBO-Commonfund Study of Endowments market value; FY2024 endowment is the IPEDS Finance survey value at fiscal year end.",
+               "FY2025 IPEDS finance data and fall 2025 enrollment are not yet published, so FY2024 and fall 2024 are the latest for those sources. NACUBO participation is voluntary, and many public schools report their foundation's endowment, so the two endowment columns are not always the same entity."):
+        put_cell(ws.cell(row=r,column=1+OFF),t_,F_BASE); r+=1
+    setw(ws,{1:22,2:12,3:24,4:24,5:24,6:46,7:24,8:70}); ws.freeze_panes=f'{CL(3)}{R0}'; ws.auto_filter.ref=f'{CL(1)}{R_HDR}:{CL(8)}{last}'
 ws=wb.create_sheet('FY25 FRS Clean by Sport'); prep(ws,'Fiscal 2025 NCAA financial reports from the Sportico database: one row per school and sport column')
 V25S=collections.defaultdict(dict)
 for x in _c25:
@@ -798,7 +828,7 @@ def vertical_sheet(ws,title,name_value,name_font,name_fill,src_sheet,first,last,
 ws=wb.create_sheet('School Lookup')
 vertical_sheet(ws,'School lookup: choose a school in the yellow cell','Alabama',F_BASE,FILL_IN,'All Schools',all_first,all_last,None,False)
 dv=DataValidation(type='list',formula1=f"='All Schools'!${CL(1)}${all_first}:${CL(1)}${all_last}",allow_blank=False); ws.add_data_validation(dv); dv.add(f'{CL(2)}5')
-names=['Read Me','All Schools']+[sn for _,sn in CONFS]+['Conference Wide','Open Items','School Lookup','FY25 FRS Clean','FY25 FRS Clean by Sport','FRS Statement','FRS Detail','FRS by Sport','FRS Tie-Out','Source Log']   # no per-school tabs: School Lookup covers every school
+names=['Read Me','All Schools']+[sn for _,sn in CONFS]+['Conference Wide','Open Items','School Lookup','Enrollment and Endowment','FY25 FRS Clean','FY25 FRS Clean by Sport','FRS Statement','FRS Detail','FRS by Sport','FRS Tie-Out','Source Log']   # no per-school tabs: School Lookup covers every school
 wb._sheets=[wb[n] for n in names]
 for ws in wb: ws.sheet_view.showGridLines=False
 wb.save(OUT); print('saved',OUT,'sheets',len(wb.sheetnames),'sourcelog rows',len(sourcelog))
