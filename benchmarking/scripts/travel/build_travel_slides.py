@@ -127,12 +127,12 @@ FRS25=[q for q in ROW if ws.cell(ROW[q],H['Conference']).value in ('ACC','Big Te
 B12=[q for q in FRS25 if ws.cell(ROW[q],H['Conference']).value=='Big 12']; REST=[q for q in FRS25 if q not in B12]
 # 5. revenue mix, 100% stacked
 MIX=[('Ticket sales',['Ticket sales revenue']),('Media rights',['Media rights revenue']),('NCAA and conference',['NCAA and conference distributions']),('Contributions',['Contributions revenue']),
-     ('Licensing and sponsorship',['Licensing, advertising and sponsorship revenue']),('School support and fees',['Direct institutional support','Indirect institutional support','Student fees'])]
+     ('Licensing and sponsorship',['Licensing, advertising and sponsorship revenue']),('Direct school support and student fees',['Direct institutional support','Student fees'])]
 def mixrow(q):
     tr=v(q,'Total operating revenue'); parts=[sum(v(q,h) or 0 for h in hs) for _,hs in MIX]; return [p/tr for p in parts]+[1-sum(parts)/tr]
 ords=sorted(B12,key=lambda q:-mixrow(q)[3])
 _rk=[q for q in ords].index('Kansas State')+1
-s=frame('REVENUE MIX: BIG 12',f"Contributions are {mixrow('Kansas State')[3]:.0%} of Kansas State's revenue ({['','1st','2nd','3rd','4th'][_rk]} in the Big 12), and it gets no school support or student fees. Four peers get a third or more of their revenue from their school.")
+s=frame('REVENUE MIX: BIG 12',f"Contributions are {mixrow('Kansas State')[3]:.0%} of Kansas State's revenue ({['','1st','2nd','3rd','4th'][_rk]} in the Big 12), and it gets no direct school support or student fees. Houston, Cincinnati and UCF get a third or more of their revenue that way.")
 cd=CategoryChartData(); cd.categories=[LOGO[q]['short'] for q in ords]
 COLS=[RGBColor(0,0,0),RGBColor(0x40,0x40,0x40),RGBColor(0x7F,0x7F,0x7F),KSU,RGBColor(0xA6,0xA6,0xA6),RGBColor(0x9D,0xC3,0xE6),RGBColor(0xD9,0xD9,0xD9)]
 names=[n for n,_ in MIX]+['Other']
@@ -146,7 +146,7 @@ for j,ser in enumerate(pl.series):
     if names[j]=='Contributions':
         ser.data_labels.show_value=True; ser.data_labels.number_format='0%'; ser.data_labels.number_format_is_linked=False; ser.data_labels.font.size=Pt(7); ser.data_labels.font.color.rgb=RGBColor(255,255,255); ser.data_labels.font.name=F
 ch.category_axis.tick_labels.font.size=Pt(7); ch.category_axis.tick_labels.font.name=F; ch.value_axis.tick_labels.font.size=Pt(7); ch.value_axis.has_major_gridlines=False; ch.value_axis.tick_labels.number_format='0%'; ch.value_axis.tick_labels.number_format_is_linked=False
-footnote(s,"Source: FY2025 MFRS reports as compiled by Sportico. Share of total operating revenue. School support and fees is direct and indirect institutional support plus student fees. Other is everything else (guarantees, concessions, camps, endowment income and so on). Excludes Baylor, BYU and TCU.")
+footnote(s,"Source: FY2025 MFRS reports as compiled by Sportico. Share of total operating revenue. Direct school support and student fees is MFRS lines 3 and 4. Indirect institutional support (line 6, the value of services the university provides, such as facilities and administration) is counted in Other, with guarantees, concessions, camps and endowment income. Excludes Baylor, BYU and TCU.")
 # 6. where the Big 12 trails the rest of the Power 4
 LINES=[('Media rights','Media rights revenue'),('Ticket sales','Ticket sales revenue'),('Contributions','Contributions revenue'),('Licensing and sponsorship','Licensing, advertising and sponsorship revenue'),('NCAA and conference','NCAA and conference distributions')]
 b=[statistics.mean(v(q,h) or 0 for q in B12) for _,h in LINES]; r_=[statistics.mean(v(q,h) or 0 for q in REST) for _,h in LINES]; k=[v('Kansas State',h) or 0 for _,h in LINES]
