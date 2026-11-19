@@ -11,6 +11,7 @@ from pptx.chart.data import CategoryChartData,XyChartData
 from pptx.enum.chart import XL_CHART_TYPE,XL_LEGEND_POSITION,XL_LABEL_POSITION
 from lxml import etree
 SRC,OUT=sys.argv[1],sys.argv[2]
+DATA={}
 INK=RGBColor(0,0,0); GREY=RGBColor(0x59,0x59,0x59); LINE=RGBColor(0x9D,0xC3,0xE6); KSU=RGBColor(0x51,0x28,0x88); LIGHT=RGBColor(0xBF,0xBF,0xBF)
 F='Montserrat'
 LOGO=json.load(open('slides/logos/logos.json'))
@@ -104,7 +105,7 @@ travel_map("TEAM TRAVEL, BASKETBALL: BIG 12",f"Big 12 men's basketball teams tra
 # 4. cost per mile, three ranked panels
 s=frame('TEAM TRAVEL COST PER MILE: BIG 12',f"Median cost per mile is ${statistics.median(fbc):,.0f} for football, ${statistics.median([TRAV[x]['mbbcpm'] for x in SCH]):,.0f} for men's basketball and ${statistics.median([TRAV[x]['wbbcpm'] for x in SCH]):,.0f} for women's. Short-trip schools rank highest, since charter and hotel costs don't shrink with distance.")
 def bar_panel(s,x,title,key):
-    data=sorted(SCH,key=lambda q:-TRAV[q][key]); cd=CategoryChartData(); cd.categories=[LOGO[q]['short'] for q in data]; cd.add_series(title,[round(TRAV[q][key]) for q in data])
+    data=sorted(SCH,key=lambda q:-TRAV[q][key]); DATA.setdefault('cost_per_mile',{})[title]=[(q,round(TRAV[q][key],2)) for q in data]; cd=CategoryChartData(); cd.categories=[LOGO[q]['short'] for q in data]; cd.add_series(title,[round(TRAV[q][key]) for q in data])
     gf=s.shapes.add_chart(XL_CHART_TYPE.BAR_CLUSTERED,Inches(x),Inches(1.75),Inches(3.0),Inches(4.95),cd); ch=gf.chart
     ch.has_legend=False; ch.has_title=True; ch.chart_title.text_frame.text=title
     tp=ch.chart_title.text_frame.paragraphs[0]; tp.runs[0].font.size=Pt(9); tp.runs[0].font.bold=True; tp.runs[0].font.name=F
@@ -136,6 +137,7 @@ cd=CategoryChartData(); cd.categories=[LOGO[q]['short'] for q in ords]
 COLS=[RGBColor(0,0,0),RGBColor(0x40,0x40,0x40),RGBColor(0x7F,0x7F,0x7F),KSU,RGBColor(0xA6,0xA6,0xA6),RGBColor(0x9D,0xC3,0xE6),RGBColor(0xD9,0xD9,0xD9)]
 names=[n for n,_ in MIX]+['Other']
 for j,nm in enumerate(names): cd.add_series(nm,[round(mixrow(q)[j],4) for q in ords])
+DATA['revenue_mix']=dict(schools=ords,series=names,shares=[[round(mixrow(q)[j],4) for q in ords] for j in range(len(names))],dollars=[[round((sum(v(q,h) or 0 for h in MIX[j][1]) if j<len(MIX) else v(q,'Total operating revenue')-sum(sum(v(q,h) or 0 for h in hs) for _,hs in MIX))) for q in ords] for j in range(len(names))])
 gf=s.shapes.add_chart(XL_CHART_TYPE.COLUMN_STACKED_100,Inches(0.55),Inches(1.5),Inches(8.9),Inches(5.25),cd); ch=gf.chart
 ch.has_legend=True; ch.legend.position=XL_LEGEND_POSITION.TOP; ch.legend.include_in_layout=False; ch.legend.font.size=Pt(7); ch.legend.font.name=F
 pl=ch.plots[0]; pl.gap_width=40; pl.overlap=100
@@ -152,6 +154,7 @@ gap=statistics.mean(v(q,'Total operating revenue') for q in REST)-statistics.mea
 s=frame('WHERE THE BIG 12 TRAILS: REVENUE',f"The average Big 12 department takes in {money(gap)} a year less than the average school in the other Power 4 conferences. Media rights ({money(r_[0]-b[0])}) and ticket sales ({money(r_[1]-b[1])}) account for most of the gap.")
 cd=CategoryChartData(); cd.categories=[n for n,_ in LINES]
 cd.add_series(f'Rest of Power 4 average ({len(REST)} schools)',[round(x) for x in r_]); cd.add_series(f'Big 12 average ({len(B12)} schools)',[round(x) for x in b]); cd.add_series('Kansas State',[round(x) for x in k])
+DATA['big12_gap']=dict(lines=[n for n,_ in LINES],series=[(f'Rest of Power 4 average ({len(REST)} schools)',[round(x) for x in r_]),(f'Big 12 average ({len(B12)} schools)',[round(x) for x in b]),('Kansas State',[round(x) for x in k])])
 gf=s.shapes.add_chart(XL_CHART_TYPE.BAR_CLUSTERED,Inches(0.55),Inches(1.5),Inches(8.9),Inches(5.25),cd); ch=gf.chart
 ch.has_legend=True; ch.legend.position=XL_LEGEND_POSITION.TOP; ch.legend.include_in_layout=False; ch.legend.font.size=Pt(8); ch.legend.font.name=F
 pl=ch.plots[0]; pl.gap_width=60; pl.overlap=-10; pl.has_data_labels=True; dl=pl.data_labels; dl.number_format='"$"#,##0.0,,"M"'; dl.number_format_is_linked=False; dl.font.size=Pt(7); dl.font.name=F; dl.position=XL_LABEL_POSITION.OUTSIDE_END
@@ -163,6 +166,7 @@ footnote(s,"Source: FY2025 MFRS reports as compiled by Sportico or posted by the
 s=frame('REVENUE AGAINST SPENDING: BIG 12',f"Points above the line spent more than they took in. Kansas State had the largest surplus in the Big 12 ({money(v('Kansas State','Operating surplus (deficit)'))}) on one of the smallest budgets.")
 cd=XyChartData(); ser=cd.add_series('Big 12 schools')
 for q in B12: ser.add_data_point(v(q,'Total operating revenue')/1e6,v(q,'Total operating expenses')/1e6)
+DATA['scatter']=[(q,v(q,'Total operating revenue'),v(q,'Total operating expenses'),v(q,'Operating surplus (deficit)')) for q in B12]
 lo,hi=85,175; br=cd.add_series('Break-even'); br.add_data_point(lo,lo); br.add_data_point(hi,hi)
 gf=s.shapes.add_chart(XL_CHART_TYPE.XY_SCATTER,Inches(0.7),Inches(1.5),Inches(8.6),Inches(5.25),cd); ch=gf.chart; ch.has_legend=False
 pts=ch.plots[0].series[0]; pts.marker.style=8; pts.marker.size=7; pts.marker.format.fill.solid(); pts.marker.format.fill.fore_color.rgb=INK; pts.format.line.fill.background()
@@ -183,6 +187,7 @@ MET=[('Total revenue','Total operating revenue'),('Football revenue','Football r
      ('Support staff pay','Support and administrative staff pay'),('Team travel','Team travel'),('Fundraising and marketing','Fundraising, marketing and promotion'),('Debt service','Annual debt service')]
 idx=[(n,v('Kansas State',h)/statistics.mean(v(q,h) for q in B12 if v(q,h) is not None)) for n,h in MET]
 s=frame('KANSAS STATE AGAINST THE BIG 12 AVERAGE',"Kansas State against the Big 12 average (100%): above on tickets, media, contributions and travel; well below on football revenue (69%), fundraising and marketing (38%) and debt service (74%).")
+DATA['ksu_index']=[(n,round(x,4)) for n,x in idx]
 cd=CategoryChartData(); cd.categories=[n for n,_ in idx]; cd.add_series('Kansas State as % of Big 12 average',[round(x,3) for _,x in idx])
 gf=s.shapes.add_chart(XL_CHART_TYPE.BAR_CLUSTERED,Inches(0.55),Inches(1.5),Inches(8.9),Inches(5.25),cd); ch=gf.chart; ch.has_legend=False; ch.has_title=False
 pl=ch.plots[0]; pl.gap_width=50; pl.has_data_labels=True; dl=pl.data_labels; dl.number_format='0%'; dl.number_format_is_linked=False; dl.font.size=Pt(7); dl.font.name=F; dl.position=XL_LABEL_POSITION.OUTSIDE_END
@@ -198,4 +203,6 @@ for sl in old:
     for sid in list(sldIdLst):
         if prs.slides.get(int(sid.get('id'))) is sl or sid.get('{http://schemas.openxmlformats.org/officeDocument/2006/relationships}id')==prs.part.relate_to(sl.part,'http://schemas.openxmlformats.org/officeDocument/2006/relationships/slide'):
             prs.part.drop_rel(sid.get('{http://schemas.openxmlformats.org/officeDocument/2006/relationships}id')); sldIdLst.remove(sid); break
+DATA['travel']={s:{k:(round(x,2) if isinstance(x,float) else x) for k,x in TRAV[s].items()} for s in SCH}; DATA['positions']={s:dict(zip(('lat','lon'),(float(HD[MS[s]['unitid']]['LATITUDE']),float(HD[MS[s]['unitid']]['LONGITUD'])))) for s in SCH}
+json.dump(DATA,open('slides/travel/chart_data.json','w'),indent=1)
 prs.save(OUT); print('saved',OUT,len(prs.slides),'slides')
