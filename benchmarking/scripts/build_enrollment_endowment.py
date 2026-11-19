@@ -32,3 +32,14 @@ for s in M:
 with open('data/enrollment_endowment.csv','w',newline='',encoding='utf-8') as fh:
     w=csv.DictWriter(fh,fieldnames=list(out[0])); w.writeheader(); w.writerows(out)
 print('schools',len(out),'| NACUBO FY2025',sum(1 for r in out if r['endow_fy25']!='--'),'| IPEDS FY2024',sum(1 for r in out if r['endow_fy24']!='--'))
+# the endowment also goes into the main data (All Schools, conference tabs, Source Log)
+R=[]
+for r_ in out:
+    if r_['endow_fy25']!='--':
+        R.append([r_['school'],'endowment_fy2025',r_['endow_fy25'],'USD','FY2025','NACUBO-Commonfund Study of Endowments, FY2025 market values',NAC_URL,'2026-11-19',
+                  f"Reported as {int(r_['endow_fy25'])//1000:,} in $1,000s; entity reported: {r_['nacubo_entity']}. "+('' if r_['note']=='--' else r_['note'])])
+    else:
+        R.append([r_['school'],'endowment_fy2025','--','USD','FY2025','NACUBO-Commonfund Study of Endowments, FY2025 market values',NAC_URL,'2026-11-19',r_['note']])
+with open('data/research/verification_zzzzzzzzzzzzzzz_endowment_fy2025.csv','w',newline='',encoding='utf-8') as fh:
+    w=csv.writer(fh); w.writerow(['school','metric','value','unit','fiscal_year_or_season','source_name','source_url','date_accessed','notes']); w.writerows(R)
+print('endowment rows',len(R))
