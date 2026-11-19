@@ -161,7 +161,7 @@ pl=ch.plots[0]; pl.gap_width=60; pl.overlap=-10; pl.has_data_labels=True; dl=pl.
 for ser,c in zip(pl.series,(LIGHT,INK,KSU)): ser.format.fill.solid(); ser.format.fill.fore_color.rgb=c
 ch.category_axis.reverse_order=True; ch.category_axis.tick_labels.font.size=Pt(8); ch.category_axis.tick_labels.font.name=F
 ch.value_axis.visible=False; ch.value_axis.has_major_gridlines=False
-footnote(s,"Source: FY2025 MFRS reports as compiled by Sportico or posted by the school. Rest of Power 4 is the ACC, Big Ten, SEC and Notre Dame schools that file a public FY2025 report. Big 12 media rights average includes Cincinnati, which books its conference payout as conference distributions ($0 media rights).")
+footnote(s,"Source: FY2025 MFRS reports as compiled by Sportico or posted by the school. Averages cover the 13 Big 12 and 36 other Power 4 schools with a public FY2025 report. Private schools (including Notre Dame, Baylor, BYU and TCU) do not publish one; Florida, Georgia Tech, Maryland and UCLA have FY2024 only and are left out. Big 12 media rights average includes Cincinnati, which books its conference payout as conference distributions ($0 media rights).")
 # 7. revenue against expenses
 s=frame('REVENUE AGAINST SPENDING: BIG 12',f"Points above the line spent more than they took in. Kansas State had the largest surplus in the Big 12 ({money(v('Kansas State','Operating surplus (deficit)'))}) on one of the smallest budgets.")
 cd=XyChartData(); ser=cd.add_series('Big 12 schools')
