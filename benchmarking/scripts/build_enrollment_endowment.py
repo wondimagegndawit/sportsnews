@@ -14,10 +14,11 @@ for f,col in (('f2324_f1a','F1H02'),('f2324_f2','F2H02')):
     for r in csv.DictReader(open(f'data/ipeds/extracted/{f}.csv',encoding='latin-1')):
         if r.get(col,'').strip(): IP[r['UNITID']]=(int(float(r[col])),f)
 # schools whose endowment is reported for a system or for a parent foundation, so the figure is not comparable to a single campus
-NOTE={'Texas A&M':"The IPEDS figure includes the Texas A&M University System and the Texas A&M Foundation, not the College Station campus alone; NACUBO reports the system total only.",
-      'Colorado':"CU Boulder's endowment is held by the University of Colorado Foundation for all CU campuses; neither source reports a Boulder-only figure.",
-      'LSU':"NACUBO reports only the LSU System total.",
-      'Texas':"NACUBO reports UT Austin separately from the UT System; this is the Austin figure."}
+NOTE={'Texas A&M':"Not in the NACUBO FY2025 study as a campus; NACUBO reports only the Texas A&M System total, which is not comparable to a single campus.",
+      'Colorado':"Not in the NACUBO FY2025 study as a campus; CU Boulder's endowment is held by the University of Colorado Foundation for all CU campuses.",
+      'LSU':"Not in the NACUBO FY2025 study as a campus; NACUBO reports only the LSU System total.",
+      'Texas':"NACUBO reports UT Austin separately from the UT System; this is the Austin figure. The UT System's fiscal year ends 31 August, but NACUBO values are as of 30 June 2025.",
+      'Miami (FL)':"Miami's fiscal year ends 31 May, so this value is as of 31 May 2025."}
 out=[]
 for s in M:
     n=s['name']; u=s['unitid']; nr=NAC.get(u); ip=IP.get(u)

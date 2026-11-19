@@ -559,32 +559,32 @@ if S25: ws.auto_filter.ref=f'{CL(1)}{R_HDR}:{CL(len(hdr25))}{R0+len(S25)-1}'
 if os.path.exists('data/enrollment_endowment.csv'):
     ws=wb.create_sheet('Enrollment and Endowment'); prep(ws,'Enrollment and endowment: all 68 schools')
     header(ws,['School','Conference','Undergraduate enrollment, fall 2024 (2024-25 academic year, FY2025)','Total enrollment, fall 2024 (2024-25 academic year, FY2025)',
-               'Endowment, FY2025 (year ended mid-2025), NACUBO','Entity reported to NACUBO','Endowment, FY2024 (year ended mid-2024), IPEDS','Note'])
+               'Endowment market value, FY2025 (as of 30 June 2025 unless noted), NACUBO','Entity reported to NACUBO','Note'])
     EE=list(csv.DictReader(open('data/enrollment_endowment.csv',encoding='utf-8')))
     EE.sort(key=lambda x:([c for c,_ in CONFS].index(x['conference']) if x['conference'] in [c for c,_ in CONFS] else 99,x['school']))
     for j,x in enumerate(EE):
         r=R0+j
         put_cell(ws.cell(row=r,column=1+OFF),x['school'],F_BASE,align=IND1); put_cell(ws.cell(row=r,column=2+OFF),x['conference'],F_BASE)
-        for col,key,url in ((3,'undergrad','enroll_url'),(4,'total','enroll_url'),(5,'endow_fy25','nacubo_url'),(7,'endow_fy24','ipeds_url')):
+        for col,key,url in ((3,'undergrad','enroll_url'),(4,'total','enroll_url'),(5,'endow_fy25','nacubo_url')):
             v=x[key]; c=ws.cell(row=r,column=col+OFF)
             if v in ('--',''): put_cell(c,'--',F_BASE)
             else:
                 put_cell(c,int(float(v)),F_LINKED,'cnt' if col<5 else 'usd'); c.hyperlink=x[url]
-        put_cell(ws.cell(row=r,column=6+OFF),x['nacubo_entity'],F_BASE); put_cell(ws.cell(row=r,column=8+OFF),x['note'],F_BASE)
+        put_cell(ws.cell(row=r,column=6+OFF),x['nacubo_entity'],F_BASE); put_cell(ws.cell(row=r,column=7+OFF),x['note'],F_BASE)
     last=R0+len(EE)-1; r=last+2
     for lab,fn in (('Average','AVERAGE'),('Median','MEDIAN')):
         put_cell(ws.cell(row=r,column=1+OFF),lab+', all schools with a value',F_B)
-        for col in (3,4,5,7): put_cell(ws.cell(row=r,column=col+OFF),f'=IFERROR({fn}({CL(col)}{R0}:{CL(col)}{last}),"--")',F_B,'cnt' if col<5 else 'usd')
+        for col in (3,4,5): put_cell(ws.cell(row=r,column=col+OFF),f'=IFERROR({fn}({CL(col)}{R0}:{CL(col)}{last}),"--")',F_B,'cnt' if col<5 else 'usd')
         r+=1
     for cf,_ in CONFS:
         put_cell(ws.cell(row=r,column=1+OFF),f'{cf} average',F_BASE)
-        for col in (3,4,5,7): put_cell(ws.cell(row=r,column=col+OFF),f'=IFERROR(AVERAGEIFS({CL(col)}{R0}:{CL(col)}{last},{CL(2)}{R0}:{CL(2)}{last},"{cf}"),"--")',F_BASE,'cnt' if col<5 else 'usd')
+        for col in (3,4,5): put_cell(ws.cell(row=r,column=col+OFF),f'=IFERROR(AVERAGEIFS({CL(col)}{R0}:{CL(col)}{last},{CL(2)}{R0}:{CL(2)}{last},"{cf}"),"--")',F_BASE,'cnt' if col<5 else 'usd')
         r+=1
     r+=1
-    for t_ in ("Sources: enrollment is the IPEDS fall 2024 headcount (each figure links to the school's College Navigator page); FY2025 endowment is the NACUBO-Commonfund Study of Endowments market value; FY2024 endowment is the IPEDS Finance survey value at fiscal year end.",
-               "FY2025 IPEDS finance data and fall 2025 enrollment are not yet published, so FY2024 and fall 2024 are the latest for those sources. NACUBO participation is voluntary, and many public schools report their foundation's endowment, so the two endowment columns are not always the same entity."):
+    for t_ in ("Sources: enrollment is the IPEDS fall 2024 headcount, the latest published (each figure links to the school's College Navigator page). Endowment is the market value reported to the 2025 NACUBO-Commonfund Study of Endowments at the end of fiscal 2025, which is 30 June 2025 for every school here except Miami (31 May 2025).",
+               "NACUBO participation is voluntary: 11 schools did not report a campus figure and are shown as --. Many public schools report their foundation's endowment; the Entity column shows what was reported."):
         put_cell(ws.cell(row=r,column=1+OFF),t_,F_BASE); r+=1
-    setw(ws,{1:22,2:12,3:24,4:24,5:24,6:46,7:24,8:70}); ws.freeze_panes=f'{CL(3)}{R0}'; ws.auto_filter.ref=f'{CL(1)}{R_HDR}:{CL(8)}{last}'
+    setw(ws,{1:22,2:12,3:24,4:24,5:30,6:46,7:70}); ws.freeze_panes=f'{CL(3)}{R0}'; ws.auto_filter.ref=f'{CL(1)}{R_HDR}:{CL(7)}{last}'
 ws=wb.create_sheet('FY25 FRS Clean by Sport'); prep(ws,'Fiscal 2025 NCAA financial reports from the Sportico database: one row per school and sport column')
 V25S=collections.defaultdict(dict)
 for x in _c25:
