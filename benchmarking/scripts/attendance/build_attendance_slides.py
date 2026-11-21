@@ -18,7 +18,7 @@ from openpyxl.styles import Font,PatternFill,Alignment
 SRC,OUT,XL=sys.argv[1:4]
 F='Montserrat'; INK=RGBColor(0,0,0); GREY=RGBColor(0x59,0x59,0x59)
 CONF=['SEC','Big Ten','Big 12','ACC','Independent']
-COL={'SEC':RGBColor(0x1F,0x38,0x64),'Big Ten':RGBColor(0x2E,0x75,0xB6),'Big 12':RGBColor(0x51,0x28,0x88),'ACC':RGBColor(0x9D,0xC3,0xE6),'Independent':RGBColor(0xA6,0xA6,0xA6)}
+COL={'SEC':RGBColor(0xFF,0xC0,0x00),'Big Ten':RGBColor(0x2E,0x75,0xB6),'Big 12':RGBColor(0x51,0x28,0x88),'ACC':RGBColor(0xED,0x7D,0x31),'Independent':RGBColor(0xA6,0xA6,0xA6)}
 LABEL={'Independent':'Notre Dame (Ind.)'}
 conf={s['name']:s['conf'] for s in SCHOOLS}
 URL='https://www.d1ticker.com/{}-fbs-attendance-trends/'
