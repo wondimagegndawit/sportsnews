@@ -69,30 +69,43 @@ def slide(d,year,title,sub,foot):
     text(s,lines,7.55,1.92,1.8,1.1,7,name='Averages')
     text(s,foot,0.35,7.12,6.75,0.3,6,GREY,name='Footnote')
 CHG={s:A26[s]-A25[s] for s in A25}
-def change_slide():
-    d=CHG; order=sorted(d,key=lambda x:(-d[x],x))
+PCT={s:A26[s]/A25[s]-1 for s in A25}
+def gpct(c=None): return avg(A26,c)/avg(A25,c)-1   # % change in the group's average attendance
+def change_slide(pct):
+    d=PCT if pct else CHG; order=sorted(d,key=lambda x:(-d[x],x))
     up=sum(v>0 for v in d.values()); dn=sum(v<0 for v in d.values()); fl=len(d)-up-dn
-    s=frame('POWER 4 FOOTBALL ATTENDANCE: CHANGE, 2026 VS 2025',
-      f"Average home attendance is down {abs(avg(d)):,.0f} per game across the Power 4 so far in 2026. {up} schools are up, {dn} are down and {fl} are flat. The SEC is the only conference up ({avg(d,'SEC'):+,.0f}); Kansas State is up {d['Kansas State']:,}.")
+    if pct:
+        s=frame('FOOTBALL ATTENDANCE: % CHANGE, 2026 VS 2025',
+          f"Average Power 4 home attendance is down {abs(gpct()):.1%} so far in 2026. {up} schools are up, {dn} are down and {fl} are flat. The SEC is the only conference up ({gpct('SEC'):+.1%}); the Big 12 is {gpct('Big 12'):+.1%} and Kansas State {PCT['Kansas State']:+.1%}.")
+        fmt='+0.0%;-0.0%;0.0%'; lo,hi,step=-0.25,1.1,0.25
+        box=[[('Change in average attendance',True,INK)],[(f'Power 4 (68): {gpct():+.1%}',True,INK)]]+[[('\u25a0 ',False,COL[c]),(f'{LABEL.get(c,c)}: '+(f'{gpct(c):+.1%}' if abs(gpct(c))>=0.0005 else '0.0%'),False,INK)] for c in CONF]
+        foot="Source: D1.ticker, 2026 FBS Attendance Trends: '2026 Current Average' (through Week 11; season in progress) vs '2025 Average' (full 2025 season); matches D1.ticker's Year-over-Year % column. Conference figures are the % change in the conference's average. Northwestern's 2025 figure (11,548) leaves out its two Wrigley Field games (NCAA average with them: 15,898), so its gain is overstated."
+    else:
+        s=frame('POWER 4 FOOTBALL ATTENDANCE: CHANGE, 2026 VS 2025',
+          f"Average home attendance is down {abs(avg(d)):,.0f} per game across the Power 4 so far in 2026. {up} schools are up, {dn} are down and {fl} are flat. The SEC is the only conference up ({avg(d,'SEC'):+,.0f}); Kansas State is up {d['Kansas State']:,}.")
+        fmt='+#,##0;-#,##0;0'; lo,hi,step=-14000,14000,4000
+        box=[[('Average change per home game',True,INK)],[(f'Power 4 (68): {avg(d):+,.0f}',True,INK)]]+[[('\u25a0 ',False,COL[c]),(f'{LABEL.get(c,c)}: '+(f'{avg(d,c):+,.0f}' if round(avg(d,c)) else '0'),False,INK)] for c in CONF]
+        foot="Source: D1.ticker, 2026 FBS Attendance Trends: '2026 Current Average' (through Week 11; season in progress) less '2025 Average' (full 2025 season). Average per home game as reported by D1.ticker. Northwestern's 2025 figure (11,548) leaves out its two Wrigley Field games (NCAA average with them: 15,898), so its gain is overstated." 
     cd=CategoryChartData(); cd.categories=order
     for c in CONF: cd.add_series(LABEL.get(c,c),[d[x] if conf[x]==c else None for x in order])
     gf=s.shapes.add_chart(XL_CHART_TYPE.COLUMN_CLUSTERED,Inches(0.45),Inches(1.45),Inches(9.1),Inches(5.35),cd); gf.name='Attendance change chart'
     ch=gf.chart; ch.has_title=False; ch.has_legend=True; ch.legend.position=XL_LEGEND_POSITION.TOP; ch.legend.include_in_layout=False; ch.legend.font.size=Pt(7); ch.legend.font.name=F
     pl=ch.plots[0]; pl.gap_width=35; pl.overlap=100
     for c,ser in zip(CONF,pl.series): ser.format.fill.solid(); ser.format.fill.fore_color.rgb=COL[c]; ser.invert_if_negative=False
-    pl.has_data_labels=True; dl=pl.data_labels; dl.number_format='+#,##0;-#,##0;0'; dl.number_format_is_linked=False; dl.font.size=Pt(5); dl.font.name=F; dl.position=XL_LABEL_POSITION.OUTSIDE_END
+    pl.has_data_labels=True; dl=pl.data_labels; dl.number_format=fmt; dl.number_format_is_linked=False; dl.font.size=Pt(5); dl.font.name=F; dl.position=XL_LABEL_POSITION.OUTSIDE_END
     from lxml import etree
     A='http://schemas.openxmlformats.org/drawingml/2006/main'
     dtx=dl._element.find('{http://schemas.openxmlformats.org/drawingml/2006/chart}txPr'); dtx.find(f'{{{A}}}bodyPr').set('rot','-5400000'); dtx.find(f'{{{A}}}bodyPr').set('vert','horz')
     ca=ch.category_axis; ca.tick_label_position=XL_TICK_LABEL_POSITION.LOW; ca.tick_labels.font.size=Pt(5); ca.tick_labels.font.name=F; ca.format.line.color.rgb=RGBColor(0x7F,0x7F,0x7F)
     txPr=ca._element.find('{http://schemas.openxmlformats.org/drawingml/2006/chart}txPr'); txPr.find('{http://schemas.openxmlformats.org/drawingml/2006/main}bodyPr').set('rot','-5400000')
-    va=ch.value_axis; va.minimum_scale=-14000; va.maximum_scale=14000; va.major_unit=4000; va.tick_labels.number_format='+#,##0;-#,##0;0'; va.tick_labels.number_format_is_linked=False
+    va=ch.value_axis; va.minimum_scale=lo; va.maximum_scale=hi; va.major_unit=step; va.tick_labels.number_format=fmt.replace('0.0%','0%'); va.tick_labels.number_format_is_linked=False
     va.tick_labels.font.size=Pt(6); va.tick_labels.font.name=F; va.has_major_gridlines=True; va.major_gridlines.format.line.color.rgb=RGBColor(0xE7,0xE7,0xE7); va.format.line.fill.background()
-    lines=[[('Average change per home game',True,INK)],[(f'Power 4 (68): {avg(d):+,.0f}',True,INK)]]+[[('\u25a0 ',False,COL[c]),(f'{LABEL.get(c,c)}: '+(f'{avg(d,c):+,.0f}' if round(avg(d,c)) else '0'),False,INK)] for c in CONF]
+    lines=box
     bx=s.shapes.add_shape(MSO_SHAPE.RECTANGLE,Inches(7.3),Inches(1.85),Inches(2.1),Inches(1.2)); bx.fill.solid(); bx.fill.fore_color.rgb=RGBColor(255,255,255); bx.line.color.rgb=RGBColor(0xBF,0xBF,0xBF); bx.line.width=Pt(0.5); bx.shadow.inherit=False; bx.name='Averages box'
     text(s,lines,7.4,1.92,1.95,1.1,7,name='Averages')
-    text(s,"Source: D1.ticker, 2026 FBS Attendance Trends: '2026 Current Average' (through Week 11; season in progress) less '2025 Average' (full 2025 season). Average per home game as reported by D1.ticker. Northwestern's 2025 figure (11,548) leaves out its two Wrigley Field games (NCAA average with them: 15,898), so its gain is overstated.",0.35,7.12,6.75,0.3,6,GREY,name='Footnote')
-change_slide()
+    text(s,foot,0.35,7.12,6.75,0.3,6,GREY,name='Footnote')
+change_slide(False)
+change_slide(True)
 ids=prs.slides._sldIdLst; RID='{http://schemas.openxmlformats.org/officeDocument/2006/relationships}id'
 for sl in old:
     for sid in list(ids):
@@ -119,4 +132,24 @@ for k2,cf in enumerate(CONF):
     rr=r+1+k2; ws.cell(rr,2,f'{LABEL.get(cf,cf)} average').font=N
     for col in 'DEF': c=ws[f'{col}{rr}']; c.value=f'=AVERAGEIF($C$7:$C${e},"{cf}",{col}7:{col}{e})'; c.font=N; c.number_format='#,##0' if col!='F' else '+#,##0;-#,##0;0'
 for colw,w in zip('ABCDEFGHIJKLM',(2,22,12,12,14,10,10,6,10,10,10,10,16)): ws.column_dimensions[colw].width=w
+ws2=wb.create_sheet('Attendance change %'); ws2.sheet_view.showGridLines=False
+ws2['B2']='SMASHSPORTS'; ws2['B2'].font=Font(name='Montserrat',size=11,bold=True)
+ws2['B3']="% change in average home football attendance, 2026 (through Week 11) vs 2025 (full season), Power 4 (68 schools), ranked. Source: D1.ticker 2026 FBS Attendance Trends. Conference rows are the % change in the conference average."; ws2['B3'].font=N
+ws2['B4']=U26; ws2['B4'].hyperlink=U26; ws2['B4'].font=BL
+for j,h in enumerate(['School','Conference','2025 average','2026 average (through Week 11)','Change %','Rank']+[LABEL.get(c,c) for c in CONF]): c=ws2.cell(6,2+j,h); c.font=H; c.fill=PatternFill('solid',fgColor='000000')
+P='+0.0%;-0.0%;0.0%'
+for i,x in enumerate(sorted(PCT,key=lambda x:(-PCT[x],x))):
+    r=7+i; ws2.cell(r,2,x).font=N; ws2.cell(r,3,conf[x]).font=N
+    for col,v in ((4,A25[x]),(5,A26[x])): c=ws2.cell(r,col,v); c.font=BL; c.hyperlink=U26; c.number_format='#,##0'
+    c=ws2.cell(r,6,f'=E{r}/D{r}-1'); c.font=N; c.number_format=P
+    ws2.cell(r,7,i+1).font=N
+    for j,cf in enumerate(CONF): cc=ws2.cell(r,8+j,f'=IF($C{r}="{cf}",$F{r},"")'); cc.font=N; cc.number_format=P
+r=e+2; ws2.cell(r,2,'Power 4').font=Font(name='Aptos Narrow',size=9,bold=True)
+ws2[f'D{r}']=f'=AVERAGE(D7:D{e})'; ws2[f'E{r}']=f'=AVERAGE(E7:E{e})'; ws2[f'F{r}']=f'=E{r}/D{r}-1'
+for k2,cf in enumerate(CONF):
+    rr=r+1+k2; ws2.cell(rr,2,LABEL.get(cf,cf)).font=N
+    ws2[f'D{rr}']=f'=AVERAGEIF($C$7:$C${e},"{cf}",D7:D{e})'; ws2[f'E{rr}']=f'=AVERAGEIF($C$7:$C${e},"{cf}",E7:E{e})'; ws2[f'F{rr}']=f'=E{rr}/D{rr}-1'
+for rr in range(r,r+6):
+    for col,f_ in (('D','#,##0'),('E','#,##0'),('F',P)): ws2[f'{col}{rr}'].number_format=f_; ws2[f'{col}{rr}'].font=N
+for colw,w in zip('ABCDEFGHIJKL',(2,22,12,12,14,10,6,10,10,10,10,16)): ws2.column_dimensions[colw].width=w
 wb.save(XL); print('saved',XL)
