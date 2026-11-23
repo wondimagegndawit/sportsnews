@@ -77,17 +77,18 @@ def change_slide(pct):
     if pct:
         s=frame('FOOTBALL ATTENDANCE: % CHANGE, 2026 VS 2025',
           f"Average Power 4 home attendance is down {abs(gpct()):.1%} so far in 2026. {up} schools are up, {dn} are down and {fl} are flat. The SEC is the only conference up ({gpct('SEC'):+.1%}); the Big 12 is {gpct('Big 12'):+.1%} and Kansas State {PCT['Kansas State']:+.1%}.")
-        fmt='+0.0%;-0.0%;0.0%'; lo,hi,step=-0.25,1.1,0.25
+        fmt='+0.0%;-0.0%;0.0%'; lo,hi,step=-0.25,0.25,0.05
         box=[[('Change in average attendance',True,INK)],[(f'Power 4 (68): {gpct():+.1%}',True,INK)]]+[[('\u25a0 ',False,COL[c]),(f'{LABEL.get(c,c)}: '+(f'{gpct(c):+.1%}' if abs(gpct(c))>=0.0005 else '0.0%'),False,INK)] for c in CONF]
-        foot="Source: D1.ticker, 2026 FBS Attendance Trends: '2026 Current Average' (through Week 11; season in progress) vs '2025 Average' (full 2025 season); matches D1.ticker's Year-over-Year % column. Conference figures are the % change in the conference's average. Northwestern's 2025 figure (11,548) leaves out its two Wrigley Field games (NCAA average with them: 15,898), so its gain is overstated."
+        foot="Source: D1.ticker, 2026 FBS Attendance Trends: '2026 Current Average' (through Week 11; season in progress) vs '2025 Average' (full 2025 season); matches D1.ticker's Year-over-Year % column. Conference figures are the % change in the conference's average. Axis capped at +25%: Northwestern is +102.8%, much higher than any other school, partly because its 2025 figure (11,548) leaves out its two Wrigley Field games."
     else:
         s=frame('POWER 4 FOOTBALL ATTENDANCE: CHANGE, 2026 VS 2025',
           f"Average home attendance is down {abs(avg(d)):,.0f} per game across the Power 4 so far in 2026. {up} schools are up, {dn} are down and {fl} are flat. The SEC is the only conference up ({avg(d,'SEC'):+,.0f}); Kansas State is up {d['Kansas State']:,}.")
         fmt='+#,##0;-#,##0;0'; lo,hi,step=-14000,14000,4000
         box=[[('Average change per home game',True,INK)],[(f'Power 4 (68): {avg(d):+,.0f}',True,INK)]]+[[('\u25a0 ',False,COL[c]),(f'{LABEL.get(c,c)}: '+(f'{avg(d,c):+,.0f}' if round(avg(d,c)) else '0'),False,INK)] for c in CONF]
         foot="Source: D1.ticker, 2026 FBS Attendance Trends: '2026 Current Average' (through Week 11; season in progress) less '2025 Average' (full 2025 season). Average per home game as reported by D1.ticker. Northwestern's 2025 figure (11,548) leaves out its two Wrigley Field games (NCAA average with them: 15,898), so its gain is overstated." 
+    CAP=hi if pct else None
     cd=CategoryChartData(); cd.categories=order
-    for c in CONF: cd.add_series(LABEL.get(c,c),[d[x] if conf[x]==c else None for x in order])
+    for c in CONF: cd.add_series(LABEL.get(c,c),[(min(d[x],CAP) if CAP else d[x]) if conf[x]==c else None for x in order])
     gf=s.shapes.add_chart(XL_CHART_TYPE.COLUMN_CLUSTERED,Inches(0.45),Inches(1.45),Inches(9.1),Inches(5.35),cd); gf.name='Attendance change chart'
     ch=gf.chart; ch.has_title=False; ch.has_legend=True; ch.legend.position=XL_LEGEND_POSITION.TOP; ch.legend.include_in_layout=False; ch.legend.font.size=Pt(7); ch.legend.font.name=F
     pl=ch.plots[0]; pl.gap_width=35; pl.overlap=100
@@ -96,6 +97,15 @@ def change_slide(pct):
     from lxml import etree
     A='http://schemas.openxmlformats.org/drawingml/2006/main'
     dtx=dl._element.find('{http://schemas.openxmlformats.org/drawingml/2006/chart}txPr'); dtx.find(f'{{{A}}}bodyPr').set('rot','-5400000'); dtx.find(f'{{{A}}}bodyPr').set('vert','horz')
+    if pct:   # bars above the cap are drawn at the cap and labelled with their real value
+        for x in order:
+            if d[x]>CAP:
+                ser=pl.series[CONF.index(conf[x])]; sdl=ser.data_labels; sdl.show_value=True; sdl.number_format=fmt; sdl.number_format_is_linked=False; sdl.font.size=Pt(5); sdl.font.name=F; sdl.position=XL_LABEL_POSITION.OUTSIDE_END
+                stx=sdl._element.find('{http://schemas.openxmlformats.org/drawingml/2006/chart}txPr'); stx.find(f'{{{A}}}bodyPr').set('rot','-5400000'); stx.find(f'{{{A}}}bodyPr').set('vert','horz')
+                pt=ser.points[order.index(x)]; lab=pt.data_label
+                lab.position=XL_LABEL_POSITION.INSIDE_END; tf=lab.text_frame; tf.text=f'{d[x]:+.1%} (off scale)'
+                r=tf.paragraphs[0].runs[0]; r.font.size=Pt(5); r.font.bold=True; r.font.name=F; r.font.color.rgb=RGBColor(255,255,255)
+                bp=lab._dLbl.find('{http://schemas.openxmlformats.org/drawingml/2006/chart}tx').find('{http://schemas.openxmlformats.org/drawingml/2006/chart}rich').find(f'{{{A}}}bodyPr'); bp.set('rot','-5400000'); bp.set('vert','horz')
     ca=ch.category_axis; ca.tick_label_position=XL_TICK_LABEL_POSITION.LOW; ca.tick_labels.font.size=Pt(5); ca.tick_labels.font.name=F; ca.format.line.color.rgb=RGBColor(0x7F,0x7F,0x7F)
     txPr=ca._element.find('{http://schemas.openxmlformats.org/drawingml/2006/chart}txPr'); txPr.find('{http://schemas.openxmlformats.org/drawingml/2006/main}bodyPr').set('rot','-5400000')
     va=ch.value_axis; va.minimum_scale=lo; va.maximum_scale=hi; va.major_unit=step; va.tick_labels.number_format=fmt.replace('0.0%','0%'); va.tick_labels.number_format_is_linked=False
@@ -134,16 +144,16 @@ for k2,cf in enumerate(CONF):
 for colw,w in zip('ABCDEFGHIJKLM',(2,22,12,12,14,10,10,6,10,10,10,10,16)): ws.column_dimensions[colw].width=w
 ws2=wb.create_sheet('Attendance change %'); ws2.sheet_view.showGridLines=False
 ws2['B2']='SMASHSPORTS'; ws2['B2'].font=Font(name='Montserrat',size=11,bold=True)
-ws2['B3']="% change in average home football attendance, 2026 (through Week 11) vs 2025 (full season), Power 4 (68 schools), ranked. Source: D1.ticker 2026 FBS Attendance Trends. Conference rows are the % change in the conference average."; ws2['B3'].font=N
+ws2['B3']="% change in average home football attendance, 2026 (through Week 11) vs 2025 (full season), Power 4 (68 schools), ranked. Source: D1.ticker 2026 FBS Attendance Trends. Conference rows are the % change in the conference average. Conference series columns cap at +25% to match the slide axis (Northwestern is +102.8%, shown in column F)."; ws2['B3'].font=N
 ws2['B4']=U26; ws2['B4'].hyperlink=U26; ws2['B4'].font=BL
-for j,h in enumerate(['School','Conference','2025 average','2026 average (through Week 11)','Change %','Rank']+[LABEL.get(c,c) for c in CONF]): c=ws2.cell(6,2+j,h); c.font=H; c.fill=PatternFill('solid',fgColor='000000')
+for j,h in enumerate(['School','Conference','2025 average','2026 average (through Week 11)','Change %','Rank']+[LABEL.get(c,c)+' (chart, capped at +25%)' for c in CONF]): c=ws2.cell(6,2+j,h); c.font=H; c.fill=PatternFill('solid',fgColor='000000')
 P='+0.0%;-0.0%;0.0%'
 for i,x in enumerate(sorted(PCT,key=lambda x:(-PCT[x],x))):
     r=7+i; ws2.cell(r,2,x).font=N; ws2.cell(r,3,conf[x]).font=N
     for col,v in ((4,A25[x]),(5,A26[x])): c=ws2.cell(r,col,v); c.font=BL; c.hyperlink=U26; c.number_format='#,##0'
     c=ws2.cell(r,6,f'=E{r}/D{r}-1'); c.font=N; c.number_format=P
     ws2.cell(r,7,i+1).font=N
-    for j,cf in enumerate(CONF): cc=ws2.cell(r,8+j,f'=IF($C{r}="{cf}",$F{r},"")'); cc.font=N; cc.number_format=P
+    for j,cf in enumerate(CONF): cc=ws2.cell(r,8+j,f'=IF($C{r}="{cf}",MIN($F{r},0.25),"")'); cc.font=N; cc.number_format=P
 r=e+2; ws2.cell(r,2,'Power 4').font=Font(name='Aptos Narrow',size=9,bold=True)
 ws2[f'D{r}']=f'=AVERAGE(D7:D{e})'; ws2[f'E{r}']=f'=AVERAGE(E7:E{e})'; ws2[f'F{r}']=f'=E{r}/D{r}-1'
 for k2,cf in enumerate(CONF):
