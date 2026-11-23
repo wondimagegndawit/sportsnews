@@ -12,7 +12,7 @@ from pptx.dml.color import RGBColor
 from pptx.enum.shapes import MSO_SHAPE
 from pptx.enum.text import PP_ALIGN,MSO_ANCHOR
 from pptx.chart.data import CategoryChartData
-from pptx.enum.chart import XL_CHART_TYPE,XL_LEGEND_POSITION,XL_LABEL_POSITION
+from pptx.enum.chart import XL_CHART_TYPE,XL_LEGEND_POSITION,XL_LABEL_POSITION,XL_TICK_LABEL_POSITION
 from openpyxl import Workbook
 from openpyxl.styles import Font,PatternFill,Alignment
 SRC,OUT,XL=sys.argv[1:4]
@@ -68,36 +68,55 @@ def slide(d,year,title,sub,foot):
     bx=s.shapes.add_shape(MSO_SHAPE.RECTANGLE,Inches(7.45),Inches(1.85),Inches(1.95),Inches(1.2)); bx.fill.solid(); bx.fill.fore_color.rgb=RGBColor(255,255,255); bx.line.color.rgb=RGBColor(0xBF,0xBF,0xBF); bx.line.width=Pt(0.5); bx.shadow.inherit=False; bx.name='Averages box'
     text(s,lines,7.55,1.92,1.8,1.1,7,name='Averages')
     text(s,foot,0.35,7.12,6.75,0.3,6,GREY,name='Footnote')
-r25=sorted(A25,key=lambda x:-A25[x]); r26=sorted(A26,key=lambda x:-A26[x])
-k25=r25.index('Kansas State')+1; k26=r26.index('Kansas State')+1
-slide(A25,2025,'POWER 4 FOOTBALL ATTENDANCE: 2025',
-  f"Power 4 schools averaged {avg(A25):,.0f} fans per home game in 2025. The SEC led at {avg(A25,'SEC'):,.0f}; the Big 12 averaged {avg(A25,'Big 12'):,.0f}. Kansas State ranked {k25} of 68 at {A25['Kansas State']:,}.",
-  "Source: D1.ticker, 2025 FBS Attendance Trends, '2025 Final Average' (data through Week 14). Average per home game as reported by D1.ticker; the site does not say whether figures are announced or paid. D1.ticker marks Florida State, Kansas and Northwestern with an asterisk without saying why. Notre Dame is independent.")
-slide(A26,2026,'POWER 4 FOOTBALL ATTENDANCE: 2026 TO DATE',
-  f"Through Week 11 of 2026, Power 4 schools average {avg(A26):,.0f} per home game, against {avg(A25):,.0f} for 2025. The Big 12 averages {avg(A26,'Big 12'):,.0f}. Kansas State ranks {k26} of 68 at {A26['Kansas State']:,}.",
-  "Source: D1.ticker, 2026 FBS Attendance Trends, '2026 Current Average' (data through Week 11; season in progress). Average per home game as reported by D1.ticker; the site does not say whether figures are announced or paid. Notre Dame is independent.")
+CHG={s:A26[s]-A25[s] for s in A25}
+def change_slide():
+    d=CHG; order=sorted(d,key=lambda x:(-d[x],x))
+    up=sum(v>0 for v in d.values()); dn=sum(v<0 for v in d.values()); fl=len(d)-up-dn
+    s=frame('POWER 4 FOOTBALL ATTENDANCE: CHANGE, 2026 VS 2025',
+      f"Average home attendance is down {abs(avg(d)):,.0f} per game across the Power 4 so far in 2026. {up} schools are up, {dn} are down and {fl} are flat. The SEC is the only conference up ({avg(d,'SEC'):+,.0f}); Kansas State is up {d['Kansas State']:,}.")
+    cd=CategoryChartData(); cd.categories=order
+    for c in CONF: cd.add_series(LABEL.get(c,c),[d[x] if conf[x]==c else None for x in order])
+    gf=s.shapes.add_chart(XL_CHART_TYPE.COLUMN_CLUSTERED,Inches(0.45),Inches(1.45),Inches(9.1),Inches(5.35),cd); gf.name='Attendance change chart'
+    ch=gf.chart; ch.has_title=False; ch.has_legend=True; ch.legend.position=XL_LEGEND_POSITION.TOP; ch.legend.include_in_layout=False; ch.legend.font.size=Pt(7); ch.legend.font.name=F
+    pl=ch.plots[0]; pl.gap_width=35; pl.overlap=100
+    for c,ser in zip(CONF,pl.series): ser.format.fill.solid(); ser.format.fill.fore_color.rgb=COL[c]; ser.invert_if_negative=False
+    pl.has_data_labels=True; dl=pl.data_labels; dl.number_format='+#,##0;-#,##0;0'; dl.number_format_is_linked=False; dl.font.size=Pt(5); dl.font.name=F; dl.position=XL_LABEL_POSITION.OUTSIDE_END
+    from lxml import etree
+    A='http://schemas.openxmlformats.org/drawingml/2006/main'
+    dtx=dl._element.find('{http://schemas.openxmlformats.org/drawingml/2006/chart}txPr'); dtx.find(f'{{{A}}}bodyPr').set('rot','-5400000'); dtx.find(f'{{{A}}}bodyPr').set('vert','horz')
+    ca=ch.category_axis; ca.tick_label_position=XL_TICK_LABEL_POSITION.LOW; ca.tick_labels.font.size=Pt(5); ca.tick_labels.font.name=F; ca.format.line.color.rgb=RGBColor(0x7F,0x7F,0x7F)
+    txPr=ca._element.find('{http://schemas.openxmlformats.org/drawingml/2006/chart}txPr'); txPr.find('{http://schemas.openxmlformats.org/drawingml/2006/main}bodyPr').set('rot','-5400000')
+    va=ch.value_axis; va.minimum_scale=-14000; va.maximum_scale=14000; va.major_unit=4000; va.tick_labels.number_format='+#,##0;-#,##0;0'; va.tick_labels.number_format_is_linked=False
+    va.tick_labels.font.size=Pt(6); va.tick_labels.font.name=F; va.has_major_gridlines=True; va.major_gridlines.format.line.color.rgb=RGBColor(0xE7,0xE7,0xE7); va.format.line.fill.background()
+    lines=[[('Average change per home game',True,INK)],[(f'Power 4 (68): {avg(d):+,.0f}',True,INK)]]+[[('\u25a0 ',False,COL[c]),(f'{LABEL.get(c,c)}: '+(f'{avg(d,c):+,.0f}' if round(avg(d,c)) else '0'),False,INK)] for c in CONF]
+    bx=s.shapes.add_shape(MSO_SHAPE.RECTANGLE,Inches(7.3),Inches(1.85),Inches(2.1),Inches(1.2)); bx.fill.solid(); bx.fill.fore_color.rgb=RGBColor(255,255,255); bx.line.color.rgb=RGBColor(0xBF,0xBF,0xBF); bx.line.width=Pt(0.5); bx.shadow.inherit=False; bx.name='Averages box'
+    text(s,lines,7.4,1.92,1.95,1.1,7,name='Averages')
+    text(s,"Source: D1.ticker, 2026 FBS Attendance Trends: '2026 Current Average' (through Week 11; season in progress) less '2025 Average' (full 2025 season). Average per home game as reported by D1.ticker. Northwestern's 2025 figure (11,548) leaves out its two Wrigley Field games (NCAA average with them: 15,898), so its gain is overstated.",0.35,7.12,6.75,0.3,6,GREY,name='Footnote')
+change_slide()
 ids=prs.slides._sldIdLst; RID='{http://schemas.openxmlformats.org/officeDocument/2006/relationships}id'
 for sl in old:
     for sid in list(ids):
         if prs.part.related_part(sid.get(RID)) is sl.part: prs.part.drop_rel(sid.get(RID)); ids.remove(sid); break
 prs.save(OUT); print('saved',OUT,len(prs.slides),'slides')
-# think-cell backup: one tab per slide, categories down column B, one column per conference series (blank where not that conference)
-wb=Workbook(); wb.remove(wb.active); H=Font(name='Aptos Narrow',size=9,bold=True,color='FFFFFF'); N=Font(name='Aptos Narrow',size=9); BL=Font(name='Aptos Narrow',size=9,color='0000FF',underline='single')
-for d,year,col,url in ((A25,2025,'2025 Final Average (through Week 14)',URL.format(2025)),(A26,2026,'2026 Current Average (through Week 11)',URL.format(2026))):
-    ws=wb.create_sheet(f'{year} attendance'); ws.sheet_view.showGridLines=False
-    ws['B2']='SMASHSPORTS'; ws['B2'].font=Font(name='Montserrat',size=11,bold=True)
-    ws['B3']=f'Average home football attendance, {year}, Power 4 (68 schools), ranked. Source: D1.ticker {col}.'; ws['B3'].font=N
-    ws['B4']=url; ws['B4'].hyperlink=url; ws['B4'].font=Font(name='Aptos Narrow',size=9,color='0000FF',underline='single')
-    hdr=['School','Conference','Average attendance','Rank']+[LABEL.get(c,c) for c in CONF]
-    for j,h in enumerate(hdr): c=ws.cell(6,2+j,h); c.font=H; c.fill=PatternFill('solid',fgColor='000000')
-    for i,x in enumerate(sorted(d,key=lambda x:-d[x])):
-        r=7+i; ws.cell(r,2,x).font=N; ws.cell(r,3,conf[x]).font=N
-        c=ws.cell(r,4,d[x]); c.font=BL; c.hyperlink=url; c.number_format='#,##0'
-        ws.cell(r,5,i+1).font=N
-        for j,cf in enumerate(CONF):
-            cc=ws.cell(r,6+j,f'=IF($C{r}="{cf}",$D{r},"")' ); cc.font=N; cc.number_format='#,##0'
-    e=6+len(d); r=e+2; ws.cell(r,2,'Power 4 average').font=Font(name='Aptos Narrow',size=9,bold=True); ws.cell(r,4,f'=AVERAGE(D7:D{e})').number_format='#,##0'
-    for k,cf in enumerate(CONF):
-        ws.cell(r+1+k,2,f'{LABEL.get(cf,cf)} average').font=N; c=ws.cell(r+1+k,4,f'=AVERAGEIF(C7:C{e},"{cf}",D7:D{e})'); c.number_format='#,##0'; c.font=N
-    for colw,w in zip('ABCDEFGHIJ',(2,22,12,16,6,10,10,10,10,16)): ws.column_dimensions[colw].width=w
+# think-cell backup: one tab, categories down column B, one column per conference series (blank where not that conference)
+wb=Workbook(); ws=wb.active; ws.title='Attendance change'; ws.sheet_view.showGridLines=False
+H=Font(name='Aptos Narrow',size=9,bold=True,color='FFFFFF'); N=Font(name='Aptos Narrow',size=9); BL=Font(name='Aptos Narrow',size=9,color='0000FF',underline='single'); U26=URL.format(2026)
+ws['B2']='SMASHSPORTS'; ws['B2'].font=Font(name='Montserrat',size=11,bold=True)
+ws['B3']="Change in average home football attendance, 2026 (through Week 11) vs 2025 (full season), Power 4 (68 schools), ranked. Source: D1.ticker 2026 FBS Attendance Trends, '2026 Current Average' and '2025 Average'."; ws['B3'].font=N
+ws['B4']=U26; ws['B4'].hyperlink=U26; ws['B4'].font=BL
+hdr=['School','Conference','2025 average','2026 average (through Week 11)','Change','Change %','Rank']+[LABEL.get(c,c) for c in CONF]
+for j,h in enumerate(hdr): c=ws.cell(6,2+j,h); c.font=H; c.fill=PatternFill('solid',fgColor='000000')
+for i,x in enumerate(sorted(CHG,key=lambda x:(-CHG[x],x))):
+    r=7+i; ws.cell(r,2,x).font=N; ws.cell(r,3,conf[x]).font=N
+    for col,v in ((4,A25[x]),(5,A26[x])): c=ws.cell(r,col,v); c.font=BL; c.hyperlink=U26; c.number_format='#,##0'
+    c=ws.cell(r,6,f'=E{r}-D{r}'); c.font=N; c.number_format='+#,##0;-#,##0;0'
+    c=ws.cell(r,7,f'=F{r}/D{r}'); c.font=N; c.number_format='+0.0%;-0.0%;0.0%'
+    ws.cell(r,8,i+1).font=N
+    for j,cf in enumerate(CONF): cc=ws.cell(r,9+j,f'=IF($C{r}="{cf}",$F{r},"")'); cc.font=N; cc.number_format='+#,##0;-#,##0;0'
+e=6+len(CHG); r=e+2; ws.cell(r,2,'Power 4 average').font=Font(name='Aptos Narrow',size=9,bold=True)
+for col in 'DEF': ws[f'{col}{r}']=f'=AVERAGE({col}7:{col}{e})'; ws[f'{col}{r}'].number_format='#,##0' if col!='F' else '+#,##0;-#,##0;0'
+for k2,cf in enumerate(CONF):
+    rr=r+1+k2; ws.cell(rr,2,f'{LABEL.get(cf,cf)} average').font=N
+    for col in 'DEF': c=ws[f'{col}{rr}']; c.value=f'=AVERAGEIF($C$7:$C${e},"{cf}",{col}7:{col}{e})'; c.font=N; c.number_format='#,##0' if col!='F' else '+#,##0;-#,##0;0'
+for colw,w in zip('ABCDEFGHIJKLM',(2,22,12,12,14,10,10,6,10,10,10,10,16)): ws.column_dimensions[colw].width=w
 wb.save(XL); print('saved',XL)
