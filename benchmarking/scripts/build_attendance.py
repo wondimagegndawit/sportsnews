@@ -54,6 +54,32 @@ for s in master:
                         f"Column '5 Year-over-Year % Change' as displayed ({d['5 Year-over-Year % Change']}), {row}, stored as a decimal; the page compares its '2025 Final Average' with its '5 Year Average'."+star])
             out.append([name,'fb_attendance_pct_capacity_2025',pct('Capacity %'),'share of capacity','2025 season',src,u,DATE,
                         f"Column 'Capacity %' as displayed ({d['Capacity %']}), {row}, stored as a decimal; D1.ticker does not publish the stadium capacity it divides by, so it can differ from the Stadium capacity column in this workbook."+star])
+# ---- football 2026 season to date: D1.ticker 2026 FBS Attendance Trends (season in progress), saved 21 November 2026 ----
+D26='2026-11-21'; u26=URL.format(y=2026)
+t26=open('data/d1ticker/2026-fbs-attendance-trends.html',encoding='utf-8',errors='replace').read()
+tb=re.search(r'<table.*?</table>',t26,re.S).group(0); R=[[html.unescape(re.sub(r'<[^>]+>','',c)).strip() for c in re.findall(r'<t[hd][^>]*>(.*?)</t[hd]>',tr,re.S)] for tr in re.findall(r'<tr.*?</tr>',tb,re.S)]
+H26=R[0]; thr26=re.search(r'Data through Week \d+',t26).group(0); assert '2026 Current Average' in H26 and '2025 Average' in H26, H26
+P26={r[0].rstrip('*').strip():dict(zip(H26,r)) for r in R[1:] if len(r)==len(H26)}
+src26='D1.ticker, 2026 FBS Attendance Trends'
+for s in master:
+    name=s['name']; d=P26.get(ALIAS.get(name,name))
+    if not d:
+        for m in ('fb_avg_attendance_2026','fb_attendance_change_2026','fb_attendance_yoy_change_2026','fb_attendance_pct_capacity_2026'):
+            out.append([name,m,'--','','2026 season to date',src26,u26,D26,'school not listed on the page'])
+        continue
+    row=f"row '{d['School']}'"; v=n(d['2026 Current Average']); w=n(d['2025 Average'])
+    f25=T[2025][1].get(ALIAS.get(name,name)); x25=n(f25['2025 Final Average']) if f25 else None
+    chk=f" Its '2025 Average' column ({w:,}) {'matches' if x25==w else 'differs from'} the '2025 Final Average' on the 2025 page ({x25:,})." if x25 is not None else ''
+    if x25!=w: diffs.append((name,2025,x25,w))
+    pc=lambda col: (re.fullmatch(r'-?\d+\.\d\d%',d[col]) or (_ for _ in ()).throw(AssertionError((name,col,d[col])))) and f'{float(d[col][:-1])/100:.4f}'
+    out.append([name,'fb_avg_attendance_2026',v,'fans per game','2026 season to date',src26,u26,D26,
+                f"Column '2026 Current Average' as displayed, {row}; {thr26.lower()}, season in progress, so the figure will change. The page does not state whether figures are announced or paid."])
+    out.append([name,'fb_attendance_change_2026',v-w,'fans per game','2026 season to date vs 2025',src26,u26,D26,
+                f"Calculated: '2026 Current Average' ({d['2026 Current Average']}) less '2025 Average' ({d['2025 Average']}), {row}; {thr26.lower()}."+chk])
+    out.append([name,'fb_attendance_yoy_change_2026',pc('Year-over-Year % Change'),'change','2026 season to date vs 2025',src26,u26,D26,
+                f"Column 'Year-over-Year % Change' as displayed ({d['Year-over-Year % Change']}), {row}, stored as a decimal; the page compares its '2026 Current Average' with its '2025 Average'; {thr26.lower()}."])
+    out.append([name,'fb_attendance_pct_capacity_2026',pc('Capacity %'),'share of capacity','2026 season to date',src26,u26,D26,
+                f"Column 'Capacity %' as displayed ({d['Capacity %']}), {row}, stored as a decimal; {thr26.lower()}; D1.ticker does not publish the stadium capacity it divides by."])
 # ---- men's basketball: NCAA attendance records book, 2026 Attendance Summary, Division I Team-by-Team Attendance ----
 MBB_URL='http://fs.ncaa.org.s3.amazonaws.com/Docs/stats/m_basketball_RB/Attend.pdf'
 MBB_SRC="NCAA Men's Basketball Attendance Records through 2025-26 (2026 Attendance Summary, Division I Team-by-Team Attendance)"
