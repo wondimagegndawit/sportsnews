@@ -1,6 +1,6 @@
 # Verification of group G (debt, FY2024 audited statements)
 
-Second, independent check of the seven records in `group_G.json`. I downloaded and read each document myself; every number below was read from the PDF's own pages. Full detail, captions, page numbers and arithmetic are in `verify_G.json`.
+Second, independent check of the seven records in `group_G.json`. I downloaded each document and read the relevant pages myself; every number below was read from the PDF's own pages. Full detail, captions, page numbers and arithmetic are in `verify_G.json`.
 
 | School | Original value | Rule value | Status | Confidence |
 |---|---|---|---|---|
@@ -81,4 +81,4 @@ Other points on this filing:
 
 ## Documents read
 
-All seven were opened and read in full text by me: the five Federal Audit Clearinghouse PDFs (Davidson, Gardner-Webb, Liberty, Lindenwood, Saint Mary's), the Connecticut State Universities report from ccsu.edu, and the University of Louisiana System audit from lla.la.gov. Nothing failed to open. The Form 990 cross-checks in the first researcher's notes were not re-checked and were not relied on.
+All seven were downloaded and opened by me. In each I read the auditor's report, the balance sheet, the cash flow statement, the debt, line-of-credit and lease notes and any combining schedule, and searched the whole text for debt terms; I did not read every page. The documents are the five Federal Audit Clearinghouse PDFs (Davidson, Gardner-Webb, Liberty, Lindenwood, Saint Mary's), the Connecticut State Universities report from ccsu.edu, and the University of Louisiana System audit from lla.la.gov. Nothing failed to open. The Form 990 cross-checks in the first researcher's notes were not re-checked and were not relied on.
