@@ -1,0 +1,324 @@
+[
+ {
+  "unitid": 110635,
+  "school": "University of California-Berkeley",
+  "table_column": "Berkeley",
+  "regents_held_lines": [
+   {
+    "caption": "University endowments - Nonspendable endowments",
+    "amount": 430078000,
+    "included_in_total": true
+   },
+   {
+    "caption": "University endowments - Other endowments",
+    "amount": 4440052000,
+    "included_in_total": true
+   },
+   {
+    "caption": "University endowments - Annual income distribution",
+    "amount": 179482000,
+    "included_in_total": false
+   }
+  ],
+  "regents_held_total": 4870130000,
+  "foundation_lines": [
+   {
+    "caption": "Campus foundations' endowments - Nonspendable endowments and gifts",
+    "amount": 1879882000
+   },
+   {
+    "caption": "Campus foundations' endowments - Other endowments",
+    "amount": 1296224000
+   }
+  ],
+  "foundation_total": 3176106000,
+  "combined_total": 8046236000,
+  "ipeds_reported": 3176106000,
+  "ipeds_equals": "foundation_total",
+  "table_audited": false,
+  "table_audited_wording": "Unaudited. The section heading on PDF p. 10 reads 'Campus Facts in Brief (Unaudited)'; the contents page (PDF p. 3) lists 'Campus Facts in Brief (Unaudited)' at printed p. 8; and the Report of Independent Auditors (PricewaterhouseCoopers LLP, November 18, 2024, PDF p. 33) says 'The other information comprises pages 6 through 9 ... Our opinions on the basic financial statements do not cover the other information, and we do not express an opinion or any form of assurance thereon.' The table is on printed pp. 8-9.",
+  "document_title": "University of California Annual Financial Report 2023-24 - section 'Campus Facts in Brief (Unaudited)', table 'Campus Financial Facts' (in thousands of dollars)",
+  "url": "https://www.ucop.edu/uc-controller/financial-reports/systemwide-reports/annual-financial-reports/23-24/annual-financial-report-2024.pdf",
+  "page": "PDF p. 10 (printed p. 8), table 'Campus Financial Facts: Berkeley - Merced Campuses (in thousands of dollars)'",
+  "differences_from_original": "None in the amounts: both component lines, both sums, the combined total, the page and the IPEDS match agree with the first researcher's record. Additions to the record: the table's heading is 'University endowments', not 'held by The Regents'; the printed 'Annual income distribution' line is now listed (not part of the balance); the PDF has 128 pages, not 129 as the first researcher's notes say.",
+  "confidence": "high",
+  "confidence_note": "High that these are the printed figures and that the IPEDS figure equals the foundation total to the thousand. The table itself is unaudited, and the Regents-held lines do not reconcile exactly to the audited endowment note.",
+  "note": "The table is printed in thousands of dollars; amounts here are multiplied by 1,000 to whole dollars. The table prints component lines only, so every total is the verifier's addition. The table's own heading for the Regents-held lines is 'University endowments' (the audited Note 17, PDF p. 100, describes these as endowments 'held and administered by the University'); it does not use the words 'held by The Regents'. A third line printed under 'University endowments', 'Annual income distribution', is a yearly payout, not a balance, and is left out of the total (the eleven columns sum to 600,614 thousand, which agrees with the audited Note 17 statement that $600.6 million was transferred to the campuses, PDF p. 101). Cross-checks against the audited pages of the same report, all in thousands: the 'Nonspendable endowments' line summed over the ten campuses and Systemwide is 1,316,568, equal to the audited 'Restricted: Nonexpendable: Endowments and gifts' (PDF p. 34) and Table 17.1a (PDF p. 100). The other lines do not tie exactly: University 'Nonspendable' plus 'Other' over all columns is 19,242,993 against audited endowments 6,306,367 plus funds functioning as endowments 14,000,115 = 20,306,482 (difference 1,063,489, not explained in the report); campus foundations' two lines over ten campuses are 13,458,374 against audited Table 17.2a endowments 10,394,411 plus funds functioning as endowments 3,084,513 = 13,478,924 (difference 20,550; the audited figure covers 11 foundations including the Lawrence Berkeley National Laboratory foundation, PDF p. 40, while the table has ten campus columns, but the report does not say that this is the reason). The audited statements give no endowment figure by campus. The same table, with identical figures, is in the copy filed with the Regents' November 2024 meeting (https://regents.universityofcalifornia.edu/regmeet/nov24/c2attach2.pdf). This verifier did not open the campus foundations' own audited statements: the UC Davis Foundation and UC Berkeley Foundation sites returned HTTP 403 and The UCLA Foundation's statements were not located."
+ },
+ {
+  "unitid": 110662,
+  "school": "University of California-Los Angeles",
+  "table_column": "Los Angeles",
+  "regents_held_lines": [
+   {
+    "caption": "University endowments - Nonspendable endowments",
+    "amount": 337290000,
+    "included_in_total": true
+   },
+   {
+    "caption": "University endowments - Other endowments",
+    "amount": 3781970000,
+    "included_in_total": true
+   },
+   {
+    "caption": "University endowments - Annual income distribution",
+    "amount": 98143000,
+    "included_in_total": false
+   }
+  ],
+  "regents_held_total": 4119260000,
+  "foundation_lines": [
+   {
+    "caption": "Campus foundations' endowments - Nonspendable endowments and gifts",
+    "amount": 2102256000
+   },
+   {
+    "caption": "Campus foundations' endowments - Other endowments",
+    "amount": 1427289000
+   }
+  ],
+  "foundation_total": 3529545000,
+  "combined_total": 7648805000,
+  "ipeds_reported": 3529545000,
+  "ipeds_equals": "foundation_total",
+  "table_audited": false,
+  "table_audited_wording": "Unaudited. The section heading on PDF p. 10 reads 'Campus Facts in Brief (Unaudited)'; the contents page (PDF p. 3) lists 'Campus Facts in Brief (Unaudited)' at printed p. 8; and the Report of Independent Auditors (PricewaterhouseCoopers LLP, November 18, 2024, PDF p. 33) says 'The other information comprises pages 6 through 9 ... Our opinions on the basic financial statements do not cover the other information, and we do not express an opinion or any form of assurance thereon.' The table is on printed pp. 8-9.",
+  "document_title": "University of California Annual Financial Report 2023-24 - section 'Campus Facts in Brief (Unaudited)', table 'Campus Financial Facts' (in thousands of dollars)",
+  "url": "https://www.ucop.edu/uc-controller/financial-reports/systemwide-reports/annual-financial-reports/23-24/annual-financial-report-2024.pdf",
+  "page": "PDF p. 10 (printed p. 8), table 'Campus Financial Facts: Berkeley - Merced Campuses (in thousands of dollars)'",
+  "differences_from_original": "None in the amounts: both component lines, both sums, the combined total, the page and the IPEDS match agree with the first researcher's record. Additions to the record: the table's heading is 'University endowments', not 'held by The Regents'; the printed 'Annual income distribution' line is now listed (not part of the balance); the PDF has 128 pages, not 129 as the first researcher's notes say.",
+  "confidence": "high",
+  "confidence_note": "High that these are the printed figures and that the IPEDS figure equals the foundation total to the thousand. The table itself is unaudited, and the Regents-held lines do not reconcile exactly to the audited endowment note.",
+  "note": "The table is printed in thousands of dollars; amounts here are multiplied by 1,000 to whole dollars. The table prints component lines only, so every total is the verifier's addition. The table's own heading for the Regents-held lines is 'University endowments' (the audited Note 17, PDF p. 100, describes these as endowments 'held and administered by the University'); it does not use the words 'held by The Regents'. A third line printed under 'University endowments', 'Annual income distribution', is a yearly payout, not a balance, and is left out of the total (the eleven columns sum to 600,614 thousand, which agrees with the audited Note 17 statement that $600.6 million was transferred to the campuses, PDF p. 101). Cross-checks against the audited pages of the same report, all in thousands: the 'Nonspendable endowments' line summed over the ten campuses and Systemwide is 1,316,568, equal to the audited 'Restricted: Nonexpendable: Endowments and gifts' (PDF p. 34) and Table 17.1a (PDF p. 100). The other lines do not tie exactly: University 'Nonspendable' plus 'Other' over all columns is 19,242,993 against audited endowments 6,306,367 plus funds functioning as endowments 14,000,115 = 20,306,482 (difference 1,063,489, not explained in the report); campus foundations' two lines over ten campuses are 13,458,374 against audited Table 17.2a endowments 10,394,411 plus funds functioning as endowments 3,084,513 = 13,478,924 (difference 20,550; the audited figure covers 11 foundations including the Lawrence Berkeley National Laboratory foundation, PDF p. 40, while the table has ten campus columns, but the report does not say that this is the reason). The audited statements give no endowment figure by campus. The same table, with identical figures, is in the copy filed with the Regents' November 2024 meeting (https://regents.universityofcalifornia.edu/regmeet/nov24/c2attach2.pdf). This verifier did not open the campus foundations' own audited statements: the UC Davis Foundation and UC Berkeley Foundation sites returned HTTP 403 and The UCLA Foundation's statements were not located."
+ },
+ {
+  "unitid": 110644,
+  "school": "University of California-Davis",
+  "table_column": "Davis",
+  "regents_held_lines": [
+   {
+    "caption": "University endowments - Nonspendable endowments",
+    "amount": 136056000,
+    "included_in_total": true
+   },
+   {
+    "caption": "University endowments - Other endowments",
+    "amount": 1489802000,
+    "included_in_total": true
+   },
+   {
+    "caption": "University endowments - Annual income distribution",
+    "amount": 60942000,
+    "included_in_total": false
+   }
+  ],
+  "regents_held_total": 1625858000,
+  "foundation_lines": [
+   {
+    "caption": "Campus foundations' endowments - Nonspendable endowments and gifts",
+    "amount": 432193000
+   },
+   {
+    "caption": "Campus foundations' endowments - Other endowments",
+    "amount": 341024000
+   }
+  ],
+  "foundation_total": 773217000,
+  "combined_total": 2399075000,
+  "ipeds_reported": 773217000,
+  "ipeds_equals": "foundation_total",
+  "table_audited": false,
+  "table_audited_wording": "Unaudited. The section heading on PDF p. 10 reads 'Campus Facts in Brief (Unaudited)'; the contents page (PDF p. 3) lists 'Campus Facts in Brief (Unaudited)' at printed p. 8; and the Report of Independent Auditors (PricewaterhouseCoopers LLP, November 18, 2024, PDF p. 33) says 'The other information comprises pages 6 through 9 ... Our opinions on the basic financial statements do not cover the other information, and we do not express an opinion or any form of assurance thereon.' The table is on printed pp. 8-9.",
+  "document_title": "University of California Annual Financial Report 2023-24 - section 'Campus Facts in Brief (Unaudited)', table 'Campus Financial Facts' (in thousands of dollars)",
+  "url": "https://www.ucop.edu/uc-controller/financial-reports/systemwide-reports/annual-financial-reports/23-24/annual-financial-report-2024.pdf",
+  "page": "PDF p. 10 (printed p. 8), table 'Campus Financial Facts: Berkeley - Merced Campuses (in thousands of dollars)'",
+  "differences_from_original": "None in the amounts: both component lines, both sums, the combined total, the page and the IPEDS match agree with the first researcher's record. Additions to the record: the table's heading is 'University endowments', not 'held by The Regents'; the printed 'Annual income distribution' line is now listed (not part of the balance); the PDF has 128 pages, not 129 as the first researcher's notes say.",
+  "confidence": "high",
+  "confidence_note": "High that these are the printed figures and that the IPEDS figure equals the foundation total to the thousand. The table itself is unaudited, and the Regents-held lines do not reconcile exactly to the audited endowment note.",
+  "note": "The table is printed in thousands of dollars; amounts here are multiplied by 1,000 to whole dollars. The table prints component lines only, so every total is the verifier's addition. The table's own heading for the Regents-held lines is 'University endowments' (the audited Note 17, PDF p. 100, describes these as endowments 'held and administered by the University'); it does not use the words 'held by The Regents'. A third line printed under 'University endowments', 'Annual income distribution', is a yearly payout, not a balance, and is left out of the total (the eleven columns sum to 600,614 thousand, which agrees with the audited Note 17 statement that $600.6 million was transferred to the campuses, PDF p. 101). Cross-checks against the audited pages of the same report, all in thousands: the 'Nonspendable endowments' line summed over the ten campuses and Systemwide is 1,316,568, equal to the audited 'Restricted: Nonexpendable: Endowments and gifts' (PDF p. 34) and Table 17.1a (PDF p. 100). The other lines do not tie exactly: University 'Nonspendable' plus 'Other' over all columns is 19,242,993 against audited endowments 6,306,367 plus funds functioning as endowments 14,000,115 = 20,306,482 (difference 1,063,489, not explained in the report); campus foundations' two lines over ten campuses are 13,458,374 against audited Table 17.2a endowments 10,394,411 plus funds functioning as endowments 3,084,513 = 13,478,924 (difference 20,550; the audited figure covers 11 foundations including the Lawrence Berkeley National Laboratory foundation, PDF p. 40, while the table has ten campus columns, but the report does not say that this is the reason). The audited statements give no endowment figure by campus. The same table, with identical figures, is in the copy filed with the Regents' November 2024 meeting (https://regents.universityofcalifornia.edu/regmeet/nov24/c2attach2.pdf). This verifier did not open the campus foundations' own audited statements: the UC Davis Foundation and UC Berkeley Foundation sites returned HTTP 403 and The UCLA Foundation's statements were not located."
+ },
+ {
+  "unitid": 110653,
+  "school": "University of California-Irvine",
+  "table_column": "Irvine",
+  "regents_held_lines": [
+   {
+    "caption": "University endowments - Nonspendable endowments",
+    "amount": 13665000,
+    "included_in_total": true
+   },
+   {
+    "caption": "University endowments - Other endowments",
+    "amount": 575677000,
+    "included_in_total": true
+   },
+   {
+    "caption": "University endowments - Annual income distribution",
+    "amount": 22183000,
+    "included_in_total": false
+   }
+  ],
+  "regents_held_total": 589342000,
+  "foundation_lines": [
+   {
+    "caption": "Campus foundations' endowments - Nonspendable endowments and gifts",
+    "amount": 529542000
+   },
+   {
+    "caption": "Campus foundations' endowments - Other endowments",
+    "amount": 369814000
+   }
+  ],
+  "foundation_total": 899356000,
+  "combined_total": 1488698000,
+  "ipeds_reported": 899356000,
+  "ipeds_equals": "foundation_total",
+  "table_audited": false,
+  "table_audited_wording": "Unaudited. The section heading on PDF p. 10 reads 'Campus Facts in Brief (Unaudited)'; the contents page (PDF p. 3) lists 'Campus Facts in Brief (Unaudited)' at printed p. 8; and the Report of Independent Auditors (PricewaterhouseCoopers LLP, November 18, 2024, PDF p. 33) says 'The other information comprises pages 6 through 9 ... Our opinions on the basic financial statements do not cover the other information, and we do not express an opinion or any form of assurance thereon.' The table is on printed pp. 8-9.",
+  "document_title": "University of California Annual Financial Report 2023-24 - section 'Campus Facts in Brief (Unaudited)', table 'Campus Financial Facts' (in thousands of dollars)",
+  "url": "https://www.ucop.edu/uc-controller/financial-reports/systemwide-reports/annual-financial-reports/23-24/annual-financial-report-2024.pdf",
+  "page": "PDF p. 10 (printed p. 8), table 'Campus Financial Facts: Berkeley - Merced Campuses (in thousands of dollars)'",
+  "differences_from_original": "None in the amounts: both component lines, both sums, the combined total, the page and the IPEDS match agree with the first researcher's record. Additions to the record: the table's heading is 'University endowments', not 'held by The Regents'; the printed 'Annual income distribution' line is now listed (not part of the balance); the PDF has 128 pages, not 129 as the first researcher's notes say.",
+  "confidence": "high",
+  "confidence_note": "High that these are the printed figures and that the IPEDS figure equals the foundation total to the thousand. The table itself is unaudited, and the Regents-held lines do not reconcile exactly to the audited endowment note.",
+  "note": "The table is printed in thousands of dollars; amounts here are multiplied by 1,000 to whole dollars. The table prints component lines only, so every total is the verifier's addition. The table's own heading for the Regents-held lines is 'University endowments' (the audited Note 17, PDF p. 100, describes these as endowments 'held and administered by the University'); it does not use the words 'held by The Regents'. A third line printed under 'University endowments', 'Annual income distribution', is a yearly payout, not a balance, and is left out of the total (the eleven columns sum to 600,614 thousand, which agrees with the audited Note 17 statement that $600.6 million was transferred to the campuses, PDF p. 101). Cross-checks against the audited pages of the same report, all in thousands: the 'Nonspendable endowments' line summed over the ten campuses and Systemwide is 1,316,568, equal to the audited 'Restricted: Nonexpendable: Endowments and gifts' (PDF p. 34) and Table 17.1a (PDF p. 100). The other lines do not tie exactly: University 'Nonspendable' plus 'Other' over all columns is 19,242,993 against audited endowments 6,306,367 plus funds functioning as endowments 14,000,115 = 20,306,482 (difference 1,063,489, not explained in the report); campus foundations' two lines over ten campuses are 13,458,374 against audited Table 17.2a endowments 10,394,411 plus funds functioning as endowments 3,084,513 = 13,478,924 (difference 20,550; the audited figure covers 11 foundations including the Lawrence Berkeley National Laboratory foundation, PDF p. 40, while the table has ten campus columns, but the report does not say that this is the reason). The audited statements give no endowment figure by campus. The same table, with identical figures, is in the copy filed with the Regents' November 2024 meeting (https://regents.universityofcalifornia.edu/regmeet/nov24/c2attach2.pdf). This verifier did not open the campus foundations' own audited statements: the UC Davis Foundation and UC Berkeley Foundation sites returned HTTP 403 and The UCLA Foundation's statements were not located."
+ },
+ {
+  "unitid": 110671,
+  "school": "University of California-Riverside",
+  "table_column": "Riverside",
+  "regents_held_lines": [
+   {
+    "caption": "University endowments - Nonspendable endowments",
+    "amount": 16707000,
+    "included_in_total": true
+   },
+   {
+    "caption": "University endowments - Other endowments",
+    "amount": 494833000,
+    "included_in_total": true
+   },
+   {
+    "caption": "University endowments - Annual income distribution",
+    "amount": 19675000,
+    "included_in_total": false
+   }
+  ],
+  "regents_held_total": 511540000,
+  "foundation_lines": [
+   {
+    "caption": "Campus foundations' endowments - Nonspendable endowments and gifts",
+    "amount": 154110000
+   },
+   {
+    "caption": "Campus foundations' endowments - Other endowments",
+    "amount": 122972000
+   }
+  ],
+  "foundation_total": 277082000,
+  "combined_total": 788622000,
+  "ipeds_reported": 277082000,
+  "ipeds_equals": "foundation_total",
+  "table_audited": false,
+  "table_audited_wording": "Unaudited. The section heading on PDF p. 10 reads 'Campus Facts in Brief (Unaudited)'; the contents page (PDF p. 3) lists 'Campus Facts in Brief (Unaudited)' at printed p. 8; and the Report of Independent Auditors (PricewaterhouseCoopers LLP, November 18, 2024, PDF p. 33) says 'The other information comprises pages 6 through 9 ... Our opinions on the basic financial statements do not cover the other information, and we do not express an opinion or any form of assurance thereon.' The table is on printed pp. 8-9.",
+  "document_title": "University of California Annual Financial Report 2023-24 - section 'Campus Facts in Brief (Unaudited)', table 'Campus Financial Facts' (in thousands of dollars)",
+  "url": "https://www.ucop.edu/uc-controller/financial-reports/systemwide-reports/annual-financial-reports/23-24/annual-financial-report-2024.pdf",
+  "page": "PDF p. 11 (printed p. 9), table 'Campus Financial Facts: Riverside through Santa Cruz campuses, with Systemwide (in thousands of dollars)'",
+  "differences_from_original": "None in the amounts: both component lines, both sums, the combined total, the page and the IPEDS match agree with the first researcher's record. Additions to the record: the table's heading is 'University endowments', not 'held by The Regents'; the printed 'Annual income distribution' line is now listed (not part of the balance); the PDF has 128 pages, not 129 as the first researcher's notes say.",
+  "confidence": "high",
+  "confidence_note": "High that these are the printed figures and that the IPEDS figure equals the foundation total to the thousand. The table itself is unaudited, and the Regents-held lines do not reconcile exactly to the audited endowment note.",
+  "note": "The table is printed in thousands of dollars; amounts here are multiplied by 1,000 to whole dollars. The table prints component lines only, so every total is the verifier's addition. The table's own heading for the Regents-held lines is 'University endowments' (the audited Note 17, PDF p. 100, describes these as endowments 'held and administered by the University'); it does not use the words 'held by The Regents'. A third line printed under 'University endowments', 'Annual income distribution', is a yearly payout, not a balance, and is left out of the total (the eleven columns sum to 600,614 thousand, which agrees with the audited Note 17 statement that $600.6 million was transferred to the campuses, PDF p. 101). Cross-checks against the audited pages of the same report, all in thousands: the 'Nonspendable endowments' line summed over the ten campuses and Systemwide is 1,316,568, equal to the audited 'Restricted: Nonexpendable: Endowments and gifts' (PDF p. 34) and Table 17.1a (PDF p. 100). The other lines do not tie exactly: University 'Nonspendable' plus 'Other' over all columns is 19,242,993 against audited endowments 6,306,367 plus funds functioning as endowments 14,000,115 = 20,306,482 (difference 1,063,489, not explained in the report); campus foundations' two lines over ten campuses are 13,458,374 against audited Table 17.2a endowments 10,394,411 plus funds functioning as endowments 3,084,513 = 13,478,924 (difference 20,550; the audited figure covers 11 foundations including the Lawrence Berkeley National Laboratory foundation, PDF p. 40, while the table has ten campus columns, but the report does not say that this is the reason). The audited statements give no endowment figure by campus. The same table, with identical figures, is in the copy filed with the Regents' November 2024 meeting (https://regents.universityofcalifornia.edu/regmeet/nov24/c2attach2.pdf). This verifier did not open the campus foundations' own audited statements: the UC Davis Foundation and UC Berkeley Foundation sites returned HTTP 403 and The UCLA Foundation's statements were not located."
+ },
+ {
+  "unitid": 110680,
+  "school": "University of California-San Diego",
+  "table_column": "San Diego",
+  "regents_held_lines": [
+   {
+    "caption": "University endowments - Nonspendable endowments",
+    "amount": 63240000,
+    "included_in_total": true
+   },
+   {
+    "caption": "University endowments - Other endowments",
+    "amount": 1323691000,
+    "included_in_total": true
+   },
+   {
+    "caption": "University endowments - Annual income distribution",
+    "amount": 50316000,
+    "included_in_total": false
+   }
+  ],
+  "regents_held_total": 1386931000,
+  "foundation_lines": [
+   {
+    "caption": "Campus foundations' endowments - Nonspendable endowments and gifts",
+    "amount": 783818000
+   },
+   {
+    "caption": "Campus foundations' endowments - Other endowments",
+    "amount": 773997000
+   }
+  ],
+  "foundation_total": 1557815000,
+  "combined_total": 2944746000,
+  "ipeds_reported": 1557815000,
+  "ipeds_equals": "foundation_total",
+  "table_audited": false,
+  "table_audited_wording": "Unaudited. The section heading on PDF p. 10 reads 'Campus Facts in Brief (Unaudited)'; the contents page (PDF p. 3) lists 'Campus Facts in Brief (Unaudited)' at printed p. 8; and the Report of Independent Auditors (PricewaterhouseCoopers LLP, November 18, 2024, PDF p. 33) says 'The other information comprises pages 6 through 9 ... Our opinions on the basic financial statements do not cover the other information, and we do not express an opinion or any form of assurance thereon.' The table is on printed pp. 8-9.",
+  "document_title": "University of California Annual Financial Report 2023-24 - section 'Campus Facts in Brief (Unaudited)', table 'Campus Financial Facts' (in thousands of dollars)",
+  "url": "https://www.ucop.edu/uc-controller/financial-reports/systemwide-reports/annual-financial-reports/23-24/annual-financial-report-2024.pdf",
+  "page": "PDF p. 11 (printed p. 9), table 'Campus Financial Facts: Riverside through Santa Cruz campuses, with Systemwide (in thousands of dollars)'",
+  "differences_from_original": "None in the amounts: both component lines, both sums, the combined total, the page and the IPEDS match agree with the first researcher's record. Additions to the record: the table's heading is 'University endowments', not 'held by The Regents'; the printed 'Annual income distribution' line is now listed (not part of the balance); the PDF has 128 pages, not 129 as the first researcher's notes say.",
+  "confidence": "high",
+  "confidence_note": "High that these are the printed figures and that the IPEDS figure equals the foundation total to the thousand. The table itself is unaudited, and the Regents-held lines do not reconcile exactly to the audited endowment note.",
+  "note": "The table is printed in thousands of dollars; amounts here are multiplied by 1,000 to whole dollars. The table prints component lines only, so every total is the verifier's addition. The table's own heading for the Regents-held lines is 'University endowments' (the audited Note 17, PDF p. 100, describes these as endowments 'held and administered by the University'); it does not use the words 'held by The Regents'. A third line printed under 'University endowments', 'Annual income distribution', is a yearly payout, not a balance, and is left out of the total (the eleven columns sum to 600,614 thousand, which agrees with the audited Note 17 statement that $600.6 million was transferred to the campuses, PDF p. 101). Cross-checks against the audited pages of the same report, all in thousands: the 'Nonspendable endowments' line summed over the ten campuses and Systemwide is 1,316,568, equal to the audited 'Restricted: Nonexpendable: Endowments and gifts' (PDF p. 34) and Table 17.1a (PDF p. 100). The other lines do not tie exactly: University 'Nonspendable' plus 'Other' over all columns is 19,242,993 against audited endowments 6,306,367 plus funds functioning as endowments 14,000,115 = 20,306,482 (difference 1,063,489, not explained in the report); campus foundations' two lines over ten campuses are 13,458,374 against audited Table 17.2a endowments 10,394,411 plus funds functioning as endowments 3,084,513 = 13,478,924 (difference 20,550; the audited figure covers 11 foundations including the Lawrence Berkeley National Laboratory foundation, PDF p. 40, while the table has ten campus columns, but the report does not say that this is the reason). The audited statements give no endowment figure by campus. The same table, with identical figures, is in the copy filed with the Regents' November 2024 meeting (https://regents.universityofcalifornia.edu/regmeet/nov24/c2attach2.pdf). This verifier did not open the campus foundations' own audited statements: the UC Davis Foundation and UC Berkeley Foundation sites returned HTTP 403 and The UCLA Foundation's statements were not located."
+ },
+ {
+  "unitid": 110705,
+  "school": "University of California-Santa Barbara",
+  "table_column": "Santa Barbara",
+  "regents_held_lines": [
+   {
+    "caption": "University endowments - Nonspendable endowments",
+    "amount": 37617000,
+    "included_in_total": true
+   },
+   {
+    "caption": "University endowments - Other endowments",
+    "amount": 184472000,
+    "included_in_total": true
+   },
+   {
+    "caption": "University endowments - Annual income distribution",
+    "amount": 7974000,
+    "included_in_total": false
+   }
+  ],
+  "regents_held_total": 222089000,
+  "foundation_lines": [
+   {
+    "caption": "Campus foundations' endowments - Nonspendable endowments and gifts",
+    "amount": 213479000
+   },
+   {
+    "caption": "Campus foundations' endowments - Other endowments",
+    "amount": 230565000
+   }
+  ],
+  "foundation_total": 444044000,
+  "combined_total": 666133000,
+  "ipeds_reported": 444044000,
+  "ipeds_equals": "foundation_total",
+  "table_audited": false,
+  "table_audited_wording": "Unaudited. The section heading on PDF p. 10 reads 'Campus Facts in Brief (Unaudited)'; the contents page (PDF p. 3) lists 'Campus Facts in Brief (Unaudited)' at printed p. 8; and the Report of Independent Auditors (PricewaterhouseCoopers LLP, November 18, 2024, PDF p. 33) says 'The other information comprises pages 6 through 9 ... Our opinions on the basic financial statements do not cover the other information, and we do not express an opinion or any form of assurance thereon.' The table is on printed pp. 8-9.",
+  "document_title": "University of California Annual Financial Report 2023-24 - section 'Campus Facts in Brief (Unaudited)', table 'Campus Financial Facts' (in thousands of dollars)",
+  "url": "https://www.ucop.edu/uc-controller/financial-reports/systemwide-reports/annual-financial-reports/23-24/annual-financial-report-2024.pdf",
+  "page": "PDF p. 11 (printed p. 9), table 'Campus Financial Facts: Riverside through Santa Cruz campuses, with Systemwide (in thousands of dollars)'",
+  "differences_from_original": "None in the amounts: both component lines, both sums, the combined total, the page and the IPEDS match agree with the first researcher's record. Additions to the record: the table's heading is 'University endowments', not 'held by The Regents'; the printed 'Annual income distribution' line is now listed (not part of the balance); the PDF has 128 pages, not 129 as the first researcher's notes say.",
+  "confidence": "high",
+  "confidence_note": "High that these are the printed figures and that the IPEDS figure equals the foundation total to the thousand. The table itself is unaudited, and the Regents-held lines do not reconcile exactly to the audited endowment note.",
+  "note": "The table is printed in thousands of dollars; amounts here are multiplied by 1,000 to whole dollars. The table prints component lines only, so every total is the verifier's addition. The table's own heading for the Regents-held lines is 'University endowments' (the audited Note 17, PDF p. 100, describes these as endowments 'held and administered by the University'); it does not use the words 'held by The Regents'. A third line printed under 'University endowments', 'Annual income distribution', is a yearly payout, not a balance, and is left out of the total (the eleven columns sum to 600,614 thousand, which agrees with the audited Note 17 statement that $600.6 million was transferred to the campuses, PDF p. 101). Cross-checks against the audited pages of the same report, all in thousands: the 'Nonspendable endowments' line summed over the ten campuses and Systemwide is 1,316,568, equal to the audited 'Restricted: Nonexpendable: Endowments and gifts' (PDF p. 34) and Table 17.1a (PDF p. 100). The other lines do not tie exactly: University 'Nonspendable' plus 'Other' over all columns is 19,242,993 against audited endowments 6,306,367 plus funds functioning as endowments 14,000,115 = 20,306,482 (difference 1,063,489, not explained in the report); campus foundations' two lines over ten campuses are 13,458,374 against audited Table 17.2a endowments 10,394,411 plus funds functioning as endowments 3,084,513 = 13,478,924 (difference 20,550; the audited figure covers 11 foundations including the Lawrence Berkeley National Laboratory foundation, PDF p. 40, while the table has ten campus columns, but the report does not say that this is the reason). The audited statements give no endowment figure by campus. The same table, with identical figures, is in the copy filed with the Regents' November 2024 meeting (https://regents.universityofcalifornia.edu/regmeet/nov24/c2attach2.pdf). This verifier did not open the campus foundations' own audited statements: the UC Davis Foundation and UC Berkeley Foundation sites returned HTTP 403 and The UCLA Foundation's statements were not located."
+ }
+]
