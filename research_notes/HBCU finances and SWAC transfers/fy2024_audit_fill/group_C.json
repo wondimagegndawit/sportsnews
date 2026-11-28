@@ -175,13 +175,13 @@
     "unitid": 159009,
     "school": "Grambling State University",
     "item": "debt",
-    "status": "found",
-    "value": 2813563,
+    "status": "confirmed_zero",
+    "value": 0,
     "fiscal_year_end": "2024-06-30",
     "components": {
       "bonds_payable": 0,
       "notes_loans_mortgages_payable": 0,
-      "finance_lease_obligations": 2813563,
+      "finance_lease_obligations": 0,
       "lines_of_credit_short_term": 0
     },
     "audited": true,
@@ -191,9 +191,9 @@
     "url": "https://lla.la.gov/publicreports.nsf/0/ceaac10dcadb296d86258c030070835f/$file/0000895c.pdf",
     "page": "138 and 140 (Schedule 4, Combining Schedule of Net Position, by University - Grambling column); 84-85 (Note 11 Lease Obligations); 87-89 (Note 12 Long-Term Liabilities and bond listings); 7-10 (auditor's report); 44 (blended component units)",
     "quote": "Schedule 4, Grambling State University column: current 'Lease obligations 973,987', 'Subscription obligations 556,945', 'Notes payable' blank, 'Bonds payable' blank; noncurrent 'Lease obligations 1,839,576', 'Subscription obligations 364,731', 'Notes payable' blank, 'Bonds payable' blank. Note 12 'Details of all debt outstanding at June 30, 2024' lists bonds for Louisiana Tech, McNeese, Nicholls, Northwestern, Southeastern, UL Lafayette, UL Monroe and UNO only - no Grambling or Black and Gold Facilities issue.",
-    "arithmetic": "Bonds 0 + notes 0 + lease obligations (973,987 current + 1,839,576 noncurrent = 2,813,563) = 2,813,563. Subscription (SBITA) obligations of 921,676 (556,945 + 364,731) excluded. If GASB 87 lease obligations are not counted as debt, the total is 0. Whole dollars as printed.",
+    "arithmetic": "Bonds 0 + notes 0 + finance leases/financed purchases 0 = 0. Excluded and shown for information: GASB 87 right-to-use lease obligations 973,987 current + 1,839,576 noncurrent = 2,813,563; subscription (SBITA) obligations 556,945 + 364,731 = 921,676. If the workbook counts GASB 87 lease obligations as debt, the total is 2,813,563. Whole dollars as printed.",
     "reporting_entity": "University of Louisiana System (system-level audit); campus figures come from the system's Schedule 4 combining schedule, Grambling State University column, which includes the blended component unit Black and Gold Facilities, Inc.",
-    "caveats": "Confidence medium, needs a human decision. (1) Grambling has no bonds or notes payable at 6/30/2024; the entire figure is GASB 87 lease obligations, which under GASB are not split into finance and operating leases. Treat as 0 if the workbook counts only bonds, notes and capital/finance leases. (2) There is no stand-alone audited Grambling statement; the campus figures are from a supplementary combining schedule on which the Legislative Auditor gives an 'in relation to the basic financial statements as a whole' opinion, not a separate opinion. (3) Black and Gold Facilities, Inc. was audited by other auditors, not in accordance with Government Auditing Standards. (4) Note 1.B says 'the State issues bonds to finance certain construction'; any State general obligation debt for Grambling buildings is State debt and is not allocated to campuses. (5) Note 16 reports Grambling restatements of beginning net position (building depreciation over-stated by 6,902,442; payables understated by 2,773,420); these do not affect debt. FAC has no single-audit record under EIN 726000751 (Louisiana universities are covered by the statewide single audit).",
+    "caveats": "Confidence medium, needs a human decision. (1) Grambling has no bonds or notes payable at 6/30/2024, which is consistent with the $0 in IPEDS. It does carry GASB 87 lease obligations of 2,813,563, which GASB does not split into finance and operating leases; Note 11 describes the System's leases as right-to-use leases of property, aviation-education equipment, telecommunications equipment and office space. They are excluded here as operating-type leases under the brief; a human should confirm that rule, because including them would change the value from 0 to 2,813,563. (2) There is no stand-alone audited Grambling statement; the campus figures are from a supplementary combining schedule on which the Legislative Auditor gives an 'in relation to the basic financial statements as a whole' opinion, not a separate opinion. (3) Black and Gold Facilities, Inc. was audited by other auditors, not in accordance with Government Auditing Standards. (4) Note 1.B says 'the State issues bonds to finance certain construction'; any State general obligation debt for Grambling buildings is State debt and is not allocated to campuses. (5) Note 16 reports Grambling restatements of beginning net position (building depreciation over-stated by 6,902,442; payables understated by 2,773,420); these do not affect debt. FAC has no single-audit record under EIN 726000751 (Louisiana universities are covered by the statewide single audit).",
     "form_990_crosscheck": null,
     "confidence": "medium"
   },
@@ -201,13 +201,13 @@
     "unitid": 175519,
     "school": "Coahoma Community College",
     "item": "debt",
-    "status": "found",
-    "value": 14168,
+    "status": "confirmed_zero",
+    "value": 0,
     "fiscal_year_end": "2024-06-30",
     "components": {
       "bonds_payable": 0,
       "notes_loans_mortgages_payable": 0,
-      "finance_lease_obligations": 14168,
+      "finance_lease_obligations": 0,
       "lines_of_credit_short_term": 0
     },
     "audited": true,
@@ -217,11 +217,11 @@
     "url": "https://app.fac.gov/dissemination/report/pdf/2024-06-GSAFAC-0000427013",
     "page": "20 (statement of net position); 34-35 (Note 9 Noncurrent Liabilities); 9 (MD&A)",
     "quote": "Statement of Net Position: 'Leases payable, current portion 6,174'; 'Leases payable, long-term 7,994'; no bonds or notes payable lines. Note 9: 'Noncurrent liabilities of the College consist of refundable deposits, a lease liability for the lease of numerous copiers, the net pension liability, and the net other postemployment benefits liability'; 'Lease liability [Balance June 30, 2024] 14,168'.",
-    "arithmetic": "Bonds 0 + notes 0 + lease liability (6,174 current + 7,994 long-term = 14,168) = 14,168. If GASB 87 lease liabilities are not counted as debt, the total is 0. Whole dollars as printed.",
+    "arithmetic": "Bonds 0 + notes 0 + finance leases/financed purchases 0 = 0. Excluded and shown for information: GASB 87 right-to-use lease liability for copiers 6,174 current + 7,994 long-term = 14,168. If the workbook counts GASB 87 lease liabilities as debt, the total is 14,168. Whole dollars as printed.",
     "reporting_entity": "Coahoma Community College (the institution itself; no component units presented)",
-    "caveats": "Confidence medium only because of a definitional choice, not the numbers: the College has no bonds, notes or loans; its only debt-like liability is a GASB 87 right-to-use lease liability for 20 copiers. Under GASB there is no finance/operating split; substantively these are small equipment rentals, so recording 0 (IPEDS value) is equally defensible - a human should apply one rule across the workbook. Net pension liability 40,389,499, net OPEB liability 998,405 and refundable deposits 57,305 excluded. The audit is very late: auditor's report dated 2026-08-21, FAC acceptance 2026-09-10 (the FY2023 audit was accepted 2025-07-28).",
+    "caveats": "The College has no bonds, notes or loans, which is consistent with the $0 in IPEDS. Its only debt-like liability is a GASB 87 right-to-use lease liability of 14,168 for 20 rented copiers; GASB does not split leases into finance and operating, and these small equipment rentals are excluded here as operating-type leases under the brief (same rule as applied to Grambling State). Net pension liability 40,389,499, net OPEB liability 998,405 and refundable deposits 57,305 excluded. The audit is very late: auditor's report dated 2026-08-21, FAC acceptance 2026-09-10 (the FY2023 audit was accepted 2025-07-28).",
     "form_990_crosscheck": null,
-    "confidence": "medium"
+    "confidence": "high"
   },
   {
     "unitid": 217989,

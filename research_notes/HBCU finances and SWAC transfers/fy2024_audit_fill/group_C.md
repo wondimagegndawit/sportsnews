@@ -13,8 +13,8 @@ Prepared 2026-11-28. Companion to `group_C.json` (11 records). Every audit cited
 | Simmons College of Kentucky | Endowment | found | $63,455 | 2024-06-30 | medium |
 | Southwestern Christian College | Endowment | found | $267,181 | 2024-06-30 | medium |
 | Alabama A&M University | Endowment | not_found | - (institution-held $0) | 2024-09-30 | low |
-| Grambling State University | Debt | found | $2,813,563 (GASB 87 leases only; bonds and notes $0) | 2024-06-30 | medium |
-| Coahoma Community College | Debt | found | $14,168 (GASB 87 copier leases only; bonds and notes $0) | 2024-06-30 | medium |
+| Grambling State University | Debt | confirmed_zero | $0 (GASB 87 lease obligations of $2,813,563 excluded) | 2024-06-30 | medium |
+| Coahoma Community College | Debt | confirmed_zero | $0 (GASB 87 copier lease liability of $14,168 excluded) | 2024-06-30 | high |
 | Denmark Technical College | Debt | confirmed_zero | $0 | 2024-06-30 | high |
 | Denmark Technical College | Endowment | confirmed_zero | $0 (college; foundation not quantified) | 2024-06-30 | medium |
 
@@ -72,8 +72,8 @@ Source: University of Louisiana System Financial Statement Audit for the year en
 
 - Campus figures come from Schedule 4, the combining schedule of net position by university (pp.138 and 140). The Legislative Auditor gives an "in relation to the basic financial statements" opinion on this schedule. There is no stand-alone audited Grambling statement.
 - **Bonds payable: none. Notes payable: none.** The Grambling column is blank on both lines, and the list of all System debt in Note 12 (pp.88-89) has no Grambling or Black and Gold Facilities issue. The column includes the blended component unit Black and Gold Facilities, Inc.
-- **Lease obligations (GASB 87): $973,987 current + $1,839,576 noncurrent = $2,813,563.** This is the recorded value.
-- Excluded: subscription obligations $921,676; pension and OPEB.
+- **Recorded value: $0** (bonds + notes + finance leases), consistent with IPEDS.
+- Excluded, for information: GASB 87 right-to-use lease obligations of $973,987 current + $1,839,576 noncurrent = $2,813,563; subscription obligations $921,676; pension and OPEB.
 - Debt is not held at system level: the System schedule allocates debt by campus and shows none for Grambling. State general obligation bonds for construction are State debt and are not allocated.
 - FAC has no record under EIN 726000751.
 
@@ -82,8 +82,8 @@ Source: University of Louisiana System Financial Statement Audit for the year en
 Source: FAC report 2024-06-GSAFAC-0000427013, Forvis Mazars, LLP, report dated August 21, 2026 (FAC acceptance September 10, 2026; very late).
 
 - **No bonds, notes or loans.** Statement of net position (p.20) and Note 9 (p.34).
-- **Lease liability (GASB 87, 20 copiers): $6,174 current + $7,994 long-term = $14,168.** This is the recorded value.
-- Excluded: net pension liability $40,389,499; net OPEB liability $998,405; refundable deposits $57,305.
+- **Recorded value: $0**, consistent with IPEDS.
+- Excluded, for information: GASB 87 right-to-use lease liability for 20 copiers, $6,174 current + $7,994 long-term = $14,168; net pension liability $40,389,499; net OPEB liability $998,405; refundable deposits $57,305.
 
 ## Denmark Technical College (UNITID 217989)
 
@@ -95,7 +95,7 @@ Source: FAC report 2024-06-GSAFAC-0000055394, Mauldin & Jenkins, LLC, report dat
 
 ## Items needing a human decision
 
-1. **GASB 87 lease obligations (Grambling $2,813,563; Coahoma $14,168).** Both schools have no bonds or notes. The recorded values consist only of lease obligations, which GASB does not split into finance and operating. If the workbook counts only bonds, notes and capital/finance leases, both become $0, matching IPEDS. One rule should be applied across all public schools.
+1. **GASB 87 lease obligations (Grambling $2,813,563; Coahoma $14,168).** Both schools have no bonds or notes, and both are recorded as $0, matching IPEDS. GASB does not split leases into finance and operating, so these right-to-use leases were excluded as operating-type leases. If the workbook counts GASB 87 lease liabilities as debt, the values become $2,813,563 and $14,168. One rule should be applied across all public schools.
 2. **Arkansas Baptist debt.** The $2,267,426 is a repayment obligation to the Department of Education from audit findings, which the auditor labels a long-term loan. Decide whether that counts as debt.
 3. **Alabama A&M endowment.** No audited document labels a figure. Either request the Foundation and Trust audits, or decide whether the Trust's net position ($50,802,742 at July 31, 2024) may be shown as a labelled proxy.
 4. **Arkansas Baptist endowment.** Not disclosed; cannot be filled from the audit.
